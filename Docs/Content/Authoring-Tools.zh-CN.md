@@ -27,9 +27,11 @@ PNG 是游戏可用的素材；SVG 中的 emoji 文字仅用于浏览器预览�
 
 ## 交互生成卡图与图标
 
-直接用浏览器打开 [Emoji 卡图工具](../../tools/EmojiArt/index.html)。输入 emoji、选配色和 256／512／1024 尺寸后点击“下载 PNG”。支持带渐变背景的卡图，以及透明背景的图标；具体游戏图标通过配方维护。
+直接用 Chrome／Edge 打开 [Emoji 卡图工具](../../tools/EmojiArt/index.html)，无需启动服务器。在“图案来源”中选择“单个 emoji”或“双 emoji 合并”。合并模式分别输入两个 emoji，也可从“可合并的第二个 emoji”列表选取，点击“合并 emoji”预览。选配色和 256／512／1024 尺寸后点击“下载 PNG”；支持带渐变背景的卡图，以及透明背景的图标。此工具保留在开发仓库，Godot 游戏发布包不包含素材制作工具。
 
-可以载入 [卡图配方](../../Content/Source/Art/emoji-recipes.json) 或 [图标配方](../../Content/Source/Art/ui-icons.json)，从下拉框选条目再导出。文件名经过清理；输入作为文本绘制，不作为 HTML 执行。带 `fusionSource` 的内置配方在网页中通过 HTTPS 预览融合图；批量导出始终使用同一条目的本地 `fusion` 文件。
+页面顶部“从已有卡图配置开始”可导入 [卡图配置](../../Content/Source/Art/emoji-recipes.json) 或 [图标配置](../../Content/Source/Art/ui-icons.json)，选条目后填入下方的 emoji、融合来源、配色和文件名；这里不导入 PNG 或游戏内容包。文件名经过清理；输入作为文本绘制，不作为 HTML 执行。现有融合图由网页缓存优先提供，直接打开本地网页也能离线使用；其他组合按内置兼容表通过 HTTPS 获取，不支持的组合与下载失败会显示提示。新下载的原图写入浏览器 IndexedDB `eota-emoji-fusions-v1` 的 `images`，关闭页面后可复用；浏览器清理数据可能删除它，应导出备份。不会自动写入源码目录。批量导出始终使用配置中指定的本地 `fusion` 文件。
+
+网页的 `tools/EmojiArt/fusion-cache.js` 从现有配置、`Content/Source/Art/Fusions` 和 `tools/EmojiArt/shared-cache/*.json` 生成，基础素材包含 187 张去重图片，对应 199 张融合卡图。网页缓存区可导出、导入其他组合的原图。要把新素材交给仓库下载者，将导出的 JSON 放进 `shared-cache`，运行 `node tools/EmojiArt/build-fusion-cache.mjs`，然后一并提交 JSON、生成的 `fusion-cache.js` 和完整工具目录。兼容表约有 14.7 万种组合，仓库并未下载所有原图；未收进仓库的组合首次使用仍需联网。兼容表来源和版本见 [工具说明](../../tools/EmojiArt/vendor/README.zh-CN.md)。
 
 批量导出：
 

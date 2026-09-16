@@ -9,6 +9,10 @@ async function renderEmoji(canvas, recipe, size = 512) {
       !/^#[0-9a-f]{6}$/i.test(top) || !/^#[0-9a-f]{6}$/i.test(bottom) || ![256, 512, 1024].includes(size)) {
     throw new Error("请输入 emoji、有效颜色和支持的尺寸。");
   }
+  const fusion = recipe.fusionDataUrl ?? recipe.FusionDataUrl ?? recipe.fusionSource ?? recipe.FusionSource;
+  if (!fusion && [...new Intl.Segmenter('zh', { granularity: 'grapheme' }).segment(emoji.trim())].length !== 1) {
+    throw new Error("多个 emoji 请使用双 emoji 合并，不能并排绘制成融合图。");
+  }
   canvas.width = canvas.height = size;
   const ctx = canvas.getContext("2d");
   ctx.scale(size / 512, size / 512);
@@ -20,11 +24,15 @@ async function renderEmoji(canvas, recipe, size = 512) {
   ctx.fillStyle = "#ffffff12"; ctx.beginPath(); ctx.arc(256, 250, 177, 0, 2 * Math.PI); ctx.fill();
   ctx.strokeStyle = "#ffffff2e"; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(256, 250, 187, 0, 2 * Math.PI); ctx.stroke();
   }
-  const fusion = recipe.fusionDataUrl ?? recipe.FusionDataUrl ?? recipe.fusionSource ?? recipe.FusionSource;
   if (fusion) {
     if (typeof fusion !== "string" || (!fusion.startsWith("data:image/png;base64,") && !fusion.startsWith("https://"))) throw new Error("融合图必须是本地 PNG 数据或 HTTPS 来源。");
     const image = new Image(); image.crossOrigin = "anonymous";
-    await new Promise((resolve, reject) => { image.onload = resolve; image.onerror = () => reject(new Error("融合图载入失败。")); image.src = fusion; });
+    await new Promise((resolve, reject) => {
+      const timer = setTimeout(() => { image.src = ''; reject(new Error("融合图载入超时，请重试。")); }, 15000);
+      image.onload = () => { clearTimeout(timer); resolve(); };
+      image.onerror = () => { clearTimeout(timer); reject(new Error("融合图载入失败。")); };
+      image.src = fusion;
+    });
     const edge = style === "icon" ? 350 : 310, offset = (512 - edge) / 2;
     ctx.drawImage(image, offset, offset, edge, edge);
   } else {
@@ -37,39 +45,3 @@ async function renderEmoji(canvas, recipe, size = 512) {
   return canvas;
 }
 globalThis.renderEmoji = renderEmoji;
-if (typeof document !== "undefined" && document.getElementById("preview")) {
-  const $ = id => document.getElementById(id);
-  let recipes = {}, activeFusion;
-  async function refresh() {
-    try { await renderEmoji($("preview"), { emoji: $("emoji").value, top: $("top").value, bottom: $("bottom").value, style: $("style").value, fusionSource: activeFusion }, Number($("size").value)); $("status").textContent = ""; }
-    catch (error) { $("status").textContent = error.message; }
-  }
-  for (const id of ["emoji", "top", "bottom", "size", "style"]) $(id).addEventListener("input", () => { if (id === "emoji") activeFusion = undefined; refresh(); });
-  $("download").addEventListener("click", async () => {
-    await refresh(); if ($("status").textContent) return;
-    $("preview").toBlob(blob => {
-      if (!blob) { $("status").textContent = "导出失败，请重试。"; return; }
-      const url = URL.createObjectURL(blob), link = document.createElement("a");
-      link.href = url; link.download = ($("name").value.replace(/[^\p{L}\p{N}_-]/gu, "_") || "emoji-card") + ".png";
-      link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
-      $("status").textContent = "PNG 已生成。";
-    }, "image/png");
-  });
-  $("recipes").addEventListener("change", async () => {
-    try {
-      const file = $("recipes").files[0]; if (!file) return;
-      if (file.size > 1024 * 1024) throw new Error("配方文件过大。");
-      recipes = JSON.parse(await file.text());
-      const keys = Object.keys(recipes).sort(); if (!keys.length) throw new Error("配方文件为空。");
-      $("cards").replaceChildren(...keys.map(id => new Option(id, id)));
-      $("cards").hidden = false; $("cards").dispatchEvent(new Event("change"));
-    } catch (error) { $("status").textContent = error.message; }
-  });
-  $("cards").addEventListener("change", () => {
-    const id = $("cards").value, r = recipes[id];
-    activeFusion = r.fusionSource ?? r.FusionSource;
-    $("emoji").value = r.emoji ?? r.Emoji ?? ""; $("top").value = r.top ?? r.Top ?? "#000000";
-    $("bottom").value = r.bottom ?? r.Bottom ?? "#000000"; $("style").value = r.style ?? r.Style ?? "card"; $("name").value = id; refresh();
-  });
-  refresh();
-}

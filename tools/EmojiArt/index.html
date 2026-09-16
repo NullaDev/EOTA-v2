@@ -3,17 +3,44 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>EOTA · Emoji 卡图</title>
 <style>
-:root{color-scheme:dark;font:16px/1.6 system-ui;background:#12151b;color:#eee}*{box-sizing:border-box}body{max-width:980px;margin:48px auto;padding:0 24px}h1{font-size:28px;margin-bottom:8px}p{color:#b6bfcd}main{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:32px}canvas{width:100%;height:auto;border-radius:24px;box-shadow:0 12px 45px #0007}label{display:block;margin:16px 0 6px}input,select,button{font:inherit;border:1px solid #465064;border-radius:8px;background:#222a36;color:#fff;padding:10px;width:100%}input[type=color]{height:48px;padding:4px}button{cursor:pointer;background:#5276c3;border:0;margin-top:20px}button:hover{background:#678ad3}.colors{display:grid;grid-template-columns:1fr 1fr;gap:16px}.hint{font-size:13px}#status{min-height:24px}a{color:#a8c6ff}@media(max-width:700px){main{grid-template-columns:1fr}body{margin-top:24px}}
+:root{color-scheme:dark;font:16px/1.6 system-ui;background:#12151b;color:#eee}*{box-sizing:border-box}body{max-width:1080px;margin:32px auto;padding:0 24px}h1{font-size:28px;margin-bottom:8px}p{color:#b6bfcd}main{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:24px}canvas{width:100%;height:auto;border-radius:24px;box-shadow:0 12px 45px #0007;background:repeating-conic-gradient(#202632 0% 25%,#191e28 0% 50%) 50% / 24px 24px}label{display:block;margin:16px 0 6px}input,select,button{font:inherit;border:1px solid #465064;border-radius:8px;background:#222a36;color:#fff;padding:10px;width:100%}input[type=color]{height:48px;padding:4px}button{cursor:pointer;background:#5276c3;border:0;margin-top:16px}button:hover{background:#678ad3}button:disabled{opacity:.45;cursor:default}.colors,.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}.pair input{font-size:26px}.hint{font-size:13px}#status{min-height:24px}#status[data-state=error]{color:#ffaaa6}a{color:#a8c6ff}.preview-pane{position:sticky;top:24px;align-self:start}[hidden]{display:none!important}@media(max-width:700px){main{grid-template-columns:1fr}.preview-pane{position:static}body{margin-top:24px}}
 </style>
-<h1>Emoji 卡图</h1><p>输入一个符号，配上颜色，生成测试用卡图。所有处理都在本机完成。</p>
-<main><section><canvas id="preview" width="512" height="512" aria-label="卡图预览"></canvas></section>
-<section><label for="emoji">Emoji</label><input id="emoji" value="🔮" maxlength="64" aria-label="Emoji">
+<style>
+.configuration{padding:20px 24px;margin:24px 0;border:1px solid #354153;border-radius:12px;background:#191f29}.configuration h2{font-size:18px;margin:0 0 6px}.configuration p{margin:4px 0 12px}.configuration .fields{display:grid;grid-template-columns:1fr 1fr;gap:20px}.configuration label{margin-top:0}.configuration input[type=file]{font-size:14px}.configuration select{margin:0}#config-status{margin:12px 0 0;font-size:13px}@media(max-width:700px){.configuration .fields{grid-template-columns:1fr}}
+</style>
+<h1>Emoji 卡图</h1><p>用单个 emoji 或双 emoji 融合图制作卡图。仓库自带素材可离线使用；其他组合首次联网获取后保存在本机浏览器。</p>
+<section class="configuration" aria-labelledby="configuration-title">
+<h2 id="configuration-title">从已有卡图配置开始</h2>
+<p class="hint">导入配置会填入下方的 emoji、融合来源、背景配色和文件名，之后仍可调整。也可以直接在下方制作新卡图。</p>
+<div class="fields"><div><label for="recipes">导入卡图配置 JSON</label><input id="recipes" type="file" accept=".json,application/json" aria-describedby="config-help"></div>
+<div id="config-selection" hidden><label for="cards">选择卡图配置条目</label><select id="cards" hidden></select></div></div>
+<p id="config-help" class="hint">支持卡图配置 emoji-recipes.json 和图标配置 ui-icons.json。这里导入的是绘图设置，不是 PNG 图片或游戏卡牌内容包。</p>
+<p id="config-status" role="status" aria-live="polite"></p>
+</section>
+<main><section class="preview-pane"><canvas id="preview" width="512" height="512" aria-label="卡图预览"></canvas><p id="status" role="status" aria-live="polite"></p></section>
+<section><label for="mode">图案来源</label><select id="mode"><option value="single">单个 emoji</option><option value="fusion">双 emoji 合并</option></select>
+<div class="pair"><div><label for="emoji">第一个 emoji</label><input id="emoji" value="🔮" maxlength="64" list="emoji-options" aria-label="第一个 emoji"></div>
+<div id="second-emoji" hidden><label for="emoji2">第二个 emoji</label><input id="emoji2" value="🔋" maxlength="64" list="partner-options" aria-label="第二个 emoji"></div></div>
+<datalist id="emoji-options"></datalist><datalist id="partner-options"></datalist>
+<div id="fusion-controls" hidden><label for="partners">可合并的第二个 emoji</label><select id="partners" aria-describedby="fusion-hint"></select><button id="merge" type="button">合并 emoji</button><p id="fusion-hint" class="hint">也可在输入框直接粘贴 emoji。没有融合图的组合会提示更换。</p></div>
 <div class="colors"><div><label for="top">背景上色</label><input id="top" type="color" value="#614493"></div><div><label for="bottom">背景下色</label><input id="bottom" type="color" value="#1d1836"></div></div>
 <label for="size">导出尺寸</label><select id="size"><option>256</option><option selected>512</option><option>1024</option></select>
 <label for="style">图案样式</label><select id="style"><option value="card">渐变卡图</option><option value="icon">透明图标</option></select>
 <label for="name">文件名</label><input id="name" value="emoji-card" maxlength="96">
-<button id="download">下载 PNG</button><p class="hint">PNG 可直接用于游戏。不同系统的 emoji 字体外观可能不同；需要固定外观时，保存导出的 PNG。</p>
-<label for="recipes">载入配方（可选）</label><input id="recipes" type="file" accept=".json,application/json"><select id="cards" hidden aria-label="选择条目"></select>
-<p id="status" role="status"></p></section></main>
+<button id="download" disabled>下载 PNG</button><p class="hint">导出完整卡图或透明图标。普通 emoji 外观跟随系统字体。</p>
+</section></main>
+<details class="configuration"><summary>本机融合缓存与离线分享</summary>
+<p id="cache-summary" class="hint" role="status"></p>
+<p class="hint">新下载的融合原图保存在当前浏览器中，重新打开可复用。清理浏览器数据或使用隐私模式可能丢失缓存；导出 JSON 可备份，也可交给另一台电脑导入后离线使用。</p>
+<div class="fields"><div><button id="export-cache" type="button">导出本机融合缓存</button></div><div><label for="import-cache">导入融合缓存 JSON</label><input id="import-cache" type="file" accept=".json,application/json"></div></div>
+<p id="cache-status" role="status" class="hint"></p>
+<p class="hint">如需让素材随仓库分发，按<a href="README.zh-CN.md">工具说明</a>将缓存加入仓库。浏览器缓存不会自动上传到 Git。</p>
+</details>
+<script src="vendor/emoji-compatibility.js"></script>
+<script src="fusion-cache.js"></script>
+<script src="fusion-storage.js"></script>
+<script src="emoji-fusion.js"></script>
 <script src="emoji-art.js"></script>
+<script src="editor.js"></script>
+<script src="cache-controls.js"></script>
 </html>
