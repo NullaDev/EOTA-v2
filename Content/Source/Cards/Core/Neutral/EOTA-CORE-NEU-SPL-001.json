@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-NEU-SPL-001",
+  "source": "core",
+  "profession": "neutral",
+  "kind": "spell",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-NEU-SPL-001.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-NEU-SPL-001.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-SPL-001.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "sequence",
+        "steps": [
+          {
+            "kind": "damage",
+            "target": {
+              "kind": "enemyMinions"
+            },
+            "amount": 3
+          },
+          {
+            "kind": "ifElse",
+            "condition": {
+              "kind": "compare",
+              "left": "previous.removedCount",
+              "operator": "greater",
+              "right": 0
+            },
+            "then": {
+              "kind": "draw",
+              "target": {
+                "kind": "friendlyHero"
+              },
+              "count": 1
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "lane"
+}

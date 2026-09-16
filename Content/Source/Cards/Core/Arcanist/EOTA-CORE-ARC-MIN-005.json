@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ARC-MIN-005",
+  "source": "core",
+  "profession": "arcanist",
+  "kind": "minion",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-ARC-MIN-005.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ARC-MIN-005.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-005.png",
+  "effects": [
+    {
+      "id": "friendlySpellCast",
+      "trigger": {
+        "kind": "friendlySpellCast"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "forEach",
+            "target": {
+              "kind": "friendlyLanes"
+            },
+            "body": {
+              "kind": "ifElse",
+              "condition": {
+                "kind": "compare",
+                "left": "target.ether",
+                "operator": "equal",
+                "right": 0
+              },
+              "then": {
+                "kind": "parallel",
+                "children": [
+                  {
+                    "kind": "modifyNumber",
+                    "target": {
+                      "kind": "targets"
+                    },
+                    "attribute": "etherActivation",
+                    "operation": "add",
+                    "amount": 1
+                  },
+                  {
+                    "kind": "preventEtherDecay",
+                    "target": {
+                      "kind": "targets"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "kind": "forEach",
+            "target": {
+              "kind": "friendlyLanes",
+              "scope": "adjacent"
+            },
+            "body": {
+              "kind": "ifElse",
+              "condition": {
+                "kind": "compare",
+                "left": "target.ether",
+                "operator": "equal",
+                "right": 0
+              },
+              "then": {
+                "kind": "parallel",
+                "children": [
+                  {
+                    "kind": "modifyNumber",
+                    "target": {
+                      "kind": "targets"
+                    },
+                    "attribute": "etherActivation",
+                    "operation": "add",
+                    "amount": 1
+                  },
+                  {
+                    "kind": "preventEtherDecay",
+                    "target": {
+                      "kind": "targets"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "attack": 1,
+  "health": 4
+}

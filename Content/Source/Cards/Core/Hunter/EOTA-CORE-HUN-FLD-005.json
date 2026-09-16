@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-FLD-005",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "field",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-FLD-005.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-FLD-005.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-FLD-005.png",
+  "effects": [
+    {
+      "id": "friendlyEntered",
+      "trigger": {
+        "kind": "friendlyEntered",
+        "subjectType": "minion"
+      },
+      "body": {
+        "kind": "ifElse",
+        "condition": {
+          "kind": "cardMatches",
+          "subject": "event",
+          "filter": {
+            "tag": "beast"
+          }
+        },
+        "then": {
+          "kind": "parallel",
+          "children": [
+            {
+              "kind": "modifyNumber",
+              "target": {
+                "kind": "eventSubject"
+              },
+              "attribute": "maximumHealth",
+              "operation": "add",
+              "amount": 1
+            },
+            {
+              "kind": "addKeyword",
+              "target": {
+                "kind": "eventSubject"
+              },
+              "keyword": "pursuit"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 2
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-SPL-010",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "spell",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-SPL-010.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-SPL-010.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-010.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "sequence",
+        "steps": [
+          {
+            "kind": "draw",
+            "target": {
+              "kind": "friendlyHero"
+            },
+            "count": 1,
+            "filter": {
+              "kind": "field"
+            }
+          },
+          {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "previousAffected",
+              "targetType": "card"
+            },
+            "attribute": "cardCost",
+            "operation": "add",
+            "amount": -1
+          }
+        ]
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "global"
+}

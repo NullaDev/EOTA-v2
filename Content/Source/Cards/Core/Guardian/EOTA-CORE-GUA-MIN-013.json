@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-MIN-013",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "minion",
+  "cost": 4,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-MIN-013.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-MIN-013.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-013.png",
+  "effects": [
+    {
+      "id": "turnEnd",
+      "trigger": {
+        "kind": "turnEnd"
+      },
+      "body": {
+        "kind": "modifyNumber",
+        "target": {
+          "kind": "self"
+        },
+        "attribute": "maximumHealth",
+        "amount": 1,
+        "operation": "add"
+      }
+    }
+  ],
+  "attack": 3,
+  "health": 5,
+  "keywords": [
+    "guard"
+  ]
+}

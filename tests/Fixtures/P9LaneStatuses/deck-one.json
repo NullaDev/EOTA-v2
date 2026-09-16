@@ -1,0 +1,21 @@
+{
+  "profession": "neutral",
+  "cards": [
+    {
+      "id": "P9-FREEZE",
+      "copies": 1
+    },
+    {
+      "id": "P9-LOCK",
+      "copies": 1
+    },
+    {
+      "id": "P9-TOKEN",
+      "copies": 1
+    },
+    {
+      "id": "P9-UNLOCK",
+      "copies": 1
+    }
+  ]
+}

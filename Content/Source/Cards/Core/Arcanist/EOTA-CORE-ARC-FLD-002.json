@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ARC-FLD-002",
+  "source": "core",
+  "profession": "arcanist",
+  "kind": "field",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-ARC-FLD-002.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ARC-FLD-002.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-FLD-002.png",
+  "effects": [
+    {
+      "id": "selfEntered",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "modifyNumber",
+        "target": {
+          "kind": "friendlyLanes"
+        },
+        "attribute": "etherActivation",
+        "operation": "add",
+        "amount": 1
+      }
+    },
+    {
+      "id": "turnEnd",
+      "trigger": {
+        "kind": "turnEnd"
+      },
+      "body": {
+        "kind": "preventEtherDecay",
+        "target": {
+          "kind": "friendlyLanes"
+        }
+      }
+    }
+  ],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 3
+  }
+}

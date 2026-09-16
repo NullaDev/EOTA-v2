@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ARC-FLD-010",
+  "source": "core",
+  "profession": "arcanist",
+  "kind": "field",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-ARC-FLD-010.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ARC-FLD-010.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-FLD-010.png",
+  "effects": [
+    {
+      "id": "turnEnd",
+      "trigger": {
+        "kind": "turnEnd"
+      },
+      "body": {
+        "kind": "ifElse",
+        "condition": {
+          "kind": "exists",
+          "target": {
+            "kind": "friendlyMinions"
+          }
+        },
+        "then": {
+          "kind": "ifElse",
+          "condition": {
+            "kind": "compare",
+            "left": "lane.ether",
+            "operator": "greaterOrEqual",
+            "right": 1
+          },
+          "then": {
+            "kind": "parallel",
+            "children": [
+              {
+                "kind": "modifyNumber",
+                "target": {
+                  "kind": "friendlyMinions"
+                },
+                "attribute": "attack",
+                "operation": "add",
+                "amount": 1
+              },
+              {
+                "kind": "modifyNumber",
+                "target": {
+                  "kind": "friendlyMinions"
+                },
+                "attribute": "maximumHealth",
+                "operation": "add",
+                "amount": 1
+              }
+            ]
+          }
+        },
+        "else": {
+          "kind": "summon",
+          "target": {
+            "kind": "friendlyLanes"
+          },
+          "prototype": "EOTA-TOKEN-ARC-MIN-001",
+          "slot": "minion"
+        }
+      }
+    }
+  ],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 2
+  }
+}

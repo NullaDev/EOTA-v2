@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-FLD-003",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "field",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-FLD-003.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-FLD-003.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-FLD-003.png",
+  "effects": [
+    {
+      "id": "enemyAttack",
+      "trigger": {
+        "kind": "enemyAttack",
+        "subjectType": "minion"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "damage",
+            "target": {
+              "kind": "eventSubject"
+            },
+            "amount": 3
+          },
+          {
+            "kind": "kill",
+            "target": {
+              "kind": "self"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 3
+  }
+}

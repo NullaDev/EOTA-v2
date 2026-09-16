@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EOTA · Emoji 卡图</title>
+<style>
+:root{color-scheme:dark;font:16px/1.6 system-ui;background:#12151b;color:#eee}*{box-sizing:border-box}body{max-width:980px;margin:48px auto;padding:0 24px}h1{font-size:28px;margin-bottom:8px}p{color:#b6bfcd}main{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:32px}canvas{width:100%;height:auto;border-radius:24px;box-shadow:0 12px 45px #0007}label{display:block;margin:16px 0 6px}input,select,button{font:inherit;border:1px solid #465064;border-radius:8px;background:#222a36;color:#fff;padding:10px;width:100%}input[type=color]{height:48px;padding:4px}button{cursor:pointer;background:#5276c3;border:0;margin-top:20px}button:hover{background:#678ad3}.colors{display:grid;grid-template-columns:1fr 1fr;gap:16px}.hint{font-size:13px}#status{min-height:24px}a{color:#a8c6ff}@media(max-width:700px){main{grid-template-columns:1fr}body{margin-top:24px}}
+</style>
+<h1>Emoji 卡图</h1><p>输入一个符号，配上颜色，生成测试用卡图。所有处理都在本机完成。</p>
+<main><section><canvas id="preview" width="512" height="512" aria-label="卡图预览"></canvas></section>
+<section><label for="emoji">Emoji</label><input id="emoji" value="🔮" maxlength="64" aria-label="Emoji">
+<div class="colors"><div><label for="top">背景上色</label><input id="top" type="color" value="#614493"></div><div><label for="bottom">背景下色</label><input id="bottom" type="color" value="#1d1836"></div></div>
+<label for="size">导出尺寸</label><select id="size"><option>256</option><option selected>512</option><option>1024</option></select>
+<label for="style">图案样式</label><select id="style"><option value="card">渐变卡图</option><option value="icon">透明图标</option></select>
+<label for="name">文件名</label><input id="name" value="emoji-card" maxlength="96">
+<button id="download">下载 PNG</button><p class="hint">PNG 可直接用于游戏。不同系统的 emoji 字体外观可能不同；需要固定外观时，保存导出的 PNG。</p>
+<label for="recipes">载入配方（可选）</label><input id="recipes" type="file" accept=".json,application/json"><select id="cards" hidden aria-label="选择条目"></select>
+<p id="status" role="status"></p></section></main>
+<script src="emoji-art.js"></script>
+</html>

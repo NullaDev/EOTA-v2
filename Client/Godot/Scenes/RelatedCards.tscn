@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Theme" path="res://Client/Godot/GameTheme.tres" id="theme"]
+
+[sub_resource type="StyleBoxEmpty" id="padding"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+
+[node name="RelatedCards" type="Control"]
+layout_mode = 3
+custom_minimum_size = Vector2(326, 184)
+theme = ExtResource("theme")
+visible = false
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 150.0
+offset_bottom = 26.0
+text = "衍生卡"
+theme_override_font_sizes/font_size = 16
+mouse_filter = 2
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 0.0
+offset_right = 326.0
+offset_bottom = 28.0
+text = "返回原卡"
+
+[node name="Scroll" type="ScrollContainer" parent="."]
+theme_override_styles/panel = SubResource("padding")
+layout_mode = 0
+offset_left = 0.0
+offset_top = 32.0
+offset_right = 326.0
+offset_bottom = 184.0
+vertical_scroll_mode = 0
+
+[node name="Cards" type="HBoxContainer" parent="Scroll"]
+layout_mode = 2
+theme_override_constants/separation = 14

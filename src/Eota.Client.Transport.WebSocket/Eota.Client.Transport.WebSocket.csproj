@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\Eota.Client.Core\Eota.Client.Core.csproj" />
+  </ItemGroup>
+</Project>

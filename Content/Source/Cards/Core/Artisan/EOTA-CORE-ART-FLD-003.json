@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-FLD-003",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "field",
+  "cost": 1,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-FLD-003.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-FLD-003.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-FLD-003.png",
+  "effects": [
+    {
+      "id": "friendlyDied",
+      "trigger": {
+        "kind": "friendlyDied",
+        "subjectType": "minion"
+      },
+      "body": {
+        "kind": "summon",
+        "target": {
+          "kind": "friendlyLanes"
+        },
+        "prototype": "EOTA-TOKEN-ART-MIN-001",
+        "slot": "minion"
+      },
+      "condition": {
+        "kind": "cardMatches",
+        "subject": "event",
+        "filter": {
+          "tag": "mechanical"
+        }
+      }
+    }
+  ],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 3
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-SPL-012",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "spell",
+  "cost": 4,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-SPL-012.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-SPL-012.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-012.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "retarget",
+        "target": {
+          "kind": "allMinions",
+          "scope": "all"
+        },
+        "body": {
+          "kind": "ifElse",
+          "condition": {
+            "kind": "not",
+            "condition": {
+              "kind": "cardMatches",
+              "subject": "target",
+              "filter": {
+                "tag": "mechanical"
+              }
+            }
+          },
+          "then": {
+            "kind": "damage",
+            "target": {
+              "kind": "targets"
+            },
+            "amount": 2
+          }
+        }
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "global"
+}

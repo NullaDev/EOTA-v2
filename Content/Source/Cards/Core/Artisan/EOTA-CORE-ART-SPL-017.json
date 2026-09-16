@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-SPL-017",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "spell",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-SPL-017.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-SPL-017.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-017.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "friendlyMinions",
+              "filter": {
+                "tag": "mechanical"
+              }
+            },
+            "attribute": "attack",
+            "operation": "add",
+            "amount": 3,
+            "duration": 1
+          },
+          {
+            "kind": "addKeyword",
+            "target": {
+              "kind": "friendlyMinions",
+              "filter": {
+                "tag": "mechanical"
+              }
+            },
+            "keyword": "swift",
+            "duration": 1
+          },
+          {
+            "kind": "damage",
+            "target": {
+              "kind": "friendlyMinions",
+              "filter": {
+                "tag": "mechanical"
+              }
+            },
+            "amount": 2
+          }
+        ]
+      }
+    }
+  ],
+  "speed": "fast",
+  "targetScope": "lane"
+}

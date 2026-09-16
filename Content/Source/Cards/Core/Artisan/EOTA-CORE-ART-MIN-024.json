@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-MIN-024",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "minion",
+  "cost": 5,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-MIN-024.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-MIN-024.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-024.png",
+  "effects": [
+    {
+      "id": "endTurnCharge",
+      "trigger": {
+        "kind": "endTurnCharge"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "heal",
+            "target": {
+              "kind": "friendlyHero"
+            },
+            "amount": 2
+          },
+          {
+            "kind": "heal",
+            "target": {
+              "kind": "self"
+            },
+            "amount": 2
+          }
+        ]
+      },
+      "charge": 1
+    }
+  ],
+  "attack": 3,
+  "health": 6,
+  "keywords": [],
+  "tags": [
+    "mechanical"
+  ]
+}

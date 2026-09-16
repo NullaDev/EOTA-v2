@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-FLD-004",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "field",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-FLD-004.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-FLD-004.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-FLD-004.png",
+  "effects": [
+    {
+      "id": "selfEntered",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "forEach",
+        "target": {
+          "kind": "friendlyMinions"
+        },
+        "body": {
+          "kind": "ifElse",
+          "condition": {
+            "kind": "compare",
+            "left": "target.attack",
+            "operator": "less",
+            "right": 3
+          },
+          "then": {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "targets"
+            },
+            "attribute": "attack",
+            "operation": "set",
+            "amount": 3
+          }
+        }
+      }
+    },
+    {
+      "id": "friendlyEntered",
+      "trigger": {
+        "kind": "friendlyEntered",
+        "subjectType": "minion"
+      },
+      "body": {
+        "kind": "forEach",
+        "target": {
+          "kind": "eventSubject"
+        },
+        "body": {
+          "kind": "ifElse",
+          "condition": {
+            "kind": "compare",
+            "left": "target.attack",
+            "operator": "less",
+            "right": 3
+          },
+          "then": {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "targets"
+            },
+            "attribute": "attack",
+            "operation": "set",
+            "amount": 3
+          }
+        }
+      }
+    }
+  ],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 2
+  }
+}

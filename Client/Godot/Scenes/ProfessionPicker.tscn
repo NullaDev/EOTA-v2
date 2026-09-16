@@ -1,0 +1,130 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Theme" path="res://Client/Godot/GameTheme.tres" id="theme"]
+
+[node name="ProfessionPicker" type="Control"]
+layout_mode = 3
+custom_minimum_size = Vector2(1280, 828)
+theme = ExtResource("theme")
+visible = false
+mouse_filter = 0
+
+[node name="Shade" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1322.0
+offset_bottom = 842.0
+color = Color(0.055, 0.075, 0.06, 0.96)
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 80.0
+offset_right = 1146.0
+offset_bottom = 748.0
+theme_type_variation = &"Raised"
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 962.0
+offset_bottom = 72.0
+text = "选择你的职业"
+theme_override_font_sizes/font_size = 30
+mouse_filter = 2
+
+[node name="Professions" type="HBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 100.0
+offset_right = 968.0
+offset_bottom = 220.0
+theme_override_constants/separation = 16
+
+[node name="Guardian" type="Button" parent="Panel/Professions"]
+layout_mode = 2
+custom_minimum_size = Vector2(222, 120)
+toggle_mode = true
+text = "♜  守护者"
+theme_override_font_sizes/font_size = 24
+
+[node name="Arcanist" type="Button" parent="Panel/Professions"]
+layout_mode = 2
+custom_minimum_size = Vector2(222, 120)
+toggle_mode = true
+text = "✦  奥术师"
+theme_override_font_sizes/font_size = 24
+
+[node name="Artisan" type="Button" parent="Panel/Professions"]
+layout_mode = 2
+custom_minimum_size = Vector2(222, 120)
+toggle_mode = true
+text = "⚒  工匠"
+theme_override_font_sizes/font_size = 24
+
+[node name="Hunter" type="Button" parent="Panel/Professions"]
+layout_mode = 2
+custom_minimum_size = Vector2(222, 120)
+toggle_mode = true
+text = "➶  猎人"
+theme_override_font_sizes/font_size = 24
+
+[node name="Description" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 242.0
+offset_right = 960.0
+offset_bottom = 452.0
+text = "职业介绍"
+theme_override_font_sizes/font_size = 22
+mouse_filter = 2
+autowrap_mode = 3
+vertical_alignment = 1
+
+[node name="TemplateLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 476.0
+offset_right = 188.0
+offset_bottom = 524.0
+text = "起始牌组"
+vertical_alignment = 1
+mouse_filter = 2
+
+[node name="Template" type="OptionButton" parent="Panel"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 476.0
+offset_right = 960.0
+offset_bottom = 524.0
+
+[node name="TemplateHint" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 532.0
+offset_right = 960.0
+offset_bottom = 572.0
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 3
+vertical_alignment = 1
+mouse_filter = 2
+
+[node name="Cancel" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 588.0
+offset_right = 260.0
+offset_bottom = 642.0
+text = "返回"
+
+[node name="Create" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 676.0
+offset_top = 588.0
+offset_right = 960.0
+offset_bottom = 642.0
+text = "创建并编辑"
+theme_type_variation = &"PrimaryButton"

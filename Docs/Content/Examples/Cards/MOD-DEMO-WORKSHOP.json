@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "kind": "field",
+  "id": "MOD-DEMO-WORKSHOP",
+  "source": "core",
+  "profession": "artisan",
+  "cost": 4,
+  "nameLocalizationKey": "card.MOD-DEMO-WORKSHOP.name",
+  "descriptionLocalizationKey": "card.MOD-DEMO-WORKSHOP.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-001.png",
+  "lifetime": {
+    "kind": "finite",
+    "energy": 2
+  },
+  "storedCharge": 1,
+  "keywords": [],
+  "effects": [
+    {
+      "id": "end-charge",
+      "trigger": {
+        "kind": "endTurnCharge"
+      },
+      "body": {
+        "kind": "generate",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "count": 1,
+        "prototype": "MOD-DEMO-DRONE"
+      },
+      "charge": 1
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+[
+  {
+    "kind": "planCard",
+    "playerId": 0,
+    "expectedPlayerRevision": 0,
+    "cardInstanceId": 115,
+    "laneId": 0,
+    "planOrdinal": null,
+    "replacedCards": null,
+    "expectedTurn": null,
+    "expectedStage": null
+  },
+  {
+    "kind": "planCard",
+    "playerId": 0,
+    "expectedPlayerRevision": 1,
+    "cardInstanceId": 58,
+    "laneId": 1,
+    "planOrdinal": null,
+    "replacedCards": null,
+    "expectedTurn": null,
+    "expectedStage": null
+  },
+  {
+    "kind": "planCard",
+    "playerId": 0,
+    "expectedPlayerRevision": 2,
+    "cardInstanceId": 1,
+    "laneId": 2,
+    "planOrdinal": null,
+    "replacedCards": null,
+    "expectedTurn": null,
+    "expectedStage": null
+  },
+  {
+    "kind": "planCard",
+    "playerId": 0,
+    "expectedPlayerRevision": 3,
+    "cardInstanceId": 105,
+    "laneId": 3,
+    "planOrdinal": null,
+    "replacedCards": null,
+    "expectedTurn": null,
+    "expectedStage": null
+  },
+  {
+    "kind": "planCard",
+    "playerId": 1,
+    "expectedPlayerRevision": 0,
+    "cardInstanceId": 389,
+    "laneId": 0,
+    "planOrdinal": null,
+    "replacedCards": null,
+    "expectedTurn": null,
+    "expectedStage": null
+  },
+  {
+    "kind": "planCard",
+    "playerId": 1,
+    "expectedPlayerRevision": 1,
+    "cardInstanceId": 382,
+    "laneId": 1,
+    "planOrdinal": null,
+    "replacedCards": null,
+    "expectedTurn": null,
+    "expectedStage": null
+  },
+  {
+    "kind": "submitTurn",
+    "playerId": 0,
+    "expectedPlayerRevision": 4,
+    "cardInstanceId": null,
+    "laneId": null,
+    "planOrdinal": null,
+    "replacedCards": null,
+    "expectedTurn": null,
+    "expectedStage": null
+  },
+  {
+    "kind": "submitTurn",
+    "playerId": 1,
+    "expectedPlayerRevision": 2,
+    "cardInstanceId": null,
+    "laneId": null,
+    "planOrdinal": null,
+    "replacedCards": null,
+    "expectedTurn": null,
+    "expectedStage": null
+  },
+  {
+    "kind": "planSpell",
+    "playerId": 0,
+    "expectedPlayerRevision": 5,
+    "cardInstanceId": 134,
+    "laneId": 0,
+    "planOrdinal": null,
+    "replacedCards": null,
+    "expectedTurn": null,
+    "expectedStage": null
+  },
+  {
+    "kind": "planSpell",
+    "playerId": 0,
+    "expectedPlayerRevision": 6,
+    "cardInstanceId": 92,
+    "laneId": null,
+    "planOrdinal": null,
+    "replacedCards": null,
+    "expectedTurn": null,
+    "expectedStage": null
+  },
+  {
+    "kind": "planSpell",
+    "playerId": 0,
+    "expectedPlayerRevision": 7,
+    "cardInstanceId": 40,
+    "laneId": 0,
+    "planOrdinal": null,
+    "replacedCards": null,
+    "expectedTurn": null,
+    "expectedStage": null
+  },
+  {
+    "kind": "submitTurn",
+    "playerId": 0,
+    "expectedPlayerRevision": 8,
+    "cardInstanceId": null,
+    "laneId": null,
+    "planOrdinal": null,
+    "replacedCards": null,
+    "expectedTurn": null,
+    "expectedStage": null
+  },
+  {
+    "kind": "submitTurn",
+    "playerId": 1,
+    "expectedPlayerRevision": 3,
+    "cardInstanceId": null,
+    "laneId": null,
+    "planOrdinal": null,
+    "replacedCards": null,
+    "expectedTurn": null,
+    "expectedStage": null
+  },
+  {
+    "kind": "planCard",
+    "playerId": 0,
+    "expectedPlayerRevision": 9,
+    "cardInstanceId": 121,
+    "laneId": 4,
+    "planOrdinal": null,
+    "replacedCards": null,
+    "expectedTurn": null,
+    "expectedStage": null
+  },
+  {
+    "kind": "planSpell",
+    "playerId": 0,
+    "expectedPlayerRevision": 10,
+    "cardInstanceId": 192,
+    "laneId": null,
+    "planOrdinal": null,
+    "replacedCards": null,
+    "expectedTurn": null,
+    "expectedStage": null
+  },
+  {
+    "kind": "planSpell",
+    "playerId": 1,
+    "expectedPlayerRevision": 4,
+    "cardInstanceId": 452,
+    "laneId": 4,
+    "planOrdinal": null,
+    "replacedCards": null,
+    "expectedTurn": null,
+    "expectedStage": null
+  },
+  {
+    "kind": "submitTurn",
+    "playerId": 0,
+    "expectedPlayerRevision": 11,
+    "cardInstanceId": null,
+    "laneId": null,
+    "planOrdinal": null,
+    "replacedCards": null,
+    "expectedTurn": null,
+    "expectedStage": null
+  },
+  {
+    "kind": "submitTurn",
+    "playerId": 1,
+    "expectedPlayerRevision": 5,
+    "cardInstanceId": null,
+    "laneId": null,
+    "planOrdinal": null,
+    "replacedCards": null,
+    "expectedTurn": null,
+    "expectedStage": null
+  }
+]

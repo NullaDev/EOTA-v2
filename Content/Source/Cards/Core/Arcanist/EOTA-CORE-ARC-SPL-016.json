@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ARC-SPL-016",
+  "source": "core",
+  "profession": "arcanist",
+  "kind": "spell",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-ARC-SPL-016.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ARC-SPL-016.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-016.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "friendlyMinions"
+            },
+            "attribute": "attack",
+            "operation": "add",
+            "amount": 2,
+            "duration": 1
+          },
+          {
+            "kind": "addKeyword",
+            "target": {
+              "kind": "friendlyMinions"
+            },
+            "keyword": "swift",
+            "duration": 1
+          },
+          {
+            "kind": "ifElse",
+            "condition": {
+              "kind": "compare",
+              "left": "lane.ether",
+              "operator": "greaterOrEqual",
+              "right": 2
+            },
+            "then": {
+              "kind": "addKeyword",
+              "target": {
+                "kind": "friendlyMinions"
+              },
+              "keyword": "skirmisher",
+              "duration": 1
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "speed": "fast",
+  "targetScope": "lane"
+}

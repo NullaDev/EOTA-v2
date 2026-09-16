@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-MIN-025",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "minion",
+  "cost": 5,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-MIN-025.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-MIN-025.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-025.png",
+  "effects": [],
+  "attack": 3,
+  "health": 7,
+  "keywords": [
+    "guard",
+    "lifesteal"
+  ]
+}

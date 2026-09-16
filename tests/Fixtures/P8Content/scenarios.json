@@ -1,0 +1,2604 @@
+[
+  {
+    "id": "NEU-MIN-002",
+    "cardId": "EOTA-CORE-NEU-MIN-002",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 19
+    }
+  },
+  {
+    "id": "NEU-MIN-003",
+    "cardId": "EOTA-CORE-NEU-MIN-003",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "hand": 1
+    }
+  },
+  {
+    "id": "NEU-MIN-006",
+    "cardId": "EOTA-CORE-NEU-MIN-006",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "heroHealth": 93
+    }
+  },
+  {
+    "id": "NEU-SPL-001",
+    "cardId": "EOTA-CORE-NEU-SPL-001",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "enemyHealthBefore": 3
+    },
+    "expect": {
+      "hand": 1,
+      "enemyCount": 0
+    }
+  },
+  {
+    "id": "NEU-SPL-002",
+    "cardId": "EOTA-CORE-NEU-SPL-002",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyCount": 0
+    }
+  },
+  {
+    "id": "GUA-MIN-004",
+    "cardId": "EOTA-CORE-GUA-MIN-004",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "hand": 1
+    }
+  },
+  {
+    "id": "GUA-MIN-007",
+    "cardId": "EOTA-CORE-GUA-MIN-007",
+    "trigger": "combatStage",
+    "setup": {
+      "emptyEnemy": 1
+    },
+    "expect": {
+      "enemyFields": 0
+    }
+  },
+  {
+    "id": "GUA-MIN-008",
+    "cardId": "EOTA-CORE-GUA-MIN-008",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "hand": 1
+    }
+  },
+  {
+    "id": "GUA-MIN-009",
+    "cardId": "EOTA-CORE-GUA-MIN-009",
+    "trigger": "combat",
+    "setup": {},
+    "expect": {
+      "hand": 1
+    }
+  },
+  {
+    "id": "GUA-MIN-011",
+    "cardId": "EOTA-CORE-GUA-MIN-011",
+    "trigger": "combatDamage",
+    "setup": {},
+    "expect": {
+      "enemyHeroHealth": 96
+    }
+  },
+  {
+    "id": "GUA-MIN-012",
+    "cardId": "EOTA-CORE-GUA-MIN-012",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "enemyHeroHealth": 98
+    }
+  },
+  {
+    "id": "GUA-MIN-013",
+    "cardId": "EOTA-CORE-GUA-MIN-013",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "selfMaxHealth": 6
+    }
+  },
+  {
+    "id": "GUA-MIN-014",
+    "cardId": "EOTA-CORE-GUA-MIN-014",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "hand": 2,
+      "zeroCostHand": 0
+    }
+  },
+  {
+    "id": "GUA-MIN-015",
+    "cardId": "EOTA-CORE-GUA-MIN-015",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "adjacentAttack": 2,
+      "adjacentMaxHealth": 20
+    }
+  },
+  {
+    "id": "GUA-SPL-001",
+    "cardId": "EOTA-CORE-GUA-SPL-001",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyMaxHealth": 22
+    }
+  },
+  {
+    "id": "GUA-SPL-002",
+    "cardId": "EOTA-CORE-GUA-SPL-002",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "hand": 1,
+      "friendlyPrototype": "EOTA-TOKEN-GUA-MIN-001"
+    }
+  },
+  {
+    "id": "GUA-SPL-003",
+    "cardId": "EOTA-CORE-GUA-SPL-003",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyAttack": 2,
+      "keyword:guard": 0,
+      "keyword:swift": 1
+    }
+  },
+  {
+    "id": "GUA-SPL-004",
+    "cardId": "EOTA-CORE-GUA-SPL-004",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "emptyFriendly": 1
+    },
+    "expect": {
+      "friendlyPrototype": "EOTA-TOKEN-GUA-MIN-001"
+    }
+  },
+  {
+    "id": "GUA-SPL-005",
+    "cardId": "EOTA-CORE-GUA-SPL-005",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyMaxHealth": 23,
+      "friendlyEnergy": 4
+    }
+  },
+  {
+    "id": "GUA-SPL-006",
+    "cardId": "EOTA-CORE-GUA-SPL-006",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 17
+    }
+  },
+  {
+    "id": "GUA-SPL-007",
+    "cardId": "EOTA-CORE-GUA-SPL-007",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 16,
+      "enemyFields": 0
+    }
+  },
+  {
+    "id": "GUA-SPL-008",
+    "cardId": "EOTA-CORE-GUA-SPL-008",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "emptyFriendly": 1
+    },
+    "expect": {
+      "friendlyCount": 6
+    }
+  },
+  {
+    "id": "GUA-SPL-009",
+    "cardId": "EOTA-CORE-GUA-SPL-009",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "hand": 2,
+      "handProfession": "Guardian"
+    }
+  },
+  {
+    "id": "GUA-SPL-010",
+    "cardId": "EOTA-CORE-GUA-SPL-010",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "hand": 3
+    }
+  },
+  {
+    "id": "GUA-SPL-011",
+    "cardId": "EOTA-CORE-GUA-SPL-011",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 16,
+      "friendlyHealth": 8
+    }
+  },
+  {
+    "id": "GUA-SPL-012",
+    "cardId": "EOTA-CORE-GUA-SPL-012",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "friendlyHealthBefore": 1
+    },
+    "expect": {
+      "friendlyAttack": 3,
+      "friendlyHealth": 3
+    }
+  },
+  {
+    "id": "GUA-SPL-013",
+    "cardId": "EOTA-CORE-GUA-SPL-013",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "prefill": 1
+    },
+    "expect": {
+      "handAttack": 2,
+      "handMaxHealth": 2,
+      "handKeyword:replaceable": 0
+    }
+  },
+  {
+    "id": "GUA-FLD-001",
+    "cardId": "EOTA-CORE-GUA-FLD-001",
+    "trigger": "friendlyEntered",
+    "setup": {},
+    "expect": {
+      "friendlyMaxHealth": 21
+    }
+  },
+  {
+    "id": "GUA-FLD-002",
+    "cardId": "EOTA-CORE-GUA-FLD-002",
+    "trigger": "enemyEntered",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 19
+    }
+  },
+  {
+    "id": "GUA-FLD-003",
+    "cardId": "EOTA-CORE-GUA-FLD-003",
+    "trigger": "friendlyCombat",
+    "setup": {},
+    "expect": {
+      "friendlyAttack": 2
+    }
+  },
+  {
+    "id": "GUA-FLD-004",
+    "cardId": "EOTA-CORE-GUA-FLD-004",
+    "trigger": "friendlyEntered",
+    "setup": {},
+    "expect": {
+      "friendlyAttack": 3
+    }
+  },
+  {
+    "id": "GUA-FLD-005",
+    "cardId": "EOTA-CORE-GUA-FLD-005",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "hand": 1
+    }
+  },
+  {
+    "id": "ARC-MIN-001",
+    "cardId": "EOTA-CORE-ARC-MIN-001",
+    "trigger": "combat",
+    "setup": {},
+    "expect": {
+      "selfAttack": 4,
+      "keyword:firstStrike": 0
+    }
+  },
+  {
+    "id": "ARC-MIN-002",
+    "cardId": "EOTA-CORE-ARC-MIN-002",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "hand": 1,
+      "handKind": "Spell"
+    }
+  },
+  {
+    "id": "ARC-MIN-003",
+    "cardId": "EOTA-CORE-ARC-MIN-003",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "selfAttack": 3,
+      "selfMaxHealth": 5
+    }
+  },
+  {
+    "id": "ARC-MIN-004",
+    "cardId": "EOTA-CORE-ARC-MIN-004",
+    "trigger": "combat",
+    "setup": {},
+    "expect": {
+      "keyword:execute": 1
+    }
+  },
+  {
+    "id": "ARC-MIN-005",
+    "cardId": "EOTA-CORE-ARC-MIN-005",
+    "trigger": "friendlySpellCast",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "ether": 1,
+      "activatedLanes": 2,
+      "decayProtected": 1
+    }
+  },
+  {
+    "id": "ARC-MIN-006",
+    "cardId": "EOTA-CORE-ARC-MIN-006",
+    "trigger": "combat",
+    "setup": {},
+    "expect": {
+      "selfAttack": 12
+    }
+  },
+  {
+    "id": "ARC-MIN-007",
+    "cardId": "EOTA-CORE-ARC-MIN-007",
+    "trigger": "selfDied",
+    "setup": {
+      "etherBefore": 0,
+      "death": 1
+    },
+    "expect": {
+      "ether": 2
+    }
+  },
+  {
+    "id": "ARC-MIN-008",
+    "cardId": "EOTA-CORE-ARC-MIN-008",
+    "trigger": "selfEntered",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "ether": 1,
+      "decayProtected": 1
+    }
+  },
+  {
+    "id": "ARC-MIN-009",
+    "cardId": "EOTA-CORE-ARC-MIN-009",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "selfHealth": 4,
+      "decayProtected": 1
+    }
+  },
+  {
+    "id": "ARC-SPL-001",
+    "cardId": "EOTA-CORE-ARC-SPL-001",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 17
+    }
+  },
+  {
+    "id": "ARC-SPL-002",
+    "cardId": "EOTA-CORE-ARC-SPL-002",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "ether": 1,
+      "decayProtected": 1,
+      "hand": 1,
+      "handKind": "Spell"
+    }
+  },
+  {
+    "id": "ARC-SPL-003",
+    "cardId": "EOTA-CORE-ARC-SPL-003",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 18,
+      "enemyHeroHealth": 98
+    }
+  },
+  {
+    "id": "ARC-SPL-004",
+    "cardId": "EOTA-CORE-ARC-SPL-004",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyCount": 0
+    }
+  },
+  {
+    "id": "ARC-SPL-005",
+    "cardId": "EOTA-CORE-ARC-SPL-005",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 10,
+      "friendlyCount": 0,
+      "friendlyFields": 0,
+      "enemyFields": 0
+    }
+  },
+  {
+    "id": "ARC-SPL-006",
+    "cardId": "EOTA-CORE-ARC-SPL-006",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 14,
+      "adjacentEnemyHealth": 14,
+      "enemyHeroHealth": 94,
+      "ether": 0
+    }
+  },
+  {
+    "id": "ARC-SPL-007",
+    "cardId": "EOTA-CORE-ARC-SPL-007",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "hand": 4,
+      "ether": 0
+    }
+  },
+  {
+    "id": "ARC-SPL-008",
+    "cardId": "EOTA-CORE-ARC-SPL-008",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 12,
+      "enemyHeroHealth": 96,
+      "ether": 0
+    }
+  },
+  {
+    "id": "ARC-SPL-009",
+    "cardId": "EOTA-CORE-ARC-SPL-009",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 16,
+      "friendlyHealth": 6
+    }
+  },
+  {
+    "id": "ARC-SPL-010",
+    "cardId": "EOTA-CORE-ARC-SPL-010",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 17
+    }
+  },
+  {
+    "id": "ARC-SPL-011",
+    "cardId": "EOTA-CORE-ARC-SPL-011",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "ether": 1,
+      "decayProtected": 0
+    }
+  },
+  {
+    "id": "ARC-SPL-012",
+    "cardId": "EOTA-CORE-ARC-SPL-012",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "activatedLanes": 6
+    }
+  },
+  {
+    "id": "ARC-FLD-002",
+    "cardId": "EOTA-CORE-ARC-FLD-002",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "decayProtected": 1
+    }
+  },
+  {
+    "id": "ARC-FLD-003",
+    "cardId": "EOTA-CORE-ARC-FLD-003",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "friendlyEnergy": 2
+    }
+  },
+  {
+    "id": "ARC-FLD-004",
+    "cardId": "EOTA-CORE-ARC-FLD-004",
+    "trigger": "enemyEntered",
+    "setup": {},
+    "expect": {
+      "enemyAttack": 2,
+      "enemySlow": 2
+    }
+  },
+  {
+    "id": "ARC-FLD-005",
+    "cardId": "EOTA-CORE-ARC-FLD-005",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 16
+    }
+  },
+  {
+    "id": "ARC-FLD-006",
+    "cardId": "EOTA-CORE-ARC-FLD-006",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "ether": 0
+    }
+  },
+  {
+    "id": "ARC-FLD-007",
+    "cardId": "EOTA-CORE-ARC-FLD-007",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "friendlyCount": 0,
+      "enemyCount": 0,
+      "ether": 0
+    }
+  },
+  {
+    "id": "ARC-FLD-008",
+    "cardId": "EOTA-CORE-ARC-FLD-008",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "hand": 2,
+      "handKind": "Spell"
+    }
+  },
+  {
+    "id": "ART-MIN-001",
+    "cardId": "EOTA-CORE-ART-MIN-001",
+    "trigger": "preCombatCharge",
+    "setup": {},
+    "expect": {
+      "selfAttack": 2,
+      "keyword:firstStrike": 1
+    }
+  },
+  {
+    "id": "ART-MIN-002",
+    "cardId": "EOTA-CORE-ART-MIN-002",
+    "trigger": "preCombatCharge",
+    "setup": {},
+    "expect": {
+      "selfAttack": 4
+    }
+  },
+  {
+    "id": "ART-MIN-004",
+    "cardId": "EOTA-CORE-ART-MIN-004",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "friendlyPrototype": "EOTA-TOKEN-ART-MIN-001"
+    }
+  },
+  {
+    "id": "ART-MIN-005",
+    "cardId": "EOTA-CORE-ART-MIN-005",
+    "trigger": "preCombatCharge",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 19
+    }
+  },
+  {
+    "id": "ART-MIN-007",
+    "cardId": "EOTA-CORE-ART-MIN-007",
+    "trigger": "preCombatCharge",
+    "setup": {},
+    "expect": {
+      "hand": 1
+    }
+  },
+  {
+    "id": "ART-MIN-008",
+    "cardId": "EOTA-CORE-ART-MIN-008",
+    "trigger": "preCombatCharge",
+    "setup": {},
+    "expect": {
+      "selfAttack": 7
+    }
+  },
+  {
+    "id": "ART-MIN-009",
+    "cardId": "EOTA-CORE-ART-MIN-009",
+    "trigger": "preCombatCharge",
+    "setup": {},
+    "expect": {
+      "selfAttack": 8,
+      "keyword:guard": 0
+    }
+  },
+  {
+    "id": "ART-MIN-012",
+    "cardId": "EOTA-CORE-ART-MIN-012",
+    "trigger": "preCombatCharge",
+    "setup": {},
+    "expect": {
+      "keyword:firstStrike": 1
+    }
+  },
+  {
+    "id": "ART-MIN-013",
+    "cardId": "EOTA-CORE-ART-MIN-013",
+    "trigger": "preCombatCharge",
+    "setup": {},
+    "expect": {
+      "selfMaxHealth": 10
+    }
+  },
+  {
+    "id": "ART-MIN-014",
+    "cardId": "EOTA-CORE-ART-MIN-014",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "enemyHealth": 18,
+      "heroHealth": 88,
+      "enemyHeroHealth": 98
+    }
+  },
+  {
+    "id": "ART-MIN-015",
+    "cardId": "EOTA-CORE-ART-MIN-015",
+    "trigger": "attack",
+    "setup": {},
+    "expect": {
+      "selfHealth": 4,
+      "enemyHeroHealth": 98
+    }
+  },
+  {
+    "id": "ART-MIN-016",
+    "cardId": "EOTA-CORE-ART-MIN-016",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "friendlyFields": 0,
+      "enemyFields": 0
+    }
+  },
+  {
+    "id": "ART-MIN-017",
+    "cardId": "EOTA-CORE-ART-MIN-017",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "nextCost": 1
+    }
+  },
+  {
+    "id": "ART-SPL-001",
+    "cardId": "EOTA-CORE-ART-SPL-001",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "maxCost": 101
+    }
+  },
+  {
+    "id": "ART-SPL-002",
+    "cardId": "EOTA-CORE-ART-SPL-002",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyAttack": 2,
+      "friendlyMaxHealth": 21,
+      "mechanicalDeckAttackDelta": 0
+    }
+  },
+  {
+    "id": "ART-SPL-003",
+    "cardId": "EOTA-CORE-ART-SPL-003",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyHealth": 13
+    }
+  },
+  {
+    "id": "ART-SPL-004",
+    "cardId": "EOTA-CORE-ART-SPL-004",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyPrototype": "EOTA-TOKEN-ART-MIN-001"
+    }
+  },
+  {
+    "id": "ART-SPL-005",
+    "cardId": "EOTA-CORE-ART-SPL-005",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyCount": 0,
+      "hand": 2
+    }
+  },
+  {
+    "id": "ART-SPL-006",
+    "cardId": "EOTA-CORE-ART-SPL-006",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "chargeRequirement": 0,
+      "friendlyAttached": 1
+    }
+  },
+  {
+    "id": "ART-SPL-007",
+    "cardId": "EOTA-CORE-ART-SPL-007",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "nextCost": 2
+    }
+  },
+  {
+    "id": "ART-SPL-008",
+    "cardId": "EOTA-CORE-ART-SPL-008",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyCount": 0,
+      "enemyHealth": 16,
+      "enemyHeroHealth": 96
+    }
+  },
+  {
+    "id": "ART-SPL-009",
+    "cardId": "EOTA-CORE-ART-SPL-009",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "keyword:firstStrike": 1,
+      "friendlyAttached": 1
+    }
+  },
+  {
+    "id": "ART-SPL-010",
+    "cardId": "EOTA-CORE-ART-SPL-010",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "hand": 1,
+      "handAttackDelta": 1,
+      "handMaxHealthDelta": 1,
+      "handHasTag:mechanical": 1
+    }
+  },
+  {
+    "id": "ART-SPL-011",
+    "cardId": "EOTA-CORE-ART-SPL-011",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 17,
+      "friendlyAttack": 2,
+      "friendlyMaxHealth": 21
+    }
+  },
+  {
+    "id": "ART-SPL-012",
+    "cardId": "EOTA-CORE-ART-SPL-012",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 18,
+      "friendlyHealth": 10
+    }
+  },
+  {
+    "id": "ART-FLD-001",
+    "cardId": "EOTA-CORE-ART-FLD-001",
+    "trigger": "endTurnCharge",
+    "setup": {},
+    "expect": {
+      "nextCost": 1
+    }
+  },
+  {
+    "id": "ART-FLD-002",
+    "cardId": "EOTA-CORE-ART-FLD-002",
+    "trigger": "endTurnCharge",
+    "setup": {},
+    "expect": {
+      "friendlyHealth": 20
+    }
+  },
+  {
+    "id": "ART-FLD-003",
+    "cardId": "EOTA-CORE-ART-FLD-003",
+    "trigger": "friendlyDied",
+    "setup": {
+      "friendlyDeath": 1
+    },
+    "expect": {
+      "friendlyPrototype": "EOTA-TOKEN-ART-MIN-001"
+    }
+  },
+  {
+    "id": "ART-FLD-005",
+    "cardId": "EOTA-CORE-ART-FLD-005",
+    "trigger": "entryStage",
+    "setup": {},
+    "expect": {
+      "chargeRequirement": 0
+    }
+  },
+  {
+    "id": "HUN-MIN-001",
+    "cardId": "EOTA-CORE-HUN-MIN-001",
+    "trigger": "minionCombat",
+    "setup": {},
+    "expect": {
+      "enemyAttached": 1
+    }
+  },
+  {
+    "id": "HUN-MIN-002",
+    "cardId": "EOTA-CORE-HUN-MIN-002",
+    "trigger": "selfDamaged",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 19
+    }
+  },
+  {
+    "id": "HUN-MIN-005",
+    "cardId": "EOTA-CORE-HUN-MIN-005",
+    "trigger": "replacementEntered",
+    "setup": {},
+    "expect": {
+      "selfAttack": 5
+    }
+  },
+  {
+    "id": "HUN-MIN-006",
+    "cardId": "EOTA-CORE-HUN-MIN-006",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "hand": 1
+    }
+  },
+  {
+    "id": "HUN-MIN-007",
+    "cardId": "EOTA-CORE-HUN-MIN-007",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "friendlyEnergy": 4
+    }
+  },
+  {
+    "id": "HUN-MIN-008",
+    "cardId": "EOTA-CORE-HUN-MIN-008",
+    "trigger": "combat",
+    "setup": {
+      "emptyEnemy": 1
+    },
+    "expect": {
+      "heroHealth": 87
+    }
+  },
+  {
+    "id": "HUN-MIN-011",
+    "cardId": "EOTA-CORE-HUN-MIN-011",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "hand": 1
+    }
+  },
+  {
+    "id": "HUN-SPL-001",
+    "cardId": "EOTA-CORE-HUN-SPL-001",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 19
+    }
+  },
+  {
+    "id": "HUN-SPL-002",
+    "cardId": "EOTA-CORE-HUN-SPL-002",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "keyword:skirmisher": 1
+    }
+  },
+  {
+    "id": "HUN-SPL-003",
+    "cardId": "EOTA-CORE-HUN-SPL-003",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyAttack": 2,
+      "keyword:pursuit": 1
+    }
+  },
+  {
+    "id": "HUN-SPL-004",
+    "cardId": "EOTA-CORE-HUN-SPL-004",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyDamageAdjustment": 2
+    }
+  },
+  {
+    "id": "HUN-SPL-005",
+    "cardId": "EOTA-CORE-HUN-SPL-005",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "hand": 2,
+      "handHasTag:beast": 1
+    }
+  },
+  {
+    "id": "HUN-SPL-006",
+    "cardId": "EOTA-CORE-HUN-SPL-006",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyAttack": 2
+    }
+  },
+  {
+    "id": "HUN-SPL-007",
+    "cardId": "EOTA-CORE-HUN-SPL-007",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "emptyFriendly": 1
+    },
+    "expect": {
+      "friendlyCount": 6
+    }
+  },
+  {
+    "id": "HUN-SPL-008",
+    "cardId": "EOTA-CORE-HUN-SPL-008",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "playerAttached": 1
+    }
+  },
+  {
+    "id": "HUN-FLD-001",
+    "cardId": "EOTA-CORE-HUN-FLD-001",
+    "trigger": "enemyEntered",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 18,
+      "friendlyFields": 0
+    }
+  },
+  {
+    "id": "HUN-FLD-002",
+    "cardId": "EOTA-CORE-HUN-FLD-002",
+    "trigger": "enemyEntered",
+    "setup": {},
+    "expect": {
+      "enemyAttached": 1,
+      "friendlyFields": 0
+    }
+  },
+  {
+    "id": "HUN-FLD-003",
+    "cardId": "EOTA-CORE-HUN-FLD-003",
+    "trigger": "enemyAttack",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 17,
+      "friendlyFields": 0
+    }
+  },
+  {
+    "id": "HUN-FLD-004",
+    "cardId": "EOTA-CORE-HUN-FLD-004",
+    "trigger": "enemyAttack",
+    "setup": {},
+    "expect": {
+      "friendlyCount": 0,
+      "enemyCount": 0,
+      "friendlyFields": 0
+    }
+  },
+  {
+    "id": "GUA-SPL-002-full-hand",
+    "cardId": "EOTA-CORE-GUA-SPL-002",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "prefill": 1,
+      "handLimit": 1
+    },
+    "expect": {
+      "hand": 1,
+      "friendlyCount": 0,
+      "friendlyDeaths": 1
+    }
+  },
+  {
+    "id": "GUA-SPL-010-overflow",
+    "cardId": "EOTA-CORE-GUA-SPL-010",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "handLimit": 1
+    },
+    "expect": {
+      "hand": 1
+    }
+  },
+  {
+    "id": "ARC-SPL-001-no-resonance",
+    "cardId": "EOTA-CORE-ARC-SPL-001",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "enemyHealth": 18
+    }
+  },
+  {
+    "id": "ARC-SPL-004-no-resonance",
+    "cardId": "EOTA-CORE-ARC-SPL-004",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "enemyHealth": 15
+    }
+  },
+  {
+    "id": "ARC-SPL-007-zero-ether",
+    "cardId": "EOTA-CORE-ARC-SPL-007",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "hand": 1,
+      "ether": 0
+    }
+  },
+  {
+    "id": "ARC-SPL-008-zero-ether",
+    "cardId": "EOTA-CORE-ARC-SPL-008",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "enemyHealth": 18,
+      "enemyHeroHealth": 99
+    }
+  },
+  {
+    "id": "ART-SPL-004-non-mechanical",
+    "cardId": "EOTA-CORE-ART-SPL-004",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "nonMechanical": 1
+    },
+    "expect": {
+      "friendlyPrototype": "TEST-P8-OTHER"
+    }
+  },
+  {
+    "id": "ART-SPL-010-empty-deck",
+    "cardId": "EOTA-CORE-ART-SPL-010",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "emptyDeck": 1
+    },
+    "expect": {
+      "hand": 0
+    }
+  },
+  {
+    "id": "HUN-SPL-003-empty-slot",
+    "cardId": "EOTA-CORE-HUN-SPL-003",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "emptyFriendly": 1
+    },
+    "expect": {
+      "friendlyPrototype": "EOTA-TOKEN-HUN-MIN-001",
+      "keyword:swift": 1
+    }
+  },
+  {
+    "id": "HUN-SPL-002-already-skirmisher",
+    "cardId": "EOTA-CORE-HUN-SPL-002",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "skirmisher": 1
+    },
+    "expect": {
+      "friendlyDamageAdjustment": -3
+    }
+  },
+  {
+    "id": "GUA-FLD-005-empty-slot",
+    "cardId": "EOTA-CORE-GUA-FLD-005",
+    "trigger": "turnEnd",
+    "setup": {
+      "emptyFriendly": 1
+    },
+    "expect": {
+      "friendlyPrototype": "EOTA-TOKEN-GUA-MIN-001",
+      "hand": 0
+    }
+  },
+  {
+    "id": "R1-GUA-MIN-017",
+    "cardId": "EOTA-CORE-GUA-MIN-017",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "hand": 1,
+      "handKind": "Field"
+    }
+  },
+  {
+    "id": "R1-GUA-MIN-018",
+    "cardId": "EOTA-CORE-GUA-MIN-018",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "hand": 1,
+      "handKind": "Spell"
+    }
+  },
+  {
+    "id": "R1-GUA-MIN-019",
+    "cardId": "EOTA-CORE-GUA-MIN-019",
+    "trigger": "selfEntered",
+    "setup": {
+      "adjacentFriendly": 1
+    },
+    "expect": {
+      "adjacentAttack": 2,
+      "adjacentGuard": 0
+    }
+  },
+  {
+    "id": "R1-GUA-FLD-006",
+    "cardId": "EOTA-CORE-GUA-FLD-006",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "hand": 1
+    }
+  },
+  {
+    "id": "R1-GUA-FLD-006-unguarded",
+    "cardId": "EOTA-CORE-GUA-FLD-006",
+    "trigger": "turnEnd",
+    "setup": {
+      "nonMechanical": 1
+    },
+    "expect": {
+      "hand": 0
+    }
+  },
+  {
+    "id": "R1-GUA-SPL-014",
+    "cardId": "EOTA-CORE-GUA-SPL-014",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 16
+    }
+  },
+  {
+    "id": "R1-GUA-SPL-014-no-firearm",
+    "cardId": "EOTA-CORE-GUA-SPL-014",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "nonMechanical": 1
+    },
+    "expect": {
+      "enemyHealth": 18
+    }
+  },
+  {
+    "id": "R1-GUA-SPL-015",
+    "cardId": "EOTA-CORE-GUA-SPL-015",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 18
+    }
+  },
+  {
+    "id": "R1-GUA-SPL-015-no-firearm",
+    "cardId": "EOTA-CORE-GUA-SPL-015",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "nonMechanical": 1
+    },
+    "expect": {
+      "enemyHealth": 19
+    }
+  },
+  {
+    "id": "R1-ARC-MIN-010",
+    "cardId": "EOTA-CORE-ARC-MIN-010",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "keyword:swift": 1,
+      "keyword:firstStrike": 0
+    }
+  },
+  {
+    "id": "R1-ARC-MIN-010-no-ether",
+    "cardId": "EOTA-CORE-ARC-MIN-010",
+    "trigger": "selfEntered",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "keyword:swift": 0
+    }
+  },
+  {
+    "id": "R1-ARC-MIN-011",
+    "cardId": "EOTA-CORE-ARC-MIN-011",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "hand": 1,
+      "handKind": "Spell"
+    }
+  },
+  {
+    "id": "R1-ARC-MIN-012",
+    "cardId": "EOTA-CORE-ARC-MIN-012",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "heroHealth": 88
+    }
+  },
+  {
+    "id": "R1-ARC-MIN-013",
+    "cardId": "EOTA-CORE-ARC-MIN-013",
+    "trigger": "selfEntered",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "heroHealth": 88,
+      "ether": 1,
+      "decayProtected": 1
+    }
+  },
+  {
+    "id": "R1-ARC-MIN-014",
+    "cardId": "EOTA-CORE-ARC-MIN-014",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "heroHealth": 87,
+      "hand": 2
+    }
+  },
+  {
+    "id": "R1-ARC-MIN-015",
+    "cardId": "EOTA-CORE-ARC-MIN-015",
+    "trigger": "selfEntered",
+    "setup": {
+      "heroHealthBefore": 15
+    },
+    "expect": {
+      "heroHealth": 19,
+      "enemyHeroHealth": 96
+    }
+  },
+  {
+    "id": "R1-ARC-MIN-015-above-threshold",
+    "cardId": "EOTA-CORE-ARC-MIN-015",
+    "trigger": "selfEntered",
+    "setup": {
+      "heroHealthBefore": 16
+    },
+    "expect": {
+      "heroHealth": 16,
+      "enemyHeroHealth": 100
+    }
+  },
+  {
+    "id": "R1-ARC-FLD-009",
+    "cardId": "EOTA-CORE-ARC-FLD-009",
+    "trigger": "turnEnd",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "heroHealth": 89,
+      "ether": 1
+    }
+  },
+  {
+    "id": "R1-ARC-FLD-010",
+    "cardId": "EOTA-CORE-ARC-FLD-010",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "heroHealth": 90,
+      "friendlyAttack": 2,
+      "friendlyMaxHealth": 21
+    }
+  },
+  {
+    "id": "R1-ARC-FLD-010-empty",
+    "cardId": "EOTA-CORE-ARC-FLD-010",
+    "trigger": "turnEnd",
+    "setup": {
+      "emptyFriendly": 1
+    },
+    "expect": {
+      "heroHealth": 90,
+      "friendlyPrototype": "EOTA-TOKEN-ARC-MIN-001",
+      "friendlyCount": 1
+    }
+  },
+  {
+    "id": "R1-ARC-SPL-013",
+    "cardId": "EOTA-CORE-ARC-SPL-013",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "heroHealth": 88,
+      "enemyHealth": 17
+    }
+  },
+  {
+    "id": "R1-ARC-SPL-014",
+    "cardId": "EOTA-CORE-ARC-SPL-014",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "heroHealth": 87,
+      "hand": 2
+    }
+  },
+  {
+    "id": "R1-ARC-SPL-015",
+    "cardId": "EOTA-CORE-ARC-SPL-015",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "heroHealthBefore": 15
+    },
+    "expect": {
+      "heroHealth": 17,
+      "enemyHealth": 16
+    }
+  },
+  {
+    "id": "R1-ARC-SPL-015-above-threshold",
+    "cardId": "EOTA-CORE-ARC-SPL-015",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "heroHealthBefore": 16
+    },
+    "expect": {
+      "heroHealth": 18,
+      "enemyHealth": 18
+    }
+  },
+  {
+    "id": "R1-ART-MIN-018",
+    "cardId": "EOTA-CORE-ART-MIN-018",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "hand": 1,
+      "handKind": "Field"
+    }
+  },
+  {
+    "id": "R1-ART-MIN-019",
+    "cardId": "EOTA-CORE-ART-MIN-019",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "hand": 1,
+      "handKind": "Spell"
+    }
+  },
+  {
+    "id": "R1-ART-MIN-020",
+    "cardId": "EOTA-CORE-ART-MIN-020",
+    "trigger": "replacementEntered",
+    "setup": {},
+    "expect": {
+      "selfAttack": 9,
+      "selfMaxHealth": 10
+    }
+  },
+  {
+    "id": "R1-ART-FLD-006",
+    "cardId": "EOTA-CORE-ART-FLD-006",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "hand": 1,
+      "handKind": "Spell"
+    }
+  },
+  {
+    "id": "R1-ART-FLD-006-end",
+    "cardId": "EOTA-CORE-ART-FLD-006",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "nextCost": 1
+    }
+  },
+  {
+    "id": "R1-ART-FLD-006-no-mechanical",
+    "cardId": "EOTA-CORE-ART-FLD-006",
+    "trigger": "turnEnd",
+    "setup": {
+      "nonMechanical": 1
+    },
+    "expect": {
+      "nextCost": 0
+    }
+  },
+  {
+    "id": "R1-ART-SPL-013",
+    "cardId": "EOTA-CORE-ART-SPL-013",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "chargeRequirement": 0,
+      "friendlyHealth": 12
+    }
+  },
+  {
+    "id": "R1-ART-SPL-013-no-mechanical",
+    "cardId": "EOTA-CORE-ART-SPL-013",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "nonMechanical": 1
+    },
+    "expect": {
+      "chargeRequirement": -1,
+      "friendlyHealth": 10
+    }
+  },
+  {
+    "id": "R1-ART-SPL-014",
+    "cardId": "EOTA-CORE-ART-SPL-014",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyCount": 0,
+      "hand": 2
+    }
+  },
+  {
+    "id": "R1-ART-SPL-014-full-hand",
+    "cardId": "EOTA-CORE-ART-SPL-014",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "prefill": 1,
+      "handLimit": 1
+    },
+    "expect": {
+      "friendlyCount": 0,
+      "friendlyDeaths": 1,
+      "hand": 1
+    }
+  },
+  {
+    "id": "R1-HUN-MIN-013",
+    "cardId": "EOTA-CORE-HUN-MIN-013",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "hand": 1
+    }
+  },
+  {
+    "id": "R1-HUN-MIN-014",
+    "cardId": "EOTA-CORE-HUN-MIN-014",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "hand": 1,
+      "handKind": "Spell",
+      "handPrototype": "EOTA-TOKEN-HUN-SPL-001"
+    }
+  },
+  {
+    "id": "R1-HUN-MIN-016",
+    "cardId": "EOTA-CORE-HUN-MIN-016",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "enemyAttached": 1
+    }
+  },
+  {
+    "id": "R1-HUN-MIN-017",
+    "cardId": "EOTA-CORE-HUN-MIN-017",
+    "trigger": "selfEntered",
+    "setup": {
+      "adjacentFriendly": 1
+    },
+    "expect": {
+      "heroHealth": 94
+    }
+  },
+  {
+    "id": "R1-HUN-MIN-017-no-beast",
+    "cardId": "EOTA-CORE-HUN-MIN-017",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "heroHealth": 92
+    }
+  },
+  {
+    "id": "R1-HUN-MIN-018",
+    "cardId": "EOTA-CORE-HUN-MIN-018",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 18
+    }
+  },
+  {
+    "id": "R1-HUN-MIN-019",
+    "cardId": "EOTA-CORE-HUN-MIN-019",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "friendlyCount": 2,
+      "adjacentAttack": 1
+    }
+  },
+  {
+    "id": "R1-HUN-MIN-020",
+    "cardId": "EOTA-CORE-HUN-MIN-020",
+    "trigger": "selfEntered",
+    "setup": {
+      "enemyHealthBefore": 3
+    },
+    "expect": {
+      "enemyCount": 0
+    }
+  },
+  {
+    "id": "R1-HUN-MIN-020-healthy",
+    "cardId": "EOTA-CORE-HUN-MIN-020",
+    "trigger": "selfEntered",
+    "setup": {
+      "enemyHealthBefore": 4
+    },
+    "expect": {
+      "enemyCount": 1,
+      "enemyHealth": 4
+    }
+  },
+  {
+    "id": "R1-HUN-FLD-005",
+    "cardId": "EOTA-CORE-HUN-FLD-005",
+    "trigger": "friendlyEntered",
+    "setup": {},
+    "expect": {
+      "friendlyMaxHealth": 21,
+      "keyword:pursuit": 1
+    }
+  },
+  {
+    "id": "R1-HUN-FLD-005-not-beast",
+    "cardId": "EOTA-CORE-HUN-FLD-005",
+    "trigger": "friendlyEntered",
+    "setup": {
+      "nonMechanical": 1
+    },
+    "expect": {
+      "friendlyMaxHealth": 20,
+      "keyword:pursuit": 0
+    }
+  },
+  {
+    "id": "R1-HUN-FLD-006",
+    "cardId": "EOTA-CORE-HUN-FLD-006",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "hand": 1,
+      "handHasTag:beast": 1
+    }
+  },
+  {
+    "id": "R1-HUN-FLD-006-end",
+    "cardId": "EOTA-CORE-HUN-FLD-006",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "heroHealth": 91
+    }
+  },
+  {
+    "id": "R1-HUN-FLD-007",
+    "cardId": "EOTA-CORE-HUN-FLD-007",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 19
+    }
+  },
+  {
+    "id": "R1-HUN-SPL-009",
+    "cardId": "EOTA-CORE-HUN-SPL-009",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "hand": 2
+    }
+  },
+  {
+    "id": "R1-HUN-SPL-010",
+    "cardId": "EOTA-CORE-HUN-SPL-010",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "hand": 1,
+      "handKind": "Field",
+      "handCostDelta": -1
+    }
+  },
+  {
+    "id": "R1-HUN-SPL-011",
+    "cardId": "EOTA-CORE-HUN-SPL-011",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 18,
+      "enemyAttached": 1
+    }
+  },
+  {
+    "id": "R1-HUN-SPL-012",
+    "cardId": "EOTA-CORE-HUN-SPL-012",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "enemyHealthBefore": 10
+    },
+    "expect": {
+      "enemyHealth": 6
+    }
+  },
+  {
+    "id": "R1-HUN-SPL-012-unhurt",
+    "cardId": "EOTA-CORE-HUN-SPL-012",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 18
+    }
+  },
+  {
+    "id": "R1-HUN-SPL-013",
+    "cardId": "EOTA-CORE-HUN-SPL-013",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "keyword:swift": 1,
+      "keyword:skirmisher": 1
+    }
+  },
+  {
+    "id": "R1-HUN-SPL-013-not-beast",
+    "cardId": "EOTA-CORE-HUN-SPL-013",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "nonMechanical": 1
+    },
+    "expect": {
+      "keyword:swift": 0,
+      "keyword:skirmisher": 0
+    }
+  },
+  {
+    "id": "R1-NEU-MIN-009",
+    "cardId": "EOTA-CORE-NEU-MIN-009",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "heroHealth": 91
+    }
+  },
+  {
+    "id": "R1-NEU-MIN-010",
+    "cardId": "EOTA-CORE-NEU-MIN-010",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "enemyFieldEnergy": 2
+    }
+  },
+  {
+    "id": "R1-TOKEN-GUA-SPL-001",
+    "cardId": "EOTA-TOKEN-GUA-SPL-001",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 19
+    }
+  },
+  {
+    "id": "R1-TOKEN-ARC-SPL-001",
+    "cardId": "EOTA-TOKEN-ARC-SPL-001",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "ether": 1,
+      "decayProtected": 1,
+      "hand": 0
+    }
+  },
+  {
+    "id": "R1-TOKEN-ART-SPL-001",
+    "cardId": "EOTA-TOKEN-ART-SPL-001",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyHealth": 12,
+      "friendlyAttack": 2
+    }
+  },
+  {
+    "id": "R1-ARC-FLD-009-entry",
+    "cardId": "EOTA-CORE-ARC-FLD-009",
+    "trigger": "selfEntered",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "ether": 1
+    }
+  },
+  {
+    "id": "R2-GUA-MIN-023",
+    "cardId": "EOTA-CORE-GUA-MIN-023",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "heroHealth": 94
+    }
+  },
+  {
+    "id": "R2-GUA-FLD-007",
+    "cardId": "EOTA-CORE-GUA-FLD-007",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "heroHealth": 92
+    }
+  },
+  {
+    "id": "R2-GUA-FLD-007-no-guard",
+    "cardId": "EOTA-CORE-GUA-FLD-007",
+    "trigger": "turnEnd",
+    "setup": {
+      "nonMechanical": 1
+    },
+    "expect": {
+      "heroHealth": 90
+    }
+  },
+  {
+    "id": "R2-GUA-SPL-016",
+    "cardId": "EOTA-CORE-GUA-SPL-016",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "friendlySoldier": 1,
+      "friendlySlow": 3,
+      "friendlyHealthBefore": 2
+    },
+    "expect": {
+      "friendlySlow": 3,
+      "keyword:pursuit": 1,
+      "keyword:guard": 0
+    }
+  },
+  {
+    "id": "R2-GUA-SPL-016-general-target",
+    "cardId": "EOTA-CORE-GUA-SPL-016",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "friendlySlow": 3
+    },
+    "expect": {
+      "friendlySlow": 3,
+      "keyword:pursuit": 1,
+      "keyword:guard": 0
+    }
+  },
+  {
+    "id": "R2-GUA-SPL-017",
+    "cardId": "EOTA-CORE-GUA-SPL-017",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "heroHealth": 94
+    }
+  },
+  {
+    "id": "R2-GUA-SPL-018",
+    "cardId": "EOTA-CORE-GUA-SPL-018",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyAttack": 5,
+      "keyword:guard": 0
+    }
+  },
+  {
+    "id": "R2-ARC-MIN-016",
+    "cardId": "EOTA-CORE-ARC-MIN-016",
+    "trigger": "selfEntered",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "friendlySlow": 2,
+      "keyword:swift": 0
+    }
+  },
+  {
+    "id": "R2-ARC-MIN-017",
+    "cardId": "EOTA-CORE-ARC-MIN-017",
+    "trigger": "combat",
+    "setup": {},
+    "expect": {
+      "selfAttack": 4,
+      "enemyCount": 0,
+      "enemyHeroHealth": 94,
+      "ether": 0
+    }
+  },
+  {
+    "id": "R2-ARC-MIN-017-no-resonance",
+    "cardId": "EOTA-CORE-ARC-MIN-017",
+    "trigger": "combat",
+    "setup": {
+      "etherBefore": 2
+    },
+    "expect": {
+      "selfAttack": 4,
+      "enemyCount": 1,
+      "enemyHeroHealth": 100,
+      "ether": 2
+    }
+  },
+  {
+    "id": "R2-ARC-MIN-018",
+    "cardId": "EOTA-CORE-ARC-MIN-018",
+    "trigger": "selfEntered",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "ether": 1
+    }
+  },
+  {
+    "id": "R2-ARC-MIN-019",
+    "cardId": "EOTA-CORE-ARC-MIN-019",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "heroHealth": 100
+    }
+  },
+  {
+    "id": "R2-ARC-MIN-019-no-resonance",
+    "cardId": "EOTA-CORE-ARC-MIN-019",
+    "trigger": "selfEntered",
+    "setup": {
+      "etherBefore": 1
+    },
+    "expect": {
+      "heroHealth": 95
+    }
+  },
+  {
+    "id": "R2-ARC-FLD-011",
+    "cardId": "EOTA-CORE-ARC-FLD-011",
+    "trigger": "turnEnd",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "heroHealth": 90,
+      "ether": 0,
+      "decayProtected": 0
+    }
+  },
+  {
+    "id": "R2-ARC-FLD-002-entry",
+    "cardId": "EOTA-CORE-ARC-FLD-002",
+    "trigger": "selfEntered",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "ether": 1
+    }
+  },
+  {
+    "id": "R2-ARC-SPL-016",
+    "cardId": "EOTA-CORE-ARC-SPL-016",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "friendlySlow": 3,
+      "etherBefore": 0
+    },
+    "expect": {
+      "friendlySlow": 3,
+      "ether": 0,
+      "friendlyAttack": 3,
+      "keyword:swift": 1,
+      "keyword:skirmisher": 0
+    }
+  },
+  {
+    "id": "R2-ARC-SPL-017",
+    "cardId": "EOTA-CORE-ARC-SPL-017",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "heroHealth": 94,
+      "ether": 1,
+      "decayProtected": 1
+    }
+  },
+  {
+    "id": "R2-ARC-SPL-018",
+    "cardId": "EOTA-CORE-ARC-SPL-018",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyCount": 0
+    }
+  },
+  {
+    "id": "R2-ARC-SPL-018-no-resonance",
+    "cardId": "EOTA-CORE-ARC-SPL-018",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "etherBefore": 1
+    },
+    "expect": {
+      "enemySlow": 1,
+      "enemyAttack": 2
+    }
+  },
+  {
+    "id": "R2-ART-MIN-023",
+    "cardId": "EOTA-CORE-ART-MIN-023",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "friendlyEnergy": 4
+    }
+  },
+  {
+    "id": "R2-ART-MIN-024",
+    "cardId": "EOTA-CORE-ART-MIN-024",
+    "trigger": "endTurnCharge",
+    "setup": {},
+    "expect": {
+      "heroHealth": 92,
+      "selfHealth": 6
+    }
+  },
+  {
+    "id": "R2-ART-FLD-007",
+    "cardId": "EOTA-CORE-ART-FLD-007",
+    "trigger": "friendlyEntered",
+    "setup": {
+      "friendlySlow": 4
+    },
+    "expect": {
+      "friendlySlow": 0
+    }
+  },
+  {
+    "id": "R2-ART-FLD-007-not-mechanical",
+    "cardId": "EOTA-CORE-ART-FLD-007",
+    "trigger": "friendlyEntered",
+    "setup": {
+      "friendlySlow": 4,
+      "nonMechanical": 1
+    },
+    "expect": {
+      "friendlySlow": 4
+    }
+  },
+  {
+    "id": "R2-ART-SPL-015",
+    "cardId": "EOTA-CORE-ART-SPL-015",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "friendlySlow": 4
+    },
+    "expect": {
+      "friendlySlow": 0,
+      "friendlyHealth": 7,
+      "keyword:swift": 1
+    }
+  },
+  {
+    "id": "R2-ART-SPL-015-not-mechanical",
+    "cardId": "EOTA-CORE-ART-SPL-015",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "friendlySlow": 4,
+      "nonMechanical": 1
+    },
+    "expect": {
+      "friendlySlow": 4,
+      "friendlyHealth": 10,
+      "keyword:swift": 0
+    }
+  },
+  {
+    "id": "R2-ART-SPL-016",
+    "cardId": "EOTA-CORE-ART-SPL-016",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "heroHealth": 94,
+      "friendlyHealth": 12
+    }
+  },
+  {
+    "id": "R2-ART-SPL-017",
+    "cardId": "EOTA-CORE-ART-SPL-017",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyAttack": 4,
+      "friendlyHealth": 8,
+      "keyword:swift": 1
+    }
+  },
+  {
+    "id": "R2-HUN-FLD-008",
+    "cardId": "EOTA-CORE-HUN-FLD-008",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "heroHealth": 92
+    }
+  },
+  {
+    "id": "R2-HUN-SPL-014",
+    "cardId": "EOTA-CORE-HUN-SPL-014",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyPlayerAttached": 1,
+      "enemyPoisonDuration": 3,
+      "enemyHeroHealth": 100
+    }
+  },
+  {
+    "id": "R2-HUN-SPL-015",
+    "cardId": "EOTA-CORE-HUN-SPL-015",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "friendlySlow": 3
+    },
+    "expect": {
+      "friendlySlow": 0,
+      "friendlyAttack": 1
+    }
+  },
+  {
+    "id": "R2-HUN-SPL-015-not-beast",
+    "cardId": "EOTA-CORE-HUN-SPL-015",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "friendlySlow": 3,
+      "nonMechanical": 1
+    },
+    "expect": {
+      "friendlySlow": 3,
+      "friendlyAttack": 2
+    }
+  },
+  {
+    "id": "R2-HUN-SPL-016",
+    "cardId": "EOTA-CORE-HUN-SPL-016",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyAttack": 3,
+      "friendlyMaxHealth": 23,
+      "friendlyHealth": 13
+    }
+  },
+  {
+    "id": "R2-HUN-SPL-016-not-beast",
+    "cardId": "EOTA-CORE-HUN-SPL-016",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "nonMechanical": 1
+    },
+    "expect": {
+      "friendlyAttack": 2,
+      "friendlyMaxHealth": 20,
+      "friendlyHealth": 10
+    }
+  },
+  {
+    "id": "R2-TOKEN-HUN-SPL-001",
+    "cardId": "EOTA-TOKEN-HUN-SPL-001",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyMaxHealth": 21,
+      "keyword:skirmisher": 1
+    }
+  },
+  {
+    "id": "R2-TOKEN-HUN-SPL-001-not-beast",
+    "cardId": "EOTA-TOKEN-HUN-SPL-001",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "nonMechanical": 1
+    },
+    "expect": {
+      "friendlyMaxHealth": 20,
+      "keyword:skirmisher": 0
+    }
+  },
+  {
+    "id": "R4-NEU-MIN-015",
+    "cardId": "EOTA-CORE-NEU-MIN-015",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "friendlyPrototype": "EOTA-CORE-NEU-MIN-001",
+      "friendlyCount": 1
+    }
+  },
+  {
+    "id": "R3-HUN-MIN-010",
+    "cardId": "EOTA-CORE-HUN-MIN-010",
+    "trigger": "selfEntered",
+    "setup": {
+      "adjacentFriendly": 1
+    },
+    "expect": {
+      "adjacentMaxHealth": 22,
+      "friendlyCount": 2
+    }
+  },
+  {
+    "id": "R3-HUN-MIN-022",
+    "cardId": "EOTA-CORE-HUN-MIN-022",
+    "trigger": "selfDamaged",
+    "setup": {},
+    "expect": {
+      "selfAttack": 7
+    }
+  },
+  {
+    "id": "R3-HUN-MIN-024",
+    "cardId": "EOTA-CORE-HUN-MIN-024",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 16
+    }
+  },
+  {
+    "id": "R3-HUN-SPL-015",
+    "cardId": "EOTA-CORE-HUN-SPL-015",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyAttack": 3,
+      "friendlySlow": 0
+    }
+  },
+  {
+    "id": "R3-ARC-MIN-016-level2",
+    "cardId": "EOTA-CORE-ARC-MIN-016",
+    "trigger": "selfEntered",
+    "setup": {
+      "etherBefore": 2
+    },
+    "expect": {
+      "friendlySlow": 0,
+      "keyword:swift": 0
+    }
+  },
+  {
+    "id": "R3-ARC-MIN-016-level3",
+    "cardId": "EOTA-CORE-ARC-MIN-016",
+    "trigger": "selfEntered",
+    "setup": {
+      "etherBefore": 3
+    },
+    "expect": {
+      "friendlySlow": 0,
+      "keyword:swift": 1
+    }
+  },
+  {
+    "id": "R3-ARC-FLD-001-level1",
+    "cardId": "EOTA-CORE-ARC-FLD-001",
+    "trigger": "friendlyCombat",
+    "setup": {
+      "etherBefore": 1
+    },
+    "expect": {
+      "friendlyAttack": 2,
+      "keyword:firstStrike": 0
+    }
+  },
+  {
+    "id": "R3-ARC-FLD-001-level2",
+    "cardId": "EOTA-CORE-ARC-FLD-001",
+    "trigger": "friendlyCombat",
+    "setup": {
+      "etherBefore": 2
+    },
+    "expect": {
+      "friendlyAttack": 2,
+      "keyword:firstStrike": 1
+    }
+  },
+  {
+    "id": "R3-ARC-FLD-001-off",
+    "cardId": "EOTA-CORE-ARC-FLD-001",
+    "trigger": "friendlyCombat",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "friendlyAttack": 1,
+      "keyword:firstStrike": 0
+    }
+  },
+  {
+    "id": "R3-ARC-FLD-011-level1",
+    "cardId": "EOTA-CORE-ARC-FLD-011",
+    "trigger": "turnEnd",
+    "setup": {
+      "etherBefore": 1
+    },
+    "expect": {
+      "heroHealth": 92
+    }
+  },
+  {
+    "id": "R3-ARC-FLD-011-level2",
+    "cardId": "EOTA-CORE-ARC-FLD-011",
+    "trigger": "turnEnd",
+    "setup": {
+      "etherBefore": 2
+    },
+    "expect": {
+      "heroHealth": 94
+    }
+  },
+  {
+    "id": "R3-ARC-FLD-005-level1",
+    "cardId": "EOTA-CORE-ARC-FLD-005",
+    "trigger": "turnEnd",
+    "setup": {
+      "etherBefore": 1
+    },
+    "expect": {
+      "enemyHealth": 18
+    }
+  },
+  {
+    "id": "R3-ARC-FLD-005-off",
+    "cardId": "EOTA-CORE-ARC-FLD-005",
+    "trigger": "turnEnd",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "enemyHealth": 20
+    }
+  },
+  {
+    "id": "R3-ARC-FLD-008-level1",
+    "cardId": "EOTA-CORE-ARC-FLD-008",
+    "trigger": "turnEnd",
+    "setup": {
+      "etherBefore": 1
+    },
+    "expect": {
+      "hand": 1
+    }
+  },
+  {
+    "id": "R3-ARC-FLD-008-off",
+    "cardId": "EOTA-CORE-ARC-FLD-008",
+    "trigger": "turnEnd",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "hand": 0
+    }
+  },
+  {
+    "id": "R3-ARC-SPL-004-level1",
+    "cardId": "EOTA-CORE-ARC-SPL-004",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "etherBefore": 1
+    },
+    "expect": {
+      "enemyHealth": 15
+    }
+  },
+  {
+    "id": "R3-ARC-SPL-006-level2",
+    "cardId": "EOTA-CORE-ARC-SPL-006",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "etherBefore": 2
+    },
+    "expect": {
+      "enemyHealth": 16,
+      "enemyHeroHealth": 98,
+      "ether": 2,
+      "adjacentEnemyHealth": 16
+    }
+  },
+  {
+    "id": "R3-ARC-MIN-005-no-stack",
+    "cardId": "EOTA-CORE-ARC-MIN-005",
+    "trigger": "friendlySpellCast",
+    "setup": {
+      "etherBefore": 2
+    },
+    "expect": {
+      "ether": 2,
+      "activatedLanes": 2
+    }
+  },
+  {
+    "id": "R3-GUA-FLD-004",
+    "cardId": "EOTA-CORE-GUA-FLD-004",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "friendlyAttack": 3
+    }
+  },
+  {
+    "id": "R3-ARC-FLD-010-off",
+    "cardId": "EOTA-CORE-ARC-FLD-010",
+    "trigger": "turnEnd",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "heroHealth": 90,
+      "friendlyAttack": 1,
+      "friendlyMaxHealth": 20
+    }
+  },
+  {
+    "id": "R4-NEU-MIN-012",
+    "cardId": "EOTA-CORE-NEU-MIN-012",
+    "trigger": "selfEntered",
+    "setup": {
+      "enemyEtherBefore": 2
+    },
+    "expect": {
+      "enemyEther": 1
+    }
+  },
+  {
+    "id": "R4-NEU-MIN-019",
+    "cardId": "EOTA-CORE-NEU-MIN-019",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 14
+    }
+  },
+  {
+    "id": "R4-NEU-MIN-020",
+    "cardId": "EOTA-CORE-NEU-MIN-020",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "enemyCount": 0
+    }
+  },
+  {
+    "id": "R4-GUA-MIN-024",
+    "cardId": "EOTA-CORE-GUA-MIN-024",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "friendlyPrototype": "EOTA-TOKEN-GUA-MIN-001",
+      "friendlyCount": 1,
+      "keyword:Guard": 1
+    }
+  },
+  {
+    "id": "R4-ARC-MIN-020-entry",
+    "cardId": "EOTA-CORE-ARC-MIN-020",
+    "trigger": "selfEntered",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "ether": 1,
+      "decayProtected": 1
+    }
+  },
+  {
+    "id": "R4-ARC-MIN-020-death",
+    "cardId": "EOTA-CORE-ARC-MIN-020",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1,
+      "etherBefore": 0
+    },
+    "expect": {
+      "ether": 1,
+      "decayProtected": 1
+    }
+  },
+  {
+    "id": "R4-ARC-MIN-021",
+    "cardId": "EOTA-CORE-ARC-MIN-021",
+    "trigger": "combat",
+    "setup": {
+      "etherBefore": 1
+    },
+    "expect": {
+      "selfAttack": 5
+    }
+  },
+  {
+    "id": "R4-ART-SPL-018",
+    "cardId": "EOTA-CORE-ART-SPL-018",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "friendlySlow": 3
+    },
+    "expect": {
+      "friendlySlow": 2,
+      "friendlyHealth": 12
+    }
+  },
+  {
+    "id": "R4-HUN-MIN-025",
+    "cardId": "EOTA-CORE-HUN-MIN-025",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "friendlyPrototype": "EOTA-TOKEN-HUN-MIN-001",
+      "friendlyCount": 1,
+      "keyword:Pursuit": 1
+    }
+  },
+  {
+    "id": "R4-ARC-FLD-007-entry",
+    "cardId": "EOTA-CORE-ARC-FLD-007",
+    "trigger": "selfEntered",
+    "setup": {
+      "etherBefore": 0
+    },
+    "expect": {
+      "ether": 3
+    }
+  }
+]

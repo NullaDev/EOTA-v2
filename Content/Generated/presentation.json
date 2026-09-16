@@ -1,0 +1,1612 @@
+[
+  {
+    "id": "EOTA-CORE-ARC-FLD-001",
+    "nameKey": "card.EOTA-CORE-ARC-FLD-001.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-FLD-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-FLD-001.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-FLD-001.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-FLD-002",
+    "nameKey": "card.EOTA-CORE-ARC-FLD-002.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-FLD-002.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-FLD-002.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-FLD-002.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-FLD-003",
+    "nameKey": "card.EOTA-CORE-ARC-FLD-003.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-FLD-003.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-FLD-003.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-FLD-003.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-FLD-004",
+    "nameKey": "card.EOTA-CORE-ARC-FLD-004.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-FLD-004.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-FLD-004.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-FLD-004.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-FLD-005",
+    "nameKey": "card.EOTA-CORE-ARC-FLD-005.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-FLD-005.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-FLD-005.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-FLD-005.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-FLD-006",
+    "nameKey": "card.EOTA-CORE-ARC-FLD-006.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-FLD-006.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-FLD-006.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-FLD-006.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-FLD-007",
+    "nameKey": "card.EOTA-CORE-ARC-FLD-007.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-FLD-007.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-FLD-007.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-FLD-007.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-FLD-008",
+    "nameKey": "card.EOTA-CORE-ARC-FLD-008.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-FLD-008.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-FLD-008.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-FLD-008.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-FLD-009",
+    "nameKey": "card.EOTA-CORE-ARC-FLD-009.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-FLD-009.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-FLD-009.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-FLD-009.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-FLD-010",
+    "nameKey": "card.EOTA-CORE-ARC-FLD-010.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-FLD-010.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-FLD-010.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-FLD-010.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-FLD-011",
+    "nameKey": "card.EOTA-CORE-ARC-FLD-011.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-FLD-011.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-FLD-011.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-FLD-011.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-MIN-001",
+    "nameKey": "card.EOTA-CORE-ARC-MIN-001.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-MIN-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-001.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-MIN-001.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-MIN-002",
+    "nameKey": "card.EOTA-CORE-ARC-MIN-002.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-MIN-002.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-002.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-MIN-002.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-MIN-003",
+    "nameKey": "card.EOTA-CORE-ARC-MIN-003.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-MIN-003.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-003.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-MIN-003.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-MIN-004",
+    "nameKey": "card.EOTA-CORE-ARC-MIN-004.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-MIN-004.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-004.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-MIN-004.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-MIN-005",
+    "nameKey": "card.EOTA-CORE-ARC-MIN-005.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-MIN-005.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-005.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-MIN-005.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-MIN-006",
+    "nameKey": "card.EOTA-CORE-ARC-MIN-006.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-MIN-006.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-006.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-MIN-006.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-MIN-007",
+    "nameKey": "card.EOTA-CORE-ARC-MIN-007.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-MIN-007.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-007.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-MIN-007.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-MIN-008",
+    "nameKey": "card.EOTA-CORE-ARC-MIN-008.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-MIN-008.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-008.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-MIN-008.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-MIN-009",
+    "nameKey": "card.EOTA-CORE-ARC-MIN-009.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-MIN-009.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-009.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-MIN-009.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-MIN-010",
+    "nameKey": "card.EOTA-CORE-ARC-MIN-010.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-MIN-010.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-010.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-MIN-010.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-MIN-011",
+    "nameKey": "card.EOTA-CORE-ARC-MIN-011.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-MIN-011.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-011.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-MIN-011.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-MIN-012",
+    "nameKey": "card.EOTA-CORE-ARC-MIN-012.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-MIN-012.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-012.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-MIN-012.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-MIN-013",
+    "nameKey": "card.EOTA-CORE-ARC-MIN-013.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-MIN-013.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-013.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-MIN-013.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-MIN-014",
+    "nameKey": "card.EOTA-CORE-ARC-MIN-014.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-MIN-014.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-014.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-MIN-014.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-MIN-015",
+    "nameKey": "card.EOTA-CORE-ARC-MIN-015.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-MIN-015.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-015.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-MIN-015.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-MIN-016",
+    "nameKey": "card.EOTA-CORE-ARC-MIN-016.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-MIN-016.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-016.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-MIN-016.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-MIN-017",
+    "nameKey": "card.EOTA-CORE-ARC-MIN-017.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-MIN-017.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-017.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-MIN-017.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-MIN-018",
+    "nameKey": "card.EOTA-CORE-ARC-MIN-018.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-MIN-018.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-018.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-MIN-018.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-MIN-019",
+    "nameKey": "card.EOTA-CORE-ARC-MIN-019.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-MIN-019.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-019.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-MIN-019.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-MIN-020",
+    "nameKey": "card.EOTA-CORE-ARC-MIN-020.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-MIN-020.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-020.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-MIN-020.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-MIN-021",
+    "nameKey": "card.EOTA-CORE-ARC-MIN-021.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-MIN-021.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-021.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-MIN-021.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-SPL-001",
+    "nameKey": "card.EOTA-CORE-ARC-SPL-001.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-SPL-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-001.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-SPL-001.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-SPL-002",
+    "nameKey": "card.EOTA-CORE-ARC-SPL-002.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-SPL-002.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-002.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-SPL-002.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-SPL-003",
+    "nameKey": "card.EOTA-CORE-ARC-SPL-003.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-SPL-003.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-003.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-SPL-003.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-SPL-004",
+    "nameKey": "card.EOTA-CORE-ARC-SPL-004.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-SPL-004.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-004.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-SPL-004.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-SPL-005",
+    "nameKey": "card.EOTA-CORE-ARC-SPL-005.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-SPL-005.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-005.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-SPL-005.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-SPL-006",
+    "nameKey": "card.EOTA-CORE-ARC-SPL-006.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-SPL-006.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-006.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-SPL-006.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-SPL-007",
+    "nameKey": "card.EOTA-CORE-ARC-SPL-007.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-SPL-007.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-007.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-SPL-007.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-SPL-008",
+    "nameKey": "card.EOTA-CORE-ARC-SPL-008.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-SPL-008.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-008.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-SPL-008.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-SPL-009",
+    "nameKey": "card.EOTA-CORE-ARC-SPL-009.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-SPL-009.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-009.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-SPL-009.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-SPL-010",
+    "nameKey": "card.EOTA-CORE-ARC-SPL-010.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-SPL-010.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-010.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-SPL-010.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-SPL-011",
+    "nameKey": "card.EOTA-CORE-ARC-SPL-011.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-SPL-011.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-011.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-SPL-011.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-SPL-012",
+    "nameKey": "card.EOTA-CORE-ARC-SPL-012.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-SPL-012.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-012.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-SPL-012.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-SPL-013",
+    "nameKey": "card.EOTA-CORE-ARC-SPL-013.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-SPL-013.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-013.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-SPL-013.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-SPL-014",
+    "nameKey": "card.EOTA-CORE-ARC-SPL-014.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-SPL-014.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-014.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-SPL-014.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-SPL-015",
+    "nameKey": "card.EOTA-CORE-ARC-SPL-015.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-SPL-015.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-015.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-SPL-015.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-SPL-016",
+    "nameKey": "card.EOTA-CORE-ARC-SPL-016.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-SPL-016.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-016.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-SPL-016.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-SPL-017",
+    "nameKey": "card.EOTA-CORE-ARC-SPL-017.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-SPL-017.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-017.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-SPL-017.svg"
+  },
+  {
+    "id": "EOTA-CORE-ARC-SPL-018",
+    "nameKey": "card.EOTA-CORE-ARC-SPL-018.name",
+    "descriptionKey": "card.EOTA-CORE-ARC-SPL-018.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-018.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ARC-SPL-018.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-FLD-001",
+    "nameKey": "card.EOTA-CORE-ART-FLD-001.name",
+    "descriptionKey": "card.EOTA-CORE-ART-FLD-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-FLD-001.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-FLD-001.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-FLD-002",
+    "nameKey": "card.EOTA-CORE-ART-FLD-002.name",
+    "descriptionKey": "card.EOTA-CORE-ART-FLD-002.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-FLD-002.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-FLD-002.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-FLD-003",
+    "nameKey": "card.EOTA-CORE-ART-FLD-003.name",
+    "descriptionKey": "card.EOTA-CORE-ART-FLD-003.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-FLD-003.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-FLD-003.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-FLD-004",
+    "nameKey": "card.EOTA-CORE-ART-FLD-004.name",
+    "descriptionKey": "card.EOTA-CORE-ART-FLD-004.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-FLD-004.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-FLD-004.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-FLD-005",
+    "nameKey": "card.EOTA-CORE-ART-FLD-005.name",
+    "descriptionKey": "card.EOTA-CORE-ART-FLD-005.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-FLD-005.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-FLD-005.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-FLD-006",
+    "nameKey": "card.EOTA-CORE-ART-FLD-006.name",
+    "descriptionKey": "card.EOTA-CORE-ART-FLD-006.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-FLD-006.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-FLD-006.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-FLD-007",
+    "nameKey": "card.EOTA-CORE-ART-FLD-007.name",
+    "descriptionKey": "card.EOTA-CORE-ART-FLD-007.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-FLD-007.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-FLD-007.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-001",
+    "nameKey": "card.EOTA-CORE-ART-MIN-001.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-001.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-001.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-002",
+    "nameKey": "card.EOTA-CORE-ART-MIN-002.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-002.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-002.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-002.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-003",
+    "nameKey": "card.EOTA-CORE-ART-MIN-003.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-003.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-003.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-003.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-004",
+    "nameKey": "card.EOTA-CORE-ART-MIN-004.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-004.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-004.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-004.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-005",
+    "nameKey": "card.EOTA-CORE-ART-MIN-005.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-005.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-005.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-005.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-006",
+    "nameKey": "card.EOTA-CORE-ART-MIN-006.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-006.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-006.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-006.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-007",
+    "nameKey": "card.EOTA-CORE-ART-MIN-007.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-007.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-007.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-007.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-008",
+    "nameKey": "card.EOTA-CORE-ART-MIN-008.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-008.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-008.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-008.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-009",
+    "nameKey": "card.EOTA-CORE-ART-MIN-009.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-009.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-009.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-009.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-010",
+    "nameKey": "card.EOTA-CORE-ART-MIN-010.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-010.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-010.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-010.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-011",
+    "nameKey": "card.EOTA-CORE-ART-MIN-011.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-011.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-011.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-011.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-012",
+    "nameKey": "card.EOTA-CORE-ART-MIN-012.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-012.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-012.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-012.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-013",
+    "nameKey": "card.EOTA-CORE-ART-MIN-013.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-013.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-013.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-013.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-014",
+    "nameKey": "card.EOTA-CORE-ART-MIN-014.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-014.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-014.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-014.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-015",
+    "nameKey": "card.EOTA-CORE-ART-MIN-015.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-015.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-015.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-015.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-016",
+    "nameKey": "card.EOTA-CORE-ART-MIN-016.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-016.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-016.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-016.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-017",
+    "nameKey": "card.EOTA-CORE-ART-MIN-017.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-017.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-017.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-017.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-018",
+    "nameKey": "card.EOTA-CORE-ART-MIN-018.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-018.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-018.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-018.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-019",
+    "nameKey": "card.EOTA-CORE-ART-MIN-019.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-019.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-019.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-019.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-020",
+    "nameKey": "card.EOTA-CORE-ART-MIN-020.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-020.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-020.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-020.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-021",
+    "nameKey": "card.EOTA-CORE-ART-MIN-021.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-021.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-021.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-021.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-022",
+    "nameKey": "card.EOTA-CORE-ART-MIN-022.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-022.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-022.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-022.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-023",
+    "nameKey": "card.EOTA-CORE-ART-MIN-023.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-023.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-023.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-023.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-024",
+    "nameKey": "card.EOTA-CORE-ART-MIN-024.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-024.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-024.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-024.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-MIN-025",
+    "nameKey": "card.EOTA-CORE-ART-MIN-025.name",
+    "descriptionKey": "card.EOTA-CORE-ART-MIN-025.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-025.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-MIN-025.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-SPL-001",
+    "nameKey": "card.EOTA-CORE-ART-SPL-001.name",
+    "descriptionKey": "card.EOTA-CORE-ART-SPL-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-001.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-SPL-001.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-SPL-002",
+    "nameKey": "card.EOTA-CORE-ART-SPL-002.name",
+    "descriptionKey": "card.EOTA-CORE-ART-SPL-002.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-002.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-SPL-002.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-SPL-003",
+    "nameKey": "card.EOTA-CORE-ART-SPL-003.name",
+    "descriptionKey": "card.EOTA-CORE-ART-SPL-003.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-003.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-SPL-003.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-SPL-004",
+    "nameKey": "card.EOTA-CORE-ART-SPL-004.name",
+    "descriptionKey": "card.EOTA-CORE-ART-SPL-004.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-004.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-SPL-004.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-SPL-005",
+    "nameKey": "card.EOTA-CORE-ART-SPL-005.name",
+    "descriptionKey": "card.EOTA-CORE-ART-SPL-005.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-005.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-SPL-005.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-SPL-006",
+    "nameKey": "card.EOTA-CORE-ART-SPL-006.name",
+    "descriptionKey": "card.EOTA-CORE-ART-SPL-006.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-006.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-SPL-006.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-SPL-007",
+    "nameKey": "card.EOTA-CORE-ART-SPL-007.name",
+    "descriptionKey": "card.EOTA-CORE-ART-SPL-007.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-007.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-SPL-007.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-SPL-008",
+    "nameKey": "card.EOTA-CORE-ART-SPL-008.name",
+    "descriptionKey": "card.EOTA-CORE-ART-SPL-008.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-008.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-SPL-008.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-SPL-009",
+    "nameKey": "card.EOTA-CORE-ART-SPL-009.name",
+    "descriptionKey": "card.EOTA-CORE-ART-SPL-009.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-009.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-SPL-009.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-SPL-010",
+    "nameKey": "card.EOTA-CORE-ART-SPL-010.name",
+    "descriptionKey": "card.EOTA-CORE-ART-SPL-010.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-010.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-SPL-010.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-SPL-011",
+    "nameKey": "card.EOTA-CORE-ART-SPL-011.name",
+    "descriptionKey": "card.EOTA-CORE-ART-SPL-011.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-011.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-SPL-011.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-SPL-012",
+    "nameKey": "card.EOTA-CORE-ART-SPL-012.name",
+    "descriptionKey": "card.EOTA-CORE-ART-SPL-012.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-012.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-SPL-012.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-SPL-013",
+    "nameKey": "card.EOTA-CORE-ART-SPL-013.name",
+    "descriptionKey": "card.EOTA-CORE-ART-SPL-013.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-013.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-SPL-013.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-SPL-014",
+    "nameKey": "card.EOTA-CORE-ART-SPL-014.name",
+    "descriptionKey": "card.EOTA-CORE-ART-SPL-014.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-014.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-SPL-014.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-SPL-015",
+    "nameKey": "card.EOTA-CORE-ART-SPL-015.name",
+    "descriptionKey": "card.EOTA-CORE-ART-SPL-015.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-015.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-SPL-015.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-SPL-016",
+    "nameKey": "card.EOTA-CORE-ART-SPL-016.name",
+    "descriptionKey": "card.EOTA-CORE-ART-SPL-016.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-016.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-SPL-016.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-SPL-017",
+    "nameKey": "card.EOTA-CORE-ART-SPL-017.name",
+    "descriptionKey": "card.EOTA-CORE-ART-SPL-017.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-017.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-SPL-017.svg"
+  },
+  {
+    "id": "EOTA-CORE-ART-SPL-018",
+    "nameKey": "card.EOTA-CORE-ART-SPL-018.name",
+    "descriptionKey": "card.EOTA-CORE-ART-SPL-018.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-018.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-ART-SPL-018.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-FLD-001",
+    "nameKey": "card.EOTA-CORE-GUA-FLD-001.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-FLD-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-FLD-001.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-FLD-001.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-FLD-002",
+    "nameKey": "card.EOTA-CORE-GUA-FLD-002.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-FLD-002.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-FLD-002.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-FLD-002.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-FLD-003",
+    "nameKey": "card.EOTA-CORE-GUA-FLD-003.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-FLD-003.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-FLD-003.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-FLD-003.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-FLD-004",
+    "nameKey": "card.EOTA-CORE-GUA-FLD-004.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-FLD-004.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-FLD-004.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-FLD-004.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-FLD-005",
+    "nameKey": "card.EOTA-CORE-GUA-FLD-005.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-FLD-005.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-FLD-005.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-FLD-005.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-FLD-006",
+    "nameKey": "card.EOTA-CORE-GUA-FLD-006.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-FLD-006.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-FLD-006.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-FLD-006.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-FLD-007",
+    "nameKey": "card.EOTA-CORE-GUA-FLD-007.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-FLD-007.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-FLD-007.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-FLD-007.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-001",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-001.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-001.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-001.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-002",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-002.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-002.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-002.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-002.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-003",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-003.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-003.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-003.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-003.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-004",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-004.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-004.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-004.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-004.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-005",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-005.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-005.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-005.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-005.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-006",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-006.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-006.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-006.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-006.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-007",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-007.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-007.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-007.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-007.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-008",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-008.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-008.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-008.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-008.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-009",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-009.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-009.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-009.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-009.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-010",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-010.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-010.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-010.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-010.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-011",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-011.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-011.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-011.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-011.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-012",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-012.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-012.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-012.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-012.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-013",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-013.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-013.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-013.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-013.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-014",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-014.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-014.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-014.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-014.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-015",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-015.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-015.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-015.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-015.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-016",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-016.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-016.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-016.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-016.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-017",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-017.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-017.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-017.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-017.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-018",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-018.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-018.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-018.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-018.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-019",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-019.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-019.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-019.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-019.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-020",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-020.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-020.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-020.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-020.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-021",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-021.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-021.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-021.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-021.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-022",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-022.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-022.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-022.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-022.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-023",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-023.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-023.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-023.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-023.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-024",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-024.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-024.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-024.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-024.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-MIN-025",
+    "nameKey": "card.EOTA-CORE-GUA-MIN-025.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-MIN-025.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-025.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-MIN-025.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-SPL-001",
+    "nameKey": "card.EOTA-CORE-GUA-SPL-001.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-SPL-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-001.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-SPL-001.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-SPL-002",
+    "nameKey": "card.EOTA-CORE-GUA-SPL-002.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-SPL-002.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-002.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-SPL-002.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-SPL-003",
+    "nameKey": "card.EOTA-CORE-GUA-SPL-003.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-SPL-003.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-003.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-SPL-003.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-SPL-004",
+    "nameKey": "card.EOTA-CORE-GUA-SPL-004.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-SPL-004.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-004.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-SPL-004.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-SPL-005",
+    "nameKey": "card.EOTA-CORE-GUA-SPL-005.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-SPL-005.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-005.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-SPL-005.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-SPL-006",
+    "nameKey": "card.EOTA-CORE-GUA-SPL-006.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-SPL-006.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-006.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-SPL-006.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-SPL-007",
+    "nameKey": "card.EOTA-CORE-GUA-SPL-007.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-SPL-007.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-007.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-SPL-007.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-SPL-008",
+    "nameKey": "card.EOTA-CORE-GUA-SPL-008.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-SPL-008.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-008.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-SPL-008.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-SPL-009",
+    "nameKey": "card.EOTA-CORE-GUA-SPL-009.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-SPL-009.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-009.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-SPL-009.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-SPL-010",
+    "nameKey": "card.EOTA-CORE-GUA-SPL-010.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-SPL-010.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-010.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-SPL-010.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-SPL-011",
+    "nameKey": "card.EOTA-CORE-GUA-SPL-011.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-SPL-011.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-011.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-SPL-011.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-SPL-012",
+    "nameKey": "card.EOTA-CORE-GUA-SPL-012.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-SPL-012.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-012.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-SPL-012.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-SPL-013",
+    "nameKey": "card.EOTA-CORE-GUA-SPL-013.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-SPL-013.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-013.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-SPL-013.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-SPL-014",
+    "nameKey": "card.EOTA-CORE-GUA-SPL-014.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-SPL-014.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-014.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-SPL-014.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-SPL-015",
+    "nameKey": "card.EOTA-CORE-GUA-SPL-015.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-SPL-015.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-015.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-SPL-015.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-SPL-016",
+    "nameKey": "card.EOTA-CORE-GUA-SPL-016.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-SPL-016.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-016.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-SPL-016.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-SPL-017",
+    "nameKey": "card.EOTA-CORE-GUA-SPL-017.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-SPL-017.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-017.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-SPL-017.svg"
+  },
+  {
+    "id": "EOTA-CORE-GUA-SPL-018",
+    "nameKey": "card.EOTA-CORE-GUA-SPL-018.name",
+    "descriptionKey": "card.EOTA-CORE-GUA-SPL-018.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-018.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-GUA-SPL-018.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-FLD-001",
+    "nameKey": "card.EOTA-CORE-HUN-FLD-001.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-FLD-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-FLD-001.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-FLD-001.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-FLD-002",
+    "nameKey": "card.EOTA-CORE-HUN-FLD-002.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-FLD-002.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-FLD-002.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-FLD-002.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-FLD-003",
+    "nameKey": "card.EOTA-CORE-HUN-FLD-003.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-FLD-003.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-FLD-003.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-FLD-003.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-FLD-004",
+    "nameKey": "card.EOTA-CORE-HUN-FLD-004.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-FLD-004.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-FLD-004.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-FLD-004.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-FLD-005",
+    "nameKey": "card.EOTA-CORE-HUN-FLD-005.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-FLD-005.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-FLD-005.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-FLD-005.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-FLD-006",
+    "nameKey": "card.EOTA-CORE-HUN-FLD-006.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-FLD-006.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-FLD-006.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-FLD-006.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-FLD-007",
+    "nameKey": "card.EOTA-CORE-HUN-FLD-007.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-FLD-007.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-FLD-007.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-FLD-007.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-FLD-008",
+    "nameKey": "card.EOTA-CORE-HUN-FLD-008.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-FLD-008.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-FLD-008.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-FLD-008.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-001",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-001.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-001.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-001.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-002",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-002.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-002.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-002.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-002.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-003",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-003.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-003.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-003.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-003.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-004",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-004.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-004.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-004.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-004.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-005",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-005.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-005.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-005.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-005.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-006",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-006.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-006.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-006.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-006.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-007",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-007.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-007.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-007.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-007.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-008",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-008.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-008.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-008.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-008.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-009",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-009.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-009.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-009.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-009.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-010",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-010.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-010.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-010.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-010.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-011",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-011.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-011.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-011.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-011.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-012",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-012.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-012.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-012.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-012.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-013",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-013.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-013.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-013.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-013.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-014",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-014.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-014.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-014.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-014.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-015",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-015.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-015.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-015.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-015.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-016",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-016.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-016.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-016.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-016.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-017",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-017.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-017.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-017.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-017.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-018",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-018.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-018.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-018.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-018.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-019",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-019.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-019.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-019.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-019.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-020",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-020.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-020.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-020.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-020.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-021",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-021.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-021.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-021.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-021.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-022",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-022.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-022.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-022.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-022.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-023",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-023.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-023.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-023.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-023.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-024",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-024.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-024.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-024.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-024.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-025",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-025.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-025.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-025.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-025.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-MIN-026",
+    "nameKey": "card.EOTA-CORE-HUN-MIN-026.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-MIN-026.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-026.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-MIN-026.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-SPL-001",
+    "nameKey": "card.EOTA-CORE-HUN-SPL-001.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-SPL-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-001.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-SPL-001.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-SPL-002",
+    "nameKey": "card.EOTA-CORE-HUN-SPL-002.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-SPL-002.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-002.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-SPL-002.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-SPL-003",
+    "nameKey": "card.EOTA-CORE-HUN-SPL-003.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-SPL-003.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-003.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-SPL-003.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-SPL-004",
+    "nameKey": "card.EOTA-CORE-HUN-SPL-004.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-SPL-004.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-004.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-SPL-004.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-SPL-005",
+    "nameKey": "card.EOTA-CORE-HUN-SPL-005.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-SPL-005.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-005.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-SPL-005.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-SPL-006",
+    "nameKey": "card.EOTA-CORE-HUN-SPL-006.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-SPL-006.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-006.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-SPL-006.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-SPL-007",
+    "nameKey": "card.EOTA-CORE-HUN-SPL-007.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-SPL-007.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-007.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-SPL-007.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-SPL-008",
+    "nameKey": "card.EOTA-CORE-HUN-SPL-008.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-SPL-008.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-008.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-SPL-008.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-SPL-009",
+    "nameKey": "card.EOTA-CORE-HUN-SPL-009.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-SPL-009.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-009.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-SPL-009.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-SPL-010",
+    "nameKey": "card.EOTA-CORE-HUN-SPL-010.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-SPL-010.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-010.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-SPL-010.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-SPL-011",
+    "nameKey": "card.EOTA-CORE-HUN-SPL-011.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-SPL-011.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-011.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-SPL-011.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-SPL-012",
+    "nameKey": "card.EOTA-CORE-HUN-SPL-012.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-SPL-012.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-012.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-SPL-012.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-SPL-013",
+    "nameKey": "card.EOTA-CORE-HUN-SPL-013.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-SPL-013.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-013.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-SPL-013.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-SPL-014",
+    "nameKey": "card.EOTA-CORE-HUN-SPL-014.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-SPL-014.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-014.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-SPL-014.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-SPL-015",
+    "nameKey": "card.EOTA-CORE-HUN-SPL-015.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-SPL-015.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-015.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-SPL-015.svg"
+  },
+  {
+    "id": "EOTA-CORE-HUN-SPL-016",
+    "nameKey": "card.EOTA-CORE-HUN-SPL-016.name",
+    "descriptionKey": "card.EOTA-CORE-HUN-SPL-016.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-016.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-HUN-SPL-016.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-MIN-001",
+    "nameKey": "card.EOTA-CORE-NEU-MIN-001.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-MIN-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-001.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-MIN-001.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-MIN-002",
+    "nameKey": "card.EOTA-CORE-NEU-MIN-002.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-MIN-002.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-002.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-MIN-002.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-MIN-003",
+    "nameKey": "card.EOTA-CORE-NEU-MIN-003.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-MIN-003.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-003.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-MIN-003.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-MIN-004",
+    "nameKey": "card.EOTA-CORE-NEU-MIN-004.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-MIN-004.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-004.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-MIN-004.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-MIN-005",
+    "nameKey": "card.EOTA-CORE-NEU-MIN-005.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-MIN-005.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-005.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-MIN-005.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-MIN-006",
+    "nameKey": "card.EOTA-CORE-NEU-MIN-006.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-MIN-006.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-006.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-MIN-006.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-MIN-007",
+    "nameKey": "card.EOTA-CORE-NEU-MIN-007.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-MIN-007.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-007.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-MIN-007.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-MIN-008",
+    "nameKey": "card.EOTA-CORE-NEU-MIN-008.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-MIN-008.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-008.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-MIN-008.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-MIN-009",
+    "nameKey": "card.EOTA-CORE-NEU-MIN-009.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-MIN-009.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-009.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-MIN-009.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-MIN-010",
+    "nameKey": "card.EOTA-CORE-NEU-MIN-010.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-MIN-010.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-010.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-MIN-010.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-MIN-011",
+    "nameKey": "card.EOTA-CORE-NEU-MIN-011.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-MIN-011.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-011.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-MIN-011.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-MIN-012",
+    "nameKey": "card.EOTA-CORE-NEU-MIN-012.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-MIN-012.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-012.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-MIN-012.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-MIN-013",
+    "nameKey": "card.EOTA-CORE-NEU-MIN-013.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-MIN-013.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-013.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-MIN-013.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-MIN-014",
+    "nameKey": "card.EOTA-CORE-NEU-MIN-014.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-MIN-014.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-014.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-MIN-014.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-MIN-015",
+    "nameKey": "card.EOTA-CORE-NEU-MIN-015.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-MIN-015.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-015.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-MIN-015.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-MIN-016",
+    "nameKey": "card.EOTA-CORE-NEU-MIN-016.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-MIN-016.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-016.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-MIN-016.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-MIN-017",
+    "nameKey": "card.EOTA-CORE-NEU-MIN-017.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-MIN-017.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-017.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-MIN-017.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-MIN-018",
+    "nameKey": "card.EOTA-CORE-NEU-MIN-018.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-MIN-018.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-018.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-MIN-018.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-MIN-019",
+    "nameKey": "card.EOTA-CORE-NEU-MIN-019.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-MIN-019.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-019.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-MIN-019.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-MIN-020",
+    "nameKey": "card.EOTA-CORE-NEU-MIN-020.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-MIN-020.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-020.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-MIN-020.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-SPL-001",
+    "nameKey": "card.EOTA-CORE-NEU-SPL-001.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-SPL-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-SPL-001.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-SPL-001.svg"
+  },
+  {
+    "id": "EOTA-CORE-NEU-SPL-002",
+    "nameKey": "card.EOTA-CORE-NEU-SPL-002.name",
+    "descriptionKey": "card.EOTA-CORE-NEU-SPL-002.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-SPL-002.png",
+    "emojiPreviewPath": "Art/EOTA-CORE-NEU-SPL-002.svg"
+  },
+  {
+    "id": "EOTA-TOKEN-ARC-MIN-001",
+    "nameKey": "card.EOTA-TOKEN-ARC-MIN-001.name",
+    "descriptionKey": "card.EOTA-TOKEN-ARC-MIN-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-TOKEN-ARC-MIN-001.png",
+    "emojiPreviewPath": "Art/EOTA-TOKEN-ARC-MIN-001.svg"
+  },
+  {
+    "id": "EOTA-TOKEN-ARC-SPL-001",
+    "nameKey": "card.EOTA-TOKEN-ARC-SPL-001.name",
+    "descriptionKey": "card.EOTA-TOKEN-ARC-SPL-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-TOKEN-ARC-SPL-001.png",
+    "emojiPreviewPath": "Art/EOTA-TOKEN-ARC-SPL-001.svg"
+  },
+  {
+    "id": "EOTA-TOKEN-ART-MIN-001",
+    "nameKey": "card.EOTA-TOKEN-ART-MIN-001.name",
+    "descriptionKey": "card.EOTA-TOKEN-ART-MIN-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-TOKEN-ART-MIN-001.png",
+    "emojiPreviewPath": "Art/EOTA-TOKEN-ART-MIN-001.svg"
+  },
+  {
+    "id": "EOTA-TOKEN-ART-SPL-001",
+    "nameKey": "card.EOTA-TOKEN-ART-SPL-001.name",
+    "descriptionKey": "card.EOTA-TOKEN-ART-SPL-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-TOKEN-ART-SPL-001.png",
+    "emojiPreviewPath": "Art/EOTA-TOKEN-ART-SPL-001.svg"
+  },
+  {
+    "id": "EOTA-TOKEN-GUA-MIN-001",
+    "nameKey": "card.EOTA-TOKEN-GUA-MIN-001.name",
+    "descriptionKey": "card.EOTA-TOKEN-GUA-MIN-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-TOKEN-GUA-MIN-001.png",
+    "emojiPreviewPath": "Art/EOTA-TOKEN-GUA-MIN-001.svg"
+  },
+  {
+    "id": "EOTA-TOKEN-GUA-SPL-001",
+    "nameKey": "card.EOTA-TOKEN-GUA-SPL-001.name",
+    "descriptionKey": "card.EOTA-TOKEN-GUA-SPL-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-TOKEN-GUA-SPL-001.png",
+    "emojiPreviewPath": "Art/EOTA-TOKEN-GUA-SPL-001.svg"
+  },
+  {
+    "id": "EOTA-TOKEN-HUN-MIN-001",
+    "nameKey": "card.EOTA-TOKEN-HUN-MIN-001.name",
+    "descriptionKey": "card.EOTA-TOKEN-HUN-MIN-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-TOKEN-HUN-MIN-001.png",
+    "emojiPreviewPath": "Art/EOTA-TOKEN-HUN-MIN-001.svg"
+  },
+  {
+    "id": "EOTA-TOKEN-HUN-SPL-001",
+    "nameKey": "card.EOTA-TOKEN-HUN-SPL-001.name",
+    "descriptionKey": "card.EOTA-TOKEN-HUN-SPL-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-TOKEN-HUN-SPL-001.png",
+    "emojiPreviewPath": "Art/EOTA-TOKEN-HUN-SPL-001.svg"
+  }
+]

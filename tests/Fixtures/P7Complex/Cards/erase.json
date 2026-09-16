@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "kind": "spell",
+  "id": "TEST-P7-ERASE",
+  "cost": 0,
+  "effects": [
+    {
+      "id": "cast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "return",
+            "target": {
+              "kind": "enemyMinions"
+            }
+          },
+          {
+            "kind": "banish",
+            "target": {
+              "kind": "enemyMinions"
+            }
+          },
+          {
+            "kind": "kill",
+            "target": {
+              "kind": "enemyMinions"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "lane"
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ARC-MIN-018",
+  "source": "core",
+  "profession": "arcanist",
+  "kind": "minion",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-ARC-MIN-018.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ARC-MIN-018.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-018.png",
+  "effects": [
+    {
+      "id": "selfEntered",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "modifyNumber",
+        "target": {
+          "kind": "friendlyLanes"
+        },
+        "attribute": "etherActivation",
+        "operation": "add",
+        "amount": 1
+      }
+    }
+  ],
+  "attack": 1,
+  "health": 2,
+  "keywords": [
+    "swift"
+  ]
+}

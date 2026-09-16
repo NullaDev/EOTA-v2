@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "kind": "spell",
+  "id": "MOD-DEMO-ECHO",
+  "source": "core",
+  "profession": "arcanist",
+  "cost": 2,
+  "nameLocalizationKey": "card.MOD-DEMO-ECHO.name",
+  "descriptionLocalizationKey": "card.MOD-DEMO-ECHO.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-001.png",
+  "speed": "slow",
+  "targetScope": "lane",
+  "effects": [
+    {
+      "id": "spend-ether",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "sequence",
+        "steps": [
+          {
+            "kind": "clearEther",
+            "target": {
+              "kind": "friendlyLanes"
+            }
+          },
+          {
+            "kind": "loop",
+            "count": "previous.scalar",
+            "body": {
+              "kind": "damage",
+              "target": {
+                "kind": "enemyMinions"
+              },
+              "amount": 1
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ARC-MIN-003",
+  "source": "core",
+  "profession": "arcanist",
+  "kind": "minion",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-ARC-MIN-003.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ARC-MIN-003.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-003.png",
+  "effects": [
+    {
+      "id": "turnEnd",
+      "trigger": {
+        "kind": "turnEnd"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "self"
+            },
+            "attribute": "attack",
+            "amount": 1,
+            "operation": "add"
+          },
+          {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "self"
+            },
+            "attribute": "maximumHealth",
+            "amount": 1,
+            "operation": "add"
+          }
+        ]
+      },
+      "condition": {
+        "kind": "compare",
+        "left": "lane.ether",
+        "operator": "greaterOrEqual",
+        "right": 1
+      }
+    }
+  ],
+  "attack": 2,
+  "health": 4
+}

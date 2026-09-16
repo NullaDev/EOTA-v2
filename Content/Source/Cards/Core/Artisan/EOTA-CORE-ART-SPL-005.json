@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-SPL-005",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "spell",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-SPL-005.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-SPL-005.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-005.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "ifElse",
+        "condition": {
+          "kind": "exists",
+          "target": {
+            "kind": "friendlyMinions",
+            "filter": {
+              "tag": "mechanical"
+            }
+          }
+        },
+        "then": {
+          "kind": "sequence",
+          "steps": [
+            {
+              "kind": "kill",
+              "target": {
+                "kind": "friendlyMinions",
+                "filter": {
+                  "tag": "mechanical"
+                }
+              }
+            },
+            {
+              "kind": "draw",
+              "target": {
+                "kind": "friendlyHero"
+              },
+              "count": 2
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "lane"
+}

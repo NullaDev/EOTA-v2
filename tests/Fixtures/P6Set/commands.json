@@ -1,0 +1,54 @@
+[
+  {
+    "kind": "planCard",
+    "playerId": 0,
+    "expectedPlayerRevision": 0,
+    "cardInstanceId": 1,
+    "laneId": 0
+  },
+  {
+    "kind": "planCard",
+    "playerId": 0,
+    "expectedPlayerRevision": 1,
+    "cardInstanceId": 2,
+    "laneId": 1
+  },
+  {
+    "kind": "planCard",
+    "playerId": 0,
+    "expectedPlayerRevision": 2,
+    "cardInstanceId": 3,
+    "laneId": 2
+  },
+  {
+    "kind": "planCard",
+    "playerId": 1,
+    "expectedPlayerRevision": 0,
+    "cardInstanceId": 4,
+    "laneId": 0
+  },
+  {
+    "kind": "planCard",
+    "playerId": 1,
+    "expectedPlayerRevision": 1,
+    "cardInstanceId": 5,
+    "laneId": 1
+  },
+  {
+    "kind": "planCard",
+    "playerId": 1,
+    "expectedPlayerRevision": 2,
+    "cardInstanceId": 6,
+    "laneId": 2
+  },
+  {
+    "kind": "submitTurn",
+    "playerId": 0,
+    "expectedPlayerRevision": 3
+  },
+  {
+    "kind": "submitTurn",
+    "playerId": 1,
+    "expectedPlayerRevision": 3
+  }
+]

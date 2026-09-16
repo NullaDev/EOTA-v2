@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "kind": "minion",
+  "id": "TEST-P7-A-ROBOT",
+  "cost": 0,
+  "effects": [],
+  "attack": 0,
+  "health": 6,
+  "tags": [
+    "mechanical"
+  ],
+  "keywords": [
+    "guard"
+  ]
+}

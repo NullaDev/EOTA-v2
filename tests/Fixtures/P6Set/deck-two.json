@@ -1,0 +1,17 @@
+{
+  "profession": "neutral",
+  "cards": [
+    {
+      "id": "TEST-P6-SET-ENEMY",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P6-SET-ONE",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P6-SET-TWO",
+      "copies": 1
+    }
+  ]
+}

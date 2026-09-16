@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-MIN-004",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "minion",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-MIN-004.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-MIN-004.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-004.png",
+  "effects": [],
+  "attack": 2,
+  "health": 3,
+  "keywords": [
+    "execute",
+    {
+      "kind": "slow",
+      "turns": 1
+    }
+  ],
+  "tags": [
+    "beast"
+  ]
+}

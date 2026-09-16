@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "kind": "minion",
+  "id": "MOD-DEMO-SENTINEL",
+  "source": "core",
+  "profession": "guardian",
+  "cost": 3,
+  "attack": 2,
+  "health": 3,
+  "keywords": [
+    "guard"
+  ],
+  "tags": [
+    "soldier"
+  ],
+  "nameLocalizationKey": "card.MOD-DEMO-SENTINEL.name",
+  "descriptionLocalizationKey": "card.MOD-DEMO-SENTINEL.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-001.png",
+  "effects": [
+    {
+      "id": "entry-hit",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "damage",
+        "target": {
+          "kind": "enemyHero"
+        },
+        "amount": 1
+      }
+    }
+  ]
+}

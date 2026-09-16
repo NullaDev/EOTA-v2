@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-MIN-011",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "minion",
+  "cost": 5,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-MIN-011.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-MIN-011.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-011.png",
+  "effects": [
+    {
+      "id": "combatDamage",
+      "trigger": {
+        "kind": "combatDamage"
+      },
+      "body": {
+        "kind": "damage",
+        "target": {
+          "kind": "enemyHero"
+        },
+        "amount": "event.amount"
+      }
+    }
+  ],
+  "attack": 6,
+  "health": 2,
+  "keywords": [
+    {
+      "kind": "slow",
+      "turns": 1
+    }
+  ],
+  "tags": [
+    "firearm"
+  ]
+}

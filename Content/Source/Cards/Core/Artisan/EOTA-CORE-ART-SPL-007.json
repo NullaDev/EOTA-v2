@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-SPL-007",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "spell",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-SPL-007.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-SPL-007.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-007.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "modifyNumber",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "attribute": "nextTurnCost",
+        "amount": 2,
+        "operation": "add"
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "global"
+}

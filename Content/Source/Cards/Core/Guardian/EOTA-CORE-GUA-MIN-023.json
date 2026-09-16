@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-MIN-023",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "minion",
+  "cost": 5,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-MIN-023.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-MIN-023.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-023.png",
+  "effects": [
+    {
+      "id": "selfEntered",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "heal",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "amount": 4
+      }
+    }
+  ],
+  "attack": 2,
+  "health": 6
+}

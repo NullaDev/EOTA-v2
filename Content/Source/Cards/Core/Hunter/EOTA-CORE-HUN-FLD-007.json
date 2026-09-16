@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-FLD-007",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "field",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-FLD-007.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-FLD-007.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-FLD-007.png",
+  "effects": [
+    {
+      "id": "turnEnd",
+      "trigger": {
+        "kind": "turnEnd"
+      },
+      "body": {
+        "kind": "loseHealth",
+        "target": {
+          "kind": "enemyMinions"
+        },
+        "amount": 1
+      }
+    }
+  ],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 3
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ARC-SPL-014",
+  "source": "core",
+  "profession": "arcanist",
+  "kind": "spell",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-ARC-SPL-014.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ARC-SPL-014.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-014.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "sequence",
+        "steps": [
+          {
+            "kind": "damage",
+            "target": {
+              "kind": "friendlyHero"
+            },
+            "amount": 3
+          },
+          {
+            "kind": "draw",
+            "target": {
+              "kind": "friendlyHero"
+            },
+            "count": 2
+          }
+        ]
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "global"
+}

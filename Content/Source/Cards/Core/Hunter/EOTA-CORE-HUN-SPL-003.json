@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-SPL-003",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "spell",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-SPL-003.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-SPL-003.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-003.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "ifElse",
+        "condition": {
+          "kind": "exists",
+          "target": {
+            "kind": "friendlyMinions"
+          }
+        },
+        "then": {
+          "kind": "parallel",
+          "children": [
+            {
+              "kind": "addKeyword",
+              "target": {
+                "kind": "friendlyMinions"
+              },
+              "keyword": "pursuit"
+            },
+            {
+              "kind": "modifyNumber",
+              "target": {
+                "kind": "friendlyMinions"
+              },
+              "attribute": "attack",
+              "amount": 1,
+              "operation": "add"
+            }
+          ]
+        },
+        "else": {
+          "kind": "sequence",
+          "steps": [
+            {
+              "kind": "summon",
+              "target": {
+                "kind": "friendlyLanes"
+              },
+              "prototype": "EOTA-TOKEN-HUN-MIN-001",
+              "slot": "minion"
+            },
+            {
+              "kind": "addKeyword",
+              "target": {
+                "kind": "previousCreated",
+                "targetType": "minion"
+              },
+              "keyword": "swift"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "speed": "fast",
+  "targetScope": "lane"
+}

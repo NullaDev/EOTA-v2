@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-MIN-019",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "minion",
+  "cost": 5,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-MIN-019.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-MIN-019.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-019.png",
+  "effects": [
+    {
+      "id": "selfEntered",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "friendlyMinions",
+              "scope": "all",
+              "filter": {
+                "tag": "firearm"
+              }
+            },
+            "attribute": "attack",
+            "operation": "add",
+            "amount": 1,
+            "duration": 1
+          },
+          {
+            "kind": "removeKeyword",
+            "target": {
+              "kind": "friendlyMinions",
+              "scope": "all",
+              "filter": {
+                "tag": "firearm"
+              }
+            },
+            "keyword": "guard",
+            "duration": 1
+          }
+        ]
+      }
+    }
+  ],
+  "attack": 3,
+  "health": 5
+}

@@ -1,0 +1,38 @@
+{
+  "ether": {
+    "Emoji": "\uD83C\uDF0A",
+    "Top": "#ffffff",
+    "Bottom": "#ffffff",
+    "Style": "icon"
+  },
+  "fast-spell": {
+    "Emoji": "\u26A1",
+    "Top": "#ffffff",
+    "Bottom": "#ffffff",
+    "Style": "icon"
+  },
+  "frozen": {
+    "Emoji": "\u2744\uFE0F",
+    "Top": "#ffffff",
+    "Bottom": "#ffffff",
+    "Style": "icon"
+  },
+  "locked": {
+    "Emoji": "\uD83D\uDD12",
+    "Top": "#ffffff",
+    "Bottom": "#ffffff",
+    "Style": "icon"
+  },
+  "slow-minion": {
+    "Emoji": "\uD83D\uDC0C",
+    "Top": "#ffffff",
+    "Bottom": "#ffffff",
+    "Style": "icon"
+  },
+  "slow-spell": {
+    "Emoji": "\u23F3",
+    "Top": "#ffffff",
+    "Bottom": "#ffffff",
+    "Style": "icon"
+  }
+}

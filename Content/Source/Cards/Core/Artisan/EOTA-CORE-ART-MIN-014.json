@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-MIN-014",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "minion",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-MIN-014.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-MIN-014.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-014.png",
+  "effects": [
+    {
+      "id": "selfDied",
+      "trigger": {
+        "kind": "selfDied"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "damage",
+            "target": {
+              "kind": "enemyMinions"
+            },
+            "amount": 2
+          },
+          {
+            "kind": "damage",
+            "target": {
+              "kind": "friendlyHero"
+            },
+            "amount": 2
+          },
+          {
+            "kind": "damage",
+            "target": {
+              "kind": "enemyHero"
+            },
+            "amount": 2
+          }
+        ]
+      }
+    }
+  ],
+  "attack": 2,
+  "health": 4,
+  "tags": [
+    "mechanical"
+  ]
+}

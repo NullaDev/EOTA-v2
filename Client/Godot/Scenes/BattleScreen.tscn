@@ -1,0 +1,253 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Theme" path="res://Client/Godot/GameTheme.tres" id="theme"]
+[ext_resource type="Script" path="res://Client/Godot/LaneDrop.cs" id="drop"]
+[ext_resource type="PackedScene" path="res://Client/Godot/Scenes/HeroPanel.tscn" id="hero"]
+
+[ext_resource type="PackedScene" path="res://Client/Godot/Scenes/SpellPlans.tscn" id="spells"]
+
+[ext_resource type="PackedScene" path="res://Client/Godot/Scenes/BattleAnimations.tscn" id="animations"]
+
+[node name="BattleScreen" type="Control"]
+layout_mode = 3
+custom_minimum_size = Vector2(1600, 1000)
+size_flags_vertical = 3
+theme = ExtResource("theme")
+
+
+[node name="Toolbar" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 14.0
+offset_right = 1576.0
+offset_bottom = 58.0
+theme_override_constants/separation = 8
+
+[node name="Back" type="Button" parent="Toolbar"]
+layout_mode = 2
+text = "返回大厅"
+
+[node name="MatchInfo" type="Label" parent="Toolbar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "第 1 回合 · 规划"
+
+[node name="SwitchSeat" type="Button" parent="Toolbar"]
+layout_mode = 2
+text = "切换席位"
+
+[node name="SaveReplay" type="Button" parent="Toolbar"]
+layout_mode = 2
+text = "保存回放"
+
+[node name="Restart" type="Button" parent="Toolbar"]
+layout_mode = 2
+text = "重新开始"
+
+[node name="Resync" type="Button" parent="Toolbar"]
+layout_mode = 2
+text = "重新同步"
+
+[node name="SaveDiagnostics" type="Button" parent="Toolbar"]
+layout_mode = 2
+text = "导出诊断"
+
+[node name="Pause" type="Button" parent="Toolbar"]
+layout_mode = 2
+text = "暂停动画"
+
+[node name="Speed" type="OptionButton" parent="Toolbar"]
+layout_mode = 2
+
+[node name="Skip" type="Button" parent="Toolbar"]
+layout_mode = 2
+text = "跳过动画"
+
+[node name="Opponent" parent="." instance=ExtResource("hero")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 92.0
+offset_right = 224.0
+offset_bottom = 250.0
+
+[node name="Player" parent="." instance=ExtResource("hero")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 468.0
+offset_right = 224.0
+offset_bottom = 626.0
+
+[node name="Versus" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 296.0
+offset_right = 224.0
+offset_bottom = 366.0
+text = "VS"
+theme_override_font_sizes/font_size = 38
+mouse_filter = 2
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.4353, 0.4627, 0.3686, 1)
+
+[node name="AiStatus" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 252.0
+offset_right = 224.0
+offset_bottom = 306.0
+text = "普通 AI\n正在准备…"
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.7843, 0.6706, 0.4196, 1)
+horizontal_alignment = 1
+mouse_filter = 2
+
+[node name="MatchClock" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 24.0
+offset_top = 252.0
+offset_right = 224.0
+offset_bottom = 306.0
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+mouse_filter = 2
+
+[node name="Cost" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 380.0
+offset_right = 224.0
+offset_bottom = 444.0
+text = "可用费用\n1 / 1"
+theme_override_font_sizes/font_size = 20
+mouse_filter = 2
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.7098, 0.8627, 0.8824, 1)
+
+[node name="BoardScroll" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 80.0
+offset_right = 1360.0
+offset_bottom = 634.0
+vertical_scroll_mode = 0
+
+[node name="Lanes" type="HBoxContainer" parent="BoardScroll"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 12
+
+[node name="DetailPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1380.0
+offset_top = 80.0
+offset_right = 1576.0
+offset_bottom = 634.0
+theme_type_variation = &"Panel"
+mouse_filter = 2
+
+[node name="Column" type="VBoxContainer" parent="DetailPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 14.0
+offset_right = 186.0
+offset_bottom = 540.0
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="DetailPanel/Column"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 176.0
+offset_bottom = 32.0
+text = "卡牌详情"
+theme_override_font_sizes/font_size = 20
+mouse_filter = 2
+
+
+[node name="Detail" type="VBoxContainer" parent="DetailPanel/Column"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="Hint" type="Label" parent="DetailPanel/Column/Detail"]
+layout_mode = 2
+autowrap_mode = 3
+text = "移到卡牌上，查看详情。"
+theme_type_variation = &"MutedLabel"
+
+[node name="ReplaySlider" type="HSlider" parent="DetailPanel/Column"]
+layout_mode = 2
+visible = false
+custom_minimum_size = Vector2(0, 32)
+step = 1.0
+
+[node name="Controls" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 650.0
+offset_right = 1576.0
+offset_bottom = 698.0
+theme_override_constants/separation = 14
+
+[node name="Submit" type="Button" parent="Controls"]
+layout_mode = 2
+custom_minimum_size = Vector2(240, 48)
+theme_type_variation = &"PrimaryButton"
+text = "确认换牌（0 张）"
+
+[node name="GlobalDrop" type="PanelContainer" parent="Controls"]
+layout_mode = 2
+custom_minimum_size = Vector2(288, 48)
+script = ExtResource("drop")
+theme_type_variation = &"LanePanel"
+
+[node name="PlansScroll" type="ScrollContainer" parent="Controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+vertical_scroll_mode = 0
+
+[node name="Plans" type="HBoxContainer" parent="Controls/PlansScroll"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HandScroll" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 712.0
+offset_right = 1576.0
+offset_bottom = 978.0
+vertical_scroll_mode = 0
+
+[node name="Hand" type="HBoxContainer" parent="HandScroll"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 12
+
+[node name="Status" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 980.0
+offset_right = 1576.0
+offset_bottom = 1000.0
+text = "选择卡牌后点击路线，或拖入高亮区域。"
+theme_override_font_sizes/font_size = 13
+mouse_filter = 2
+theme_type_variation = &"MutedLabel"
+
+[node name="Content" type="HBoxContainer" parent="Controls/GlobalDrop"]
+layout_mode = 2
+alignment = 1
+mouse_filter = 1
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Controls/GlobalDrop/Content"]
+layout_mode = 2
+text = "全局法术"
+mouse_filter = 2
+
+[node name="SpellPlans" parent="Controls/GlobalDrop/Content" instance=ExtResource("spells")]
+layout_mode = 2
+
+[node name="Animations" parent="." instance=ExtResource("animations")]
+layout_mode = 1

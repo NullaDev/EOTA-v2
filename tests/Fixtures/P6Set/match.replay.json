@@ -1,0 +1,441 @@
+{
+  "formatVersion": 2,
+  "initial": {
+    "formatVersion": 1,
+    "protocolId": "eota.test.p6-set",
+    "protocolVersion": 0,
+    "protocolHash": "05f49abff670eae900ddcff1f9d33ef69a7ab370ca24b4ade9af00c10ea6f149",
+    "contentSchemaVersion": "eota.card/v2",
+    "ruleContentHash": "89fd80717225c287a77d5802bfcb33b14a5e5d5428be946bdc684eea2bfa3983",
+    "matchSeed": 123456789,
+    "playerOneDeck": {
+      "profession": "neutral",
+      "cards": [
+        {
+          "id": "TEST-P6-SET-ENEMY",
+          "copies": 1
+        },
+        {
+          "id": "TEST-P6-SET-ONE",
+          "copies": 1
+        },
+        {
+          "id": "TEST-P6-SET-TWO",
+          "copies": 1
+        }
+      ]
+    },
+    "playerTwoDeck": {
+      "profession": "neutral",
+      "cards": [
+        {
+          "id": "TEST-P6-SET-ENEMY",
+          "copies": 1
+        },
+        {
+          "id": "TEST-P6-SET-ONE",
+          "copies": 1
+        },
+        {
+          "id": "TEST-P6-SET-TWO",
+          "copies": 1
+        }
+      ]
+    },
+    "expectedInitialStateHash": "4469ace9fe51f48bc91dbb3c92096e8ffff0591846bfa122fdbe00386f47c5db",
+    "expectedRngSampleCount": 4
+  },
+  "commands": [
+    {
+      "kind": "planCard",
+      "playerId": 0,
+      "expectedPlayerRevision": 0,
+      "cardInstanceId": 1,
+      "laneId": 0,
+      "planOrdinal": null,
+      "replacedCards": null,
+      "expectedTurn": null,
+      "expectedStage": null
+    },
+    {
+      "kind": "planCard",
+      "playerId": 0,
+      "expectedPlayerRevision": 1,
+      "cardInstanceId": 2,
+      "laneId": 1,
+      "planOrdinal": null,
+      "replacedCards": null,
+      "expectedTurn": null,
+      "expectedStage": null
+    },
+    {
+      "kind": "planCard",
+      "playerId": 0,
+      "expectedPlayerRevision": 2,
+      "cardInstanceId": 3,
+      "laneId": 2,
+      "planOrdinal": null,
+      "replacedCards": null,
+      "expectedTurn": null,
+      "expectedStage": null
+    },
+    {
+      "kind": "planCard",
+      "playerId": 1,
+      "expectedPlayerRevision": 0,
+      "cardInstanceId": 4,
+      "laneId": 0,
+      "planOrdinal": null,
+      "replacedCards": null,
+      "expectedTurn": null,
+      "expectedStage": null
+    },
+    {
+      "kind": "planCard",
+      "playerId": 1,
+      "expectedPlayerRevision": 1,
+      "cardInstanceId": 5,
+      "laneId": 1,
+      "planOrdinal": null,
+      "replacedCards": null,
+      "expectedTurn": null,
+      "expectedStage": null
+    },
+    {
+      "kind": "planCard",
+      "playerId": 1,
+      "expectedPlayerRevision": 2,
+      "cardInstanceId": 6,
+      "laneId": 2,
+      "planOrdinal": null,
+      "replacedCards": null,
+      "expectedTurn": null,
+      "expectedStage": null
+    },
+    {
+      "kind": "submitTurn",
+      "playerId": 0,
+      "expectedPlayerRevision": 3,
+      "cardInstanceId": null,
+      "laneId": null,
+      "planOrdinal": null,
+      "replacedCards": null,
+      "expectedTurn": null,
+      "expectedStage": null
+    },
+    {
+      "kind": "submitTurn",
+      "playerId": 1,
+      "expectedPlayerRevision": 3,
+      "cardInstanceId": null,
+      "laneId": null,
+      "planOrdinal": null,
+      "replacedCards": null,
+      "expectedTurn": null,
+      "expectedStage": null
+    }
+  ],
+  "expectedFrames": [
+    {
+      "frameId": 1,
+      "turn": 1,
+      "stage": "deployment",
+      "beforeStateHash": "eadc13828869e104b2156b53cacabbc42475bf3dee9164646578a5fc6e611ad9",
+      "afterStateHash": "36e6e3ac9aa27a4481501a0093b9bbb69e12200976c82e353c64a9f0345dbbf2",
+      "receiptHash": "2ca70475e7146ff20ff2b2d643b84b7ec7206a07d7a7425266a2066e0eb9dd5f",
+      "eventHash": "dfef283806757390edde1bead9854cab3c00b2b5cd747b7241b8536bc4052fa4",
+      "rngSampleCount": 4,
+      "movementRandomChoices": [],
+      "numericSetChoices": [],
+      "conflictRandomChoices": []
+    },
+    {
+      "frameId": 2,
+      "turn": 1,
+      "stage": "deployment",
+      "beforeStateHash": "36e6e3ac9aa27a4481501a0093b9bbb69e12200976c82e353c64a9f0345dbbf2",
+      "afterStateHash": "bb600f66b00cc94d5dddc5a5d6cb7235ac94895ae6c5363233678570d6424d9a",
+      "receiptHash": "7930ed882cf92229a90ee178e311be85c876393f19039df6aed161901bb5410f",
+      "eventHash": "cd6446954ece9487911d628dca2c30a9db191a7bd57c02d2b3a87f3d38b9fd6e",
+      "rngSampleCount": 4,
+      "movementRandomChoices": [],
+      "numericSetChoices": [],
+      "conflictRandomChoices": []
+    },
+    {
+      "frameId": 3,
+      "turn": 1,
+      "stage": "entryEffects",
+      "beforeStateHash": "bb600f66b00cc94d5dddc5a5d6cb7235ac94895ae6c5363233678570d6424d9a",
+      "afterStateHash": "d26a791f717f69f79a468559ab7c69363faf30e7602db5f8669d3c4718c71b3d",
+      "receiptHash": "986ecb0275fc61d1a51efc6ef3bba5d2f8e22f870a544517fac30e01b2eebd2e",
+      "eventHash": "eea7ae264972b0917bfab3cb37381f0705e37338a4514a180dd8b834a88e9cc1",
+      "rngSampleCount": 4,
+      "movementRandomChoices": [],
+      "numericSetChoices": [],
+      "conflictRandomChoices": []
+    },
+    {
+      "frameId": 4,
+      "turn": 1,
+      "stage": "entryEffects",
+      "beforeStateHash": "d26a791f717f69f79a468559ab7c69363faf30e7602db5f8669d3c4718c71b3d",
+      "afterStateHash": "7be96fd587c781d90620e7392ad7c2dd91a3c22497021dd6472483b93c5f2256",
+      "receiptHash": "dbd4f5a1c112dce632ab2ad514dd1328277fc583c93b0441a5d69629eaef3d36",
+      "eventHash": "19bdde7f8fea8438d38a50338597cd56bcdd0cd5e813f2a94c4e3abd7aed1598",
+      "rngSampleCount": 6,
+      "movementRandomChoices": [],
+      "numericSetChoices": [
+        {
+          "conflictKind": "heroHealth",
+          "targetId": 0,
+          "attribute": "maximumHealth",
+          "candidates": [
+            11,
+            13
+          ],
+          "selectedIntentId": 13,
+          "sampleCountBefore": 4,
+          "samplesConsumed": 1
+        },
+        {
+          "conflictKind": "heroHealth",
+          "targetId": 1,
+          "attribute": "maximumHealth",
+          "candidates": [
+            12,
+            14
+          ],
+          "selectedIntentId": 14,
+          "sampleCountBefore": 5,
+          "samplesConsumed": 1
+        }
+      ],
+      "conflictRandomChoices": []
+    },
+    {
+      "frameId": 5,
+      "turn": 1,
+      "stage": "fastSpells",
+      "beforeStateHash": "7be96fd587c781d90620e7392ad7c2dd91a3c22497021dd6472483b93c5f2256",
+      "afterStateHash": "cc6b9f3db08eb43a5f26c31294c692fb2257555b3095020fdfc5170978b04798",
+      "receiptHash": "9433e9d61de3cf0842222993494738f79db66ecedc332df4e0d12dc5a8cb8eb1",
+      "eventHash": "a572ea1e41f4ca4349a353122142accd23dc5fe66cc962901b38357b1fe53b6a",
+      "rngSampleCount": 6,
+      "movementRandomChoices": [],
+      "numericSetChoices": [],
+      "conflictRandomChoices": []
+    },
+    {
+      "frameId": 6,
+      "turn": 1,
+      "stage": "fastSpells",
+      "beforeStateHash": "cc6b9f3db08eb43a5f26c31294c692fb2257555b3095020fdfc5170978b04798",
+      "afterStateHash": "6b94bbcfe5a851042822914ae222405a16276789653dcf415c0ded7db7232967",
+      "receiptHash": "c9e34ee687af01b601678a386d5880b8702326efaac58b45a58c409f4881ad32",
+      "eventHash": "a154c7ea400dd1be3f26d576c49523822b756453c8f84bf25b4d1697f02cf88f",
+      "rngSampleCount": 6,
+      "movementRandomChoices": [],
+      "numericSetChoices": [],
+      "conflictRandomChoices": []
+    },
+    {
+      "frameId": 7,
+      "turn": 1,
+      "stage": "movement",
+      "beforeStateHash": "6b94bbcfe5a851042822914ae222405a16276789653dcf415c0ded7db7232967",
+      "afterStateHash": "5934e9cdfecdca2efee0421c4232bca81159f42b352563f0611c347b22377a57",
+      "receiptHash": "5ee1fcc47f4605b40e21d6930e3b461fca912b503f460ff2a259fefaea40f798",
+      "eventHash": "f988d448ad917585c262a96d7eae089428943bc7a4013f5de172400643d873b9",
+      "rngSampleCount": 6,
+      "movementRandomChoices": [],
+      "numericSetChoices": [],
+      "conflictRandomChoices": []
+    },
+    {
+      "frameId": 8,
+      "turn": 1,
+      "stage": "movement",
+      "beforeStateHash": "5934e9cdfecdca2efee0421c4232bca81159f42b352563f0611c347b22377a57",
+      "afterStateHash": "d1dfc853a137994fb8e1dbabbc91e1442e26da5eb8a7cf4781e4064365a1148b",
+      "receiptHash": "fee0b656e232e796203fa16ab7808d5df57cf62d2c44b15921b097f7609b6dac",
+      "eventHash": "ed84ce11d7b3cf6a5463c687e3e2a912683e60d3b1714aab38c9b32facef0389",
+      "rngSampleCount": 6,
+      "movementRandomChoices": [],
+      "numericSetChoices": [],
+      "conflictRandomChoices": []
+    },
+    {
+      "frameId": 9,
+      "turn": 1,
+      "stage": "preCombatCharge",
+      "beforeStateHash": "d1dfc853a137994fb8e1dbabbc91e1442e26da5eb8a7cf4781e4064365a1148b",
+      "afterStateHash": "ce434025671468fec2a18de9f8168310b6a78c1450a4378fdf0486e2c0bfb3e4",
+      "receiptHash": "5162a0b6d1502a15f40891964afa8a15d4f3121280db74c7a603491125771604",
+      "eventHash": "1f3134acd392e0fe8354d9b55b8f7d9783913d45e3bb30e1da5e4e33bcb230d4",
+      "rngSampleCount": 6,
+      "movementRandomChoices": [],
+      "numericSetChoices": [],
+      "conflictRandomChoices": []
+    },
+    {
+      "frameId": 10,
+      "turn": 1,
+      "stage": "combat",
+      "beforeStateHash": "ce434025671468fec2a18de9f8168310b6a78c1450a4378fdf0486e2c0bfb3e4",
+      "afterStateHash": "7cc3019088188a8c8d46ed04e91647dd52ae7d51cf810baddbb2ac98c9b1ad30",
+      "receiptHash": "e0060315ede066d584d333da373099e0449a49ce726c1657760686da591519e1",
+      "eventHash": "a8292300778ae29db3d1516418f8a0c33e49f58fec8bebc55ab6f2ad26dfb0c5",
+      "rngSampleCount": 6,
+      "movementRandomChoices": [],
+      "numericSetChoices": [],
+      "conflictRandomChoices": []
+    },
+    {
+      "frameId": 11,
+      "turn": 1,
+      "stage": "combat",
+      "beforeStateHash": "7cc3019088188a8c8d46ed04e91647dd52ae7d51cf810baddbb2ac98c9b1ad30",
+      "afterStateHash": "3fbf77f5bf59318fade8d0a112f8d0f2ba69a0973ed45b0752864cb11e05b730",
+      "receiptHash": "3899720c71f86ec34a7b24e1a99641af8b8e1f72abb728a3be45dcc869da2813",
+      "eventHash": "74f7509c1932b488057795594d16c2804277894036e723400c847c6ec8ef41fa",
+      "rngSampleCount": 6,
+      "movementRandomChoices": [],
+      "numericSetChoices": [],
+      "conflictRandomChoices": []
+    },
+    {
+      "frameId": 12,
+      "turn": 1,
+      "stage": "combat",
+      "beforeStateHash": "3fbf77f5bf59318fade8d0a112f8d0f2ba69a0973ed45b0752864cb11e05b730",
+      "afterStateHash": "ee47fe8ff32e62cff3895aad725d726a47e39dd957ae769ca55de7bceb9bc3ac",
+      "receiptHash": "87401497918aab5516aacfe14fa1b16323f2bec55f3a5b6bef9ad9352371a2ac",
+      "eventHash": "22eef27eca4aded068e1c739f9bd0c708a4b1f200fa49b3870df0e00ebd83122",
+      "rngSampleCount": 6,
+      "movementRandomChoices": [],
+      "numericSetChoices": [],
+      "conflictRandomChoices": []
+    },
+    {
+      "frameId": 13,
+      "turn": 1,
+      "stage": "combat",
+      "beforeStateHash": "ee47fe8ff32e62cff3895aad725d726a47e39dd957ae769ca55de7bceb9bc3ac",
+      "afterStateHash": "cf0588092ff31e07620f30afce88411f1c4b94f1b7f039812db5146925cffe62",
+      "receiptHash": "6514bfdd76a008c88c0b4ebe0f8419cf6878213e012df7cf143a8ca7fc97ea45",
+      "eventHash": "29574826e171699e685c3652f18756aa629fc09af442949bc39eea77d5e51f4b",
+      "rngSampleCount": 6,
+      "movementRandomChoices": [],
+      "numericSetChoices": [],
+      "conflictRandomChoices": []
+    },
+    {
+      "frameId": 14,
+      "turn": 1,
+      "stage": "combat",
+      "beforeStateHash": "cf0588092ff31e07620f30afce88411f1c4b94f1b7f039812db5146925cffe62",
+      "afterStateHash": "2bb21191dcc2fb5400a46d26852aa5aa767752a8220c59223a8f20f360e0172b",
+      "receiptHash": "a7b1c74680f42876cbc4018fb3fd3cc8f7f3dff73f3a5072a90e7eec50476aab",
+      "eventHash": "a14c677a5ad632921350ed8d1e3e1a7a1b64c22a45852fabad63e09e6b7a1f28",
+      "rngSampleCount": 6,
+      "movementRandomChoices": [],
+      "numericSetChoices": [],
+      "conflictRandomChoices": []
+    },
+    {
+      "frameId": 15,
+      "turn": 1,
+      "stage": "combat",
+      "beforeStateHash": "2bb21191dcc2fb5400a46d26852aa5aa767752a8220c59223a8f20f360e0172b",
+      "afterStateHash": "85708ce82fb6d00cb618f26f5ff6e9c4791361aa24183e449d5f3e4bb7d410e4",
+      "receiptHash": "77b357d18dbd8706c388c3db3e57800f8739aa7b2816d007a5a5d63da05f2abf",
+      "eventHash": "389d9bbfe22895d1db88093bfea14943f08df4a6ffbf5e2b69470f1a2f1b46be",
+      "rngSampleCount": 6,
+      "movementRandomChoices": [],
+      "numericSetChoices": [],
+      "conflictRandomChoices": []
+    },
+    {
+      "frameId": 16,
+      "turn": 1,
+      "stage": "slowSpells",
+      "beforeStateHash": "85708ce82fb6d00cb618f26f5ff6e9c4791361aa24183e449d5f3e4bb7d410e4",
+      "afterStateHash": "a8a18cf55ceb54ac27182aa420d1c9e7bdb8eb49eaacadec855399ccad5e5e6a",
+      "receiptHash": "f2e0d52ca87ddc1abd07732e7c249fb61f9e9e87a74150c185a8290bd64d5264",
+      "eventHash": "90d96d2949a12217294b0e86d6b607cff046e55ce3124c3f1dabbc66b6c76a4b",
+      "rngSampleCount": 6,
+      "movementRandomChoices": [],
+      "numericSetChoices": [],
+      "conflictRandomChoices": []
+    },
+    {
+      "frameId": 17,
+      "turn": 1,
+      "stage": "slowSpells",
+      "beforeStateHash": "a8a18cf55ceb54ac27182aa420d1c9e7bdb8eb49eaacadec855399ccad5e5e6a",
+      "afterStateHash": "e17b70f4d18e1a38e594b229f144eb7383370763c78432fa6ef7d8e295ac49ab",
+      "receiptHash": "4c1eb375cbf10d7f6736683d95cddd39fe879f4a57e3f4b06cbe955f1315f52d",
+      "eventHash": "0adc611fac7f79dd8760cf4109659f9011639a5d155dfaa24dfee92ab5b2f931",
+      "rngSampleCount": 6,
+      "movementRandomChoices": [],
+      "numericSetChoices": [],
+      "conflictRandomChoices": []
+    },
+    {
+      "frameId": 18,
+      "turn": 1,
+      "stage": "endTurnEffects",
+      "beforeStateHash": "e17b70f4d18e1a38e594b229f144eb7383370763c78432fa6ef7d8e295ac49ab",
+      "afterStateHash": "55e45ab6ea81f3028d49b0b80a7b62387ffba2407f4bd22106628b93ecef44a2",
+      "receiptHash": "9f2382a5fb230a4628dfc19d3aad9b7acaf6f6caed5531c7a53ab150ce3acbc3",
+      "eventHash": "ebddbb2f6b2bf65e41c299e70d276331c66237b847dd0410a9b9666253335492",
+      "rngSampleCount": 6,
+      "movementRandomChoices": [],
+      "numericSetChoices": [],
+      "conflictRandomChoices": []
+    },
+    {
+      "frameId": 19,
+      "turn": 1,
+      "stage": "cleanup",
+      "beforeStateHash": "55e45ab6ea81f3028d49b0b80a7b62387ffba2407f4bd22106628b93ecef44a2",
+      "afterStateHash": "007bc95df1ce35329824cd38b8df61a530e07dd011344a496d492e5886a75206",
+      "receiptHash": "56c33ca12912297d90af28e9e45203765c2c5ed1e85f6ee05ac83e98339a0eb9",
+      "eventHash": "fee3a7475cd03ca5f7dc494f927bba339d57b5acb3658e702288a0e3b9028c6e",
+      "rngSampleCount": 6,
+      "movementRandomChoices": [],
+      "numericSetChoices": [],
+      "conflictRandomChoices": []
+    },
+    {
+      "frameId": 20,
+      "turn": 1,
+      "stage": "cleanup",
+      "beforeStateHash": "007bc95df1ce35329824cd38b8df61a530e07dd011344a496d492e5886a75206",
+      "afterStateHash": "c8df64ab8656fe01fbec6b7dc32c4937a544cf6827a3be165e39f247da42869b",
+      "receiptHash": "943ade37243f9b519f830c4210a84b729a66bfd58f93ed8c2ab02c649f1d2a2f",
+      "eventHash": "bb9e1456edee47cd353803980acf290273100d9c23bf51713ead7e758cbc990f",
+      "rngSampleCount": 6,
+      "movementRandomChoices": [],
+      "numericSetChoices": [],
+      "conflictRandomChoices": []
+    },
+    {
+      "frameId": 21,
+      "turn": 2,
+      "stage": "planning",
+      "beforeStateHash": "c8df64ab8656fe01fbec6b7dc32c4937a544cf6827a3be165e39f247da42869b",
+      "afterStateHash": "b466a194717963feffe60a62ebdfb28382b4f30d771f4e33cb938cfbb14c0c83",
+      "receiptHash": "4aa805005b9763fd220b951c611a62a47dba25bd25366dfdade0d1f9db0c4db3",
+      "eventHash": "4e280d45538d8c77cd8c7aed3127b10a7bcf813e2d700ac174500a3a71e2d8f1",
+      "rngSampleCount": 6,
+      "movementRandomChoices": [],
+      "numericSetChoices": [],
+      "conflictRandomChoices": []
+    }
+  ],
+  "expectedFinalStateHash": "b466a194717963feffe60a62ebdfb28382b4f30d771f4e33cb938cfbb14c0c83",
+  "expectedStatus": "active",
+  "expectedOutcome": "none"
+}

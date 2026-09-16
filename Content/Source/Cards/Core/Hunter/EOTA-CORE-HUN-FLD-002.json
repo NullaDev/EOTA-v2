@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-FLD-002",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "field",
+  "cost": 1,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-FLD-002.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-FLD-002.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-FLD-002.png",
+  "effects": [
+    {
+      "id": "enemyEntered",
+      "trigger": {
+        "kind": "enemyEntered",
+        "subjectType": "minion"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "grantEffect",
+            "target": {
+              "kind": "eventSubject"
+            },
+            "effect": {
+              "id": "turnEnd",
+              "trigger": {
+                "kind": "turnEnd"
+              },
+              "body": {
+                "kind": "loseHealth",
+                "target": {
+                  "kind": "self"
+                },
+                "amount": 1
+              }
+            },
+            "duration": 3
+          },
+          {
+            "kind": "kill",
+            "target": {
+              "kind": "self"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 3
+  }
+}

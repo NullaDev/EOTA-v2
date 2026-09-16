@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-SPL-014",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "spell",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-SPL-014.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-SPL-014.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-014.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "grantEffect",
+        "target": {
+          "kind": "enemyHero"
+        },
+        "duration": 3,
+        "effect": {
+          "id": "bloodPoison",
+          "trigger": {
+            "kind": "turnEnd"
+          },
+          "body": {
+            "kind": "damage",
+            "target": {
+              "kind": "friendlyHero"
+            },
+            "amount": 2
+          }
+        }
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "global"
+}

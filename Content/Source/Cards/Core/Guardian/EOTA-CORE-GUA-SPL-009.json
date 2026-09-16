@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-SPL-009",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "spell",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-SPL-009.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-SPL-009.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-009.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "draw",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "count": 2,
+        "filter": {
+          "kind": "minion",
+          "profession": "guardian"
+        }
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "global"
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-FLD-007",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "field",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-FLD-007.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-FLD-007.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-FLD-007.png",
+  "effects": [
+    {
+      "id": "turnEnd",
+      "trigger": {
+        "kind": "turnEnd"
+      },
+      "body": {
+        "kind": "ifElse",
+        "condition": {
+          "kind": "hasKeyword",
+          "target": {
+            "kind": "friendlyMinions"
+          },
+          "keyword": "guard"
+        },
+        "then": {
+          "kind": "heal",
+          "target": {
+            "kind": "friendlyHero"
+          },
+          "amount": 2
+        }
+      }
+    }
+  ],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 3
+  }
+}

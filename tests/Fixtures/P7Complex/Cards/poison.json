@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "kind": "field",
+  "id": "TEST-P7-POISON",
+  "cost": 0,
+  "effects": [
+    {
+      "id": "trap",
+      "trigger": {
+        "kind": "enemyEntered",
+        "subjectType": "minion"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "grantEffect",
+            "target": {
+              "kind": "eventSubject"
+            },
+            "effect": {
+              "id": "poison",
+              "trigger": {
+                "kind": "turnEnd"
+              },
+              "body": {
+                "kind": "loseHealth",
+                "target": {
+                  "kind": "self"
+                },
+                "amount": 2
+              }
+            }
+          },
+          {
+            "kind": "kill",
+            "target": {
+              "kind": "self"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 5
+  }
+}

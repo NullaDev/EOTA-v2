@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dependencies": {
+    "net8.0": {
+      "eota.content.compiler": {
+        "type": "Project",
+        "dependencies": {
+          "Eota.Kernel": "[1.0.0, )"
+        }
+      },
+      "eota.kernel": {
+        "type": "Project"
+      }
+    }
+  }
+}

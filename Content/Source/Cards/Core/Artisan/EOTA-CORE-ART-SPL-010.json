@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-SPL-010",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "spell",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-SPL-010.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-SPL-010.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-010.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "sequence",
+        "steps": [
+          {
+            "kind": "draw",
+            "target": {
+              "kind": "friendlyHero"
+            },
+            "count": 1,
+            "filter": {
+              "tag": "mechanical"
+            }
+          },
+          {
+            "kind": "parallel",
+            "children": [
+              {
+                "kind": "modifyNumber",
+                "target": {
+                  "kind": "previousAffected",
+                  "targetType": "card"
+                },
+                "attribute": "attack",
+                "amount": 1,
+                "operation": "add"
+              },
+              {
+                "kind": "modifyNumber",
+                "target": {
+                  "kind": "previousAffected",
+                  "targetType": "card"
+                },
+                "attribute": "maximumHealth",
+                "amount": 1,
+                "operation": "add"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "global"
+}

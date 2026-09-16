@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-MIN-020",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "minion",
+  "cost": 6,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-MIN-020.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-MIN-020.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-020.png",
+  "effects": [
+    {
+      "id": "replacementEntered",
+      "trigger": {
+        "kind": "replacementEntered"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "self"
+            },
+            "attribute": "attack",
+            "operation": "add",
+            "amount": 2
+          },
+          {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "self"
+            },
+            "attribute": "maximumHealth",
+            "operation": "add",
+            "amount": 2
+          }
+        ]
+      }
+    }
+  ],
+  "attack": 7,
+  "health": 8,
+  "keywords": [
+    "replace",
+    {
+      "kind": "slow",
+      "turns": 2
+    }
+  ],
+  "tags": [
+    "mechanical"
+  ]
+}

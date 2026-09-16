@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-NEU-MIN-016",
+  "source": "core",
+  "profession": "neutral",
+  "kind": "minion",
+  "cost": 7,
+  "nameLocalizationKey": "card.EOTA-CORE-NEU-MIN-016.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-NEU-MIN-016.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-016.png",
+  "effects": [],
+  "attack": 6,
+  "health": 6,
+  "keywords": [
+    "firstStrike"
+  ]
+}

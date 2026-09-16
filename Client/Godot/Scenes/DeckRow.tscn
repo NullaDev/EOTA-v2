@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Theme" path="res://Client/Godot/GameTheme.tres" id="theme"]
+
+[node name="DeckRow" type="HBoxContainer"]
+layout_mode = 3
+custom_minimum_size = Vector2(380, 44)
+size_flags_vertical = 3
+theme = ExtResource("theme")
+
+
+[node name="Cost" type="Label" parent="."]
+layout_mode = 2
+custom_minimum_size = Vector2(36, 44)
+horizontal_alignment = 1
+text = "2"
+theme_override_colors/font_color = Color(0.7098, 0.8627, 0.8824, 1)
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text_overrun_behavior = 3
+text = "卡牌名称"
+
+[node name="Copies" type="Label" parent="."]
+layout_mode = 2
+custom_minimum_size = Vector2(44, 44)
+text = "× 1"
+
+[node name="Remove" type="Button" parent="."]
+layout_mode = 2
+custom_minimum_size = Vector2(42, 44)
+text = "−"

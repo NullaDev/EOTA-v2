@@ -1,0 +1,37 @@
+{
+  "profession": "artisan",
+  "cards": [
+    {
+      "id": "MOD-DEMO-DEPLOY",
+      "copies": 1
+    },
+    {
+      "id": "MOD-DEMO-ECHO",
+      "copies": 1
+    },
+    {
+      "id": "MOD-DEMO-FROST",
+      "copies": 1
+    },
+    {
+      "id": "MOD-DEMO-PERMANENT",
+      "copies": 1
+    },
+    {
+      "id": "MOD-DEMO-REPAIR",
+      "copies": 1
+    },
+    {
+      "id": "MOD-DEMO-SENTINEL",
+      "copies": 1
+    },
+    {
+      "id": "MOD-DEMO-WATCHER",
+      "copies": 1
+    },
+    {
+      "id": "MOD-DEMO-WORKSHOP",
+      "copies": 1
+    }
+  ]
+}

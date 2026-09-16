@@ -1,0 +1,2 @@
+{"schemaVersion":"eota.card/v2","id":"P9-FREEZE","source":"test","profession":"neutral","kind":"spell","cost":0,"speed":"fast","targetScope":"lane",
+ "effects":[{"id":"cast","trigger":{"kind":"selfSpellCast"},"body":{"kind":"laneStatus","target":{"kind":"friendlyLanes"},"status":"frozen","duration":2}}]}

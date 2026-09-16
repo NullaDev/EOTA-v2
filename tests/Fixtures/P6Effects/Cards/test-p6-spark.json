@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "kind": "spell",
+  "id": "TEST-P6-SPARK",
+  "cost": 0,
+  "speed": "slow",
+  "targetScope": "lane",
+  "effects": [
+    {
+      "id": "spark",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "ifElse",
+        "condition": {
+          "kind": "compare",
+          "left": "lane.ether",
+          "operator": "greaterOrEqual",
+          "right": 1
+        },
+        "then": {
+          "kind": "damage",
+          "target": {
+            "kind": "enemyMinions"
+          },
+          "amount": 2
+        },
+        "else": {
+          "kind": "damage",
+          "target": {
+            "kind": "enemyMinions"
+          },
+          "amount": 1
+        }
+      }
+    }
+  ]
+}

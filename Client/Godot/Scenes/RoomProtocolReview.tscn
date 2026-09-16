@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Theme" path="res://Client/Godot/GameTheme.tres" id="theme"]
+
+[node name="RoomProtocolReview" type="Window"]
+title = "房间对战协议"
+size = Vector2i(940, 680)
+visible = false
+exclusive = true
+transient = true
+theme = ExtResource("theme")
+
+[node name="Title" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 18.0
+offset_right = 900.0
+offset_bottom = 64.0
+text = "本局使用的对战协议"
+theme_override_font_sizes/font_size = 26
+
+[node name="Scroll" type="ScrollContainer" parent="."]
+offset_left = 24.0
+offset_top = 86.0
+offset_right = 916.0
+offset_bottom = 588.0
+horizontal_scroll_mode = 0
+
+[node name="Rows" type="VBoxContainer" parent="Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Close" type="Button" parent="."]
+offset_left = 622.0
+offset_top = 614.0
+offset_right = 916.0
+offset_bottom = 662.0
+text = "返回核对"

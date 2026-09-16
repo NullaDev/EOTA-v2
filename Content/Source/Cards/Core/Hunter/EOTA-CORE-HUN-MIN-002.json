@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-MIN-002",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "minion",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-MIN-002.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-MIN-002.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-002.png",
+  "effects": [
+    {
+      "id": "selfDamaged",
+      "trigger": {
+        "kind": "selfDamaged"
+      },
+      "body": {
+        "kind": "damage",
+        "target": {
+          "kind": "enemyMinions"
+        },
+        "amount": 1
+      }
+    }
+  ],
+  "attack": 1,
+  "health": 5,
+  "keywords": [
+    "guard"
+  ],
+  "tags": [
+    "beast"
+  ]
+}

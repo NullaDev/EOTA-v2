@@ -1,0 +1,116 @@
+[
+  {
+    "kind": "planCard",
+    "playerId": 0,
+    "expectedPlayerRevision": 0,
+    "cardInstanceId": 3,
+    "laneId": 0
+  },
+  {
+    "kind": "planCard",
+    "playerId": 0,
+    "expectedPlayerRevision": 1,
+    "cardInstanceId": 2,
+    "laneId": 1
+  },
+  {
+    "kind": "planCard",
+    "playerId": 0,
+    "expectedPlayerRevision": 2,
+    "cardInstanceId": 1,
+    "laneId": 2
+  },
+  {
+    "kind": "planCard",
+    "playerId": 1,
+    "expectedPlayerRevision": 0,
+    "cardInstanceId": 9,
+    "laneId": 0
+  },
+  {
+    "kind": "planCard",
+    "playerId": 1,
+    "expectedPlayerRevision": 1,
+    "cardInstanceId": 8,
+    "laneId": 1
+  },
+  {
+    "kind": "planCard",
+    "playerId": 1,
+    "expectedPlayerRevision": 2,
+    "cardInstanceId": 7,
+    "laneId": 2
+  },
+  {
+    "kind": "submitTurn",
+    "playerId": 0,
+    "expectedPlayerRevision": 3
+  },
+  {
+    "kind": "submitTurn",
+    "playerId": 1,
+    "expectedPlayerRevision": 3
+  },
+  {
+    "kind": "planSpell",
+    "playerId": 0,
+    "expectedPlayerRevision": 4,
+    "cardInstanceId": 4,
+    "laneId": 2
+  },
+  {
+    "kind": "planSpell",
+    "playerId": 0,
+    "expectedPlayerRevision": 5,
+    "cardInstanceId": 5,
+    "laneId": 2
+  },
+  {
+    "kind": "planSpell",
+    "playerId": 0,
+    "expectedPlayerRevision": 6,
+    "cardInstanceId": 6,
+    "laneId": 2
+  },
+  {
+    "kind": "planSpell",
+    "playerId": 1,
+    "expectedPlayerRevision": 4,
+    "cardInstanceId": 10,
+    "laneId": 2
+  },
+  {
+    "kind": "planSpell",
+    "playerId": 1,
+    "expectedPlayerRevision": 5,
+    "cardInstanceId": 11,
+    "laneId": 2
+  },
+  {
+    "kind": "planSpell",
+    "playerId": 1,
+    "expectedPlayerRevision": 6,
+    "cardInstanceId": 12,
+    "laneId": 2
+  },
+  {
+    "kind": "submitTurn",
+    "playerId": 0,
+    "expectedPlayerRevision": 7
+  },
+  {
+    "kind": "submitTurn",
+    "playerId": 1,
+    "expectedPlayerRevision": 7
+  },
+  {
+    "kind": "submitTurn",
+    "playerId": 0,
+    "expectedPlayerRevision": 8
+  },
+  {
+    "kind": "submitTurn",
+    "playerId": 1,
+    "expectedPlayerRevision": 8
+  }
+]

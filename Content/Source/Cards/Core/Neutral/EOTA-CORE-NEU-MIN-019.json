@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-NEU-MIN-019",
+  "source": "core",
+  "profession": "neutral",
+  "kind": "minion",
+  "cost": 8,
+  "nameLocalizationKey": "card.EOTA-CORE-NEU-MIN-019.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-NEU-MIN-019.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-019.png",
+  "effects": [
+    {
+      "id": "selfEntered",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "damage",
+        "target": {
+          "kind": "enemyMinions"
+        },
+        "amount": 6
+      }
+    }
+  ],
+  "attack": 5,
+  "health": 6,
+  "tags": [
+    "beast"
+  ]
+}

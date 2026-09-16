@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-TOKEN-HUN-MIN-001",
+  "source": "token",
+  "profession": "hunter",
+  "kind": "minion",
+  "cost": 1,
+  "nameLocalizationKey": "card.EOTA-TOKEN-HUN-MIN-001.name",
+  "descriptionLocalizationKey": "card.EOTA-TOKEN-HUN-MIN-001.description",
+  "texturePath": "Content/Generated/Art/EOTA-TOKEN-HUN-MIN-001.png",
+  "effects": [],
+  "attack": 1,
+  "health": 1,
+  "keywords": [
+    "pursuit"
+  ],
+  "tags": [
+    "beast"
+  ]
+}

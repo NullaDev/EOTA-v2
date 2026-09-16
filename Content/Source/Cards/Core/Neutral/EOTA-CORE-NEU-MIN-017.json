@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-NEU-MIN-017",
+  "source": "core",
+  "profession": "neutral",
+  "kind": "minion",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-NEU-MIN-017.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-NEU-MIN-017.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-017.png",
+  "effects": [],
+  "attack": 3,
+  "health": 4,
+  "keywords": [
+    {
+      "kind": "slow",
+      "turns": 1
+    }
+  ]
+}

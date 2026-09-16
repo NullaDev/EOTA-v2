@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ARC-SPL-006",
+  "source": "core",
+  "profession": "arcanist",
+  "kind": "spell",
+  "cost": 6,
+  "nameLocalizationKey": "card.EOTA-CORE-ARC-SPL-006.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ARC-SPL-006.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-006.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "ifElse",
+        "condition": {
+          "kind": "compare",
+          "left": "lane.ether",
+          "operator": "greaterOrEqual",
+          "right": 3
+        },
+        "then": {
+          "kind": "sequence",
+          "steps": [
+            {
+              "kind": "parallel",
+              "children": [
+                {
+                  "kind": "damage",
+                  "target": {
+                    "kind": "enemyMinions",
+                    "scope": "all"
+                  },
+                  "amount": 6
+                },
+                {
+                  "kind": "damage",
+                  "target": {
+                    "kind": "enemyHero"
+                  },
+                  "amount": 6
+                }
+              ]
+            },
+            {
+              "kind": "clearEther",
+              "target": {
+                "kind": "friendlyLanes"
+              }
+            }
+          ]
+        },
+        "else": {
+          "kind": "parallel",
+          "children": [
+            {
+              "kind": "damage",
+              "target": {
+                "kind": "enemyMinions",
+                "scope": "all"
+              },
+              "amount": 4
+            },
+            {
+              "kind": "damage",
+              "target": {
+                "kind": "enemyHero"
+              },
+              "amount": 2
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "lane"
+}

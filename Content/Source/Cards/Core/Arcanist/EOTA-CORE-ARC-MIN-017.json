@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ARC-MIN-017",
+  "source": "core",
+  "profession": "arcanist",
+  "kind": "minion",
+  "cost": 6,
+  "nameLocalizationKey": "card.EOTA-CORE-ARC-MIN-017.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ARC-MIN-017.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-017.png",
+  "effects": [
+    {
+      "id": "combat",
+      "trigger": {
+        "kind": "combat"
+      },
+      "body": {
+        "kind": "ifElse",
+        "condition": {
+          "kind": "compare",
+          "left": "lane.ether",
+          "operator": "greaterOrEqual",
+          "right": 3
+        },
+        "then": {
+          "kind": "sequence",
+          "steps": [
+            {
+              "kind": "parallel",
+              "children": [
+                {
+                  "kind": "kill",
+                  "target": {
+                    "kind": "enemyMinions"
+                  }
+                },
+                {
+                  "kind": "kill",
+                  "target": {
+                    "kind": "enemyMinions",
+                    "scope": "adjacent"
+                  }
+                },
+                {
+                  "kind": "damage",
+                  "target": {
+                    "kind": "enemyHero"
+                  },
+                  "amount": 6
+                }
+              ]
+            },
+            {
+              "kind": "clearEther",
+              "target": {
+                "kind": "friendlyLanes"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "attack": 4,
+  "health": 7,
+  "keywords": [
+    {
+      "kind": "slow",
+      "turns": 1
+    }
+  ]
+}

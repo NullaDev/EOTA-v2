@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ARC-MIN-011",
+  "source": "core",
+  "profession": "arcanist",
+  "kind": "minion",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-ARC-MIN-011.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ARC-MIN-011.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-011.png",
+  "effects": [
+    {
+      "id": "selfDied",
+      "trigger": {
+        "kind": "selfDied"
+      },
+      "body": {
+        "kind": "generate",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "prototype": "EOTA-TOKEN-ARC-SPL-001",
+        "count": 1
+      }
+    }
+  ],
+  "attack": 2,
+  "health": 2
+}

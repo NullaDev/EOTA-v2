@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-FLD-001",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "field",
+  "cost": 1,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-FLD-001.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-FLD-001.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-FLD-001.png",
+  "effects": [
+    {
+      "id": "friendlyEntered",
+      "trigger": {
+        "kind": "friendlyEntered",
+        "subjectType": "minion"
+      },
+      "body": {
+        "kind": "modifyNumber",
+        "target": {
+          "kind": "eventSubject"
+        },
+        "attribute": "maximumHealth",
+        "amount": 1,
+        "operation": "add"
+      }
+    }
+  ],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 3
+  }
+}

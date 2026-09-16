@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-MIN-025",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "minion",
+  "cost": 4,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-MIN-025.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-MIN-025.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-025.png",
+  "effects": [
+    {
+      "id": "selfDied",
+      "trigger": {
+        "kind": "selfDied"
+      },
+      "body": {
+        "kind": "summon",
+        "target": {
+          "kind": "friendlyLanes"
+        },
+        "prototype": "EOTA-TOKEN-HUN-MIN-001",
+        "slot": "minion"
+      }
+    }
+  ],
+  "attack": 3,
+  "health": 4,
+  "tags": [
+    "beast"
+  ]
+}

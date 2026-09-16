@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ARC-MIN-004",
+  "source": "core",
+  "profession": "arcanist",
+  "kind": "minion",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-ARC-MIN-004.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ARC-MIN-004.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-004.png",
+  "effects": [
+    {
+      "id": "combat",
+      "trigger": {
+        "kind": "combat"
+      },
+      "body": {
+        "kind": "addKeyword",
+        "target": {
+          "kind": "self"
+        },
+        "keyword": "execute",
+        "duration": 1
+      },
+      "condition": {
+        "kind": "compare",
+        "left": "lane.ether",
+        "operator": "greaterOrEqual",
+        "right": 2
+      }
+    }
+  ],
+  "attack": 1,
+  "health": 2,
+  "keywords": [
+    "firstStrike"
+  ]
+}

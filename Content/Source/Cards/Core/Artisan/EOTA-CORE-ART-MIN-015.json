@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-MIN-015",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "minion",
+  "cost": 4,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-MIN-015.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-MIN-015.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-015.png",
+  "effects": [
+    {
+      "id": "attack",
+      "trigger": {
+        "kind": "attack"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "damage",
+            "target": {
+              "kind": "self"
+            },
+            "amount": 2
+          },
+          {
+            "kind": "damage",
+            "target": {
+              "kind": "enemyHero"
+            },
+            "amount": 2
+          }
+        ]
+      }
+    }
+  ],
+  "attack": 5,
+  "health": 6,
+  "tags": [
+    "mechanical"
+  ]
+}

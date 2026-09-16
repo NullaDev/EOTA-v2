@@ -1,0 +1,59 @@
+{
+  "version": 2,
+  "dependencies": {
+    "net8.0": {
+      "eota.client.ai": {
+        "type": "Project",
+        "dependencies": {
+          "Eota.Client.Core": "[1.0.0, )",
+          "Eota.Transport.Contracts": "[1.0.0, )"
+        }
+      },
+      "eota.client.core": {
+        "type": "Project",
+        "dependencies": {
+          "Eota.Transport.Contracts": "[1.0.0, )"
+        }
+      },
+      "eota.client.transport.inprocess": {
+        "type": "Project",
+        "dependencies": {
+          "Eota.Client.Core": "[1.0.0, )",
+          "Eota.Server.Application": "[1.0.0, )"
+        }
+      },
+      "eota.client.transport.websocket": {
+        "type": "Project",
+        "dependencies": {
+          "Eota.Client.Core": "[1.0.0, )"
+        }
+      },
+      "eota.content.compiler": {
+        "type": "Project",
+        "dependencies": {
+          "Eota.Kernel": "[1.0.0, )"
+        }
+      },
+      "eota.kernel": {
+        "type": "Project"
+      },
+      "eota.server.application": {
+        "type": "Project",
+        "dependencies": {
+          "Eota.Kernel": "[1.0.0, )",
+          "Eota.Transport.Contracts": "[1.0.0, )"
+        }
+      },
+      "eota.server.infrastructure": {
+        "type": "Project",
+        "dependencies": {
+          "Eota.Content.Compiler": "[1.0.0, )",
+          "Eota.Server.Application": "[1.0.0, )"
+        }
+      },
+      "eota.transport.contracts": {
+        "type": "Project"
+      }
+    }
+  }
+}

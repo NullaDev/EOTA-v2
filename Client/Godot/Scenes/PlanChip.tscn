@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Theme" path="res://Client/Godot/GameTheme.tres" id="theme"]
+
+[node name="PlanChip" type="Button"]
+layout_mode = 3
+custom_minimum_size = Vector2(0, 44)
+size_flags_vertical = 3
+theme = ExtResource("theme")
+text = "卡牌 → 第 1 路 ×"

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-SPL-013",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "spell",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-SPL-013.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-SPL-013.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-013.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "addKeyword",
+            "target": {
+              "kind": "friendlyMinions",
+              "filter": {
+                "tag": "beast"
+              }
+            },
+            "keyword": "swift",
+            "duration": 1
+          },
+          {
+            "kind": "addKeyword",
+            "target": {
+              "kind": "friendlyMinions",
+              "filter": {
+                "tag": "beast"
+              }
+            },
+            "keyword": "skirmisher",
+            "duration": 1
+          }
+        ]
+      }
+    }
+  ],
+  "speed": "fast",
+  "targetScope": "lane"
+}

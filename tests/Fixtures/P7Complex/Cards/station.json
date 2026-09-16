@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "kind": "field",
+  "id": "TEST-P7-STATION",
+  "cost": 0,
+  "effects": [
+    {
+      "id": "free",
+      "trigger": {
+        "kind": "entryStage"
+      },
+      "body": {
+        "kind": "modifyNumber",
+        "target": {
+          "kind": "friendlyMinions"
+        },
+        "attribute": "chargeRequirement",
+        "operation": "set",
+        "amount": 0,
+        "duration": 1
+      }
+    }
+  ],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 5
+  }
+}

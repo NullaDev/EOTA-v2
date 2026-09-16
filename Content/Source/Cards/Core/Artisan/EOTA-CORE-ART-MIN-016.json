@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-MIN-016",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "minion",
+  "cost": 6,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-MIN-016.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-MIN-016.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-016.png",
+  "effects": [
+    {
+      "id": "turnEnd",
+      "trigger": {
+        "kind": "turnEnd"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "kill",
+            "target": {
+              "kind": "friendlyFields"
+            }
+          },
+          {
+            "kind": "kill",
+            "target": {
+              "kind": "enemyFields"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "attack": 6,
+  "health": 6,
+  "tags": [
+    "mechanical"
+  ]
+}

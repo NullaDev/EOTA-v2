@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-SPL-016",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "spell",
+  "cost": 1,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-SPL-016.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-SPL-016.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-016.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "addKeyword",
+            "target": {
+              "kind": "friendlyMinions"
+            },
+            "keyword": "pursuit",
+            "duration": 1
+          },
+          {
+            "kind": "removeKeyword",
+            "target": {
+              "kind": "friendlyMinions"
+            },
+            "keyword": "guard",
+            "duration": 1
+          }
+        ]
+      }
+    }
+  ],
+  "speed": "fast",
+  "targetScope": "lane"
+}

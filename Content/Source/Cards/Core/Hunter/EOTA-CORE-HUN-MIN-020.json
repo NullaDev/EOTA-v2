@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-MIN-020",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "minion",
+  "cost": 5,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-MIN-020.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-MIN-020.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-020.png",
+  "effects": [
+    {
+      "id": "selfEntered",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "forEach",
+        "target": {
+          "kind": "enemyMinions"
+        },
+        "body": {
+          "kind": "ifElse",
+          "condition": {
+            "kind": "compare",
+            "left": "target.health",
+            "operator": "lessOrEqual",
+            "right": 3
+          },
+          "then": {
+            "kind": "kill",
+            "target": {
+              "kind": "targets"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "attack": 4,
+  "health": 4,
+  "keywords": [
+    "pursuit"
+  ]
+}

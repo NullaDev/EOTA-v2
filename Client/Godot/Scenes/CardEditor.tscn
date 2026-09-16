@@ -1,0 +1,403 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Theme" path="res://Client/Godot/GameTheme.tres" id="theme"]
+[node name="CardEditor" type="Control"]
+layout_mode = 3
+custom_minimum_size = Vector2(1280, 828)
+theme = ExtResource("theme")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 1230.0
+offset_bottom = 56.0
+text = "卡牌编辑器"
+theme_override_font_sizes/font_size = 32
+mouse_filter = 2
+
+[node name="Help" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 64.0
+offset_right = 1250.0
+offset_bottom = 102.0
+text = "自定义内容包在启用后用于新对局；联机仅核对本局卡组及其衍生卡。"
+theme_override_font_sizes/font_size = 16
+mouse_filter = 2
+
+[node name="Search" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 124.0
+offset_right = 310.0
+offset_bottom = 168.0
+placeholder_text = "搜索卡名或 ID"
+
+[node name="FilterProfession" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 182.0
+offset_right = 166.0
+offset_bottom = 224.0
+
+[node name="FilterKind" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 182.0
+offset_right = 310.0
+offset_bottom = 224.0
+
+[node name="List" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 240.0
+offset_right = 310.0
+offset_bottom = 648.0
+theme_override_font_sizes/font_size = 16
+
+[node name="New" type="Button" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 666.0
+offset_right = 156.0
+offset_bottom = 714.0
+text = "新建"
+
+[node name="Duplicate" type="Button" parent="."]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 666.0
+offset_right = 310.0
+offset_bottom = 714.0
+text = "复制"
+
+[node name="Delete" type="Button" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 732.0
+offset_right = 156.0
+offset_bottom = 780.0
+text = "删除"
+
+[node name="Restore" type="Button" parent="."]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 732.0
+offset_right = 310.0
+offset_bottom = 780.0
+text = "恢复内置"
+
+[node name="Pages" type="TabContainer" parent="."]
+layout_mode = 0
+offset_left = 334.0
+offset_top = 124.0
+offset_right = 928.0
+offset_bottom = 690.0
+
+[node name="Basic" type="ScrollContainer" parent="Pages"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Margin" type="MarginContainer" parent="Pages/Basic"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 20
+
+[node name="Fields" type="GridContainer" parent="Pages/Basic/Margin"]
+layout_mode = 2
+columns = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 14
+theme_override_constants/v_separation = 16
+
+[node name="NameLabel" type="Label" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+text = "卡名"
+theme_override_font_sizes/font_size = 16
+
+[node name="Name" type="LineEdit" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 42)
+size_flags_horizontal = 3
+
+[node name="IdLabel" type="Label" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+text = "卡牌 ID"
+theme_override_font_sizes/font_size = 16
+
+[node name="Id" type="LineEdit" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 42)
+size_flags_horizontal = 3
+
+[node name="KindLabel" type="Label" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+text = "类型"
+theme_override_font_sizes/font_size = 16
+
+[node name="Kind" type="OptionButton" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 42)
+size_flags_horizontal = 3
+
+[node name="SourceLabel" type="Label" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+text = "来源"
+theme_override_font_sizes/font_size = 16
+
+[node name="Source" type="OptionButton" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 42)
+size_flags_horizontal = 3
+
+[node name="ProfessionLabel" type="Label" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+text = "职业"
+theme_override_font_sizes/font_size = 16
+
+[node name="Profession" type="OptionButton" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 42)
+size_flags_horizontal = 3
+
+[node name="CostLabel" type="Label" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+text = "费用"
+theme_override_font_sizes/font_size = 16
+
+[node name="Cost" type="LineEdit" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 42)
+size_flags_horizontal = 3
+
+[node name="AttackLabel" type="Label" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+text = "攻击力"
+theme_override_font_sizes/font_size = 16
+
+[node name="Attack" type="LineEdit" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 42)
+size_flags_horizontal = 3
+
+[node name="HealthLabel" type="Label" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+text = "最大生命"
+theme_override_font_sizes/font_size = 16
+
+[node name="Health" type="LineEdit" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 42)
+size_flags_horizontal = 3
+
+[node name="PermanentLabel" type="Label" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+text = "永久场地"
+theme_override_font_sizes/font_size = 16
+
+[node name="Permanent" type="CheckBox" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 42)
+size_flags_horizontal = 3
+
+[node name="EnergyLabel" type="Label" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+text = "耐久（强度）"
+theme_override_font_sizes/font_size = 16
+
+[node name="Energy" type="LineEdit" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 42)
+size_flags_horizontal = 3
+
+
+
+[node name="SpeedLabel" type="Label" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+text = "法术速度"
+theme_override_font_sizes/font_size = 16
+
+[node name="Speed" type="OptionButton" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 42)
+size_flags_horizontal = 3
+
+[node name="ScopeLabel" type="Label" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+text = "法术范围"
+theme_override_font_sizes/font_size = 16
+
+[node name="Scope" type="OptionButton" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 42)
+size_flags_horizontal = 3
+
+
+[node name="TagsLabel" type="Label" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+text = "标签"
+theme_override_font_sizes/font_size = 16
+
+[node name="Tags" type="LineEdit" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 42)
+size_flags_horizontal = 3
+
+
+[node name="TextureLabel" type="Label" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+text = "插图资源路径"
+theme_override_font_sizes/font_size = 16
+
+[node name="Texture" type="LineEdit" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 42)
+size_flags_horizontal = 3
+
+[node name="DescriptionLabel" type="Label" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+text = "卡牌说明"
+theme_override_font_sizes/font_size = 16
+
+[node name="Description" type="TextEdit" parent="Pages/Basic/Margin/Fields"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 96)
+size_flags_horizontal = 3
+wrap_mode = 1
+
+[node name="Effects" type="TextEdit" parent="Pages"]
+layout_mode = 2
+wrap_mode = 1
+theme_override_font_sizes/font_size = 17
+
+[node name="Raw" type="TextEdit" parent="Pages"]
+layout_mode = 2
+wrap_mode = 1
+theme_override_font_sizes/font_size = 16
+
+[node name="Preview" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 132.0
+offset_right = 1220.0
+offset_bottom = 554.0
+
+[node name="Validation" type="Label" parent="."]
+layout_mode = 0
+offset_left = 950.0
+offset_top = 574.0
+offset_right = 1250.0
+offset_bottom = 706.0
+text = "选择或新建一张卡牌"
+theme_override_font_sizes/font_size = 16
+mouse_filter = 2
+
+[node name="ValidationScroll" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 334.0
+offset_top = 714.0
+offset_right = 928.0
+offset_bottom = 772.0
+horizontal_scroll_mode = 0
+
+[node name="Errors" type="Label" parent="ValidationScroll"]
+layout_mode = 2
+text = ""
+theme_override_font_sizes/font_size = 14
+autowrap_mode = 3
+custom_minimum_size = Vector2(564, 0)
+
+[node name="Save" type="Button" parent="."]
+layout_mode = 0
+offset_left = 950.0
+offset_top = 720.0
+offset_right = 1086.0
+offset_bottom = 776.0
+text = "保存卡牌"
+
+[node name="Validate" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1102.0
+offset_top = 720.0
+offset_right = 1250.0
+offset_bottom = 776.0
+text = "校验预览"
+
+[node name="Pack" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1050.0
+offset_top = 12.0
+offset_right = 1250.0
+offset_bottom = 58.0
+text = "内容包管理"
+
+[node name="PackDialog" type="Window" parent="."]
+layout_mode = 2
+title = "内容包管理"
+initial_position = 1
+size = Vector2i(660, 440)
+exclusive = true
+transient = true
+visible = false
+
+[node name="PackStatus" type="Label" parent="PackDialog"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 632.0
+offset_bottom = 98.0
+text = ""
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 18
+
+[node name="Import" type="Button" parent="PackDialog"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 126.0
+offset_right = 316.0
+offset_bottom = 184.0
+text = "导入并合并卡牌"
+
+[node name="Export" type="Button" parent="PackDialog"]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 126.0
+offset_right = 636.0
+offset_bottom = 184.0
+text = "导出内容包"
+
+[node name="Activate" type="Button" parent="PackDialog"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 210.0
+offset_right = 636.0
+offset_bottom = 274.0
+text = "启用编辑中的内容包"
+
+[node name="Builtin" type="Button" parent="PackDialog"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 304.0
+offset_right = 636.0
+offset_bottom = 368.0
+text = "切回内置内容包"
+
+[node name="ExportCard" type="Button" parent="."]
+layout_mode = 0
+offset_left = 690.0
+offset_top = 12.0
+offset_right = 850.0
+offset_bottom = 58.0
+text = "导出卡牌"
+tooltip_text = "导出当前卡牌、关联衍生卡和文字"
+
+[node name="ExportPack" type="Button" parent="."]
+layout_mode = 0
+offset_left = 870.0
+offset_top = 12.0
+offset_right = 1030.0
+offset_bottom = 58.0
+text = "导出内容包"

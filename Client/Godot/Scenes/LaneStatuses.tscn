@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Texture2D" path="res://Content/Generated/Icons/frozen.png" id="frozen"]
+[ext_resource type="Texture2D" path="res://Content/Generated/Icons/locked.png" id="locked"]
+
+[sub_resource type="AtlasTexture" id="frozen_icon"]
+atlas = ExtResource("frozen")
+region = Rect2(128, 112, 256, 256)
+
+[sub_resource type="AtlasTexture" id="locked_icon"]
+atlas = ExtResource("locked")
+region = Rect2(128, 112, 256, 256)
+
+[node name="LaneStatuses" type="HBoxContainer"]
+custom_minimum_size = Vector2(68, 32)
+theme_override_constants/separation = 4
+alignment = 1
+mouse_filter = 2
+
+[node name="Frozen" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+custom_minimum_size = Vector2(32, 32)
+texture = SubResource("frozen_icon")
+expand_mode = 1
+stretch_mode = 5
+tooltip_text = "冻结：该路双方随从无法攻击"
+mouse_filter = 0
+
+[node name="Locked" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+custom_minimum_size = Vector2(32, 32)
+texture = SubResource("locked_icon")
+expand_mode = 1
+stretch_mode = 5
+tooltip_text = "锁闭：该路禁止进入或离开"
+mouse_filter = 0

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "kind": "spell",
+  "id": "MOD-DEMO-FROST",
+  "source": "core",
+  "profession": "arcanist",
+  "cost": 2,
+  "nameLocalizationKey": "card.MOD-DEMO-FROST.name",
+  "descriptionLocalizationKey": "card.MOD-DEMO-FROST.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-001.png",
+  "speed": "fast",
+  "targetScope": "lane",
+  "effects": [
+    {
+      "id": "freeze-and-activate",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "laneStatus",
+            "target": {
+              "kind": "friendlyLanes"
+            },
+            "status": "frozen",
+            "duration": 1
+          },
+          {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "friendlyLanes"
+            },
+            "attribute": "etherActivation",
+            "operation": "add",
+            "amount": 1
+          }
+        ]
+      }
+    }
+  ]
+}

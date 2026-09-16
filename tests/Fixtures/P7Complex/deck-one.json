@@ -1,0 +1,61 @@
+{
+  "profession": "neutral",
+  "cards": [
+    {
+      "id": "TEST-P7-A-ROBOT",
+      "copies": 16
+    },
+    {
+      "id": "TEST-P7-ANALYSIS",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P7-BOMB",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P7-CAPTAIN",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P7-ERASE",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P7-ETHER",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P7-FORTRESS",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P7-LOOT",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P7-POISON",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P7-REACTOR",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P7-RECRUITER",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P7-SCOUT",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P7-STATION",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P7-SWAP",
+      "copies": 1
+    }
+  ]
+}

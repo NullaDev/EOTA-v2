@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "kind": "minion",
+  "id": "TEST-P7-FORTRESS",
+  "cost": 0,
+  "effects": [
+    {
+      "id": "charge",
+      "trigger": {
+        "kind": "preCombatCharge"
+      },
+      "body": {
+        "kind": "modifyNumber",
+        "target": {
+          "kind": "self"
+        },
+        "attribute": "baseAttack",
+        "operation": "set",
+        "amount": 4,
+        "duration": 1
+      },
+      "charge": 1
+    }
+  ],
+  "attack": 0,
+  "health": 6,
+  "tags": [
+    "mechanical"
+  ],
+  "keywords": [
+    "guard"
+  ]
+}

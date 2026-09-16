@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-SPL-012",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "spell",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-SPL-012.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-SPL-012.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-012.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "forEach",
+        "target": {
+          "kind": "enemyMinions"
+        },
+        "body": {
+          "kind": "ifElse",
+          "condition": {
+            "kind": "compare",
+            "left": "target.health",
+            "operator": "less",
+            "right": "target.maxHealth"
+          },
+          "then": {
+            "kind": "damage",
+            "target": {
+              "kind": "targets"
+            },
+            "amount": 4
+          },
+          "else": {
+            "kind": "damage",
+            "target": {
+              "kind": "targets"
+            },
+            "amount": 2
+          }
+        }
+      }
+    }
+  ],
+  "speed": "fast",
+  "targetScope": "lane"
+}

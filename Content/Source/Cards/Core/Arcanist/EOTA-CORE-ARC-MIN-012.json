@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ARC-MIN-012",
+  "source": "core",
+  "profession": "arcanist",
+  "kind": "minion",
+  "cost": 1,
+  "nameLocalizationKey": "card.EOTA-CORE-ARC-MIN-012.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ARC-MIN-012.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-012.png",
+  "effects": [
+    {
+      "id": "selfEntered",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "damage",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "amount": 2
+      }
+    }
+  ],
+  "attack": 3,
+  "health": 2,
+  "tags": [
+    "hemomancer"
+  ]
+}

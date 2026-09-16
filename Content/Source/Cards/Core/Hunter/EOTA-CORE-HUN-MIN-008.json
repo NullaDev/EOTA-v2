@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-MIN-008",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "minion",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-MIN-008.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-MIN-008.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-008.png",
+  "effects": [
+    {
+      "id": "combat",
+      "trigger": {
+        "kind": "combat"
+      },
+      "body": {
+        "kind": "damage",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "amount": 3
+      },
+      "condition": {
+        "kind": "not",
+        "condition": {
+          "kind": "exists",
+          "target": {
+            "kind": "enemyMinions"
+          }
+        }
+      }
+    }
+  ],
+  "attack": 4,
+  "health": 3,
+  "keywords": [
+    "pursuit"
+  ],
+  "tags": [
+    "beast"
+  ]
+}

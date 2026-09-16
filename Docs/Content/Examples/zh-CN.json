@@ -1,0 +1,20 @@
+{
+  "card.MOD-DEMO-SENTINEL.name": "教学哨兵",
+  "card.MOD-DEMO-SENTINEL.description": "守备。入场时：对敌方英雄造成1点伤害。",
+  "card.MOD-DEMO-DRONE.name": "教学无人机",
+  "card.MOD-DEMO-DRONE.description": "迅捷。机械衍生随从。",
+  "card.MOD-DEMO-WORKSHOP.name": "教学工坊",
+  "card.MOD-DEMO-WORKSHOP.description": "蓄能1。回合结束充能1：将一张教学无人机置入我方手牌。",
+  "card.MOD-DEMO-PERMANENT.name": "恒定回路",
+  "card.MOD-DEMO-PERMANENT.description": "永久场地。回合结束时：防止己方本路以太的下一次自然衰减。",
+  "card.MOD-DEMO-REPAIR.name": "机械调试",
+  "card.MOD-DEMO-REPAIR.description": "慢速：抽一个机械随从，使其获得+1/+1。",
+  "card.MOD-DEMO-FROST.name": "寒霜符文",
+  "card.MOD-DEMO-FROST.description": "快速：冻结本路至本回合清理，己方本路以太等级+1。",
+  "card.MOD-DEMO-DEPLOY.name": "无人机调度员",
+  "card.MOD-DEMO-DEPLOY.description": "机械。入场时：在相邻路线的己方空随从位置各召唤一个教学无人机。",
+  "card.MOD-DEMO-ECHO.name": "以太回响",
+  "card.MOD-DEMO-ECHO.description": "慢速：清空己方本路以太，每清除1级，对本路敌方随从造成1点伤害。",
+  "card.MOD-DEMO-WATCHER.name": "短期教官",
+  "card.MOD-DEMO-WATCHER.description": "其他友方随从入场时：使其在本回合结束时恢复1点生命。"
+}

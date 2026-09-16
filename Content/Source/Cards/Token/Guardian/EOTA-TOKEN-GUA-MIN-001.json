@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-TOKEN-GUA-MIN-001",
+  "source": "token",
+  "profession": "guardian",
+  "kind": "minion",
+  "cost": 1,
+  "nameLocalizationKey": "card.EOTA-TOKEN-GUA-MIN-001.name",
+  "descriptionLocalizationKey": "card.EOTA-TOKEN-GUA-MIN-001.description",
+  "texturePath": "Content/Generated/Art/EOTA-TOKEN-GUA-MIN-001.png",
+  "effects": [],
+  "attack": 1,
+  "health": 1,
+  "keywords": [
+    "replaceable"
+  ]
+}

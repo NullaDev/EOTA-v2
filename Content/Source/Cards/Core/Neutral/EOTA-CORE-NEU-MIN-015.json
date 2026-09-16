@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-NEU-MIN-015",
+  "source": "core",
+  "profession": "neutral",
+  "kind": "minion",
+  "cost": 6,
+  "nameLocalizationKey": "card.EOTA-CORE-NEU-MIN-015.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-NEU-MIN-015.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-015.png",
+  "effects": [
+    {
+      "id": "selfDied",
+      "trigger": {
+        "kind": "selfDied"
+      },
+      "body": {
+        "kind": "summon",
+        "target": {
+          "kind": "friendlyLanes"
+        },
+        "prototype": "EOTA-CORE-NEU-MIN-001",
+        "slot": "minion"
+      }
+    }
+  ],
+  "attack": 4,
+  "health": 7,
+  "tags": [
+    "mechanical"
+  ]
+}

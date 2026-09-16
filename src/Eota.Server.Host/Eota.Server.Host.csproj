@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <ItemGroup>
+    <ProjectReference Include="..\Eota.Server.Infrastructure\Eota.Server.Infrastructure.csproj" />
+    <ProjectReference Include="..\Eota.Server.Transport.WebSocket\Eota.Server.Transport.WebSocket.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-NEU-MIN-009",
+  "source": "core",
+  "profession": "neutral",
+  "kind": "minion",
+  "cost": 1,
+  "nameLocalizationKey": "card.EOTA-CORE-NEU-MIN-009.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-NEU-MIN-009.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-009.png",
+  "effects": [
+    {
+      "id": "selfEntered",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "heal",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "amount": 1
+      }
+    }
+  ],
+  "attack": 1,
+  "health": 1
+}

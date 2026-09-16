@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-MIN-016",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "minion",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-MIN-016.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-MIN-016.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-016.png",
+  "effects": [],
+  "attack": 3,
+  "health": 4,
+  "keywords": [
+    "skirmisher",
+    "guard",
+    "replaceable"
+  ]
+}

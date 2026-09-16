@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "kind": "minion",
+  "id": "TEST-P7-SCOUT",
+  "cost": 0,
+  "effects": [
+    {
+      "id": "charge",
+      "trigger": {
+        "kind": "preCombatCharge"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "self"
+            },
+            "attribute": "attack",
+            "operation": "add",
+            "amount": 1,
+            "duration": 1
+          },
+          {
+            "kind": "addKeyword",
+            "target": {
+              "kind": "self"
+            },
+            "keyword": "firstStrike",
+            "duration": 1
+          }
+        ]
+      },
+      "charge": 1
+    }
+  ],
+  "attack": 0,
+  "health": 6,
+  "tags": [
+    "mechanical"
+  ]
+}

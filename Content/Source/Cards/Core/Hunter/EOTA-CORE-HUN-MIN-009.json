@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-MIN-009",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "minion",
+  "cost": 4,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-MIN-009.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-MIN-009.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-009.png",
+  "effects": [],
+  "attack": 2,
+  "health": 2,
+  "keywords": [
+    "swift",
+    "skirmisher",
+    "lifesteal"
+  ],
+  "tags": [
+    "beast"
+  ]
+}

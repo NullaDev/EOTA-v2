@@ -1,0 +1,197 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Theme" path="res://Client/Godot/GameTheme.tres" id="theme"]
+
+[node name="LocalSetup" type="Control"]
+layout_mode = 3
+custom_minimum_size = Vector2(1280, 828)
+size_flags_vertical = 3
+theme = ExtResource("theme")
+
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 8.0
+offset_right = 1170.0
+offset_bottom = 56.0
+text = "本机双人对局"
+theme_override_font_sizes/font_size = 32
+mouse_filter = 2
+
+[node name="Help" type="Label" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 62.0
+offset_right = 1240.0
+offset_bottom = 94.0
+text = "两位玩家共用这台设备，轮流规划并提交回合。"
+theme_override_font_sizes/font_size = 16
+mouse_filter = 2
+theme_type_variation = &"MutedLabel"
+
+[node name="OnePanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 128.0
+offset_right = 614.0
+offset_bottom = 418.0
+theme_type_variation = &"Raised"
+mouse_filter = 2
+
+[node name="OneMark" type="Label" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 146.0
+offset_right = 138.0
+offset_bottom = 242.0
+text = "Ⅰ"
+theme_override_font_sizes/font_size = 64
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.7843, 0.6706, 0.4196, 1)
+
+[node name="OneTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 164.0
+offset_right = 528.0
+offset_bottom = 208.0
+text = "玩家一"
+theme_override_font_sizes/font_size = 26
+mouse_filter = 2
+
+
+[node name="OneHint" type="Label" parent="."]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 210.0
+offset_right = 528.0
+offset_bottom = 238.0
+text = "选择职业与牌组"
+theme_override_font_sizes/font_size = 16
+mouse_filter = 2
+theme_type_variation = &"MutedLabel"
+
+[node name="One" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 280.0
+offset_right = 588.0
+offset_bottom = 338.0
+
+[node name="TwoPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 128.0
+offset_right = 1230.0
+offset_bottom = 418.0
+theme_type_variation = &"Raised"
+mouse_filter = 2
+
+[node name="TwoMark" type="Label" parent="."]
+layout_mode = 0
+offset_left = 666.0
+offset_top = 146.0
+offset_right = 754.0
+offset_bottom = 242.0
+text = "Ⅱ"
+theme_override_font_sizes/font_size = 64
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.7843, 0.6706, 0.4196, 1)
+
+[node name="TwoTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 774.0
+offset_top = 164.0
+offset_right = 1144.0
+offset_bottom = 208.0
+text = "玩家二"
+theme_override_font_sizes/font_size = 26
+mouse_filter = 2
+
+[node name="TwoHint" type="Label" parent="."]
+layout_mode = 0
+offset_left = 774.0
+offset_top = 210.0
+offset_right = 1144.0
+offset_bottom = 238.0
+text = "选择职业与牌组"
+theme_override_font_sizes/font_size = 16
+mouse_filter = 2
+theme_type_variation = &"MutedLabel"
+
+[node name="Two" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 666.0
+offset_top = 280.0
+offset_right = 1204.0
+offset_bottom = 338.0
+
+[node name="SeedTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 454.0
+offset_right = 264.0
+offset_bottom = 482.0
+text = "随机种子"
+theme_override_font_sizes/font_size = 16
+mouse_filter = 2
+
+
+[node name="Seed" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 494.0
+offset_right = 264.0
+offset_bottom = 542.0
+text = "146"
+
+[node name="ProtocolPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 292.0
+offset_top = 450.0
+offset_right = 1230.0
+offset_bottom = 574.0
+theme_type_variation = &"Panel"
+mouse_filter = 2
+
+[node name="ProtocolSummary" type="Label" parent="."]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 470.0
+offset_right = 932.0
+offset_bottom = 554.0
+text = "对战规则"
+theme_override_font_sizes/font_size = 18
+mouse_filter = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Protocol" type="Button" parent="."]
+layout_mode = 0
+offset_left = 952.0
+offset_top = 480.0
+offset_right = 1202.0
+offset_bottom = 534.0
+text = "调整对战协议"
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 616.0
+offset_right = 1230.0
+offset_bottom = 680.0
+text = "开始本机双人对局"
+theme_type_variation = &"PrimaryButton"
+
+[node name="AiNote" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 710.0
+offset_right = 1144.0
+offset_bottom = 778.0
+text = "点击切换席位后，请将设备交给另一位玩家，再由对方确认进入。"
+theme_override_font_sizes/font_size = 16
+mouse_filter = 2
+theme_type_variation = &"MutedLabel"
+

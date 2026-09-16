@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-FLD-002",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "field",
+  "cost": 1,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-FLD-002.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-FLD-002.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-FLD-002.png",
+  "effects": [
+    {
+      "id": "endTurnCharge",
+      "trigger": {
+        "kind": "endTurnCharge"
+      },
+      "body": {
+        "kind": "retarget",
+        "target": {
+          "kind": "friendlyMinions",
+          "filter": {
+            "tag": "mechanical"
+          }
+        },
+        "body": {
+          "kind": "heal",
+          "target": {
+            "kind": "targets"
+          },
+          "amount": "target.maxHealth - target.health"
+        }
+      },
+      "charge": 1
+    }
+  ],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 3
+  }
+}

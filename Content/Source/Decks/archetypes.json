@@ -1,0 +1,854 @@
+[
+  {
+    "Name": "民兵阵线",
+    "Profession": "Guardian",
+    "Description": "征募官持续补牌，殿后旗手死亡后留下守备民兵，整训改善手牌质量，冲锋组织整队进攻。",
+    "Cards": [
+      {
+        "Id": "EOTA-CORE-GUA-MIN-008",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-MIN-009",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-MIN-004",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-FLD-005",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-SPL-004",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-SPL-009",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-SPL-013",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-MIN-006",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-MIN-001",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-GUA-MIN-024",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-GUA-MIN-015",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-GUA-MIN-022",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-GUA-SPL-003",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-GUA-SPL-008",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-GUA-SPL-001",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-GUA-SPL-006",
+        "Copies": 2
+      }
+    ]
+  },
+  {
+    "Name": "据点换防",
+    "Profession": "Guardian",
+    "Description": "守备据点与后勤仓库积累资源，誓血壁垒通过防守吸血，战术机动让旧防线转入追猎进攻。",
+    "Cards": [
+      {
+        "Id": "EOTA-CORE-GUA-MIN-001",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-MIN-002",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-MIN-025",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-MIN-017",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-FLD-001",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-FLD-003",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-SPL-001",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-SPL-002",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-FLD-002",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-GUA-FLD-007",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-GUA-FLD-006",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-GUA-SPL-016",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-GUA-SPL-017",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-GUA-MIN-020",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-GUA-SPL-003",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-GUA-MIN-023",
+        "Copies": 2
+      }
+    ]
+  },
+  {
+    "Name": "火器营",
+    "Profession": "Guardian",
+    "Description": "先攻射手与定向火力抢路，弹药维持交换，炮兵和督战官负责终结。",
+    "Cards": [
+      {
+        "Id": "EOTA-CORE-GUA-MIN-005",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-MIN-002",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-MIN-012",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-MIN-018",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-SPL-006",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-SPL-014",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-SPL-011",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-MIN-006",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-GUA-MIN-003",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-GUA-MIN-021",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-GUA-MIN-011",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-GUA-MIN-019",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-GUA-FLD-003",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-GUA-SPL-015",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-GUA-SPL-003",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-GUA-SPL-016",
+        "Copies": 2
+      }
+    ]
+  },
+  {
+    "Name": "共鸣前线",
+    "Profession": "Arcanist",
+    "Description": "司仪以入场和死亡维持活化1，术士向相邻路铺开；夜枭、学徒、魔像与折跃兑现战斗窗口。",
+    "Cards": [
+      {
+        "Id": "EOTA-CORE-ARC-MIN-008",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-MIN-001",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-MIN-003",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-MIN-005",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-FLD-001",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-FLD-002",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-SPL-001",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-SPL-002",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-MIN-004",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ARC-FLD-006",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ARC-MIN-010",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ARC-MIN-020",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ARC-MIN-016",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ARC-SPL-016",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ARC-SPL-011",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ARC-MIN-021",
+        "Copies": 2
+      }
+    ]
+  },
+  {
+    "Name": "法阵控制",
+    "Profession": "Arcanist",
+    "Description": "司仪与术士维持低阶共鸣，裂隙升到2，破碎星门直接打开3级窗口；尖塔、巨灵和烈焰风暴负责清场。",
+    "Cards": [
+      {
+        "Id": "EOTA-CORE-ARC-MIN-008",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-MIN-003",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-MIN-005",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-MIN-009",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-FLD-002",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-FLD-005",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-SPL-002",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-SPL-004",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-FLD-006",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ARC-FLD-008",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ARC-MIN-021",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ARC-MIN-017",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ARC-SPL-006",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ARC-MIN-006",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ARC-MIN-020",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ARC-FLD-007",
+        "Copies": 2
+      }
+    ]
+  },
+  {
+    "Name": "血契余烬",
+    "Profession": "Arcanist",
+    "Description": "以英雄生命换取资源与活化，孵化场掩护过渡，裂隙夜枭吸血，低血量偿还与执政官逆转局面。",
+    "Cards": [
+      {
+        "Id": "EOTA-CORE-ARC-MIN-012",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-MIN-013",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-MIN-014",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-FLD-009",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-FLD-010",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-SPL-013",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-SPL-014",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-SPL-015",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ARC-MIN-015",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ARC-MIN-019",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ARC-MIN-008",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ARC-SPL-001",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ARC-SPL-004",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ARC-MIN-021",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ARC-FLD-001",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ARC-SPL-008",
+        "Copies": 2
+      }
+    ]
+  },
+  {
+    "Name": "兽灵群猎",
+    "Profession": "Hunter",
+    "Description": "母狼死亡后留下猎犬，驯兽口哨填补位置，巨犀承接强化，棕熊、猛犸和巨兽负责中后期。",
+    "Cards": [
+      {
+        "Id": "EOTA-CORE-HUN-MIN-012",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-MIN-014",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-MIN-025",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-MIN-002",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-FLD-005",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-SPL-003",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-SPL-005",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-SPL-009",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-MIN-021",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-HUN-MIN-023",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-HUN-MIN-010",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-HUN-MIN-022",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-HUN-MIN-024",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-HUN-SPL-006",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-HUN-SPL-016",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-HUN-SPL-015",
+        "Copies": 2
+      }
+    ]
+  },
+  {
+    "Name": "林间伏击",
+    "Profession": "Hunter",
+    "Description": "检索并铺设陷阱，维护场地和弩手争取交换；伏草处刑者用追猎斩杀主动寻找关键随从。",
+    "Cards": [
+      {
+        "Id": "EOTA-CORE-HUN-FLD-001",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-FLD-002",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-FLD-003",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-MIN-013",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-MIN-007",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-MIN-018",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-SPL-010",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-SPL-001",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-FLD-004",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-HUN-MIN-003",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-HUN-MIN-026",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-HUN-FLD-006",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-HUN-SPL-004",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-HUN-SPL-008",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-HUN-FLD-008",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-HUN-SPL-002",
+        "Copies": 2
+      }
+    ]
+  },
+  {
+    "Name": "毒箭巡林",
+    "Profession": "Hunter",
+    "Description": "毒箭削弱随从并配合割裂；侵血毒剂按回合压低英雄生命，医师与溪谷支持消耗。",
+    "Cards": [
+      {
+        "Id": "EOTA-CORE-HUN-MIN-001",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-MIN-016",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-MIN-002",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-FLD-007",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-SPL-011",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-SPL-012",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-SPL-004",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-SPL-001",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-HUN-MIN-017",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-HUN-MIN-020",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-HUN-FLD-008",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-HUN-SPL-014",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-HUN-MIN-009",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-HUN-FLD-006",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-HUN-SPL-008",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-HUN-SPL-002",
+        "Copies": 2
+      }
+    ]
+  },
+  {
+    "Name": "遗迹重械",
+    "Profession": "Artisan",
+    "Description": "冷启反应炉在迟缓期间供能，预热调校逐级缩短等待，船坞或强制启动负责完全唤醒重械。",
+    "Cards": [
+      {
+        "Id": "EOTA-CORE-ART-MIN-001",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-MIN-010",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-MIN-005",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-MIN-018",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-FLD-004",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-SPL-001",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-SPL-007",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-MIN-007",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-MIN-008",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ART-MIN-021",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ART-MIN-022",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ART-MIN-024",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ART-SPL-015",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ART-FLD-007",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ART-FLD-002",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ART-SPL-018",
+        "Copies": 2
+      }
+    ]
+  },
+  {
+    "Name": "废料重组",
+    "Profession": "Artisan",
+    "Description": "破烂堆延续防线，技师和分拣线补充零件，汲取机提供蓄能与吸血，再替换成拼装巨像。",
+    "Cards": [
+      {
+        "Id": "EOTA-CORE-ART-MIN-004",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-MIN-006",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-MIN-019",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-FLD-003",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-FLD-006",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-SPL-005",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-SPL-010",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-SPL-002",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-MIN-020",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ART-MIN-003",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ART-MIN-023",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ART-FLD-007",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ART-SPL-016",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ART-SPL-004",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ART-SPL-014",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ART-MIN-025",
+        "Copies": 2
+      }
+    ]
+  },
+  {
+    "Name": "魔能试验",
+    "Profession": "Artisan",
+    "Description": "魔能机甲边自伤边打脸，汲取机补充吸血和能源；预热、启动及弹射围绕高风险机械制造爆发。",
+    "Cards": [
+      {
+        "Id": "EOTA-CORE-ART-MIN-014",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-MIN-015",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-MIN-017",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-MIN-019",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-FLD-005",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-SPL-006",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-SPL-009",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-SPL-011",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-ART-MIN-021",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ART-MIN-020",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ART-FLD-002",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ART-FLD-006",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ART-SPL-015",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ART-SPL-018",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ART-MIN-025",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-ART-SPL-017",
+        "Copies": 2
+      }
+    ]
+  }
+]

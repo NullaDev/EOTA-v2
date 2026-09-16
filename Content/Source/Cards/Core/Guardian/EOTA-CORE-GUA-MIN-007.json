@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-MIN-007",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "minion",
+  "cost": 4,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-MIN-007.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-MIN-007.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-007.png",
+  "effects": [
+    {
+      "id": "combatStage",
+      "trigger": {
+        "kind": "combatStage"
+      },
+      "body": {
+        "kind": "kill",
+        "target": {
+          "kind": "enemyFields"
+        }
+      },
+      "condition": {
+        "kind": "not",
+        "condition": {
+          "kind": "exists",
+          "target": {
+            "kind": "enemyMinions"
+          }
+        }
+      }
+    }
+  ],
+  "attack": 4,
+  "health": 3,
+  "tags": [
+    "firearm"
+  ]
+}

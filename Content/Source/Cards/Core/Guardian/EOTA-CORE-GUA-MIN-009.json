@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-MIN-009",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "minion",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-MIN-009.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-MIN-009.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-009.png",
+  "effects": [
+    {
+      "id": "combat",
+      "trigger": {
+        "kind": "combat"
+      },
+      "body": {
+        "kind": "generate",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "count": 1,
+        "prototype": "EOTA-TOKEN-GUA-MIN-001"
+      }
+    }
+  ],
+  "attack": 3,
+  "health": 2
+}

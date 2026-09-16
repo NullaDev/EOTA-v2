@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Theme" path="res://Client/Godot/GameTheme.tres" id="theme"]
+
+[node name="CardInspection" type="VBoxContainer"]
+layout_mode = 3
+custom_minimum_size = Vector2(176, 0)
+size_flags_vertical = 3
+theme = ExtResource("theme")
+theme_override_constants/separation = 12
+
+[node name="Card" type="VBoxContainer" parent="."]
+layout_mode = 2
+custom_minimum_size = Vector2(176, 248)
+
+[node name="RulesScroll" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+custom_minimum_size = Vector2(0, 100)
+
+[node name="Rules" type="Label" parent="RulesScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 15
+text = "卡牌规则"

@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Eota.ReplayCli</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Eota.Kernel\Eota.Kernel.csproj" />
+    <ProjectReference Include="..\..\src\Eota.Content.Compiler\Eota.Content.Compiler.csproj" />
+    <ProjectReference Include="..\..\src\Eota.Server.Infrastructure\Eota.Server.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

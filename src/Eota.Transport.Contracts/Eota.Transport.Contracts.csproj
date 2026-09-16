@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>Eota.Transport.Contracts</RootNamespace>
+  </PropertyGroup>
+</Project>

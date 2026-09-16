@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-MIN-024",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "minion",
+  "cost": 4,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-MIN-024.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-MIN-024.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-024.png",
+  "effects": [
+    {
+      "id": "selfDied",
+      "trigger": {
+        "kind": "selfDied"
+      },
+      "body": {
+        "kind": "sequence",
+        "steps": [
+          {
+            "kind": "summon",
+            "target": {
+              "kind": "friendlyLanes"
+            },
+            "prototype": "EOTA-TOKEN-GUA-MIN-001",
+            "slot": "minion"
+          },
+          {
+            "kind": "addKeyword",
+            "target": {
+              "kind": "friendlyMinions"
+            },
+            "keyword": "guard"
+          }
+        ]
+      }
+    }
+  ],
+  "attack": 3,
+  "health": 4
+}

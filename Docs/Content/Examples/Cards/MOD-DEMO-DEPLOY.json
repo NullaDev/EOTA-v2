@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "kind": "minion",
+  "id": "MOD-DEMO-DEPLOY",
+  "source": "core",
+  "profession": "artisan",
+  "cost": 5,
+  "nameLocalizationKey": "card.MOD-DEMO-DEPLOY.name",
+  "descriptionLocalizationKey": "card.MOD-DEMO-DEPLOY.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-001.png",
+  "attack": 2,
+  "health": 2,
+  "tags": [
+    "mechanical"
+  ],
+  "effects": [
+    {
+      "id": "deploy-neighbors",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "summon",
+        "target": {
+          "kind": "friendlyLanes",
+          "scope": "adjacent"
+        },
+        "prototype": "MOD-DEMO-DRONE",
+        "slot": "minion"
+      }
+    }
+  ]
+}

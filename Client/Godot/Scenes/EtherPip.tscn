@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Theme" path="res://Client/Godot/GameTheme.tres" id="theme"]
+[ext_resource type="Texture2D" path="res://Content/Generated/Icons/ether.png" id="ether"]
+
+[node name="EtherPip" type="TextureRect"]
+layout_mode = 3
+custom_minimum_size = Vector2(16, 16)
+size_flags_vertical = 3
+theme = ExtResource("theme")
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+texture = ExtResource("ether")

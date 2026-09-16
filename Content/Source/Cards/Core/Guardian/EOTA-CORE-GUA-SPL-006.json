@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-SPL-006",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "spell",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-SPL-006.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-SPL-006.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-006.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "damage",
+        "target": {
+          "kind": "enemyMinions"
+        },
+        "amount": 3
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "lane"
+}

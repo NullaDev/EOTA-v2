@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-SPL-001",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "spell",
+  "cost": 1,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-SPL-001.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-SPL-001.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-001.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "retarget",
+        "target": {
+          "kind": "friendlyMinions"
+        },
+        "body": {
+          "kind": "parallel",
+          "children": [
+            {
+              "kind": "modifyNumber",
+              "target": {
+                "kind": "targets"
+              },
+              "attribute": "maximumHealth",
+              "amount": 1,
+              "operation": "add"
+            },
+            {
+              "kind": "ifElse",
+              "condition": {
+                "kind": "hasKeyword",
+                "target": {
+                  "kind": "targets"
+                },
+                "keyword": "guard"
+              },
+              "then": {
+                "kind": "modifyNumber",
+                "target": {
+                  "kind": "targets"
+                },
+                "attribute": "maximumHealth",
+                "amount": 1,
+                "operation": "add"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "speed": "fast",
+  "targetScope": "lane"
+}

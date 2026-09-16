@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-MIN-007",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "minion",
+  "cost": 4,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-MIN-007.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-MIN-007.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-007.png",
+  "effects": [
+    {
+      "id": "preCombatCharge",
+      "trigger": {
+        "kind": "preCombatCharge"
+      },
+      "body": {
+        "kind": "draw",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "count": 1
+      },
+      "charge": 1
+    }
+  ],
+  "attack": 2,
+  "health": 4,
+  "tags": [
+    "mechanical"
+  ]
+}

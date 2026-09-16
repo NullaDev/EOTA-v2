@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-SPL-011",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "spell",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-SPL-011.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-SPL-011.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-011.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "damage",
+            "target": {
+              "kind": "enemyMinions"
+            },
+            "amount": 2
+          },
+          {
+            "kind": "grantEffect",
+            "target": {
+              "kind": "enemyMinions"
+            },
+            "duration": 2,
+            "effect": {
+              "id": "turnEnd",
+              "trigger": {
+                "kind": "turnEnd"
+              },
+              "body": {
+                "kind": "loseHealth",
+                "target": {
+                  "kind": "self"
+                },
+                "amount": 1
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "lane"
+}

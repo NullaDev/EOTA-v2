@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "kind": "spell",
+  "id": "TEST-P7-LOOT",
+  "cost": 0,
+  "effects": [
+    {
+      "id": "cast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "grantEffect",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "duration": 1,
+        "effect": {
+          "id": "loot",
+          "trigger": {
+            "kind": "enemyDied",
+            "scope": "all",
+            "subjectType": "minion"
+          },
+          "body": {
+            "kind": "draw",
+            "target": {
+              "kind": "friendlyHero"
+            },
+            "count": 1
+          }
+        }
+      }
+    }
+  ],
+  "speed": "fast",
+  "targetScope": "lane"
+}

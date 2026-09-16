@@ -1,0 +1,153 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Theme" path="res://Client/Godot/GameTheme.tres" id="theme"]
+
+[node name="DeckBuilder" type="Control"]
+layout_mode = 3
+custom_minimum_size = Vector2(1280, 828)
+size_flags_vertical = 3
+theme = ExtResource("theme")
+
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 8.0
+offset_right = 1170.0
+offset_bottom = 56.0
+text = "牌组工坊"
+theme_override_font_sizes/font_size = 32
+mouse_filter = 2
+
+
+[node name="Help" type="Label" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 62.0
+offset_right = 1240.0
+offset_bottom = 94.0
+text = "选择职业后，卡池自动展示该职业与中立的可构筑卡牌。"
+theme_override_font_sizes/font_size = 16
+mouse_filter = 2
+theme_type_variation = &"MutedLabel"
+
+[node name="Profession" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 112.0
+offset_right = 304.0
+offset_bottom = 160.0
+
+[node name="Search" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 112.0
+offset_right = 768.0
+offset_bottom = 160.0
+placeholder_text = "搜索可选卡牌"
+
+[node name="Scroll" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 184.0
+offset_right = 782.0
+offset_bottom = 766.0
+horizontal_scroll_mode = 0
+
+[node name="Grid" type="GridContainer" parent="Scroll"]
+layout_mode = 2
+columns = 4
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 20
+
+[node name="DeckPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 806.0
+offset_top = 110.0
+offset_right = 1250.0
+offset_bottom = 766.0
+theme_type_variation = &"Raised"
+mouse_filter = 2
+
+[node name="DeckName" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 826.0
+offset_top = 130.0
+offset_right = 1230.0
+offset_bottom = 178.0
+text = "我的牌组"
+
+[node name="SavedDecks" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 826.0
+offset_top = 192.0
+offset_right = 1126.0
+offset_bottom = 234.0
+
+[node name="Load" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1138.0
+offset_top = 192.0
+offset_right = 1230.0
+offset_bottom = 234.0
+text = "载入"
+
+[node name="Count" type="Label" parent="."]
+layout_mode = 0
+offset_left = 826.0
+offset_top = 250.0
+offset_right = 1230.0
+offset_bottom = 292.0
+text = "0 / 40"
+theme_override_font_sizes/font_size = 26
+mouse_filter = 2
+
+
+[node name="DeckScroll" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 826.0
+offset_top = 308.0
+offset_right = 1230.0
+offset_bottom = 652.0
+horizontal_scroll_mode = 0
+
+[node name="Rows" type="VBoxContainer" parent="DeckScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="Default" type="Button" parent="."]
+layout_mode = 0
+offset_left = 826.0
+offset_top = 688.0
+offset_right = 1090.0
+offset_bottom = 736.0
+text = "填入默认牌组"
+
+[node name="Clear" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1102.0
+offset_top = 688.0
+offset_right = 1230.0
+offset_bottom = 736.0
+text = "清空"
+
+[node name="Save" type="Button" parent="."]
+layout_mode = 0
+offset_left = 806.0
+offset_top = 782.0
+offset_right = 1250.0
+offset_bottom = 826.0
+text = "保存牌组"
+theme_type_variation = &"PrimaryButton"
+
+[node name="Hint" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 780.0
+offset_right = 772.0
+offset_bottom = 824.0
+text = "点击卡牌加入；点击右侧 − 移除。每个职业单独保留草稿。"
+theme_override_font_sizes/font_size = 15
+mouse_filter = 2
+theme_type_variation = &"MutedLabel"

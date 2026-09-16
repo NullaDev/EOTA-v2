@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ARC-SPL-001",
+  "source": "core",
+  "profession": "arcanist",
+  "kind": "spell",
+  "cost": 1,
+  "nameLocalizationKey": "card.EOTA-CORE-ARC-SPL-001.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ARC-SPL-001.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-001.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "ifElse",
+        "condition": {
+          "kind": "compare",
+          "left": "lane.ether",
+          "operator": "greaterOrEqual",
+          "right": 1
+        },
+        "then": {
+          "kind": "damage",
+          "target": {
+            "kind": "enemyMinions"
+          },
+          "amount": 3
+        },
+        "else": {
+          "kind": "damage",
+          "target": {
+            "kind": "enemyMinions"
+          },
+          "amount": 2
+        }
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "lane"
+}

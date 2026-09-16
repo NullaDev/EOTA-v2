@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "kind": "minion",
+  "id": "MOD-DEMO-WATCHER",
+  "source": "core",
+  "profession": "guardian",
+  "cost": 4,
+  "nameLocalizationKey": "card.MOD-DEMO-WATCHER.name",
+  "descriptionLocalizationKey": "card.MOD-DEMO-WATCHER.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-001.png",
+  "attack": 2,
+  "health": 4,
+  "effects": [
+    {
+      "id": "teach-recovery",
+      "trigger": {
+        "kind": "friendlyEntered",
+        "scope": "all",
+        "subjectType": "minion",
+        "otherOnly": true
+      },
+      "body": {
+        "kind": "grantEffect",
+        "target": {
+          "kind": "eventSubject"
+        },
+        "duration": 1,
+        "effect": {
+          "id": "recover",
+          "trigger": {
+            "kind": "turnEnd"
+          },
+          "body": {
+            "kind": "heal",
+            "target": {
+              "kind": "self"
+            },
+            "amount": 1
+          }
+        }
+      }
+    }
+  ]
+}

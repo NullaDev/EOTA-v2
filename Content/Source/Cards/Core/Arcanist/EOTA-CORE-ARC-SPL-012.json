@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ARC-SPL-012",
+  "source": "core",
+  "profession": "arcanist",
+  "kind": "spell",
+  "cost": 5,
+  "nameLocalizationKey": "card.EOTA-CORE-ARC-SPL-012.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ARC-SPL-012.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-SPL-012.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "friendlyLanes",
+              "scope": "all"
+            },
+            "attribute": "etherActivation",
+            "operation": "add",
+            "amount": 1
+          },
+          {
+            "kind": "preventEtherDecay",
+            "target": {
+              "kind": "friendlyLanes",
+              "scope": "all"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "global"
+}

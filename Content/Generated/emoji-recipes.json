@@ -1,0 +1,1780 @@
+{
+  "EOTA-CORE-ARC-FLD-001": {
+    "Emoji": "\uD83E\uDDF1\uD83D\uDD2E",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-FLD-001.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230803/u1f52e/u1f52e_u1f9f1.png"
+  },
+  "EOTA-CORE-ARC-FLD-002": {
+    "Emoji": "\uD83D\uDD2E\u26A1",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-FLD-002.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260202/u1f52e/u1f52e_u26a1.png"
+  },
+  "EOTA-CORE-ARC-FLD-003": {
+    "Emoji": "\uD83C\uDF27\uFE0F\uD83D\uDD12",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-FLD-003.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20221101/u1f327-ufe0f/u1f327-ufe0f_u1f512.png"
+  },
+  "EOTA-CORE-ARC-FLD-004": {
+    "Emoji": "\uD83E\uDDCA\u23F3",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-FLD-004.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f9ca/u1f9ca_u23f3.png"
+  },
+  "EOTA-CORE-ARC-FLD-005": {
+    "Emoji": "\uD83D\uDDFC\uD83C\uDF1F",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-FLD-005.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230803/u1f31f/u1f31f_u1f5fc.png"
+  },
+  "EOTA-CORE-ARC-FLD-006": {
+    "Emoji": "\u26A1\uD83D\uDD73\uFE0F",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-FLD-006.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f573-ufe0f/u1f573-ufe0f_u26a1.png"
+  },
+  "EOTA-CORE-ARC-FLD-007": {
+    "Emoji": "\uD83D\uDD73\uFE0F\uD83C\uDF0C",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-FLD-007.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f573-ufe0f/u1f573-ufe0f_u1f30c.png"
+  },
+  "EOTA-CORE-ARC-FLD-008": {
+    "Emoji": "\uD83D\uDCDA\uD83C\uDF0C",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-FLD-008.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f4da/u1f4da_u1f30c.png"
+  },
+  "EOTA-CORE-ARC-FLD-009": {
+    "Emoji": "\uD83E\uDE78\uD83D\uDC8E",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-FLD-009.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f48e/u1f48e_u1fa78.png"
+  },
+  "EOTA-CORE-ARC-FLD-010": {
+    "Emoji": "\uD83D\uDC8E\uD83D\uDC26",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-FLD-010.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20210831/u1f426/u1f426_u1f48e.png"
+  },
+  "EOTA-CORE-ARC-FLD-011": {
+    "Emoji": "\uD83C\uDF33\uD83D\uDC96",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-FLD-011.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260128/u1f496/u1f496_u1f333.png"
+  },
+  "EOTA-CORE-ARC-MIN-001": {
+    "Emoji": "\uD83E\uDDD9\u200D\u2642\uFE0F",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card"
+  },
+  "EOTA-CORE-ARC-MIN-002": {
+    "Emoji": "\uD83D\uDCDA\uD83C\uDF1F",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-MIN-002.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20220203/u1f31f/u1f31f_u1f4da.png"
+  },
+  "EOTA-CORE-ARC-MIN-003": {
+    "Emoji": "\uD83D\uDD2E\uD83D\uDD0B",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-MIN-003.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20220506/u1f52e/u1f52e_u1f50b.png"
+  },
+  "EOTA-CORE-ARC-MIN-004": {
+    "Emoji": "\uD83E\uDD3A",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card"
+  },
+  "EOTA-CORE-ARC-MIN-005": {
+    "Emoji": "\uD83C\uDF1F\uD83D\uDD2E",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-MIN-005.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260429/u1f31f/u1f31f_u1f52e.png"
+  },
+  "EOTA-CORE-ARC-MIN-006": {
+    "Emoji": "\uD83E\uDDD1\u200D\uD83D\uDCBC",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card"
+  },
+  "EOTA-CORE-ARC-MIN-007": {
+    "Emoji": "\uD83D\uDDFF\uD83C\uDF0A",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-MIN-007.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230803/u1f30a/u1f30a_u1f5ff.png"
+  },
+  "EOTA-CORE-ARC-MIN-008": {
+    "Emoji": "\uD83D\uDC8C\u26A1",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-MIN-008.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f48c/u1f48c_u26a1.png"
+  },
+  "EOTA-CORE-ARC-MIN-009": {
+    "Emoji": "\u2693\uD83D\uDD2E",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-MIN-009.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20220506/u1f52e/u1f52e_u2693.png"
+  },
+  "EOTA-CORE-ARC-MIN-010": {
+    "Emoji": "\uD83E\uDDF1\uD83C\uDF00",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-MIN-010.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f300/u1f300_u1f9f1.png"
+  },
+  "EOTA-CORE-ARC-MIN-011": {
+    "Emoji": "\uD83E\uDE94\uD83D\uDC8E",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-MIN-011.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260128/u1fa94/u1fa94_u1f48e.png"
+  },
+  "EOTA-CORE-ARC-MIN-012": {
+    "Emoji": "\uD83D\uDCDA\uD83E\uDE78",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-MIN-012.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f4da/u1f4da_u1fa78.png"
+  },
+  "EOTA-CORE-ARC-MIN-013": {
+    "Emoji": "\uD83E\uDE78\uD83C\uDF0A",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-MIN-013.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230418/u1f30a/u1f30a_u1fa78.png"
+  },
+  "EOTA-CORE-ARC-MIN-014": {
+    "Emoji": "\uD83E\uDE78\uD83D\uDCDA",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-MIN-014.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f4da/u1f4da_u1fa78.png"
+  },
+  "EOTA-CORE-ARC-MIN-015": {
+    "Emoji": "\uD83D\uDC51\uD83E\uDE78",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-MIN-015.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f451/u1f451_u1fa78.png"
+  },
+  "EOTA-CORE-ARC-MIN-016": {
+    "Emoji": "\uD83D\uDE34\uD83D\uDDFF",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-MIN-016.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f5ff/u1f5ff_u1f634.png"
+  },
+  "EOTA-CORE-ARC-MIN-017": {
+    "Emoji": "\uD83C\uDF0C\uD83D\uDC41\uFE0F",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-MIN-017.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260202/u1f441-ufe0f/u1f441-ufe0f_u1f30c.png"
+  },
+  "EOTA-CORE-ARC-MIN-018": {
+    "Emoji": "\uD83E\uDD8B\u26A1",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-MIN-018.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20250430/u1f98b/u1f98b_u26a1.png"
+  },
+  "EOTA-CORE-ARC-MIN-019": {
+    "Emoji": "\uD83D\uDC9A\uD83E\uDE84",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-MIN-019.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20210521/u1fa84/u1fa84_u1f49a.png"
+  },
+  "EOTA-CORE-ARC-MIN-020": {
+    "Emoji": "\uD83E\uDE94\uD83D\uDD73\uFE0F",
+    "Top": "#704e9b",
+    "Bottom": "#21142f",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-MIN-020.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260128/u1f573-ufe0f/u1f573-ufe0f_u1fa94.png"
+  },
+  "EOTA-CORE-ARC-MIN-021": {
+    "Emoji": "\uD83E\uDD89\uD83C\uDF0C",
+    "Top": "#704e9b",
+    "Bottom": "#21142f",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-MIN-021.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f30c/u1f30c_u1f989.png"
+  },
+  "EOTA-CORE-ARC-SPL-001": {
+    "Emoji": "\uD83C\uDF1F\uD83D\uDD25",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-SPL-001.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260429/u1f31f/u1f31f_u1f525.png"
+  },
+  "EOTA-CORE-ARC-SPL-002": {
+    "Emoji": "\uD83C\uDF0A\uD83E\uDE84",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-SPL-002.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260202/u1f30a/u1f30a_u1fa84.png"
+  },
+  "EOTA-CORE-ARC-SPL-003": {
+    "Emoji": "\u2604\uFE0F\uD83D\uDD2E",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-SPL-003.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20220506/u1f52e/u1f52e_u2604-ufe0f.png"
+  },
+  "EOTA-CORE-ARC-SPL-004": {
+    "Emoji": "\uD83D\uDD25",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card"
+  },
+  "EOTA-CORE-ARC-SPL-005": {
+    "Emoji": "\u2604\uFE0F\uD83C\uDF0D",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-SPL-005.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u2604-ufe0f/u2604-ufe0f_u1f30d.png"
+  },
+  "EOTA-CORE-ARC-SPL-006": {
+    "Emoji": "\uD83D\uDD25\uD83C\uDF2A\uFE0F",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-SPL-006.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230127/u1f32a-ufe0f/u1f32a-ufe0f_u1f525.png"
+  },
+  "EOTA-CORE-ARC-SPL-007": {
+    "Emoji": "\u267B\uFE0F\uD83D\uDD2E",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-SPL-007.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20220506/u1f52e/u1f52e_u267b-ufe0f.png"
+  },
+  "EOTA-CORE-ARC-SPL-008": {
+    "Emoji": "\uD83D\uDCA5\uD83D\uDD2E",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-SPL-008.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230301/u1f52e/u1f52e_u1f4a5.png"
+  },
+  "EOTA-CORE-ARC-SPL-009": {
+    "Emoji": "\uD83C\uDF0A\uD83C\uDF2A\uFE0F",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-SPL-009.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230418/u1f30a/u1f30a_u1f32a-ufe0f.png"
+  },
+  "EOTA-CORE-ARC-SPL-010": {
+    "Emoji": "\uD83D\uDCAB\uD83D\uDD2E",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-SPL-010.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20201001/u1f4ab/u1f4ab_u1f52e.png"
+  },
+  "EOTA-CORE-ARC-SPL-011": {
+    "Emoji": "\uD83C\uDF0A\uD83C\uDFFA",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-SPL-011.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230803/u1f30a/u1f30a_u1f3fa.png"
+  },
+  "EOTA-CORE-ARC-SPL-012": {
+    "Emoji": "\uD83C\uDF0B\u26A1",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-SPL-012.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f30b/u1f30b_u26a1.png"
+  },
+  "EOTA-CORE-ARC-SPL-013": {
+    "Emoji": "\uD83E\uDE78\uD83D\uDD25",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-SPL-013.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f525/u1f525_u1fa78.png"
+  },
+  "EOTA-CORE-ARC-SPL-014": {
+    "Emoji": "\uD83D\uDCF0\uD83E\uDE78",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-SPL-014.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f4f0/u1f4f0_u1fa78.png"
+  },
+  "EOTA-CORE-ARC-SPL-015": {
+    "Emoji": "\uD83C\uDF1F\uD83E\uDE78",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-SPL-015.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260202/u1f31f/u1f31f_u1fa78.png"
+  },
+  "EOTA-CORE-ARC-SPL-016": {
+    "Emoji": "\uD83C\uDF00\uD83C\uDF1F",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-SPL-016.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20220203/u1f31f/u1f31f_u1f300.png"
+  },
+  "EOTA-CORE-ARC-SPL-017": {
+    "Emoji": "\uD83D\uDCA7\uD83D\uDC9A",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-SPL-017.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230803/u1f49a/u1f49a_u1f4a7.png"
+  },
+  "EOTA-CORE-ARC-SPL-018": {
+    "Emoji": "\uD83C\uDF00\uD83D\uDD12",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ARC-SPL-018.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f300/u1f300_u1f512.png"
+  },
+  "EOTA-CORE-ART-FLD-001": {
+    "Emoji": "\uD83D\uDD0B\uD83D\uDD0B",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-FLD-001.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f50b/u1f50b_u1f50b.png"
+  },
+  "EOTA-CORE-ART-FLD-002": {
+    "Emoji": "\uD83D\uDEE0\uFE0F\u2699\uFE0F",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-FLD-002.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f6e0-ufe0f/u1f6e0-ufe0f_u2699-ufe0f.png"
+  },
+  "EOTA-CORE-ART-FLD-003": {
+    "Emoji": "\uD83D\uDDD1\uFE0F\uD83E\uDD16",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-FLD-003.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f5d1-ufe0f/u1f5d1-ufe0f_u1f916.png"
+  },
+  "EOTA-CORE-ART-FLD-004": {
+    "Emoji": "\u2668\uFE0F\uD83D\uDD25",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-FLD-004.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240610/u1f525/u1f525_u2668-ufe0f.png"
+  },
+  "EOTA-CORE-ART-FLD-005": {
+    "Emoji": "\u2699\uFE0F\uD83D\uDD0B",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-FLD-005.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f50b/u1f50b_u2699-ufe0f.png"
+  },
+  "EOTA-CORE-ART-FLD-006": {
+    "Emoji": "\u267B\uFE0F\uD83D\uDCE6",
+    "Top": "#826448",
+    "Bottom": "#271e17",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-FLD-006.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f4e6/u1f4e6_u267b-ufe0f.png"
+  },
+  "EOTA-CORE-ART-FLD-007": {
+    "Emoji": "\u2699\uFE0F\uD83E\uDD16",
+    "Top": "#826448",
+    "Bottom": "#271e17",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-FLD-007.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20250130/u2699-ufe0f/u2699-ufe0f_u1f916.png"
+  },
+  "EOTA-CORE-ART-MIN-001": {
+    "Emoji": "\u2708\uFE0F\u2699\uFE0F",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-001.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u2708-ufe0f/u2708-ufe0f_u2699-ufe0f.png"
+  },
+  "EOTA-CORE-ART-MIN-002": {
+    "Emoji": "\u2668\uFE0F\uD83C\uDFF0",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-002.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u2668-ufe0f/u2668-ufe0f_u1f3f0.png"
+  },
+  "EOTA-CORE-ART-MIN-003": {
+    "Emoji": "\uD83D\uDC36\uD83E\uDD16",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-003.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20211115/u1f436/u1f436_u1f916.png"
+  },
+  "EOTA-CORE-ART-MIN-004": {
+    "Emoji": "\uD83D\uDE9A\u2699\uFE0F",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-004.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f69a/u1f69a_u2699-ufe0f.png"
+  },
+  "EOTA-CORE-ART-MIN-005": {
+    "Emoji": "\uD83D\uDE80\uD83E\uDD16",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-005.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f916/u1f916_u1f680.png"
+  },
+  "EOTA-CORE-ART-MIN-006": {
+    "Emoji": "\uD83D\uDEA8\uD83E\uDDF1",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-006.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f6a8/u1f6a8_u1f9f1.png"
+  },
+  "EOTA-CORE-ART-MIN-007": {
+    "Emoji": "\uD83D\uDE9C",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card"
+  },
+  "EOTA-CORE-ART-MIN-008": {
+    "Emoji": "\uD83D\uDDFF\uD83D\uDCA5",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-008.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f4a5/u1f4a5_u1f5ff.png"
+  },
+  "EOTA-CORE-ART-MIN-009": {
+    "Emoji": "\uD83C\uDFF0\uD83E\uDD16",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-009.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f916/u1f916_u1f3f0.png"
+  },
+  "EOTA-CORE-ART-MIN-010": {
+    "Emoji": "\u2622\uFE0F\uD83D\uDD0B",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-010.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u2622-ufe0f/u2622-ufe0f_u1f50b.png"
+  },
+  "EOTA-CORE-ART-MIN-011": {
+    "Emoji": "\uD83E\uDD16\uD83D\uDD0B",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-011.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f916/u1f916_u1f50b.png"
+  },
+  "EOTA-CORE-ART-MIN-012": {
+    "Emoji": "\uD83D\uDE9C\uD83D\uDD25",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-012.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260202/u1f525/u1f525_u1f69c.png"
+  },
+  "EOTA-CORE-ART-MIN-013": {
+    "Emoji": "\uD83D\uDD0B\uD83C\uDFF0",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-013.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f50b/u1f50b_u1f3f0.png"
+  },
+  "EOTA-CORE-ART-MIN-014": {
+    "Emoji": "\uD83E\uDDEA\uD83E\uDD16",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-014.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f916/u1f916_u1f9ea.png"
+  },
+  "EOTA-CORE-ART-MIN-015": {
+    "Emoji": "\u26A1\uD83E\uDD16",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-015.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f916/u1f916_u26a1.png"
+  },
+  "EOTA-CORE-ART-MIN-016": {
+    "Emoji": "\uD83D\uDCA5\uD83D\uDDFF",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-016.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f4a5/u1f4a5_u1f5ff.png"
+  },
+  "EOTA-CORE-ART-MIN-017": {
+    "Emoji": "\u2622\uFE0F\u26A0\uFE0F",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-017.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230803/u26a0-ufe0f/u26a0-ufe0f_u2622-ufe0f.png"
+  },
+  "EOTA-CORE-ART-MIN-018": {
+    "Emoji": "\uD83E\uDE8F\uD83D\uDCE6",
+    "Top": "#826448",
+    "Bottom": "#271e17",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-018.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20250130/u1fa8f/u1fa8f_u1f4e6.png"
+  },
+  "EOTA-CORE-ART-MIN-019": {
+    "Emoji": "\uD83E\uDD16\uD83D\uDEE0\uFE0F",
+    "Top": "#826448",
+    "Bottom": "#271e17",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-019.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f916/u1f916_u1f6e0-ufe0f.png"
+  },
+  "EOTA-CORE-ART-MIN-020": {
+    "Emoji": "\uD83E\uDEA8\uD83E\uDD16",
+    "Top": "#826448",
+    "Bottom": "#271e17",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-020.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20220406/u1faa8/u1faa8_u1f916.png"
+  },
+  "EOTA-CORE-ART-MIN-021": {
+    "Emoji": "\uD83E\uDD16\uD83D\uDE34",
+    "Top": "#826448",
+    "Bottom": "#271e17",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-021.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20201001/u1f634/u1f634_u1f916.png"
+  },
+  "EOTA-CORE-ART-MIN-022": {
+    "Emoji": "\u2699\uFE0F\uD83D\uDE34",
+    "Top": "#826448",
+    "Bottom": "#271e17",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-022.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u2699-ufe0f/u2699-ufe0f_u1f634.png"
+  },
+  "EOTA-CORE-ART-MIN-023": {
+    "Emoji": "\uD83D\uDC26\uD83D\uDEE0\uFE0F",
+    "Top": "#826448",
+    "Bottom": "#271e17",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-023.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f6e0-ufe0f/u1f6e0-ufe0f_u1f426.png"
+  },
+  "EOTA-CORE-ART-MIN-024": {
+    "Emoji": "\uD83E\uDE7A\u2699\uFE0F",
+    "Top": "#826448",
+    "Bottom": "#271e17",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-024.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1fa7a/u1fa7a_u2699-ufe0f.png"
+  },
+  "EOTA-CORE-ART-MIN-025": {
+    "Emoji": "\uD83E\uDDF2\uD83E\uDE78",
+    "Top": "#9a673b",
+    "Bottom": "#332216",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-MIN-025.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f9f2/u1f9f2_u1fa78.png"
+  },
+  "EOTA-CORE-ART-SPL-001": {
+    "Emoji": "\uD83D\uDEE0\uFE0F\u2622\uFE0F",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-SPL-001.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f6e0-ufe0f/u1f6e0-ufe0f_u2622-ufe0f.png"
+  },
+  "EOTA-CORE-ART-SPL-002": {
+    "Emoji": "\uD83C\uDFFA\uD83D\uDD2C",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-SPL-002.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f3fa/u1f3fa_u1f52c.png"
+  },
+  "EOTA-CORE-ART-SPL-003": {
+    "Emoji": "\uD83D\uDEE0\uFE0F\uD83E\uDE7A",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-SPL-003.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1fa7a/u1fa7a_u1f6e0-ufe0f.png"
+  },
+  "EOTA-CORE-ART-SPL-004": {
+    "Emoji": "\uD83D\uDCA5\uD83E\uDD16",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-SPL-004.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f4a5/u1f4a5_u1f916.png"
+  },
+  "EOTA-CORE-ART-SPL-005": {
+    "Emoji": "\u267B\uFE0F\uD83E\uDD16",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-SPL-005.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f916/u1f916_u267b-ufe0f.png"
+  },
+  "EOTA-CORE-ART-SPL-006": {
+    "Emoji": "\u26A1\uD83C\uDF0A",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-SPL-006.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230418/u1f30a/u1f30a_u26a1.png"
+  },
+  "EOTA-CORE-ART-SPL-007": {
+    "Emoji": "\uD83D\uDD0B\u26A1",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-SPL-007.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f50b/u1f50b_u26a1.png"
+  },
+  "EOTA-CORE-ART-SPL-008": {
+    "Emoji": "\uD83D\uDCA5\uD83E\uDD16",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-SPL-008.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f4a5/u1f4a5_u1f916.png"
+  },
+  "EOTA-CORE-ART-SPL-009": {
+    "Emoji": "\u26A0\uFE0F\u2699\uFE0F",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-SPL-009.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230803/u26a0-ufe0f/u26a0-ufe0f_u2699-ufe0f.png"
+  },
+  "EOTA-CORE-ART-SPL-010": {
+    "Emoji": "\uD83D\uDCCF\uD83D\uDD0E",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-SPL-010.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f50e/u1f50e_u1f4cf.png"
+  },
+  "EOTA-CORE-ART-SPL-011": {
+    "Emoji": "\u26A1\uD83E\uDD16",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-SPL-011.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f916/u1f916_u26a1.png"
+  },
+  "EOTA-CORE-ART-SPL-012": {
+    "Emoji": "\u2668\uFE0F\uD83E\uDD16",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-SPL-012.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f916/u1f916_u2668-ufe0f.png"
+  },
+  "EOTA-CORE-ART-SPL-013": {
+    "Emoji": "\uD83D\uDD0B\uD83D\uDC9A",
+    "Top": "#826448",
+    "Bottom": "#271e17",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-SPL-013.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f50b/u1f50b_u1f49a.png"
+  },
+  "EOTA-CORE-ART-SPL-014": {
+    "Emoji": "\uD83E\uDE82\u2699\uFE0F",
+    "Top": "#826448",
+    "Bottom": "#271e17",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-SPL-014.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1fa82/u1fa82_u2699-ufe0f.png"
+  },
+  "EOTA-CORE-ART-SPL-015": {
+    "Emoji": "\uD83D\uDD0C\uD83D\uDCA5",
+    "Top": "#826448",
+    "Bottom": "#271e17",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-SPL-015.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f4a5/u1f4a5_u1f50c.png"
+  },
+  "EOTA-CORE-ART-SPL-016": {
+    "Emoji": "\uD83E\uDD16\uD83E\uDE7A",
+    "Top": "#826448",
+    "Bottom": "#271e17",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-SPL-016.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f916/u1f916_u1fa7a.png"
+  },
+  "EOTA-CORE-ART-SPL-017": {
+    "Emoji": "\uD83D\uDE80\u26A0\uFE0F",
+    "Top": "#826448",
+    "Bottom": "#271e17",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-SPL-017.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230418/u26a0-ufe0f/u26a0-ufe0f_u1f680.png"
+  },
+  "EOTA-CORE-ART-SPL-018": {
+    "Emoji": "\uD83D\uDEE0\uFE0F\u23F3",
+    "Top": "#9a673b",
+    "Bottom": "#332216",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-ART-SPL-018.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f6e0-ufe0f/u1f6e0-ufe0f_u23f3.png"
+  },
+  "EOTA-CORE-GUA-FLD-001": {
+    "Emoji": "\uD83D\uDEA7\uD83E\uDDF1",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-FLD-001.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20250430/u1f9f1/u1f9f1_u1f6a7.png"
+  },
+  "EOTA-CORE-GUA-FLD-002": {
+    "Emoji": "\uD83D\uDDFC\uD83C\uDFAF",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-FLD-002.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f3af/u1f3af_u1f5fc.png"
+  },
+  "EOTA-CORE-GUA-FLD-003": {
+    "Emoji": "\uD83C\uDFF0\uD83D\uDC41\uFE0F",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-FLD-003.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230803/u1f441-ufe0f/u1f441-ufe0f_u1f3f0.png"
+  },
+  "EOTA-CORE-GUA-FLD-004": {
+    "Emoji": "\uD83E\uDD4A\uD83C\uDFF0",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-FLD-004.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20250130/u1f94a/u1f94a_u1f3f0.png"
+  },
+  "EOTA-CORE-GUA-FLD-005": {
+    "Emoji": "\uD83C\uDFDB\uFE0F\uD83E\uDEE1",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-FLD-005.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f3db-ufe0f/u1f3db-ufe0f_u1fae1.png"
+  },
+  "EOTA-CORE-GUA-FLD-006": {
+    "Emoji": "\uD83C\uDFDA\uFE0F\uD83D\uDCE6",
+    "Top": "#77624c",
+    "Bottom": "#211c18",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-FLD-006.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f4e6/u1f4e6_u1f3da-ufe0f.png"
+  },
+  "EOTA-CORE-GUA-FLD-007": {
+    "Emoji": "\uD83E\uDE7A\uD83C\uDFF0",
+    "Top": "#77624c",
+    "Bottom": "#211c18",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-FLD-007.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1fa7a/u1fa7a_u1f3f0.png"
+  },
+  "EOTA-CORE-GUA-MIN-001": {
+    "Emoji": "\uD83E\uDEE1\uD83E\uDDF1",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-001.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f9f1/u1f9f1_u1fae1.png"
+  },
+  "EOTA-CORE-GUA-MIN-002": {
+    "Emoji": "\uD83C\uDFF0\uD83C\uDFAF",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-002.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f3af/u1f3af_u1f3f0.png"
+  },
+  "EOTA-CORE-GUA-MIN-003": {
+    "Emoji": "\uD83D\uDCA5\uD83E\uDEE1",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-003.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240610/u1f4a5/u1f4a5_u1fae1.png"
+  },
+  "EOTA-CORE-GUA-MIN-004": {
+    "Emoji": "\uD83D\uDCE6\uD83E\uDEE1",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-004.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f4e6/u1f4e6_u1fae1.png"
+  },
+  "EOTA-CORE-GUA-MIN-005": {
+    "Emoji": "\uD83C\uDFAF\u26A1",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-005.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f3af/u1f3af_u26a1.png"
+  },
+  "EOTA-CORE-GUA-MIN-006": {
+    "Emoji": "\uD83E\uDEE1\uD83C\uDFAF",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-006.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f3af/u1f3af_u1fae1.png"
+  },
+  "EOTA-CORE-GUA-MIN-007": {
+    "Emoji": "\uD83E\uDE8F\uD83D\uDCA5",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-007.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20250130/u1f4a5/u1f4a5_u1fa8f.png"
+  },
+  "EOTA-CORE-GUA-MIN-008": {
+    "Emoji": "\u2B50\uD83E\uDEE1",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-008.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20211115/u1fae1/u1fae1_u2b50.png"
+  },
+  "EOTA-CORE-GUA-MIN-009": {
+    "Emoji": "\uD83C\uDFC6\uD83E\uDD4A",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-009.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f3c6/u1f3c6_u1f94a.png"
+  },
+  "EOTA-CORE-GUA-MIN-010": {
+    "Emoji": "\uD83E\uDDF9\uD83D\uDC7B",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-010.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260202/u1f47b/u1f47b_u1f9f9.png"
+  },
+  "EOTA-CORE-GUA-MIN-011": {
+    "Emoji": "\uD83C\uDFAF\uD83D\uDCA5",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-011.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f4a5/u1f4a5_u1f3af.png"
+  },
+  "EOTA-CORE-GUA-MIN-012": {
+    "Emoji": "\uD83D\uDCA5\uD83D\uDE80",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-012.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f4a5/u1f4a5_u1f680.png"
+  },
+  "EOTA-CORE-GUA-MIN-013": {
+    "Emoji": "\uD83D\uDCE3\uD83C\uDFC6",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-013.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f3c6/u1f3c6_u1f4e3.png"
+  },
+  "EOTA-CORE-GUA-MIN-014": {
+    "Emoji": "\uD83C\uDFC6\uD83E\uDEE1",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-014.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20211115/u1fae1/u1fae1_u1f3c6.png"
+  },
+  "EOTA-CORE-GUA-MIN-015": {
+    "Emoji": "\uD83D\uDC51\uD83C\uDFF0",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-015.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f451/u1f451_u1f3f0.png"
+  },
+  "EOTA-CORE-GUA-MIN-016": {
+    "Emoji": "\uD83D\uDE80\uD83E\uDDF1",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-016.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20250430/u1f9f1/u1f9f1_u1f680.png"
+  },
+  "EOTA-CORE-GUA-MIN-017": {
+    "Emoji": "\uD83D\uDCE6\uD83E\uDDF1",
+    "Top": "#77624c",
+    "Bottom": "#211c18",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-017.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f4e6/u1f4e6_u1f9f1.png"
+  },
+  "EOTA-CORE-GUA-MIN-018": {
+    "Emoji": "\uD83D\uDCA5\uD83D\uDCE6",
+    "Top": "#77624c",
+    "Bottom": "#211c18",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-018.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f4a5/u1f4a5_u1f4e6.png"
+  },
+  "EOTA-CORE-GUA-MIN-019": {
+    "Emoji": "\uD83C\uDFC6\uD83D\uDCA5",
+    "Top": "#77624c",
+    "Bottom": "#211c18",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-019.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f4a5/u1f4a5_u1f3c6.png"
+  },
+  "EOTA-CORE-GUA-MIN-020": {
+    "Emoji": "\uD83D\uDC0C\uD83D\uDCAA",
+    "Top": "#77624c",
+    "Bottom": "#211c18",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-020.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20250430/u1f4aa/u1f4aa_u1f40c.png"
+  },
+  "EOTA-CORE-GUA-MIN-021": {
+    "Emoji": "\uD83D\uDCA5\uD83C\uDFF0",
+    "Top": "#77624c",
+    "Bottom": "#211c18",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-021.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f4a5/u1f4a5_u1f3f0.png"
+  },
+  "EOTA-CORE-GUA-MIN-022": {
+    "Emoji": "\uD83D\uDCEF",
+    "Top": "#77624c",
+    "Bottom": "#211c18",
+    "Style": "card"
+  },
+  "EOTA-CORE-GUA-MIN-023": {
+    "Emoji": "\uD83E\uDE7A\uD83E\uDDF1",
+    "Top": "#77624c",
+    "Bottom": "#211c18",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-023.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1fa7a/u1fa7a_u1f9f1.png"
+  },
+  "EOTA-CORE-GUA-MIN-024": {
+    "Emoji": "\uD83C\uDFF3\uFE0F",
+    "Top": "#557b92",
+    "Bottom": "#172a38",
+    "Style": "card"
+  },
+  "EOTA-CORE-GUA-MIN-025": {
+    "Emoji": "\uD83E\uDE78\uD83D\uDCAA",
+    "Top": "#557b92",
+    "Bottom": "#172a38",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-MIN-025.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20250430/u1f4aa/u1f4aa_u1fa78.png"
+  },
+  "EOTA-CORE-GUA-SPL-001": {
+    "Emoji": "\uD83E\uDDF1\uD83D\uDC96",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-SPL-001.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f496/u1f496_u1f9f1.png"
+  },
+  "EOTA-CORE-GUA-SPL-002": {
+    "Emoji": "\u267B\uFE0F\uD83E\uDEE1",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-SPL-002.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20250501/u267b-ufe0f/u267b-ufe0f_u1fae1.png"
+  },
+  "EOTA-CORE-GUA-SPL-003": {
+    "Emoji": "\uD83D\uDC0E\uD83D\uDD25",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-SPL-003.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f525/u1f525_u1f40e.png"
+  },
+  "EOTA-CORE-GUA-SPL-004": {
+    "Emoji": "\uD83D\uDCE3\uD83E\uDEE1",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-SPL-004.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260202/u1f4e3/u1f4e3_u1fae1.png"
+  },
+  "EOTA-CORE-GUA-SPL-005": {
+    "Emoji": "\uD83C\uDFF0\uD83D\uDC96",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-SPL-005.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f496/u1f496_u1f3f0.png"
+  },
+  "EOTA-CORE-GUA-SPL-006": {
+    "Emoji": "\uD83C\uDFAF\uD83D\uDCA5",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-SPL-006.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f4a5/u1f4a5_u1f3af.png"
+  },
+  "EOTA-CORE-GUA-SPL-007": {
+    "Emoji": "\uD83D\uDCA5\uD83D\uDCA5",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-SPL-007.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f4a5/u1f4a5_u1f4a5.png"
+  },
+  "EOTA-CORE-GUA-SPL-008": {
+    "Emoji": "\uD83E\uDDF1\uD83E\uDEE1",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-SPL-008.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f9f1/u1f9f1_u1fae1.png"
+  },
+  "EOTA-CORE-GUA-SPL-009": {
+    "Emoji": "\uD83D\uDCF0\uD83E\uDEE1",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-SPL-009.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20211115/u1fae1/u1fae1_u1f4f0.png"
+  },
+  "EOTA-CORE-GUA-SPL-010": {
+    "Emoji": "\uD83D\uDCF0\uD83D\uDCE6",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-SPL-010.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f4f0/u1f4f0_u1f4e6.png"
+  },
+  "EOTA-CORE-GUA-SPL-011": {
+    "Emoji": "\uD83D\uDCA5\uD83E\uDEA8",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-SPL-011.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f4a5/u1f4a5_u1faa8.png"
+  },
+  "EOTA-CORE-GUA-SPL-012": {
+    "Emoji": "\uD83E\uDE82\uD83D\uDCE6",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-SPL-012.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1fa82/u1fa82_u1f4e6.png"
+  },
+  "EOTA-CORE-GUA-SPL-013": {
+    "Emoji": "\uD83D\uDCDA\uD83C\uDFC6",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-SPL-013.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260202/u1f4da/u1f4da_u1f3c6.png"
+  },
+  "EOTA-CORE-GUA-SPL-014": {
+    "Emoji": "\uD83C\uDFAF\uD83D\uDCA5",
+    "Top": "#77624c",
+    "Bottom": "#211c18",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-SPL-014.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f4a5/u1f4a5_u1f3af.png"
+  },
+  "EOTA-CORE-GUA-SPL-015": {
+    "Emoji": "\uD83D\uDCA5\uD83D\uDCA5",
+    "Top": "#77624c",
+    "Bottom": "#211c18",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-SPL-015.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f4a5/u1f4a5_u1f4a5.png"
+  },
+  "EOTA-CORE-GUA-SPL-016": {
+    "Emoji": "\uD83E\uDD41\uD83E\uDEE1",
+    "Top": "#77624c",
+    "Bottom": "#211c18",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-SPL-016.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f941/u1f941_u1fae1.png"
+  },
+  "EOTA-CORE-GUA-SPL-017": {
+    "Emoji": "\uD83D\uDECB\uFE0F\uD83D\uDC96",
+    "Top": "#77624c",
+    "Bottom": "#211c18",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-SPL-017.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f496/u1f496_u1f6cb-ufe0f.png"
+  },
+  "EOTA-CORE-GUA-SPL-018": {
+    "Emoji": "\uD83E\uDD4A\uD83D\uDCA5",
+    "Top": "#77624c",
+    "Bottom": "#211c18",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-GUA-SPL-018.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f4a5/u1f4a5_u1f94a.png"
+  },
+  "EOTA-CORE-HUN-FLD-001": {
+    "Emoji": "\uD83E\uDEA4\uD83E\uDE78",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-FLD-001.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230418/u1faa4/u1faa4_u1fa78.png"
+  },
+  "EOTA-CORE-HUN-FLD-002": {
+    "Emoji": "\uD83E\uDEA4\uD83D\uDC80",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-FLD-002.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1faa4/u1faa4_u1f480.png"
+  },
+  "EOTA-CORE-HUN-FLD-003": {
+    "Emoji": "\uD83E\uDEA4\uD83E\uDD94",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-FLD-003.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260202/u1faa4/u1faa4_u1f994.png"
+  },
+  "EOTA-CORE-HUN-FLD-004": {
+    "Emoji": "\uD83E\uDEA4\uD83D\uDCA5",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-FLD-004.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230418/u1faa4/u1faa4_u1f4a5.png"
+  },
+  "EOTA-CORE-HUN-FLD-005": {
+    "Emoji": "\u26FA",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card"
+  },
+  "EOTA-CORE-HUN-FLD-006": {
+    "Emoji": "\uD83D\uDD25\uD83D\uDC9A",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-FLD-006.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230821/u1f49a/u1f49a_u1f525.png"
+  },
+  "EOTA-CORE-HUN-FLD-007": {
+    "Emoji": "\u2601\uFE0F\uD83D\uDC80",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-FLD-007.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20221107/u1f480/u1f480_u2601-ufe0f.png"
+  },
+  "EOTA-CORE-HUN-FLD-008": {
+    "Emoji": "\uD83C\uDFDE\uFE0F\uD83D\uDC96",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-FLD-008.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f496/u1f496_u1f3de-ufe0f.png"
+  },
+  "EOTA-CORE-HUN-MIN-001": {
+    "Emoji": "\uD83D\uDC38",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card"
+  },
+  "EOTA-CORE-HUN-MIN-002": {
+    "Emoji": "\uD83E\uDD94",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card"
+  },
+  "EOTA-CORE-HUN-MIN-003": {
+    "Emoji": "\uD83C\uDF32\uD83D\uDC63",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-MIN-003.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f463/u1f463_u1f332.png"
+  },
+  "EOTA-CORE-HUN-MIN-004": {
+    "Emoji": "\uD83D\uDC0D",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card"
+  },
+  "EOTA-CORE-HUN-MIN-005": {
+    "Emoji": "\uD83E\uDD20\uD83D\uDC3E",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-MIN-005.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f920/u1f920_u1f43e.png"
+  },
+  "EOTA-CORE-HUN-MIN-006": {
+    "Emoji": "\uD83D\uDC36\uD83D\uDCE6",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-MIN-006.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f4e6/u1f4e6_u1f436.png"
+  },
+  "EOTA-CORE-HUN-MIN-007": {
+    "Emoji": "\uD83E\uDEA4\uD83E\uDD20",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-MIN-007.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1faa4/u1faa4_u1f920.png"
+  },
+  "EOTA-CORE-HUN-MIN-008": {
+    "Emoji": "\uD83D\uDC3A\uD83D\uDC3A",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-MIN-008.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260202/u1f43a/u1f43a_u1f43a.png"
+  },
+  "EOTA-CORE-HUN-MIN-009": {
+    "Emoji": "\uD83E\uDD87\uD83E\uDE78",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-MIN-009.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f987/u1f987_u1fa78.png"
+  },
+  "EOTA-CORE-HUN-MIN-010": {
+    "Emoji": "\uD83E\uDDA3",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card"
+  },
+  "EOTA-CORE-HUN-MIN-011": {
+    "Emoji": "\uD83D\uDC0E\uD83D\uDCE6",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-MIN-011.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f40e/u1f40e_u1f4e6.png"
+  },
+  "EOTA-CORE-HUN-MIN-012": {
+    "Emoji": "\uD83D\uDC3A\uD83C\uDFAF",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-MIN-012.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f3af/u1f3af_u1f43a.png"
+  },
+  "EOTA-CORE-HUN-MIN-013": {
+    "Emoji": "\uD83C\uDFAF\uD83C\uDF32",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-MIN-013.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f3af/u1f3af_u1f332.png"
+  },
+  "EOTA-CORE-HUN-MIN-014": {
+    "Emoji": "\uD83D\uDC3E\uD83C\uDF1F",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-MIN-014.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260202/u1f31f/u1f31f_u1f43e.png"
+  },
+  "EOTA-CORE-HUN-MIN-015": {
+    "Emoji": "\uD83D\uDC22",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card"
+  },
+  "EOTA-CORE-HUN-MIN-016": {
+    "Emoji": "\uD83E\uDDEA\uD83C\uDFAF",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-MIN-016.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f9ea/u1f9ea_u1f3af.png"
+  },
+  "EOTA-CORE-HUN-MIN-017": {
+    "Emoji": "\uD83E\uDE7A\uD83D\uDC3E",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-MIN-017.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1fa7a/u1fa7a_u1f43e.png"
+  },
+  "EOTA-CORE-HUN-MIN-018": {
+    "Emoji": "\uD83E\uDEA4\uD83C\uDFAF",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-MIN-018.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260202/u1faa4/u1faa4_u1f3af.png"
+  },
+  "EOTA-CORE-HUN-MIN-019": {
+    "Emoji": "\uD83D\uDC3E\uD83D\uDC51",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-MIN-019.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260128/u1f451/u1f451_u1f43e.png"
+  },
+  "EOTA-CORE-HUN-MIN-020": {
+    "Emoji": "\uD83E\uDE93",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card"
+  },
+  "EOTA-CORE-HUN-MIN-021": {
+    "Emoji": "\uD83E\uDD8F",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card"
+  },
+  "EOTA-CORE-HUN-MIN-022": {
+    "Emoji": "\uD83D\uDC3B\uD83D\uDE21",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-MIN-022.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20210831/u1f43b/u1f43b_u1f621.png"
+  },
+  "EOTA-CORE-HUN-MIN-023": {
+    "Emoji": "\uD83D\uDC26\uD83C\uDF2A\uFE0F",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-MIN-023.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20210831/u1f426/u1f426_u1f32a-ufe0f.png"
+  },
+  "EOTA-CORE-HUN-MIN-024": {
+    "Emoji": "\uD83D\uDC09\uD83D\uDCA5",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-MIN-024.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f4a5/u1f4a5_u1f409.png"
+  },
+  "EOTA-CORE-HUN-MIN-025": {
+    "Emoji": "\uD83D\uDC3A\uD83D\uDC7B",
+    "Top": "#5d8250",
+    "Bottom": "#1c2c19",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-MIN-025.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20221101/u1f43a/u1f43a_u1f47b.png"
+  },
+  "EOTA-CORE-HUN-MIN-026": {
+    "Emoji": "\uD83D\uDC80\uD83C\uDFAF",
+    "Top": "#5d8250",
+    "Bottom": "#1c2c19",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-MIN-026.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f3af/u1f3af_u1f480.png"
+  },
+  "EOTA-CORE-HUN-SPL-001": {
+    "Emoji": "\uD83C\uDFAF\u26A1",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-SPL-001.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f3af/u1f3af_u26a1.png"
+  },
+  "EOTA-CORE-HUN-SPL-002": {
+    "Emoji": "\uD83D\uDE43\uD83C\uDF2A\uFE0F",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-SPL-002.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20201001/u1f643/u1f643_u1f32a-ufe0f.png"
+  },
+  "EOTA-CORE-HUN-SPL-003": {
+    "Emoji": "\uD83D\uDC36\uD83C\uDF2A\uFE0F",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-SPL-003.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20211115/u1f436/u1f436_u1f32a-ufe0f.png"
+  },
+  "EOTA-CORE-HUN-SPL-004": {
+    "Emoji": "\uD83C\uDFAF\uD83E\uDE78",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-SPL-004.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f3af/u1f3af_u1fa78.png"
+  },
+  "EOTA-CORE-HUN-SPL-005": {
+    "Emoji": "\uD83E\uDEC2\uD83D\uDC3E",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-SPL-005.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1fac2/u1fac2_u1f43e.png"
+  },
+  "EOTA-CORE-HUN-SPL-006": {
+    "Emoji": "\uD83D\uDC3E\uD83D\uDD25",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-SPL-006.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f525/u1f525_u1f43e.png"
+  },
+  "EOTA-CORE-HUN-SPL-007": {
+    "Emoji": "\uD83C\uDFAF\uD83D\uDC36",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-SPL-007.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f3af/u1f3af_u1f436.png"
+  },
+  "EOTA-CORE-HUN-SPL-008": {
+    "Emoji": "\uD83E\uDD11\uD83D\uDC80",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-SPL-008.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230301/u1f911/u1f911_u1f480.png"
+  },
+  "EOTA-CORE-HUN-SPL-009": {
+    "Emoji": "\uD83D\uDC3E\uD83D\uDCE6",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-SPL-009.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f4e6/u1f4e6_u1f43e.png"
+  },
+  "EOTA-CORE-HUN-SPL-010": {
+    "Emoji": "\uD83D\uDD0E\uD83E\uDEA4",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-SPL-010.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230418/u1faa4/u1faa4_u1f50e.png"
+  },
+  "EOTA-CORE-HUN-SPL-011": {
+    "Emoji": "\uD83E\uDDEA\uD83C\uDFAF",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-SPL-011.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f9ea/u1f9ea_u1f3af.png"
+  },
+  "EOTA-CORE-HUN-SPL-012": {
+    "Emoji": "\uD83E\uDE78\uD83D\uDCA5",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-SPL-012.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f4a5/u1f4a5_u1fa78.png"
+  },
+  "EOTA-CORE-HUN-SPL-013": {
+    "Emoji": "\uD83D\uDC3E\uD83C\uDF2A\uFE0F",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-SPL-013.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f32a-ufe0f/u1f32a-ufe0f_u1f43e.png"
+  },
+  "EOTA-CORE-HUN-SPL-014": {
+    "Emoji": "\uD83E\uDDEA\uD83E\uDE78",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-SPL-014.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f9ea/u1f9ea_u1fa78.png"
+  },
+  "EOTA-CORE-HUN-SPL-015": {
+    "Emoji": "\uD83D\uDCE3\uD83D\uDE34",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-SPL-015.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260202/u1f4e3/u1f4e3_u1f634.png"
+  },
+  "EOTA-CORE-HUN-SPL-016": {
+    "Emoji": "\uD83E\uDD69\uD83D\uDCAA",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-HUN-SPL-016.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20250430/u1f4aa/u1f4aa_u1f969.png"
+  },
+  "EOTA-CORE-NEU-MIN-001": {
+    "Emoji": "\uD83D\uDC7A",
+    "Top": "#655d50",
+    "Bottom": "#24211c",
+    "Style": "card"
+  },
+  "EOTA-CORE-NEU-MIN-002": {
+    "Emoji": "\uD83C\uDFAF\uD83E\uDD20",
+    "Top": "#655d50",
+    "Bottom": "#24211c",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-NEU-MIN-002.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f920/u1f920_u1f3af.png"
+  },
+  "EOTA-CORE-NEU-MIN-003": {
+    "Emoji": "\uD83E\uDDF3\uD83E\uDD11",
+    "Top": "#655d50",
+    "Bottom": "#24211c",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-NEU-MIN-003.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f9f3/u1f9f3_u1f911.png"
+  },
+  "EOTA-CORE-NEU-MIN-004": {
+    "Emoji": "\uD83C\uDF0D\uD83C\uDF32",
+    "Top": "#655d50",
+    "Bottom": "#24211c",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-NEU-MIN-004.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20201001/u1f30d/u1f30d_u1f332.png"
+  },
+  "EOTA-CORE-NEU-MIN-005": {
+    "Emoji": "\u2694\uFE0F",
+    "Top": "#655d50",
+    "Bottom": "#24211c",
+    "Style": "card"
+  },
+  "EOTA-CORE-NEU-MIN-006": {
+    "Emoji": "\uD83E\uDE7A\uD83D\uDC96",
+    "Top": "#655d50",
+    "Bottom": "#24211c",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-NEU-MIN-006.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1fa7a/u1fa7a_u1f496.png"
+  },
+  "EOTA-CORE-NEU-MIN-007": {
+    "Emoji": "\uD83D\uDEE1\uFE0F",
+    "Top": "#655d50",
+    "Bottom": "#24211c",
+    "Style": "card"
+  },
+  "EOTA-CORE-NEU-MIN-008": {
+    "Emoji": "\uD83E\uDDF3",
+    "Top": "#626879",
+    "Bottom": "#20232d",
+    "Style": "card"
+  },
+  "EOTA-CORE-NEU-MIN-009": {
+    "Emoji": "\uD83C\uDF72\uD83D\uDC96",
+    "Top": "#626879",
+    "Bottom": "#20232d",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-NEU-MIN-009.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f496/u1f496_u1f372.png"
+  },
+  "EOTA-CORE-NEU-MIN-010": {
+    "Emoji": "\uD83E\uDD4A\uD83C\uDFF0",
+    "Top": "#626879",
+    "Bottom": "#20232d",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-NEU-MIN-010.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20250130/u1f94a/u1f94a_u1f3f0.png"
+  },
+  "EOTA-CORE-NEU-MIN-011": {
+    "Emoji": "\u2694\uFE0F",
+    "Top": "#626879",
+    "Bottom": "#20232d",
+    "Style": "card"
+  },
+  "EOTA-CORE-NEU-MIN-012": {
+    "Emoji": "\uD83D\uDD0E\uD83D\uDD2E",
+    "Top": "#626879",
+    "Bottom": "#20232d",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-NEU-MIN-012.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260202/u1f52e/u1f52e_u1f50e.png"
+  },
+  "EOTA-CORE-NEU-MIN-013": {
+    "Emoji": "\uD83E\uDE96",
+    "Top": "#626879",
+    "Bottom": "#20232d",
+    "Style": "card"
+  },
+  "EOTA-CORE-NEU-MIN-014": {
+    "Emoji": "\uD83D\uDCAA",
+    "Top": "#626879",
+    "Bottom": "#20232d",
+    "Style": "card"
+  },
+  "EOTA-CORE-NEU-MIN-015": {
+    "Emoji": "\uD83D\uDC7A\uD83D\uDE9A",
+    "Top": "#626879",
+    "Bottom": "#20232d",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-NEU-MIN-015.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20250130/u1f69a/u1f69a_u1f47a.png"
+  },
+  "EOTA-CORE-NEU-MIN-016": {
+    "Emoji": "\uD83E\uDE93",
+    "Top": "#626879",
+    "Bottom": "#20232d",
+    "Style": "card"
+  },
+  "EOTA-CORE-NEU-MIN-017": {
+    "Emoji": "\uD83E\uDD71\uD83D\uDCE6",
+    "Top": "#626879",
+    "Bottom": "#20232d",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-NEU-MIN-017.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f4e6/u1f4e6_u1f971.png"
+  },
+  "EOTA-CORE-NEU-MIN-018": {
+    "Emoji": "\uD83D\uDEE0\uFE0F\uD83E\uDD16",
+    "Top": "#626879",
+    "Bottom": "#20232d",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-NEU-MIN-018.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f916/u1f916_u1f6e0-ufe0f.png"
+  },
+  "EOTA-CORE-NEU-MIN-019": {
+    "Emoji": "\uD83D\uDC35\uD83E\uDEA8",
+    "Top": "#626879",
+    "Bottom": "#20232d",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-NEU-MIN-019.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20220406/u1faa8/u1faa8_u1f435.png"
+  },
+  "EOTA-CORE-NEU-MIN-020": {
+    "Emoji": "\uD83E\uDD4A\uD83D\uDC80",
+    "Top": "#626879",
+    "Bottom": "#20232d",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-NEU-MIN-020.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20250130/u1f94a/u1f94a_u1f480.png"
+  },
+  "EOTA-CORE-NEU-SPL-001": {
+    "Emoji": "\uD83E\uDD11\uD83C\uDFAF",
+    "Top": "#655d50",
+    "Bottom": "#24211c",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-NEU-SPL-001.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f3af/u1f3af_u1f911.png"
+  },
+  "EOTA-CORE-NEU-SPL-002": {
+    "Emoji": "\uD83D\uDC80\uD83D\uDCF0",
+    "Top": "#655d50",
+    "Bottom": "#24211c",
+    "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-NEU-SPL-002.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20201001/u1f480/u1f480_u1f4f0.png"
+  },
+  "EOTA-TOKEN-ARC-MIN-001": {
+    "Emoji": "\uD83D\uDC8E",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card"
+  },
+  "EOTA-TOKEN-ARC-SPL-001": {
+    "Emoji": "\uD83D\uDC8E",
+    "Top": "#614493",
+    "Bottom": "#1d1836",
+    "Style": "card"
+  },
+  "EOTA-TOKEN-ART-MIN-001": {
+    "Emoji": "\uD83D\uDD29",
+    "Top": "#967245",
+    "Bottom": "#2d241b",
+    "Style": "card"
+  },
+  "EOTA-TOKEN-ART-SPL-001": {
+    "Emoji": "\uD83D\uDD29",
+    "Top": "#826448",
+    "Bottom": "#271e17",
+    "Style": "card"
+  },
+  "EOTA-TOKEN-GUA-MIN-001": {
+    "Emoji": "\uD83E\uDE96",
+    "Top": "#344b73",
+    "Bottom": "#131e34",
+    "Style": "card"
+  },
+  "EOTA-TOKEN-GUA-SPL-001": {
+    "Emoji": "\uD83E\uDDE8",
+    "Top": "#77624c",
+    "Bottom": "#211c18",
+    "Style": "card"
+  },
+  "EOTA-TOKEN-HUN-MIN-001": {
+    "Emoji": "\uD83D\uDC15",
+    "Top": "#427451",
+    "Bottom": "#15281b",
+    "Style": "card"
+  },
+  "EOTA-TOKEN-HUN-SPL-001": {
+    "Emoji": "\uD83D\uDCEF",
+    "Top": "#51714b",
+    "Bottom": "#18261a",
+    "Style": "card"
+  }
+}

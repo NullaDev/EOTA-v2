@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\Eota.Server.Application\Eota.Server.Application.csproj" />
+    <ProjectReference Include="..\Eota.Content.Compiler\Eota.Content.Compiler.csproj" />
+  </ItemGroup>
+</Project>

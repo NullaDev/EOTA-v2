@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Theme" path="res://Client/Godot/GameTheme.tres" id="theme"]
+
+[node name="DeckLibrary" type="Control"]
+layout_mode = 3
+custom_minimum_size = Vector2(1280, 828)
+theme = ExtResource("theme")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 8.0
+offset_right = 820.0
+offset_bottom = 56.0
+text = "我的卡组"
+theme_override_font_sizes/font_size = 32
+mouse_filter = 2
+
+[node name="Help" type="Label" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 64.0
+offset_right = 1142.0
+offset_bottom = 96.0
+text = "选择一个卡组继续编辑，或创建新的职业卡组。"
+theme_override_font_sizes/font_size = 16
+mouse_filter = 2
+
+[node name="New" type="Button" parent="."]
+layout_mode = 0
+offset_left = 988.0
+offset_top = 8.0
+offset_right = 1248.0
+offset_bottom = 62.0
+text = "＋ 新建卡组"
+theme_type_variation = &"PrimaryButton"
+
+[node name="Scroll" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 132.0
+offset_right = 1248.0
+offset_bottom = 786.0
+horizontal_scroll_mode = 0
+
+[node name="Grid" type="GridContainer" parent="Scroll"]
+layout_mode = 2
+columns = 4
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 24

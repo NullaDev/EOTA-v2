@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-SPL-014",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "spell",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-SPL-014.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-SPL-014.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-014.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "ifElse",
+        "condition": {
+          "kind": "exists",
+          "target": {
+            "kind": "friendlyMinions",
+            "filter": {
+              "tag": "firearm"
+            }
+          }
+        },
+        "then": {
+          "kind": "damage",
+          "target": {
+            "kind": "enemyMinions"
+          },
+          "amount": 4
+        },
+        "else": {
+          "kind": "damage",
+          "target": {
+            "kind": "enemyMinions"
+          },
+          "amount": 2
+        }
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "lane"
+}

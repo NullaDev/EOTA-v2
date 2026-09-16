@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-SPL-004",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "spell",
+  "cost": 1,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-SPL-004.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-SPL-004.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-004.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "summon",
+        "target": {
+          "kind": "friendlyLanes"
+        },
+        "prototype": "EOTA-TOKEN-GUA-MIN-001",
+        "slot": "minion"
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "lane"
+}

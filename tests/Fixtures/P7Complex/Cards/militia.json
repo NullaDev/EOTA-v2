@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "kind": "minion",
+  "id": "TEST-P7-MILITIA",
+  "cost": 0,
+  "effects": [],
+  "attack": 1,
+  "health": 1,
+  "keywords": [
+    "replaceable"
+  ]
+}

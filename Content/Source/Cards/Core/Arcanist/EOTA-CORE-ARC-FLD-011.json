@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ARC-FLD-011",
+  "source": "core",
+  "profession": "arcanist",
+  "kind": "field",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-ARC-FLD-011.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ARC-FLD-011.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-FLD-011.png",
+  "effects": [
+    {
+      "id": "turnEnd",
+      "trigger": {
+        "kind": "turnEnd"
+      },
+      "body": {
+        "kind": "ifElse",
+        "condition": {
+          "kind": "compare",
+          "left": "lane.ether",
+          "operator": "greaterOrEqual",
+          "right": 1
+        },
+        "then": {
+          "kind": "ifElse",
+          "condition": {
+            "kind": "compare",
+            "left": "lane.ether",
+            "operator": "greaterOrEqual",
+            "right": 2
+          },
+          "then": {
+            "kind": "heal",
+            "target": {
+              "kind": "friendlyHero"
+            },
+            "amount": 4
+          },
+          "else": {
+            "kind": "heal",
+            "target": {
+              "kind": "friendlyHero"
+            },
+            "amount": 2
+          }
+        }
+      }
+    }
+  ],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 3
+  }
+}

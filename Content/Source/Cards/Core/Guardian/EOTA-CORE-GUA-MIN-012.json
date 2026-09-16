@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-MIN-012",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "minion",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-MIN-012.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-MIN-012.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-012.png",
+  "effects": [
+    {
+      "id": "selfEntered",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "damage",
+        "target": {
+          "kind": "enemyHero"
+        },
+        "amount": 2
+      }
+    }
+  ],
+  "attack": 2,
+  "health": 1,
+  "keywords": [
+    "swift"
+  ],
+  "tags": [
+    "firearm"
+  ]
+}

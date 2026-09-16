@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "kind": "spell",
+  "id": "TEST-P6-SHIELD",
+  "cost": 1,
+  "speed": "fast",
+  "targetScope": "lane",
+  "effects": [
+    {
+      "id": "shield",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "retarget",
+        "target": {
+          "kind": "friendlyMinions"
+        },
+        "body": {
+          "kind": "parallel",
+          "children": [
+            {
+              "kind": "modifyNumber",
+              "target": {
+                "kind": "targets"
+              },
+              "attribute": "maximumHealth",
+              "operation": "add",
+              "amount": 1
+            },
+            {
+              "kind": "ifElse",
+              "condition": {
+                "kind": "hasKeyword",
+                "target": {
+                  "kind": "targets"
+                },
+                "keyword": "guard"
+              },
+              "then": {
+                "kind": "modifyNumber",
+                "target": {
+                  "kind": "targets"
+                },
+                "attribute": "maximumHealth",
+                "operation": "add",
+                "amount": 1
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

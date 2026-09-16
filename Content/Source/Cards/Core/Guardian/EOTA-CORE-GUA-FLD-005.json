@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-FLD-005",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "field",
+  "cost": 4,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-FLD-005.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-FLD-005.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-FLD-005.png",
+  "effects": [
+    {
+      "id": "turnEnd",
+      "trigger": {
+        "kind": "turnEnd"
+      },
+      "body": {
+        "kind": "ifElse",
+        "condition": {
+          "kind": "exists",
+          "target": {
+            "kind": "friendlyMinions"
+          }
+        },
+        "then": {
+          "kind": "generate",
+          "target": {
+            "kind": "friendlyHero"
+          },
+          "count": 1,
+          "prototype": "EOTA-TOKEN-GUA-MIN-001"
+        },
+        "else": {
+          "kind": "summon",
+          "target": {
+            "kind": "friendlyLanes"
+          },
+          "prototype": "EOTA-TOKEN-GUA-MIN-001",
+          "slot": "minion"
+        }
+      }
+    }
+  ],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 2
+  }
+}

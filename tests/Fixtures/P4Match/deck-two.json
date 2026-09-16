@@ -1,0 +1,25 @@
+{
+  "profession": "neutral",
+  "cards": [
+    {
+      "id": "TEST-P4-ATTACKER",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P4-DEFENDER",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P4-FAST-SPELL",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P4-FIELD",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P4-SLOW-SPELL",
+      "copies": 1
+    }
+  ]
+}

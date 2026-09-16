@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-MIN-017",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "minion",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-MIN-017.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-MIN-017.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-017.png",
+  "effects": [
+    {
+      "id": "selfEntered",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "ifElse",
+        "condition": {
+          "kind": "exists",
+          "target": {
+            "kind": "friendlyMinions",
+            "scope": "all",
+            "filter": {
+              "tag": "beast"
+            }
+          }
+        },
+        "then": {
+          "kind": "heal",
+          "target": {
+            "kind": "friendlyHero"
+          },
+          "amount": 4
+        },
+        "else": {
+          "kind": "heal",
+          "target": {
+            "kind": "friendlyHero"
+          },
+          "amount": 2
+        }
+      }
+    }
+  ],
+  "attack": 2,
+  "health": 4
+}

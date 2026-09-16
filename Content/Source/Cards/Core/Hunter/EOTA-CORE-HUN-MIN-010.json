@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-MIN-010",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "minion",
+  "cost": 7,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-MIN-010.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-MIN-010.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-010.png",
+  "effects": [
+    {
+      "id": "selfEntered",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "friendlyMinions",
+              "scope": "adjacent",
+              "filter": {
+                "tag": "beast"
+              }
+            },
+            "attribute": "maximumHealth",
+            "operation": "add",
+            "amount": 2
+          },
+          {
+            "kind": "addKeyword",
+            "target": {
+              "kind": "friendlyMinions",
+              "scope": "adjacent",
+              "filter": {
+                "tag": "beast"
+              }
+            },
+            "keyword": "pursuit"
+          }
+        ]
+      }
+    }
+  ],
+  "attack": 7,
+  "health": 8,
+  "keywords": [
+    {
+      "kind": "slow",
+      "turns": 1
+    }
+  ],
+  "tags": [
+    "beast"
+  ]
+}

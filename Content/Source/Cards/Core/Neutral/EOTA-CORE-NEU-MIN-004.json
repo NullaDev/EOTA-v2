@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-NEU-MIN-004",
+  "source": "core",
+  "profession": "neutral",
+  "kind": "minion",
+  "cost": 4,
+  "nameLocalizationKey": "card.EOTA-CORE-NEU-MIN-004.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-NEU-MIN-004.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-004.png",
+  "effects": [],
+  "attack": 3,
+  "health": 3,
+  "keywords": [
+    "skirmisher"
+  ]
+}

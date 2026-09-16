@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../Eota.Client.AI/Eota.Client.AI.csproj" />
+    <ProjectReference Include="../Eota.Client.Core/Eota.Client.Core.csproj" />
+    <ProjectReference Include="../Eota.Client.Transport.InProcess/Eota.Client.Transport.InProcess.csproj" />
+    <ProjectReference Include="../Eota.Client.Transport.WebSocket/Eota.Client.Transport.WebSocket.csproj" />
+    <ProjectReference Include="../Eota.Server.Infrastructure/Eota.Server.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

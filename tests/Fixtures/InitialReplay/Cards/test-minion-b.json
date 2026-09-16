@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "kind": "minion",
+  "id": "TEST-MINION-B",
+  "source": "test",
+  "profession": "neutral",
+  "cost": 2,
+  "attack": 2,
+  "health": 3,
+  "keywords": [],
+  "effects": []
+}

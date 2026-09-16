@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-MIN-015",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "minion",
+  "cost": 6,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-MIN-015.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-MIN-015.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-015.png",
+  "effects": [
+    {
+      "id": "selfEntered",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "friendlyMinions",
+              "scope": "otherLanes",
+              "filter": {
+                "profession": "guardian"
+              }
+            },
+            "attribute": "attack",
+            "amount": 1,
+            "operation": "add"
+          }
+        ]
+      }
+    }
+  ],
+  "attack": 4,
+  "health": 6,
+  "keywords": [
+    "guard"
+  ]
+}

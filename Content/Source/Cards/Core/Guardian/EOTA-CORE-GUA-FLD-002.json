@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-FLD-002",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "field",
+  "cost": 1,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-FLD-002.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-FLD-002.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-FLD-002.png",
+  "effects": [
+    {
+      "id": "enemyEntered",
+      "trigger": {
+        "kind": "enemyEntered",
+        "subjectType": "minion"
+      },
+      "body": {
+        "kind": "damage",
+        "target": {
+          "kind": "eventSubject"
+        },
+        "amount": 1
+      },
+      "condition": {
+        "kind": "hasKeyword",
+        "target": {
+          "kind": "friendlyMinions"
+        },
+        "keyword": "guard"
+      }
+    }
+  ],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 3
+  }
+}

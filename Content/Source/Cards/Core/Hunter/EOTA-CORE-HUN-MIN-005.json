@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-MIN-005",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "minion",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-MIN-005.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-MIN-005.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-005.png",
+  "effects": [
+    {
+      "id": "replacementEntered",
+      "trigger": {
+        "kind": "replacementEntered"
+      },
+      "body": {
+        "kind": "modifyNumber",
+        "target": {
+          "kind": "self"
+        },
+        "attribute": "attack",
+        "amount": "replaced.attack",
+        "operation": "add"
+      },
+      "condition": {
+        "kind": "cardMatches",
+        "subject": "replaced",
+        "filter": {
+          "tag": "beast"
+        }
+      }
+    }
+  ],
+  "attack": 1,
+  "health": 3,
+  "keywords": [
+    "replace"
+  ]
+}

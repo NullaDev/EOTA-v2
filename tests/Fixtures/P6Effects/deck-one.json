@@ -1,0 +1,29 @@
+{
+  "profession": "neutral",
+  "cards": [
+    {
+      "id": "TEST-P6-GOBLIN",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P6-HUNTER",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P6-HEALER",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P6-SHIELD",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P6-SHOT",
+      "copies": 1
+    },
+    {
+      "id": "TEST-P6-SPARK",
+      "copies": 1
+    }
+  ]
+}

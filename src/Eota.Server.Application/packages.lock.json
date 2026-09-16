@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dependencies": {
+    "net8.0": {
+      "eota.kernel": {
+        "type": "Project"
+      },
+      "eota.transport.contracts": {
+        "type": "Project"
+      }
+    },
+    "net8.0/win-x64": {}
+  }
+}

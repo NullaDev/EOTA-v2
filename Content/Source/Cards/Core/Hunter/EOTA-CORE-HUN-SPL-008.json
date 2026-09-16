@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-SPL-008",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "spell",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-SPL-008.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-SPL-008.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-008.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "grantEffect",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "effect": {
+          "id": "enemyDied",
+          "trigger": {
+            "kind": "enemyDied",
+            "subjectType": "minion",
+            "scope": "all"
+          },
+          "body": {
+            "kind": "draw",
+            "target": {
+              "kind": "friendlyHero"
+            },
+            "count": 1
+          }
+        },
+        "duration": 1
+      }
+    }
+  ],
+  "speed": "fast",
+  "targetScope": "global"
+}

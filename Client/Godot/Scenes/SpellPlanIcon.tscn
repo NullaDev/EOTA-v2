@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[node name="SpellPlanIcon" type="TextureButton"]
+custom_minimum_size = Vector2(42, 42)
+size_flags_vertical = 4
+ignore_texture_size = true
+stretch_mode = 5
+mouse_filter = 0
+mouse_default_cursor_shape = 2

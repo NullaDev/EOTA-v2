@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "kind": "minion",
+  "id": "TEST-P6-SET-ONE",
+  "cost": 0,
+  "attack": 0,
+  "health": 5,
+  "effects": [
+    {
+      "id": "set",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "modifyNumber",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "attribute": "maximumHealth",
+        "operation": "set",
+        "amount": 20
+      }
+    }
+  ]
+}

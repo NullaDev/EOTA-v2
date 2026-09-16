@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ARC-MIN-021",
+  "source": "core",
+  "profession": "arcanist",
+  "kind": "minion",
+  "cost": 4,
+  "nameLocalizationKey": "card.EOTA-CORE-ARC-MIN-021.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ARC-MIN-021.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-021.png",
+  "effects": [
+    {
+      "id": "combat",
+      "trigger": {
+        "kind": "combat"
+      },
+      "condition": {
+        "kind": "compare",
+        "left": "lane.ether",
+        "operator": "greaterOrEqual",
+        "right": 1
+      },
+      "body": {
+        "kind": "modifyNumber",
+        "target": {
+          "kind": "self"
+        },
+        "amount": 2,
+        "attribute": "attack",
+        "operation": "add",
+        "duration": 1
+      }
+    }
+  ],
+  "attack": 3,
+  "health": 3,
+  "keywords": [
+    "skirmisher",
+    "lifesteal"
+  ],
+  "tags": [
+    "beast"
+  ]
+}

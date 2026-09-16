@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "kind": "spell",
+  "id": "TEST-P7-ANALYSIS",
+  "cost": 0,
+  "effects": [
+    {
+      "id": "cast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "sequence",
+        "steps": [
+          {
+            "kind": "draw",
+            "target": {
+              "kind": "friendlyHero"
+            },
+            "count": 1,
+            "filter": {
+              "tag": "mechanical"
+            }
+          },
+          {
+            "kind": "parallel",
+            "children": [
+              {
+                "kind": "modifyNumber",
+                "target": {
+                  "kind": "previousAffected",
+                  "targetType": "card"
+                },
+                "attribute": "attack",
+                "operation": "add",
+                "amount": 1
+              },
+              {
+                "kind": "modifyNumber",
+                "target": {
+                  "kind": "previousAffected",
+                  "targetType": "card"
+                },
+                "attribute": "maximumHealth",
+                "operation": "add",
+                "amount": 1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "lane"
+}

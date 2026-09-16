@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-TOKEN-ART-SPL-001",
+  "source": "token",
+  "profession": "artisan",
+  "kind": "spell",
+  "cost": 1,
+  "nameLocalizationKey": "card.EOTA-TOKEN-ART-SPL-001.name",
+  "descriptionLocalizationKey": "card.EOTA-TOKEN-ART-SPL-001.description",
+  "texturePath": "Content/Generated/Art/EOTA-TOKEN-ART-SPL-001.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "heal",
+            "target": {
+              "kind": "friendlyMinions",
+              "filter": {
+                "tag": "mechanical"
+              }
+            },
+            "amount": 2
+          },
+          {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "friendlyMinions",
+              "filter": {
+                "tag": "mechanical"
+              }
+            },
+            "attribute": "attack",
+            "operation": "add",
+            "amount": 1,
+            "duration": 1
+          }
+        ]
+      }
+    }
+  ],
+  "speed": "fast",
+  "targetScope": "lane"
+}

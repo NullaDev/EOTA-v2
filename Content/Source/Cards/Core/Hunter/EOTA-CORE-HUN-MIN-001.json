@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-MIN-001",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "minion",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-MIN-001.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-MIN-001.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-001.png",
+  "effects": [
+    {
+      "id": "minionCombat",
+      "trigger": {
+        "kind": "minionCombat"
+      },
+      "body": {
+        "kind": "grantEffect",
+        "target": {
+          "kind": "eventTarget"
+        },
+        "effect": {
+          "id": "turnEnd",
+          "trigger": {
+            "kind": "turnEnd"
+          },
+          "body": {
+            "kind": "loseHealth",
+            "target": {
+              "kind": "self"
+            },
+            "amount": 2
+          }
+        },
+        "duration": 2
+      }
+    }
+  ],
+  "attack": 2,
+  "health": 1,
+  "tags": [
+    "beast"
+  ]
+}

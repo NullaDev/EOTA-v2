@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "kind": "spell",
+  "id": "TEST-P7-BOMB",
+  "cost": 0,
+  "effects": [
+    {
+      "id": "cast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "sequence",
+        "steps": [
+          {
+            "kind": "clearEther",
+            "target": {
+              "kind": "friendlyLanes"
+            }
+          },
+          {
+            "kind": "loop",
+            "count": "previous.scalar + 1",
+            "body": {
+              "kind": "parallel",
+              "children": [
+                {
+                  "kind": "damage",
+                  "target": {
+                    "kind": "enemyMinions"
+                  },
+                  "amount": 2
+                },
+                {
+                  "kind": "damage",
+                  "target": {
+                    "kind": "enemyHero"
+                  },
+                  "amount": 2
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "lane"
+}

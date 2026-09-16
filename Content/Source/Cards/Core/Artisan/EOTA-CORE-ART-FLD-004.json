@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-FLD-004",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "field",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-FLD-004.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-FLD-004.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-FLD-004.png",
+  "effects": [],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 3
+  },
+  "storedCharge": 2
+}

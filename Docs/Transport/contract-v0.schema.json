@@ -1,0 +1,1105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EOTA Transport Contract V0",
+  "description": "Development protocol. Payload kind is the first JSON property. UInt64 and Int64 use decimal strings; bounds and semantic validation are enforced by the receiver.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/clientEnvelope"
+    },
+    {
+      "$ref": "#/$defs/serverEnvelope"
+    }
+  ],
+  "$defs": {
+    "uint64": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]{0,19})$",
+      "description": "Canonical decimal UInt64, at most 18446744073709551615."
+    },
+    "int64": {
+      "type": "string",
+      "pattern": "^(0|-?[1-9][0-9]{0,18})$",
+      "description": "Canonical decimal Int64, from -9223372036854775808 through 9223372036854775807."
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "key": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 96
+    },
+    "audience": {
+      "enum": [
+        "playerOne",
+        "playerTwo",
+        "spectator"
+      ]
+    },
+    "card": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cardInstanceId",
+        "prototypeId",
+        "cardKind",
+        "cost",
+        "attack",
+        "maximumHealth",
+        "keywords"
+      ],
+      "properties": {
+        "cardInstanceId": {
+          "$ref": "#/$defs/uint64"
+        },
+        "prototypeId": {
+          "type": "string"
+        },
+        "cardKind": {
+          "type": "string"
+        },
+        "cost": {
+          "$ref": "#/$defs/int64"
+        },
+        "attack": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/int64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "maximumHealth": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/int64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/keyword"
+          }
+        }
+      }
+    },
+    "plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "planCommandId",
+        "card",
+        "actionKind",
+        "laneId",
+        "reservedCost"
+      ],
+      "properties": {
+        "planCommandId": {
+          "$ref": "#/$defs/uint64"
+        },
+        "card": {
+          "$ref": "#/$defs/card"
+        },
+        "actionKind": {
+          "type": "string"
+        },
+        "laneId": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reservedCost": {
+          "$ref": "#/$defs/int64"
+        }
+      }
+    },
+    "publicPlayer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "playerId",
+        "profession",
+        "heroHealth",
+        "heroMaximumHealth",
+        "maxCost",
+        "handCount",
+        "deckCount",
+        "removedCount",
+        "submitted",
+        "discard",
+        "activeEffects"
+      ],
+      "properties": {
+        "playerId": {
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "profession": {
+          "type": "string"
+        },
+        "heroHealth": {
+          "$ref": "#/$defs/int64"
+        },
+        "heroMaximumHealth": {
+          "$ref": "#/$defs/int64"
+        },
+        "maxCost": {
+          "$ref": "#/$defs/int64"
+        },
+        "handCount": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "deckCount": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "removedCount": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "submitted": {
+          "type": "boolean"
+        },
+        "discard": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/card"
+          }
+        },
+        "activeEffects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/activeEffect"
+          }
+        }
+      }
+    },
+    "privatePlayer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "playerId",
+        "commandRevision",
+        "availableCost",
+        "nextTurnCost",
+        "hand",
+        "planning",
+        "mulliganSelection",
+        "planOptions"
+      ],
+      "properties": {
+        "playerId": {
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "commandRevision": {
+          "$ref": "#/$defs/uint64"
+        },
+        "availableCost": {
+          "$ref": "#/$defs/int64"
+        },
+        "nextTurnCost": {
+          "$ref": "#/$defs/int64"
+        },
+        "hand": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/card"
+          }
+        },
+        "planning": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/plan"
+          }
+        },
+        "mulliganSelection": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/uint64"
+          }
+        },
+        "planOptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/planOption"
+          }
+        }
+      }
+    },
+    "laneSide": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "minionEntityId",
+        "fieldEntityId",
+        "etherActivation",
+        "preventNextEtherDecay"
+      ],
+      "properties": {
+        "minionEntityId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/uint64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "fieldEntityId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/uint64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "etherActivation": {
+          "$ref": "#/$defs/int64"
+        },
+        "preventNextEtherDecay": {
+          "type": "boolean"
+        }
+      }
+    },
+    "lane": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "laneId",
+        "playerOne",
+        "playerTwo",
+        "frozen",
+        "locked",
+        "statuses"
+      ],
+      "properties": {
+        "laneId": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "playerOne": {
+          "$ref": "#/$defs/laneSide"
+        },
+        "playerTwo": {
+          "$ref": "#/$defs/laneSide"
+        },
+        "frozen": {
+          "type": "boolean"
+        },
+        "locked": {
+          "type": "boolean"
+        },
+        "statuses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/laneStatus"
+          }
+        }
+      }
+    },
+    "keyword": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "parameter"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "parameter": {
+          "$ref": "#/$defs/int64"
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entityId",
+        "card",
+        "ownerId",
+        "controllerId",
+        "laneId",
+        "attack",
+        "currentHealth",
+        "maximumHealth",
+        "fieldEnergy",
+        "permanentField",
+        "preventsActiveAttacksInLane",
+        "slowTurnsRemaining",
+        "keywords",
+        "storedCharge",
+        "chargeRequirementOverride",
+        "fieldPower",
+        "incomingDamageAdjustment",
+        "activeEffects",
+        "modifiers",
+        "baseAttack"
+      ],
+      "properties": {
+        "entityId": {
+          "$ref": "#/$defs/uint64"
+        },
+        "card": {
+          "$ref": "#/$defs/card"
+        },
+        "ownerId": {
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "controllerId": {
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "laneId": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "attack": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/int64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "currentHealth": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/int64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "maximumHealth": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/int64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "fieldEnergy": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/int64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "permanentField": {
+          "type": "boolean"
+        },
+        "preventsActiveAttacksInLane": {
+          "type": "boolean"
+        },
+        "slowTurnsRemaining": {
+          "$ref": "#/$defs/int64"
+        },
+        "storedCharge": {
+          "$ref": "#/$defs/int64"
+        },
+        "chargeRequirementOverride": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/int64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/keyword"
+          }
+        },
+        "fieldPower": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/int64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "incomingDamageAdjustment": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/int64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "activeEffects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/activeEffect"
+          }
+        },
+        "modifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/modifier"
+          }
+        },
+        "baseAttack": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/int64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "view": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "audience",
+        "protocolHash",
+        "ruleContentHash",
+        "status",
+        "outcome",
+        "stage",
+        "turn",
+        "players",
+        "lanes",
+        "entities",
+        "private"
+      ],
+      "properties": {
+        "audience": {
+          "$ref": "#/$defs/audience"
+        },
+        "protocolHash": {
+          "$ref": "#/$defs/hash"
+        },
+        "ruleContentHash": {
+          "$ref": "#/$defs/hash"
+        },
+        "status": {
+          "type": "string"
+        },
+        "outcome": {
+          "type": "string"
+        },
+        "stage": {
+          "type": "string"
+        },
+        "turn": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "players": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/publicPlayer"
+          }
+        },
+        "lanes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/lane"
+          }
+        },
+        "entities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/entity"
+          }
+        },
+        "private": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/privatePlayer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "entityId",
+        "playerId",
+        "laneId",
+        "targetEntityId",
+        "targetPlayerId",
+        "previousValue",
+        "currentValue",
+        "card"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "entityId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/uint64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "playerId": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "laneId": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "targetEntityId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/uint64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "targetPlayerId": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "previousValue": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/int64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "currentValue": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/int64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "card": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/card"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "requestSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "const": "requestSnapshot"
+        }
+      }
+    },
+    "planCard": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "cardInstanceId",
+        "laneId"
+      ],
+      "properties": {
+        "kind": {
+          "const": "planCard"
+        },
+        "cardInstanceId": {
+          "$ref": "#/$defs/uint64"
+        },
+        "laneId": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        }
+      }
+    },
+    "planSpell": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "cardInstanceId",
+        "laneId"
+      ],
+      "properties": {
+        "kind": {
+          "const": "planSpell"
+        },
+        "cardInstanceId": {
+          "$ref": "#/$defs/uint64"
+        },
+        "laneId": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "cancelPlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "planCommandId"
+      ],
+      "properties": {
+        "kind": {
+          "const": "cancelPlan"
+        },
+        "planCommandId": {
+          "$ref": "#/$defs/uint64"
+        }
+      }
+    },
+    "submitTurn": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "const": "submitTurn"
+        }
+      }
+    },
+    "submitMulligan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "replacedCards"
+      ],
+      "properties": {
+        "kind": {
+          "const": "submitMulligan"
+        },
+        "replacedCards": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/uint64"
+          },
+          "maxItems": 256
+        }
+      }
+    },
+    "observerSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "requestId",
+        "view",
+        "observerViewHash"
+      ],
+      "properties": {
+        "kind": {
+          "const": "observerSnapshot"
+        },
+        "requestId": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "view": {
+          "$ref": "#/$defs/view"
+        },
+        "observerViewHash": {
+          "$ref": "#/$defs/hash"
+        }
+      }
+    },
+    "presentationFrame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "frameId",
+        "view",
+        "observerViewHash",
+        "events"
+      ],
+      "properties": {
+        "kind": {
+          "const": "presentationFrame"
+        },
+        "frameId": {
+          "$ref": "#/$defs/uint64"
+        },
+        "view": {
+          "$ref": "#/$defs/view"
+        },
+        "observerViewHash": {
+          "$ref": "#/$defs/hash"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/event"
+          }
+        }
+      }
+    },
+    "commandAck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "clientCommandId",
+        "accepted",
+        "code",
+        "playerRevision",
+        "resultingMatchRevision",
+        "planCommandId",
+        "resyncRequired"
+      ],
+      "properties": {
+        "kind": {
+          "const": "commandAck"
+        },
+        "clientCommandId": {
+          "type": "string"
+        },
+        "accepted": {
+          "type": "boolean"
+        },
+        "code": {
+          "type": "string"
+        },
+        "playerRevision": {
+          "$ref": "#/$defs/uint64"
+        },
+        "resultingMatchRevision": {
+          "$ref": "#/$defs/uint64"
+        },
+        "planCommandId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/uint64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "resyncRequired": {
+          "type": "boolean"
+        }
+      }
+    },
+    "clientEnvelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contractVersion",
+        "matchId",
+        "clientCommandId",
+        "clientSequence",
+        "expectedPlayerRevision",
+        "payload"
+      ],
+      "properties": {
+        "contractVersion": {
+          "const": 0
+        },
+        "matchId": {
+          "$ref": "#/$defs/key"
+        },
+        "clientCommandId": {
+          "$ref": "#/$defs/key"
+        },
+        "clientSequence": {
+          "$ref": "#/$defs/uint64"
+        },
+        "expectedPlayerRevision": {
+          "$ref": "#/$defs/uint64"
+        },
+        "payload": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/requestSnapshot"
+            },
+            {
+              "$ref": "#/$defs/planCard"
+            },
+            {
+              "$ref": "#/$defs/planSpell"
+            },
+            {
+              "$ref": "#/$defs/cancelPlan"
+            },
+            {
+              "$ref": "#/$defs/submitTurn"
+            },
+            {
+              "$ref": "#/$defs/submitMulligan"
+            }
+          ]
+        }
+      }
+    },
+    "serverEnvelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contractVersion",
+        "matchId",
+        "serverSequence",
+        "matchRevision",
+        "payload"
+      ],
+      "properties": {
+        "contractVersion": {
+          "const": 0
+        },
+        "matchId": {
+          "$ref": "#/$defs/key"
+        },
+        "serverSequence": {
+          "$ref": "#/$defs/uint64"
+        },
+        "matchRevision": {
+          "$ref": "#/$defs/uint64"
+        },
+        "payload": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/observerSnapshot"
+            },
+            {
+              "$ref": "#/$defs/presentationFrame"
+            },
+            {
+              "$ref": "#/$defs/commandAck"
+            }
+          ]
+        }
+      }
+    },
+    "activeEffect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "effectId",
+        "trigger",
+        "remainingDuration"
+      ],
+      "properties": {
+        "effectId": {
+          "type": "string"
+        },
+        "trigger": {
+          "type": "string"
+        },
+        "remainingDuration": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/int64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "modifier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "action",
+        "attribute",
+        "operation",
+        "value",
+        "keyword",
+        "remainingDuration"
+      ],
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "attribute": {
+          "type": "string"
+        },
+        "operation": {
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/$defs/int64"
+        },
+        "keyword": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "remainingDuration": {
+          "$ref": "#/$defs/int64"
+        }
+      }
+    },
+    "laneStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "remainingDuration"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "Frozen",
+            "Locked"
+          ]
+        },
+        "remainingDuration": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/int64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "planOption": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cardInstanceId",
+        "laneId",
+        "allowed",
+        "reason"
+      ],
+      "properties": {
+        "cardInstanceId": {
+          "$ref": "#/$defs/uint64"
+        },
+        "laneId": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "allowed": {
+          "type": "boolean"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

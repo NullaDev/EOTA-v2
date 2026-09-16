@@ -1,0 +1,3 @@
+{"schemaVersion":"eota.card/v2","id":"P9-UNLOCK","source":"test","profession":"neutral","kind":"spell","cost":0,"speed":"slow","targetScope":"lane",
+ "effects":[{"id":"cast","trigger":{"kind":"selfSpellCast"},"body":{"kind":"sequence","steps":[{"kind":"laneStatus","target":{"kind":"friendlyLanes"},"status":"locked","remove":true},
+ {"kind":"summon","target":{"kind":"friendlyLanes"},"prototype":"P9-TOKEN"}]}}]}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "kind": "minion",
+  "id": "TEST-P6-HUNTER",
+  "cost": 2,
+  "attack": 2,
+  "health": 1,
+  "effects": [
+    {
+      "id": "entry-hit",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "damage",
+        "target": {
+          "kind": "enemyMinions"
+        },
+        "amount": 1
+      }
+    }
+  ]
+}

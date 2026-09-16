@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "kind": "spell",
+  "id": "MOD-DEMO-REPAIR",
+  "source": "core",
+  "profession": "artisan",
+  "cost": 3,
+  "nameLocalizationKey": "card.MOD-DEMO-REPAIR.name",
+  "descriptionLocalizationKey": "card.MOD-DEMO-REPAIR.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-001.png",
+  "speed": "slow",
+  "targetScope": "global",
+  "effects": [
+    {
+      "id": "draw-and-improve",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "sequence",
+        "steps": [
+          {
+            "kind": "draw",
+            "target": {
+              "kind": "friendlyHero"
+            },
+            "count": 1,
+            "filter": {
+              "kind": "minion",
+              "tag": "mechanical"
+            }
+          },
+          {
+            "kind": "parallel",
+            "children": [
+              {
+                "kind": "modifyNumber",
+                "target": {
+                  "kind": "previousAffected",
+                  "targetType": "card"
+                },
+                "attribute": "attack",
+                "operation": "add",
+                "amount": 1
+              },
+              {
+                "kind": "modifyNumber",
+                "target": {
+                  "kind": "previousAffected",
+                  "targetType": "card"
+                },
+                "attribute": "maximumHealth",
+                "operation": "add",
+                "amount": 1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "cost": 0,
+  "effects": [],
+  "kind": "minion",
+  "id": "TEST-P4-ATTACKER",
+  "attack": 3,
+  "health": 3,
+  "keywords": [
+    "swift",
+    "lifesteal",
+    "pursuit"
+  ]
+}

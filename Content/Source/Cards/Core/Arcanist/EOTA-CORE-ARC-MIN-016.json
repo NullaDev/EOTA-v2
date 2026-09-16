@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ARC-MIN-016",
+  "source": "core",
+  "profession": "arcanist",
+  "kind": "minion",
+  "cost": 5,
+  "nameLocalizationKey": "card.EOTA-CORE-ARC-MIN-016.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ARC-MIN-016.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-016.png",
+  "effects": [
+    {
+      "id": "selfEntered",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "ifElse",
+            "condition": {
+              "kind": "compare",
+              "left": "lane.ether",
+              "operator": "greaterOrEqual",
+              "right": 2
+            },
+            "then": {
+              "kind": "removeKeyword",
+              "target": {
+                "kind": "self"
+              },
+              "keyword": "slow"
+            }
+          },
+          {
+            "kind": "ifElse",
+            "condition": {
+              "kind": "compare",
+              "left": "lane.ether",
+              "operator": "greaterOrEqual",
+              "right": 3
+            },
+            "then": {
+              "kind": "addKeyword",
+              "target": {
+                "kind": "self"
+              },
+              "keyword": "swift",
+              "duration": 1
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "attack": 6,
+  "health": 7,
+  "keywords": [
+    {
+      "kind": "slow",
+      "turns": 2
+    }
+  ]
+}

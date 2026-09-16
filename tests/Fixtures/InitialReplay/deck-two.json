@@ -1,0 +1,7 @@
+{
+  "profession": "neutral",
+  "cards": [
+    { "id": "TEST-MINION-A", "copies": 2 },
+    { "id": "TEST-MINION-B", "copies": 2 }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-MIN-019",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "minion",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-MIN-019.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-MIN-019.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-019.png",
+  "effects": [
+    {
+      "id": "selfEntered",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "generate",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "prototype": "EOTA-TOKEN-ART-SPL-001",
+        "count": 1
+      }
+    }
+  ],
+  "attack": 2,
+  "health": 3
+}

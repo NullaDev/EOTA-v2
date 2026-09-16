@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-MIN-011",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "minion",
+  "cost": 5,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-MIN-011.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-MIN-011.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-011.png",
+  "effects": [],
+  "attack": 4,
+  "health": 5,
+  "tags": [
+    "mechanical"
+  ],
+  "storedCharge": 1
+}

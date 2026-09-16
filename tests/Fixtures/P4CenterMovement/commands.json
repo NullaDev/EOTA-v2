@@ -1,0 +1,33 @@
+[
+  {
+    "kind": "planCard",
+    "playerId": 0,
+    "expectedPlayerRevision": 0,
+    "cardInstanceId": 1,
+    "laneId": 2
+  },
+  {
+    "kind": "planCard",
+    "playerId": 1,
+    "expectedPlayerRevision": 0,
+    "cardInstanceId": 7,
+    "laneId": 1
+  },
+  {
+    "kind": "planCard",
+    "playerId": 1,
+    "expectedPlayerRevision": 1,
+    "cardInstanceId": 6,
+    "laneId": 3
+  },
+  {
+    "kind": "submitTurn",
+    "playerId": 0,
+    "expectedPlayerRevision": 1
+  },
+  {
+    "kind": "submitTurn",
+    "playerId": 1,
+    "expectedPlayerRevision": 2
+  }
+]

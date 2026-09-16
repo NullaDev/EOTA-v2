@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ARC-MIN-020",
+  "source": "core",
+  "profession": "arcanist",
+  "kind": "minion",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-ARC-MIN-020.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ARC-MIN-020.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-020.png",
+  "effects": [
+    {
+      "id": "selfEntered",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "ifElse",
+        "condition": {
+          "kind": "compare",
+          "left": "lane.ether",
+          "operator": "equal",
+          "right": 0
+        },
+        "then": {
+          "kind": "parallel",
+          "children": [
+            {
+              "kind": "modifyNumber",
+              "target": {
+                "kind": "friendlyLanes"
+              },
+              "amount": 1,
+              "attribute": "etherActivation",
+              "operation": "add"
+            },
+            {
+              "kind": "preventEtherDecay",
+              "target": {
+                "kind": "friendlyLanes"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "selfDied",
+      "trigger": {
+        "kind": "selfDied"
+      },
+      "body": {
+        "kind": "ifElse",
+        "condition": {
+          "kind": "compare",
+          "left": "lane.ether",
+          "operator": "equal",
+          "right": 0
+        },
+        "then": {
+          "kind": "parallel",
+          "children": [
+            {
+              "kind": "modifyNumber",
+              "target": {
+                "kind": "friendlyLanes"
+              },
+              "amount": 1,
+              "attribute": "etherActivation",
+              "operation": "add"
+            },
+            {
+              "kind": "preventEtherDecay",
+              "target": {
+                "kind": "friendlyLanes"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "attack": 2,
+  "health": 3
+}

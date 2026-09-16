@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-SPL-005",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "spell",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-SPL-005.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-SPL-005.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-005.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "draw",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "count": 2,
+        "filter": {
+          "tag": "beast"
+        }
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "global"
+}

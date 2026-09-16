@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "cost": 0,
+  "effects": [],
+  "kind": "spell",
+  "id": "TEST-P4-SLOW-SPELL",
+  "speed": "slow",
+  "targetScope": "global"
+}

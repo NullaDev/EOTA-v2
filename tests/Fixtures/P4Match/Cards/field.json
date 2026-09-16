@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "cost": 0,
+  "effects": [],
+  "kind": "field",
+  "id": "TEST-P4-FIELD",
+  "lifetime": {
+    "kind": "finite",
+    "energy": 1
+  }
+}

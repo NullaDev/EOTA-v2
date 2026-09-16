@@ -1,0 +1,182 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Theme" path="res://Client/Godot/GameTheme.tres" id="theme"]
+[ext_resource type="Script" path="res://Client/Godot/LaneDrop.cs" id="drop"]
+[ext_resource type="PackedScene" path="res://Client/Godot/Scenes/EtherPips.tscn" id="ether"]
+
+[ext_resource type="PackedScene" path="res://Client/Godot/Scenes/SpellPlans.tscn" id="spells"]
+[ext_resource type="PackedScene" path="res://Client/Godot/Scenes/LaneStatuses.tscn" id="states"]
+
+[node name="Lane" type="PanelContainer"]
+layout_mode = 3
+custom_minimum_size = Vector2(172, 552)
+theme = ExtResource("theme")
+theme_type_variation = &"LanePanel"
+size_flags_vertical = 0
+script = ExtResource("drop")
+
+[node name="Slots" type="Control" parent="."]
+layout_mode = 2
+custom_minimum_size = Vector2(172, 552)
+mouse_filter = 1
+
+[node name="Title" type="Label" parent="Slots"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 84.0
+offset_bottom = 34.0
+text = "第 1 路"
+theme_override_font_sizes/font_size = 16
+mouse_filter = 2
+horizontal_alignment = 1
+theme_type_variation = &"MutedLabel"
+
+[node name="OpponentField" type="Control" parent="Slots"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 36.0
+offset_right = 162.0
+offset_bottom = 110.0
+mouse_filter = 1
+
+[node name="Frame" type="Panel" parent="Slots/OpponentField"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 152.0
+offset_bottom = 74.0
+theme_type_variation = &"FieldSlot"
+mouse_filter = 2
+
+[node name="Placeholder" type="Label" parent="Slots/OpponentField"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 152.0
+offset_bottom = 74.0
+text = "—"
+theme_override_font_sizes/font_size = 24
+mouse_filter = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.3373, 0.3843, 0.298, 1)
+
+[node name="OpponentMinion" type="Control" parent="Slots"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 114.0
+offset_right = 162.0
+offset_bottom = 234.0
+mouse_filter = 1
+
+[node name="Frame" type="Panel" parent="Slots/OpponentMinion"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 152.0
+offset_bottom = 120.0
+theme_type_variation = &"Slot"
+mouse_filter = 2
+
+[node name="Placeholder" type="Label" parent="Slots/OpponentMinion"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 152.0
+offset_bottom = 120.0
+text = "◇"
+theme_override_font_sizes/font_size = 24
+mouse_filter = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.3373, 0.3843, 0.298, 1)
+
+[node name="PlayerMinion" type="Control" parent="Slots"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 342.0
+offset_right = 162.0
+offset_bottom = 462.0
+mouse_filter = 1
+
+[node name="Frame" type="Panel" parent="Slots/PlayerMinion"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 152.0
+offset_bottom = 120.0
+theme_type_variation = &"Slot"
+mouse_filter = 2
+
+[node name="Placeholder" type="Label" parent="Slots/PlayerMinion"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 152.0
+offset_bottom = 120.0
+text = "◇"
+theme_override_font_sizes/font_size = 24
+mouse_filter = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.3373, 0.3843, 0.298, 1)
+
+[node name="PlayerField" type="Control" parent="Slots"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 470.0
+offset_right = 162.0
+offset_bottom = 544.0
+mouse_filter = 1
+
+[node name="Frame" type="Panel" parent="Slots/PlayerField"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 152.0
+offset_bottom = 74.0
+theme_type_variation = &"FieldSlot"
+mouse_filter = 2
+
+[node name="Placeholder" type="Label" parent="Slots/PlayerField"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 152.0
+offset_bottom = 74.0
+text = "—"
+theme_override_font_sizes/font_size = 24
+mouse_filter = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(0.3373, 0.3843, 0.298, 1)
+
+[node name="OpponentEther" parent="Slots" instance=ExtResource("ether")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 236.0
+offset_right = 162.0
+offset_bottom = 260.0
+
+[node name="PlayerEther" parent="Slots" instance=ExtResource("ether")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 314.0
+offset_right = 162.0
+offset_bottom = 338.0
+
+[node name="States" parent="Slots" instance=ExtResource("states")]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 2.0
+offset_right = 158.0
+offset_bottom = 34.0
+
+
+[node name="SpellPlans" parent="Slots" instance=ExtResource("spells")]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 264.0
+offset_right = 160.0
+offset_bottom = 312.0

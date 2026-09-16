@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-MIN-004",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "minion",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-MIN-004.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-MIN-004.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-004.png",
+  "effects": [
+    {
+      "id": "selfDied",
+      "trigger": {
+        "kind": "selfDied"
+      },
+      "body": {
+        "kind": "summon",
+        "target": {
+          "kind": "friendlyLanes"
+        },
+        "prototype": "EOTA-TOKEN-ART-MIN-001",
+        "slot": "minion"
+      }
+    }
+  ],
+  "attack": 2,
+  "health": 2,
+  "tags": [
+    "mechanical"
+  ]
+}

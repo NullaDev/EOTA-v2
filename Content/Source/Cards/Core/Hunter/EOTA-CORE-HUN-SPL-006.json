@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-SPL-006",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "spell",
+  "cost": 4,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-SPL-006.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-SPL-006.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-006.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "retarget",
+        "target": {
+          "kind": "friendlyMinions",
+          "scope": "all",
+          "filter": {
+            "tag": "beast"
+          }
+        },
+        "body": {
+          "kind": "parallel",
+          "children": [
+            {
+              "kind": "modifyNumber",
+              "target": {
+                "kind": "targets"
+              },
+              "attribute": "attack",
+              "amount": 1,
+              "operation": "add",
+              "duration": 1
+            },
+            {
+              "kind": "ifElse",
+              "condition": {
+                "kind": "hasKeyword",
+                "target": {
+                  "kind": "targets"
+                },
+                "keyword": "pursuit"
+              },
+              "then": {
+                "kind": "modifyNumber",
+                "target": {
+                  "kind": "targets"
+                },
+                "attribute": "attack",
+                "amount": 1,
+                "operation": "add",
+                "duration": 1
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "speed": "fast",
+  "targetScope": "global"
+}

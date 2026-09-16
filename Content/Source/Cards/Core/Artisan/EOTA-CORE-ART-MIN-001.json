@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-MIN-001",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "minion",
+  "cost": 1,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-MIN-001.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-MIN-001.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-MIN-001.png",
+  "effects": [
+    {
+      "id": "preCombatCharge",
+      "trigger": {
+        "kind": "preCombatCharge"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "addKeyword",
+            "target": {
+              "kind": "self"
+            },
+            "keyword": "firstStrike",
+            "duration": 1
+          },
+          {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "self"
+            },
+            "attribute": "attack",
+            "amount": 1,
+            "operation": "add",
+            "duration": 1
+          }
+        ]
+      },
+      "charge": 1
+    }
+  ],
+  "attack": 1,
+  "health": 1,
+  "tags": [
+    "mechanical"
+  ],
+  "keywords": [
+    "skirmisher"
+  ]
+}

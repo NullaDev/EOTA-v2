@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "kind": "spell",
+  "id": "TEST-P6-SHOT",
+  "cost": 1,
+  "speed": "fast",
+  "targetScope": "lane",
+  "effects": [
+    {
+      "id": "shot",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "damage",
+        "target": {
+          "kind": "enemyMinions"
+        },
+        "amount": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-SPL-002",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "spell",
+  "cost": 4,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-SPL-002.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-SPL-002.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-SPL-002.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "parallel",
+            "children": [
+              {
+                "kind": "modifyNumber",
+                "target": {
+                  "kind": "friendlyMinions",
+                  "scope": "all",
+                  "filter": {
+                    "tag": "mechanical"
+                  }
+                },
+                "attribute": "attack",
+                "operation": "add",
+                "amount": 1
+              },
+              {
+                "kind": "modifyNumber",
+                "target": {
+                  "kind": "friendlyMinions",
+                  "scope": "all",
+                  "filter": {
+                    "tag": "mechanical"
+                  }
+                },
+                "attribute": "maximumHealth",
+                "operation": "add",
+                "amount": 1
+              }
+            ]
+          },
+          {
+            "kind": "parallel",
+            "children": [
+              {
+                "kind": "modifyNumber",
+                "target": {
+                  "kind": "friendlyHand",
+                  "scope": "all",
+                  "filter": {
+                    "tag": "mechanical"
+                  }
+                },
+                "attribute": "attack",
+                "operation": "add",
+                "amount": 1
+              },
+              {
+                "kind": "modifyNumber",
+                "target": {
+                  "kind": "friendlyHand",
+                  "scope": "all",
+                  "filter": {
+                    "tag": "mechanical"
+                  }
+                },
+                "attribute": "maximumHealth",
+                "operation": "add",
+                "amount": 1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "global"
+}

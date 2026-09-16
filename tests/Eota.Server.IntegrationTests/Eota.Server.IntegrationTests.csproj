@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" PrivateAssets="all" />
+    <Using Include="Xunit" />
+    <ProjectReference Include="..\..\src\Eota.Server.Host\Eota.Server.Host.csproj" />
+    <ProjectReference Include="..\..\src\Eota.Client.Transport.InProcess\Eota.Client.Transport.InProcess.csproj" />
+    <ProjectReference Include="..\..\src\Eota.Client.Transport.WebSocket\Eota.Client.Transport.WebSocket.csproj" />
+    <ProjectReference Include="..\..\src\Eota.Client.Desktop\Eota.Client.Desktop.csproj" />
+  </ItemGroup>
+</Project>

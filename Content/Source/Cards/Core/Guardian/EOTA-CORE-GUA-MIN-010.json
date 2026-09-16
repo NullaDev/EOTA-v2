@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-MIN-010",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "minion",
+  "cost": 4,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-MIN-010.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-MIN-010.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-MIN-010.png",
+  "effects": [],
+  "attack": 1,
+  "health": 1,
+  "keywords": [
+    "execute"
+  ]
+}

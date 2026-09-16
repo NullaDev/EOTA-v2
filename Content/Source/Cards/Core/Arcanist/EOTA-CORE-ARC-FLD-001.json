@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ARC-FLD-001",
+  "source": "core",
+  "profession": "arcanist",
+  "kind": "field",
+  "cost": 1,
+  "nameLocalizationKey": "card.EOTA-CORE-ARC-FLD-001.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ARC-FLD-001.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-FLD-001.png",
+  "effects": [
+    {
+      "id": "friendlyCombat",
+      "trigger": {
+        "kind": "friendlyCombat",
+        "subjectType": "minion"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "ifElse",
+            "condition": {
+              "kind": "compare",
+              "left": "lane.ether",
+              "operator": "greaterOrEqual",
+              "right": 1
+            },
+            "then": {
+              "kind": "modifyNumber",
+              "target": {
+                "kind": "eventSubject"
+              },
+              "attribute": "attack",
+              "operation": "add",
+              "amount": 1,
+              "duration": 1
+            }
+          },
+          {
+            "kind": "ifElse",
+            "condition": {
+              "kind": "compare",
+              "left": "lane.ether",
+              "operator": "greaterOrEqual",
+              "right": 2
+            },
+            "then": {
+              "kind": "addKeyword",
+              "target": {
+                "kind": "eventSubject"
+              },
+              "keyword": "firstStrike",
+              "duration": 1
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 2
+  }
+}

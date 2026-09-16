@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ARC-MIN-007",
+  "source": "core",
+  "profession": "arcanist",
+  "kind": "minion",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-ARC-MIN-007.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ARC-MIN-007.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ARC-MIN-007.png",
+  "effects": [
+    {
+      "id": "selfDied",
+      "trigger": {
+        "kind": "selfDied"
+      },
+      "body": {
+        "kind": "modifyNumber",
+        "target": {
+          "kind": "friendlyLanes"
+        },
+        "attribute": "etherActivation",
+        "amount": 2,
+        "operation": "add"
+      }
+    }
+  ],
+  "attack": 0,
+  "health": 2,
+  "keywords": [
+    "guard"
+  ]
+}

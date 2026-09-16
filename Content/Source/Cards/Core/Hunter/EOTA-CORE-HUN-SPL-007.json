@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-SPL-007",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "spell",
+  "cost": 7,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-SPL-007.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-SPL-007.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-SPL-007.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "summon",
+        "target": {
+          "kind": "friendlyLanes",
+          "scope": "all"
+        },
+        "prototype": "EOTA-TOKEN-HUN-MIN-001",
+        "slot": "minion"
+      }
+    }
+  ],
+  "speed": "fast",
+  "targetScope": "global"
+}

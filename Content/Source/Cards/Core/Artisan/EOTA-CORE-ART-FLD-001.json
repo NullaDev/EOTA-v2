@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-FLD-001",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "field",
+  "cost": 1,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-FLD-001.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-FLD-001.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-FLD-001.png",
+  "effects": [
+    {
+      "id": "endTurnCharge",
+      "trigger": {
+        "kind": "endTurnCharge"
+      },
+      "body": {
+        "kind": "modifyNumber",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "attribute": "nextTurnCost",
+        "amount": 1,
+        "operation": "add"
+      },
+      "charge": 1
+    }
+  ],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 4
+  }
+}

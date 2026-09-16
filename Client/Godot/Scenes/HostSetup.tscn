@@ -1,0 +1,227 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Theme" path="res://Client/Godot/GameTheme.tres" id="theme"]
+[node name="HostSetup" type="Control"]
+layout_mode = 3
+custom_minimum_size = Vector2(1280, 828)
+theme = ExtResource("theme")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 1230.0
+offset_bottom = 56.0
+text = "本机开服"
+theme_override_font_sizes/font_size = 32
+mouse_filter = 2
+
+[node name="Help" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 64.0
+offset_right = 1230.0
+offset_bottom = 98.0
+text = "建立房间，邀请另一位玩家。双方确认协议与牌组后开局。"
+theme_override_font_sizes/font_size = 16
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 118.0
+offset_right = 1230.0
+offset_bottom = 306.0
+theme_type_variation = &"Raised"
+mouse_filter = 2
+
+[node name="Availability" type="Label" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 140.0
+offset_right = 1198.0
+offset_bottom = 184.0
+text = "服务器已停止"
+theme_override_font_sizes/font_size = 26
+mouse_filter = 2
+
+[node name="Notice" type="Label" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 200.0
+offset_right = 1198.0
+offset_bottom = 272.0
+text = ""
+theme_override_font_sizes/font_size = 18
+mouse_filter = 2
+
+[node name="MatchNameTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 326.0
+offset_right = 604.0
+offset_bottom = 358.0
+text = "房间名称"
+theme_override_font_sizes/font_size = 18
+mouse_filter = 2
+
+[node name="MatchName" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 368.0
+offset_right = 604.0
+offset_bottom = 416.0
+text = "我的对局"
+
+[node name="PortTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 646.0
+offset_top = 326.0
+offset_right = 816.0
+offset_bottom = 358.0
+text = "端口"
+theme_override_font_sizes/font_size = 18
+mouse_filter = 2
+
+[node name="Port" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 646.0
+offset_top = 368.0
+offset_right = 816.0
+offset_bottom = 416.0
+text = "5075"
+
+[node name="Lan" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 846.0
+offset_top = 368.0
+offset_right = 1230.0
+offset_bottom = 416.0
+text = "允许局域网加入"
+
+[node name="OneTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 440.0
+offset_right = 604.0
+offset_bottom = 472.0
+text = "玩家一牌组（自己）"
+theme_override_font_sizes/font_size = 18
+mouse_filter = 2
+
+[node name="TwoTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 646.0
+offset_top = 440.0
+offset_right = 1230.0
+offset_bottom = 472.0
+text = "对方牌组"
+theme_override_font_sizes/font_size = 18
+mouse_filter = 2
+
+[node name="One" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 480.0
+offset_right = 604.0
+offset_bottom = 530.0
+
+[node name="OpponentDeck" type="Label" parent="."]
+layout_mode = 0
+offset_left = 646.0
+offset_top = 480.0
+offset_right = 1230.0
+offset_bottom = 530.0
+text = "由对方加入后自行选择"
+theme_override_font_sizes/font_size = 18
+
+[node name="ProtocolSummary" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 552.0
+offset_right = 620.0
+offset_bottom = 620.0
+text = ""
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 2
+mouse_filter = 2
+
+[node name="TimeoutTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 646.0
+offset_top = 544.0
+offset_right = 916.0
+offset_bottom = 576.0
+text = "换牌与每回合提交时限"
+theme_override_font_sizes/font_size = 16
+mouse_filter = 2
+
+[node name="Timeout" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 646.0
+offset_top = 578.0
+offset_right = 916.0
+offset_bottom = 626.0
+
+[node name="Protocol" type="Button" parent="."]
+layout_mode = 0
+offset_left = 942.0
+offset_top = 558.0
+offset_right = 1230.0
+offset_bottom = 614.0
+text = "选择对战协议"
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 646.0
+offset_right = 306.0
+offset_bottom = 708.0
+text = "启动服务器"
+
+[node name="Stop" type="Button" parent="."]
+layout_mode = 0
+offset_left = 644.0
+offset_top = 646.0
+offset_right = 920.0
+offset_bottom = 708.0
+text = "停止服务器"
+
+[node name="Join" type="Button" parent="."]
+layout_mode = 0
+offset_left = 942.0
+offset_top = 646.0
+offset_right = 1230.0
+offset_bottom = 708.0
+text = "自己加入"
+
+[node name="Resume" type="Button" parent="."]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 646.0
+offset_right = 622.0
+offset_bottom = 708.0
+text = "恢复上次房间"
+
+[node name="CopyTwo" type="Button" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 732.0
+offset_right = 406.0
+offset_bottom = 790.0
+text = "复制玩家二邀请"
+
+[node name="CopySpectator" type="Button" parent="."]
+layout_mode = 0
+offset_left = 426.0
+offset_top = 732.0
+offset_right = 814.0
+offset_bottom = 790.0
+text = "复制观战邀请"
+
+[node name="CopyOne" type="Button" parent="."]
+layout_mode = 0
+offset_left = 834.0
+offset_top = 732.0
+offset_right = 1230.0
+offset_bottom = 790.0
+text = "复制玩家一邀请"

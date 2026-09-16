@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-NEU-MIN-010",
+  "source": "core",
+  "profession": "neutral",
+  "kind": "minion",
+  "cost": 4,
+  "nameLocalizationKey": "card.EOTA-CORE-NEU-MIN-010.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-NEU-MIN-010.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-MIN-010.png",
+  "effects": [
+    {
+      "id": "selfEntered",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "modifyNumber",
+        "target": {
+          "kind": "enemyFields"
+        },
+        "attribute": "fieldEnergy",
+        "operation": "add",
+        "amount": -1
+      }
+    }
+  ],
+  "attack": 3,
+  "health": 4
+}

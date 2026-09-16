@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Theme" path="res://Client/Godot/GameTheme.tres" id="theme"]
+
+[node name="ProtocolField" type="HBoxContainer"]
+layout_mode = 3
+custom_minimum_size = Vector2(1120, 44)
+size_flags_vertical = 3
+theme = ExtResource("theme")
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+custom_minimum_size = Vector2(390, 44)
+text = "协议项目"
+vertical_alignment = 1
+
+[node name="Number" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 44)
+
+[node name="Choice" type="OptionButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+visible = false
+custom_minimum_size = Vector2(0, 44)
+
+[node name="Toggle" type="CheckBox" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+visible = false
+text = "启用"
+custom_minimum_size = Vector2(0, 44)
+
+[node name="Value" type="Label" parent="."]
+layout_mode = 2
+vertical_alignment = 1
+size_flags_horizontal = 3
+visible = false
+custom_minimum_size = Vector2(0, 44)

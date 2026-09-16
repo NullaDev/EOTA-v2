@@ -1,0 +1,13 @@
+<Project Sdk="Godot.NET.Sdk/4.6.2">
+  <PropertyGroup>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <RootNamespace>Eota.GodotClient</RootNamespace>
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Client/Godot/**/*.cs" />
+    <ProjectReference Include="src/Eota.Client.Desktop/Eota.Client.Desktop.csproj" />
+  </ItemGroup>
+</Project>

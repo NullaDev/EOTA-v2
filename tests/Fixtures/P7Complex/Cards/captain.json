@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "kind": "minion",
+  "id": "TEST-P7-CAPTAIN",
+  "cost": 0,
+  "effects": [
+    {
+      "id": "fallen",
+      "trigger": {
+        "kind": "selfDied"
+      },
+      "body": {
+        "kind": "generate",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "count": 2,
+        "prototype": "TEST-P7-MILITIA"
+      }
+    }
+  ],
+  "attack": 0,
+  "health": 2
+}

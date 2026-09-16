@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "kind": "spell",
+  "id": "TEST-P7-SWAP",
+  "cost": 0,
+  "effects": [
+    {
+      "id": "cast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "sequence",
+        "steps": [
+          {
+            "kind": "return",
+            "target": {
+              "kind": "friendlyMinions"
+            }
+          },
+          {
+            "kind": "summon",
+            "target": {
+              "kind": "friendlyLanes"
+            },
+            "prototype": "TEST-P7-MILITIA",
+            "slot": "minion"
+          }
+        ]
+      }
+    }
+  ],
+  "speed": "fast",
+  "targetScope": "lane"
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "kind": "field",
+  "id": "TEST-P7-ETHER",
+  "cost": 0,
+  "effects": [
+    {
+      "id": "activate",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "modifyNumber",
+        "target": {
+          "kind": "friendlyLanes"
+        },
+        "attribute": "etherActivation",
+        "operation": "add",
+        "amount": 2
+      }
+    },
+    {
+      "id": "decay",
+      "trigger": {
+        "kind": "turnEnd"
+      },
+      "body": {
+        "kind": "preventEtherDecay",
+        "target": {
+          "kind": "friendlyLanes"
+        }
+      }
+    }
+  ],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 5
+  }
+}

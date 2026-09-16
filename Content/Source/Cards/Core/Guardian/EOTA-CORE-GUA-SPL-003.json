@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-GUA-SPL-003",
+  "source": "core",
+  "profession": "guardian",
+  "kind": "spell",
+  "cost": 6,
+  "nameLocalizationKey": "card.EOTA-CORE-GUA-SPL-003.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-GUA-SPL-003.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-GUA-SPL-003.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "removeKeyword",
+            "target": {
+              "kind": "friendlyMinions",
+              "scope": "all"
+            },
+            "keyword": "slow"
+          },
+          {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "friendlyMinions",
+              "scope": "all"
+            },
+            "attribute": "attack",
+            "operation": "add",
+            "amount": 1,
+            "duration": 1
+          },
+          {
+            "kind": "addKeyword",
+            "target": {
+              "kind": "friendlyMinions",
+              "scope": "all"
+            },
+            "keyword": "swift",
+            "duration": 1
+          },
+          {
+            "kind": "removeKeyword",
+            "target": {
+              "kind": "friendlyMinions",
+              "scope": "all"
+            },
+            "keyword": "guard",
+            "duration": 1
+          }
+        ]
+      }
+    }
+  ],
+  "speed": "fast",
+  "targetScope": "global"
+}

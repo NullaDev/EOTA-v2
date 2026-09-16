@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-FLD-006",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "field",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-FLD-006.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-FLD-006.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-FLD-006.png",
+  "effects": [
+    {
+      "id": "selfEntered",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "generate",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "prototype": "EOTA-TOKEN-ART-SPL-001",
+        "count": 1
+      }
+    },
+    {
+      "id": "turnEnd",
+      "trigger": {
+        "kind": "turnEnd"
+      },
+      "body": {
+        "kind": "ifElse",
+        "condition": {
+          "kind": "exists",
+          "target": {
+            "kind": "friendlyMinions",
+            "filter": {
+              "tag": "mechanical"
+            }
+          }
+        },
+        "then": {
+          "kind": "modifyNumber",
+          "target": {
+            "kind": "friendlyHero"
+          },
+          "attribute": "nextTurnCost",
+          "operation": "add",
+          "amount": 1
+        }
+      }
+    }
+  ],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 2
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-ART-FLD-007",
+  "source": "core",
+  "profession": "artisan",
+  "kind": "field",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-ART-FLD-007.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-ART-FLD-007.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-ART-FLD-007.png",
+  "effects": [
+    {
+      "id": "friendlyEntered",
+      "trigger": {
+        "kind": "friendlyEntered",
+        "subjectType": "minion"
+      },
+      "body": {
+        "kind": "ifElse",
+        "condition": {
+          "kind": "cardMatches",
+          "subject": "event",
+          "filter": {
+            "tag": "mechanical"
+          }
+        },
+        "then": {
+          "kind": "removeKeyword",
+          "target": {
+            "kind": "eventSubject"
+          },
+          "keyword": "slow"
+        }
+      }
+    }
+  ],
+  "lifetime": {
+    "kind": "finite",
+    "energy": 2
+  }
+}

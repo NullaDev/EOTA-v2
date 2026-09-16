@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "cost": 0,
+  "effects": [],
+  "kind": "minion",
+  "id": "TEST-P4-DEFENDER",
+  "attack": 1,
+  "health": 3,
+  "keywords": [
+    "guard",
+    {
+      "kind": "slow",
+      "turns": 2
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-NEU-SPL-002",
+  "source": "core",
+  "profession": "neutral",
+  "kind": "spell",
+  "cost": 5,
+  "nameLocalizationKey": "card.EOTA-CORE-NEU-SPL-002.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-NEU-SPL-002.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-NEU-SPL-002.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "kill",
+        "target": {
+          "kind": "enemyMinions"
+        }
+      }
+    }
+  ],
+  "speed": "slow",
+  "targetScope": "lane"
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "source": "test",
+  "profession": "neutral",
+  "kind": "minion",
+  "id": "TEST-P6-HEALER",
+  "cost": 3,
+  "attack": 2,
+  "health": 3,
+  "effects": [
+    {
+      "id": "entry-heal",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "heal",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "amount": 3
+      }
+    }
+  ]
+}

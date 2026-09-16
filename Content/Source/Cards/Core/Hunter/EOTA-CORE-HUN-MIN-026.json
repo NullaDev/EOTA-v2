@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-HUN-MIN-026",
+  "source": "core",
+  "profession": "hunter",
+  "kind": "minion",
+  "cost": 5,
+  "nameLocalizationKey": "card.EOTA-CORE-HUN-MIN-026.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-HUN-MIN-026.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-HUN-MIN-026.png",
+  "effects": [],
+  "attack": 2,
+  "health": 4,
+  "keywords": [
+    "pursuit",
+    "execute"
+  ]
+}

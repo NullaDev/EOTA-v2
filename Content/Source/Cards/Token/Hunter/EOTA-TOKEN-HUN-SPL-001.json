@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-TOKEN-HUN-SPL-001",
+  "source": "token",
+  "profession": "hunter",
+  "kind": "spell",
+  "cost": 1,
+  "nameLocalizationKey": "card.EOTA-TOKEN-HUN-SPL-001.name",
+  "descriptionLocalizationKey": "card.EOTA-TOKEN-HUN-SPL-001.description",
+  "texturePath": "Content/Generated/Art/EOTA-TOKEN-HUN-SPL-001.png",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "friendlyMinions",
+              "filter": {
+                "tag": "beast"
+              }
+            },
+            "attribute": "maximumHealth",
+            "operation": "add",
+            "amount": 1
+          },
+          {
+            "kind": "addKeyword",
+            "target": {
+              "kind": "friendlyMinions",
+              "filter": {
+                "tag": "beast"
+              }
+            },
+            "keyword": "skirmisher",
+            "duration": 1
+          }
+        ]
+      }
+    }
+  ],
+  "speed": "fast",
+  "targetScope": "lane"
+}

@@ -1,0 +1,62 @@
+# Godot editor and import caches
+/.godot/
+**/.godot/
+/.android/
+/android/
+/.mono/
+**/.mono/
+
+# Godot export output
+/build/
+/builds/
+/exports/
+*.pck
+
+# .NET build and test output
+**/bin/
+**/obj/
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Local verification output. Keep the directory contract documented.
+/artifacts/*
+!/artifacts/README.md
+
+# Local reference copy; its source is maintained in a separate repository.
+/Prototype/
+
+# IDE and per-user settings
+.idea/
+.vs/
+.vscode/
+.fleet/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.DotSettings.user
+
+# Script dependencies and caches
+node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+
+# Logs, process markers, temporary files, and editor backups
+*.log
+*.pid
+*.tmp
+*.bak
+*.old
+*.orig
+*.rej
+*~
+
+# Operating-system metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Keep Content/Generated and Godot *.uid/*.import files in version control.

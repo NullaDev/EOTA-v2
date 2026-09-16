@@ -1,0 +1,397 @@
+[gd_resource type="Theme" load_steps=21 format=3]
+
+[sub_resource type="StyleBoxFlat" id="Panel"]
+bg_color = Color(0.1451, 0.1765, 0.1529, 1)
+border_color = Color(0.3176, 0.3333, 0.2588, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_left = 10
+corner_radius_bottom_right = 10
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="Raised"]
+bg_color = Color(0.1882, 0.2314, 0.1961, 1)
+border_color = Color(0.4078, 0.4039, 0.298, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_left = 10
+corner_radius_bottom_right = 10
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="Normal"]
+bg_color = Color(0.2078, 0.2549, 0.2157, 1)
+border_color = Color(0.451, 0.451, 0.3373, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="Hover"]
+bg_color = Color(0.2824, 0.3333, 0.2431, 1)
+border_color = Color(0.8471, 0.7373, 0.4667, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="Pressed"]
+bg_color = Color(0.1451, 0.1843, 0.1569, 1)
+border_color = Color(0.8863, 0.7804, 0.4902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="Disabled"]
+bg_color = Color(0.1647, 0.1882, 0.1686, 1)
+border_color = Color(0.2588, 0.2941, 0.2549, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="Primary"]
+bg_color = Color(0.7725, 0.6314, 0.3647, 1)
+border_color = Color(0.9451, 0.8275, 0.5843, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="PrimaryHover"]
+bg_color = Color(0.8745, 0.7412, 0.4745, 1)
+border_color = Color(0.9686, 0.9059, 0.7333, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="Input"]
+bg_color = Color(0.1176, 0.1529, 0.1333, 1)
+border_color = Color(0.3961, 0.4431, 0.3529, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_left = 5
+corner_radius_bottom_right = 5
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="Card"]
+bg_color = Color(0.8784, 0.8196, 0.6824, 1)
+border_color = Color(0.702, 0.5765, 0.3451, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_left = 8
+corner_radius_bottom_right = 8
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxFlat" id="Art"]
+bg_color = Color(0.1882, 0.2196, 0.1765, 1)
+border_color = Color(0.6706, 0.5686, 0.3647, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_left = 4
+corner_radius_bottom_right = 4
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxFlat" id="Cost"]
+bg_color = Color(0.1569, 0.3059, 0.3882, 1)
+border_color = Color(0.8196, 0.8745, 0.8588, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_left = 22
+corner_radius_bottom_right = 22
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxFlat" id="Attack"]
+bg_color = Color(0.5843, 0.3804, 0.2039, 1)
+border_color = Color(0.9333, 0.8275, 0.6078, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_left = 18
+corner_radius_bottom_right = 18
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxFlat" id="Health"]
+bg_color = Color(0.451, 0.2275, 0.2157, 1)
+border_color = Color(0.8824, 0.6549, 0.5804, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_left = 18
+corner_radius_bottom_right = 18
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxFlat" id="Lane"]
+bg_color = Color(0.1451, 0.1804, 0.1529, 1)
+border_color = Color(0.3137, 0.3569, 0.2706, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_left = 8
+corner_radius_bottom_right = 8
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxFlat" id="Slot"]
+bg_color = Color(0.1255, 0.1569, 0.1333, 1)
+border_color = Color(0.2745, 0.3176, 0.2431, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxFlat" id="FieldSlot"]
+bg_color = Color(0.1608, 0.2157, 0.1725, 1)
+border_color = Color(0.3216, 0.4039, 0.3059, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxFlat" id="Nav"]
+bg_color = Color(0.1059, 0.1373, 0.1176, 1)
+border_color = Color(0.1059, 0.1373, 0.1176, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="Empty"]
+bg_color = Color(0.0902, 0.1098, 0.098, 1)
+border_color = Color(0.0902, 0.1098, 0.098, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_left = 0
+corner_radius_bottom_right = 0
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxFlat" id="Separator"]
+bg_color = Color(0.502, 0.4314, 0.2784, 1)
+border_color = Color(0.502, 0.4314, 0.2784, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_left = 0
+corner_radius_bottom_right = 0
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
+[resource]
+default_font_size = 18
+Label/colors/font_color = Color(0.9333, 0.898, 0.7961, 1)
+Label/colors/stat_reduced = Color(1, 0.46, 0.43, 1)
+Label/colors/stat_increased = Color(0.48, 0.95, 0.59, 1)
+MutedLabel/base_type = &"Label"
+MutedLabel/colors/font_color = Color(0.6588, 0.702, 0.6118, 1)
+Button/colors/font_color = Color(0.9529, 0.9216, 0.8353, 1)
+Button/colors/font_hover_color = Color(0.9529, 0.9216, 0.8353, 1)
+Button/colors/font_pressed_color = Color(0.9529, 0.9216, 0.8353, 1)
+Button/colors/font_focus_color = Color(0.9529, 0.9216, 0.8353, 1)
+Button/colors/font_disabled_color = Color(0.5333, 0.5843, 0.5098, 1)
+Button/styles/normal = SubResource("Normal")
+Button/styles/hover = SubResource("Hover")
+Button/styles/pressed = SubResource("Pressed")
+Button/styles/disabled = SubResource("Disabled")
+Button/styles/focus = SubResource("Hover")
+OptionButton/colors/font_color = Color(0.9529, 0.9216, 0.8353, 1)
+OptionButton/colors/font_hover_color = Color(0.9529, 0.9216, 0.8353, 1)
+OptionButton/colors/font_pressed_color = Color(0.9529, 0.9216, 0.8353, 1)
+OptionButton/colors/font_focus_color = Color(0.9529, 0.9216, 0.8353, 1)
+OptionButton/colors/font_disabled_color = Color(0.5333, 0.5843, 0.5098, 1)
+OptionButton/styles/normal = SubResource("Normal")
+OptionButton/styles/hover = SubResource("Hover")
+OptionButton/styles/pressed = SubResource("Pressed")
+OptionButton/styles/disabled = SubResource("Disabled")
+OptionButton/styles/focus = SubResource("Hover")
+PrimaryButton/base_type = &"Button"
+PrimaryButton/font_sizes/font_size = 20
+PrimaryButton/colors/font_color = Color(0.1255, 0.1216, 0.0941, 1)
+PrimaryButton/colors/font_hover_color = Color(0.1255, 0.1216, 0.0941, 1)
+PrimaryButton/colors/font_pressed_color = Color(0.1255, 0.1216, 0.0941, 1)
+PrimaryButton/colors/font_focus_color = Color(0.1255, 0.1216, 0.0941, 1)
+PrimaryButton/styles/normal = SubResource("Primary")
+PrimaryButton/styles/hover = SubResource("PrimaryHover")
+PrimaryButton/styles/pressed = SubResource("Primary")
+NavButton/base_type = &"Button"
+NavButton/styles/normal = SubResource("Nav")
+NavButton/styles/pressed = SubResource("Hover")
+Panel/styles/panel = SubResource("Panel")
+PanelContainer/styles/panel = SubResource("Panel")
+Raised/base_type = &"Panel"
+Raised/styles/panel = SubResource("Raised")
+Card/base_type = &"Panel"
+Card/styles/panel = SubResource("Card")
+Art/base_type = &"Panel"
+Art/styles/panel = SubResource("Art")
+Cost/base_type = &"Panel"
+Cost/styles/panel = SubResource("Cost")
+Attack/base_type = &"Panel"
+Attack/styles/panel = SubResource("Attack")
+Health/base_type = &"Panel"
+Health/styles/panel = SubResource("Health")
+Slot/base_type = &"Panel"
+Slot/styles/panel = SubResource("Slot")
+FieldSlot/base_type = &"Panel"
+FieldSlot/styles/panel = SubResource("FieldSlot")
+LanePanel/base_type = &"PanelContainer"
+LanePanel/styles/panel = SubResource("Lane")
+LineEdit/styles/normal = SubResource("Input")
+LineEdit/styles/read_only = SubResource("Input")
+LineEdit/styles/focus = SubResource("Input")
+LineEdit/colors/font_color = Color(0.9333, 0.898, 0.7961, 1)
+LineEdit/colors/font_uneditable_color = Color(0.6235, 0.6431, 0.5608, 1)
+TabContainer/styles/panel = SubResource("Empty")
+TabContainer/styles/tab_selected = SubResource("Hover")
+TabContainer/styles/tab_unselected = SubResource("Normal")
+TabBar/styles/tab_selected = SubResource("Hover")
+TabBar/styles/tab_unselected = SubResource("Normal")
+HSeparator/styles/separator = SubResource("Separator")
+
+TabContainer/styles/tab_hovered = SubResource("Hover")
+TabContainer/styles/tab_disabled = SubResource("Disabled")
+TabBar/styles/tab_hovered = SubResource("Hover")
+TabBar/styles/tab_disabled = SubResource("Disabled")
