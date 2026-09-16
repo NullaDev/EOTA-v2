@@ -111,6 +111,7 @@ try {
     Copy-Item -LiteralPath (Join-Path $repositoryRoot 'Docs') -Destination (Join-Path $packageDirectory 'Docs') -Recurse
     Copy-Item -LiteralPath (Join-Path $generatedDirectory 'CardTable.zh-CN.md') -Destination (Join-Path $packageDirectory 'Docs/CardTable.zh-CN.md')
     Copy-Item -LiteralPath (Join-Path $repositoryRoot 'Docs/Release-Readme.zh-CN.md') -Destination (Join-Path $packageDirectory 'README.zh-CN.md')
+    Copy-Item -LiteralPath (Join-Path $repositoryRoot 'LICENSE') -Destination (Join-Path $packageDirectory 'LICENSE')
 
     # Obtain the exact engine and bundled third-party notices from this engine.
     $noticeScript = Join-Path $workDirectory 'write-notices.gd'
@@ -137,7 +138,7 @@ func _initialize():
         ruleHash = $contentManifest.ruleHash
         selfContained = $true
     } | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $packageDirectory 'release-manifest.json') -Encoding UTF8
-    foreach ($required in 'EOTA.exe', 'EOTA.pck', 'Server/win-x64/Eota.Server.Host.exe', 'Server/win-x64/coreclr.dll', 'Docs/Godot-LICENSES.txt') {
+    foreach ($required in 'EOTA.exe', 'EOTA.pck', 'Server/win-x64/Eota.Server.Host.exe', 'Server/win-x64/coreclr.dll', 'Docs/Godot-LICENSES.txt', 'LICENSE') {
         if (!(Test-Path -LiteralPath (Join-Path $packageDirectory $required))) { throw "Missing release file: $required" }
     }
     if (!(Get-ChildItem -LiteralPath $packageDirectory -Directory -Filter 'data_*' | Where-Object { Test-Path -LiteralPath (Join-Path $_.FullName 'coreclr.dll') })) {

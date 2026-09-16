@@ -2,6 +2,8 @@
 
 更新于 2026-09-15。本文说明当前客户端的玩法。详细规则以当前对战协议、卡牌定义和 [ADR](ADR/README.md) 为准。
 
+第一次游玩请先阅读 [新手教程](BeginnerGuide.zh-CN.md)，从开局操作、九阶段回合到战斗、以太和充能逐步了解；本页侧重卡组管理、协议设置与房间规则。
+
 制作自定义卡牌请阅读 [Mod 开发者 JSON 编写指南](CardJsonDesignGuide.zh-CN.md)，可复制的源文件见 [教学示例](Content/Examples/README.zh-CN.md)。
 
 ## 选择模式与管理卡组
