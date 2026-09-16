@@ -2,8 +2,11 @@
 "use strict";
 async function renderEmoji(canvas, recipe, size = 512) {
   const emoji = recipe.emoji ?? recipe.Emoji;
-  const top = recipe.top ?? recipe.Top;
-  const bottom = recipe.bottom ?? recipe.Bottom;
+  const profession = recipe.profession ?? recipe.Profession;
+  const palette = profession ? globalThis.professionPalettes?.[profession] : undefined;
+  if (profession && !palette) throw new Error('未知职业配色。');
+  const top = palette?.top ?? recipe.top ?? recipe.Top;
+  const bottom = palette?.bottom ?? recipe.bottom ?? recipe.Bottom;
   const style = recipe.style ?? recipe.Style ?? "card";
   if (typeof emoji !== "string" || !emoji.trim() || emoji.length > 64 ||
       !/^#[0-9a-f]{6}$/i.test(top) || !/^#[0-9a-f]{6}$/i.test(bottom) || ![256, 512, 1024].includes(size)) {

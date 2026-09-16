@@ -34,6 +34,7 @@ public sealed class ContentCatalog
         if (!compiled.IsSuccess) { throw new InvalidDataException(string.Join("\n", compiled.Diagnostics.Select(value => $"{value.SourceName}:{value.Path} {value.Code}: {value.Message}"))); }
         var language = new SortedDictionary<string, string>(Read<Dictionary<string, string>>(Path.Combine(root, "Content", "Source", "Localization", "zh-CN.json")), StringComparer.Ordinal);
         var recipes = new SortedDictionary<string, ArtRecipe>(Read<Dictionary<string, ArtRecipe>>(Path.Combine(root, "Content", "Source", "Art", "emoji-recipes.json")), StringComparer.Ordinal);
+        var palettes = Read<Dictionary<string, ProfessionPalette>>(Path.Combine(root, "Content", "Source", "Art", "profession-palettes.json"));
         var icons = new SortedDictionary<string, ArtRecipe>(Read<Dictionary<string, ArtRecipe>>(Path.Combine(root, "Content", "Source", "Art", "ui-icons.json")), StringComparer.Ordinal);
         foreach (var card in compiled.Content!.Presentation.Cards)
         {
@@ -41,6 +42,11 @@ public sealed class ContentCatalog
                 || !language.TryGetValue(card.DescriptionLocalizationKey, out var description) || string.IsNullOrWhiteSpace(description))
             { throw new InvalidDataException($"Missing localization for {card.Id}."); }
             if (!recipes.TryGetValue(card.Id.Value, out var recipe)) { throw new InvalidDataException($"Missing artwork recipe for {card.Id}."); }
+            var profession = compiled.Content.Rules.Cards.Single(rule => rule.Id == card.Id).Profession.ToString().ToLowerInvariant();
+            if (recipe.Profession != profession || !palettes.TryGetValue(profession, out var palette)
+                || !string.Equals(recipe.Top, palette.Top, StringComparison.OrdinalIgnoreCase)
+                || !string.Equals(recipe.Bottom, palette.Bottom, StringComparison.OrdinalIgnoreCase))
+            { throw new InvalidDataException($"Artwork palette for {card.Id} must match profession {profession}. Run node tools/EmojiArt/sync-profession-colors.mjs."); }
             _ = EmojiArt.Svg(recipe.Emoji, recipe.Top, recipe.Bottom, recipe.Style, ReadFusion(root, card.Id.Value, recipe));
         }
         foreach (var (id, recipe) in icons)
@@ -214,4 +220,7 @@ public sealed class ContentCatalog
 
 public sealed record ArtRecipe(string Emoji, string Top, string Bottom, string Style = "card",
     [property: JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] string? Fusion = null,
-    [property: JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] string? FusionSource = null);
+    [property: JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] string? FusionSource = null,
+    [property: JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] string? Profession = null);
+
+public sealed record ProfessionPalette(string Label, string Top, string Bottom);

@@ -1,20 +1,29 @@
 param(
     [Parameter(Mandatory = $true)][string]$GodotPath,
-    [ValidatePattern('^[A-Za-z0-9][A-Za-z0-9._-]*$')][string]$Version = (Get-Date -Format 'yyyy.MM.dd'),
+    [string]$Version = '',
     [string]$OutputDirectory = ''
 )
 $ErrorActionPreference = 'Stop'
 $repositoryRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
+$projectSettings = Get-Content -LiteralPath (Join-Path $repositoryRoot 'project.godot') -Raw -Encoding UTF8
+if (!$Version) {
+    $match = [regex]::Match($projectSettings, '(?m)^config/version="([^"]+)"\r?$')
+    if (!$match.Success) { throw 'Set config/version in project.godot or pass -Version.' }
+    $Version = $match.Groups[1].Value
+}
+if ($Version -notmatch '^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(-[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?$') {
+    throw 'Version must use major.minor.patch with an optional prerelease suffix, for example 1.0.0-prerelease.'
+}
 $GodotPath = (Resolve-Path -LiteralPath $GodotPath).Path
 if (!$OutputDirectory) { $OutputDirectory = Join-Path $repositoryRoot 'exports' }
 $OutputDirectory = [IO.Path]::GetFullPath($OutputDirectory)
 $packageName = "EOTA-v2-$Version-win-x64"
 $packageDirectory = Join-Path $OutputDirectory $packageName
 $archivePath = Join-Path $OutputDirectory "$packageName.zip"
-$workDirectory = Join-Path $repositoryRoot "artifacts/release-$Version"
+$workDirectory = Join-Path $repositoryRoot ("artifacts/release-$Version-" + [Guid]::NewGuid().ToString('N'))
 $stagingDirectory = Join-Path $workDirectory 'project'
 foreach ($path in @($packageDirectory, $archivePath, $workDirectory)) {
-    if (Test-Path -LiteralPath $path) { throw "Output already exists: $path. Use another Version or OutputDirectory and Version." }
+    if (Test-Path -LiteralPath $path) { throw "Output already exists: $path. Use another OutputDirectory to preserve the previous package of this version." }
 }
 $engineVersion = (& $GodotPath --version | Out-String).Trim()
 if ($LASTEXITCODE -ne 0 -or $engineVersion -notlike '4.6.2.stable.mono.*') {
@@ -62,6 +71,9 @@ try {
     foreach ($file in 'project.godot', 'export_presets.cfg', 'Eota.Godot.csproj', 'Directory.Build.props', 'Directory.Packages.props', 'global.json', 'packages.lock.json', 'icon.svg') {
         Copy-Item -LiteralPath (Join-Path $repositoryRoot $file) -Destination $stagingDirectory
     }
+    $stagedSettings = [regex]::Replace($projectSettings, '(?m)^config/version="[^"]*"\r?$', 'config/version="' + $Version + '"')
+    if ($stagedSettings -notmatch '(?m)^config/version=') { $stagedSettings = $stagedSettings.Replace('[application]', "[application]`nconfig/version=`"$Version`"") }
+    [IO.File]::WriteAllText((Join-Path $stagingDirectory 'project.godot'), $stagedSettings, [Text.UTF8Encoding]::new($false))
     dotnet new sln --name Eota.Godot --output $stagingDirectory
     if ($LASTEXITCODE -ne 0) { throw 'Godot solution creation failed.' }
     dotnet sln (Join-Path $stagingDirectory 'Eota.Godot.sln') add (Join-Path $stagingDirectory 'Eota.Godot.csproj')

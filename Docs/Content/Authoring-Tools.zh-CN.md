@@ -27,7 +27,9 @@ PNG 是游戏可用的素材；SVG 中的 emoji 文字仅用于浏览器预览�
 
 ## 交互生成卡图与图标
 
-直接用 Chrome／Edge 打开 [Emoji 卡图工具](../../tools/EmojiArt/index.html)，无需启动服务器。在“图案来源”中选择“单个 emoji”或“双 emoji 合并”。合并模式分别输入两个 emoji，也可从“可合并的第二个 emoji”列表选取，点击“合并 emoji”预览。选配色和 256／512／1024 尺寸后点击“下载 PNG”；支持带渐变背景的卡图，以及透明背景的图标。此工具保留在开发仓库，Godot 游戏发布包不包含素材制作工具。
+卡图渐变背景统一由 `Content/Source/Art/profession-palettes.json` 定义：守护者蓝、奥术师紫、工匠棕、猎人绿、中立灰棕。职业由卡牌的 profession 字段决定，同职业随从、法术、场地与衍生卡保持一致。网页选择职业后自动应用配色；更改色板或新增卡牌后运行 `node tools/EmojiArt/sync-profession-colors.mjs` 同步配置及网页色板，再通过 `Build-Content.ps1 -WithPng` 重建。内容编译会拒绝职业配色不匹配的卡图配置。
+
+直接用 Chrome／Edge 打开 [Emoji 卡图工具](../../tools/EmojiArt/index.html)，无需启动服务器。在“图案来源”中选择“单个 emoji”或“双 emoji 合并”。合并模式分别输入两个 emoji，也可从“可合并的第二个 emoji”列表选取，点击“合并 emoji”预览。选择卡牌职业和 256／512／1024 尺寸后点击“下载 PNG”；支持带职业渐变背景的卡图，以及透明背景的图标。此工具保留在开发仓库，Godot 游戏发布包不包含素材制作工具。
 
 页面顶部“从已有卡图配置开始”可导入 [卡图配置](../../Content/Source/Art/emoji-recipes.json) 或 [图标配置](../../Content/Source/Art/ui-icons.json)，选条目后填入下方的 emoji、融合来源、配色和文件名；这里不导入 PNG 或游戏内容包。文件名经过清理；输入作为文本绘制，不作为 HTML 执行。现有融合图由网页缓存优先提供，直接打开本地网页也能离线使用；其他组合按内置兼容表通过 HTTPS 获取，不支持的组合与下载失败会显示提示。新下载的原图写入浏览器 IndexedDB `eota-emoji-fusions-v1` 的 `images`，关闭页面后可复用；浏览器清理数据可能删除它，应导出备份。不会自动写入源码目录。批量导出始终使用配置中指定的本地 `fusion` 文件。
 

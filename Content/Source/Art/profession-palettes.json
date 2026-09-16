@@ -1,0 +1,7 @@
+{
+  "neutral": { "label": "中立", "top": "#655d50", "bottom": "#24211c" },
+  "guardian": { "label": "守护者", "top": "#344b73", "bottom": "#131e34" },
+  "arcanist": { "label": "奥术师", "top": "#614493", "bottom": "#1d1836" },
+  "artisan": { "label": "工匠", "top": "#967245", "bottom": "#2d241b" },
+  "hunter": { "label": "猎人", "top": "#427451", "bottom": "#15281b" }
+}

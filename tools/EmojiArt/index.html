@@ -23,7 +23,9 @@
 <div id="second-emoji" hidden><label for="emoji2">第二个 emoji</label><input id="emoji2" value="🔋" maxlength="64" list="partner-options" aria-label="第二个 emoji"></div></div>
 <datalist id="emoji-options"></datalist><datalist id="partner-options"></datalist>
 <div id="fusion-controls" hidden><label for="partners">可合并的第二个 emoji</label><select id="partners" aria-describedby="fusion-hint"></select><button id="merge" type="button">合并 emoji</button><p id="fusion-hint" class="hint">也可在输入框直接粘贴 emoji。没有融合图的组合会提示更换。</p></div>
-<div class="colors"><div><label for="top">背景上色</label><input id="top" type="color" value="#614493"></div><div><label for="bottom">背景下色</label><input id="bottom" type="color" value="#1d1836"></div></div>
+<div id="profession-controls"><label for="profession">卡牌职业</label><select id="profession"></select>
+<div class="colors"><div><label for="top">职业背景上色</label><input id="top" type="color" value="#614493" disabled></div><div><label for="bottom">职业背景下色</label><input id="bottom" type="color" value="#1d1836" disabled></div></div>
+<p class="hint">背景统一使用职业配色，随从、法术、场地与衍生卡使用同一套颜色。</p></div>
 <label for="size">导出尺寸</label><select id="size"><option>256</option><option selected>512</option><option>1024</option></select>
 <label for="style">图案样式</label><select id="style"><option value="card">渐变卡图</option><option value="icon">透明图标</option></select>
 <label for="name">文件名</label><input id="name" value="emoji-card" maxlength="96">
@@ -39,6 +41,7 @@
 <script src="vendor/emoji-compatibility.js"></script>
 <script src="fusion-cache.js"></script>
 <script src="fusion-storage.js"></script>
+<script src="profession-palettes.js"></script>
 <script src="emoji-fusion.js"></script>
 <script src="emoji-art.js"></script>
 <script src="editor.js"></script>

@@ -61,6 +61,12 @@ try {
   await state('ready');
   assert.equal(await evaluate(`document.querySelector('.configuration').getBoundingClientRect().bottom < document.querySelector('main').getBoundingClientRect().top`), true, 'Configuration import belongs above the editor');
   assert.equal(await evaluate(`document.getElementById('download').disabled`), false);
+  for (const [profession, rgb] of [['guardian',[52,75,115]],['arcanist',[97,68,147]],['artisan',[150,114,69]],['hunter',[66,116,81]],['neutral',[101,93,80]]]) {
+    await set('profession', profession, 'change'); await state('ready');
+    const pixel = await evaluate(`Array.from(document.getElementById('preview').getContext('2d').getImageData(0,0,1,1).data)`);
+    assert.ok(rgb.every((value,index)=>Math.abs(pixel[index]-value)<=1), `${profession} background matches the profession palette`);
+  }
+  await set('profession', 'arcanist', 'change'); await state('ready');
   await set('mode', 'fusion', 'change'); await click('merge'); await state('ready');
   assert.match(await evaluate(`document.getElementById('status').textContent`), /离线缓存/);
   const forward = await evaluate(`document.getElementById('preview').toDataURL()`);
@@ -91,6 +97,7 @@ try {
   await call('DOM.setFileInputFiles', { nodeId, files: [resolve(root, 'Content/Source/Art/emoji-recipes.json')] });
   await waitFor(`!document.getElementById('cards').hidden`);
   await set('cards', 'EOTA-CORE-ARC-MIN-003', 'change'); await state('ready');
+  assert.equal(await evaluate(`document.getElementById('profession').value`), 'arcanist');
   assert.equal(await evaluate(`document.getElementById('mode').value`), 'fusion');
   assert.match(await evaluate(`document.getElementById('status').textContent`), /离线缓存/);
   await set('size', '256'); await state('ready');

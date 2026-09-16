@@ -2,6 +2,14 @@
 (() => {
   const $ = id => document.getElementById(id), fusion = globalThis.emojiFusion;
   let recipes = {}, activeFusion, revision = 0, request;
+  const palettes = globalThis.professionPalettes;
+  $('profession').replaceChildren(...Object.entries(palettes).map(([id, palette]) => new Option(palette.label, id)));
+  $('profession').value = 'arcanist';
+  function applyProfession() {
+    const palette = palettes[$('profession').value];
+    $('top').value = palette.top; $('bottom').value = palette.bottom;
+    $('profession-controls').hidden = $('style').value === 'icon';
+  }
   const status = (text, state) => { $('status').textContent = text; $('status').dataset.state = state; };
   function candidates() {
     const values = fusion.compatible($('emoji').value);
@@ -15,6 +23,7 @@
     candidates();
   }
   async function refresh() {
+    applyProfession();
     const ticket = ++revision;
     request?.abort(); request = new AbortController();
     $('download').disabled = true; $('merge').disabled = false;
@@ -34,7 +43,7 @@
       }
       const canvas = document.createElement('canvas');
       await renderEmoji(canvas, {
-        emoji: first + (isFusion ? $('emoji2').value.trim() : ''), top: $('top').value, bottom: $('bottom').value,
+        emoji: first + (isFusion ? $('emoji2').value.trim() : ''), profession: $('profession').value, top: $('top').value, bottom: $('bottom').value,
         style: $('style').value, fusionDataUrl: result?.dataUrl
       }, Number($('size').value));
       if (ticket !== revision) return;
@@ -55,7 +64,8 @@
     activeFusion = undefined; candidates(); refresh();
   });
   $('mode').addEventListener('change', () => { activeFusion = undefined; modeChanged(); refresh(); });
-  for (const id of ['top', 'bottom', 'size', 'style']) $(id).addEventListener('input', refresh);
+  for (const id of ['size', 'style']) $(id).addEventListener('input', refresh);
+  $('profession').addEventListener('change', refresh);
   $('partners').addEventListener('change', () => {
     if (!$('partners').value) return;
     $('emoji2').value = $('partners').value; activeFusion = undefined; refresh();
@@ -107,8 +117,11 @@
       $('mode').value = result ? 'fusion' : 'single';
       $('emoji').value = result ? parts[0] : emoji;
       if (result) $('emoji2').value = parts[1];
-      $('top').value = recipe.top ?? recipe.Top ?? '#000000';
-      $('bottom').value = recipe.bottom ?? recipe.Bottom ?? '#000000';
+      const profession = recipe.profession ?? recipe.Profession
+        ?? Object.keys(palettes).find(id => palettes[id].top === (recipe.top ?? recipe.Top) && palettes[id].bottom === (recipe.bottom ?? recipe.Bottom))
+        ?? 'neutral';
+      if (!palettes[profession]) throw new Error('配置中的职业无效，请使用 neutral、guardian、arcanist、artisan 或 hunter。');
+      $('profession').value = profession;
       $('style').value = recipe.style ?? recipe.Style ?? 'card'; $('name').value = id;
       activeFusion = result; modeChanged(); refresh();
     } catch (error) {
