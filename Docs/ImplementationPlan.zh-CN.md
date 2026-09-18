@@ -4,7 +4,7 @@
 > 玩家操作：[当前玩法与房间规则](GameplayGuide.zh-CN.md)。  
 > Mod 开发：[JSON 编写指南](CardJsonDesignGuide.zh-CN.md) 直接说明当前规则，在各功能旁提供 30 处 JSON 示例，并配有 [9 张完整教学卡](Content/Examples/README.zh-CN.md)。第 8 节说明双方无先后手、权限相同，引擎通过统一优先级等规则实现同帧操作加法的可交换幺半群；英雄 kill 及回手容量失败后的死亡触发已接入结算。  
 > 卡池：已实装，五职业各 50 张基础卡，每职业 2 张衍生卡，中立 22 张，共 282 张。十五套 40 张模板已同步。
-> 2026-09-15 核验：973 项测试通过（Kernel 154、Compiler 592、Integration 218、Architecture 7、Algebra 2），含全卡池 246 个独立效果场景和 108 场跨职业体系对局。构筑模板在 1600×1000 与 1280×800 两种窗口尺寸验收通过。平衡尚未定稿，AI 采样中的强弱差异和人工复核重点已记录在卡池设计文档。  
+> 2026-09-18 核验：973 项测试通过（Kernel 154、Compiler 592、Integration 218、Architecture 7、Algebra 2），含全卡池 313 个独立效果场景和 108 场跨职业体系对局。构筑模板在 1600×1000 与 1280×800 两种窗口尺寸验收通过。平衡尚未定稿，AI 采样中的强弱差异和人工复核重点记录在各阶段的验收文档中，卡池数值以 [卡表](CardTable.zh-CN.md) 为准。  
 > P10 当前记录：[开服、牌组准入与卡牌编辑器](Review/P10-Hosting-Editor-Review.zh-CN.md)。  
 > 当前记录：[P9.6 交互与动画](Review/P96-Interaction-Review.zh-CN.md)；AI 验收：[P9.5](Review/P95-AI-Review.zh-CN.md)；历史页面反馈：[P9 第二轮反馈](Review/P9-Scene-Review-2.zh-CN.md)；前次交付：[P9](Review/P9-Godot-Review.zh-CN.md)；内容验收：[P8](Review/P8-Content-Review.zh-CN.md)；生成卡表：[CardTable](CardTable.zh-CN.md)；工具用法：[内容工具](Content/Authoring-Tools.zh-CN.md)。规则提案状态见各 ADR，尚未公开冻结，卡牌平衡性尚未验证。  
 > 架构基线：[Architecture.zh-CN.md](Architecture.zh-CN.md)。  
@@ -18,7 +18,7 @@
 - 内核独立实现规则，项目依赖由当前 solution 和架构测试约束。
 - 卡牌定义使用当前 V2 schema，输入位于 `Content/Source/Cards`。
 - 内部测试版没有真实对战记录的兼容负担；协议、状态及内容只维护当前格式，同步更新测试数据，不保留自动升级逻辑。
-- P8 首批录入 132 张实验卡，当前已扩充至 [282 张](CardTable.zh-CN.md)。卡牌平衡性未经验证；“正式录入”仅指进入内容管线，不代表数值定稿。
+- 卡池为原型期实验设计，平衡性未经验证；“正式录入”仅指进入内容管线，不代表数值定稿，后续可能扩充。
 - 卡图优先按卡名选择 emoji，缺少贴切符号时使用默认图案，通过独立工具生成；快速、慢速、冻结、锁闭、以太图标同样独立生成。规则定义以当前 ADR 和源内容为准。
 - 每一步都必须形成可运行、可测试的纵向切片；不接受“先写完所有模型，最后再集成”。
 
@@ -697,7 +697,7 @@ P7 复杂冲突、触发链与区域操作
 ### 完成标准
 
 - 架构文档第 18 节与 VNext 规则文档第 24 节全部勾选。
-- 官方 132 张卡内容包在所有目标平台得到相同 RuleContentHash。
+- 官方 282 张卡内容包在所有目标平台得到相同 RuleContentHash。
 - 官方 replay corpus 在所有权威运行方式得到相同逐阶段与最终哈希。
 - 新增 Web Adapter 只需依赖 Transport Schema，不需要引用或修改 Kernel。
 

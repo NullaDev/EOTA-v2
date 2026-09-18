@@ -10,7 +10,7 @@
 
 将 GodotPath 替换为本机路径。Version 默认读取 `project.godot` 的 `config/version`，当前为 `1.1.0-pre-release`；无需按打包日期或尝试次数修改版本。可显式传入 `-Version` 覆盖本次包的版本。默认输出为 `exports/EOTA-v2-<Version>-win-x64.zip`，同目录生成 `.zip.sha256` 校验文件，包内构建信息与 Godot 项目版本保持一致。已有同版本输出时脚本会停止；重复打同一版本可用 OutputDirectory 指定另一输出目录，保留原包。
 
-脚本只复制 `Client`、`src` 和明确列出的工程文件到独立的 `artifacts/release-<Version>-<构建标识>/project`，在该临时工程中导入和导出；从 `Content/Source` 编译 230 张当前卡牌，复制已生成的 PNG。客户端和服务端均使用 Release 配置，并附带各自的 .NET 运行组件。包内还包含外置 `Content/Generated`、中文文档、项目的 GPLv3 `LICENSE`、引擎许可和构建信息。
+脚本只复制 `Client`、`src` 和明确列出的工程文件到独立的 `artifacts/release-<Version>-<构建标识>/project`，在该临时工程中导入和导出；从 `Content/Source` 编译 282 张当前卡牌，复制已生成的 PNG。客户端和服务端均使用 Release 配置，并附带各自的 .NET 运行组件。包内还包含外置 `Content/Generated`、中文文档、项目的 GPLv3 `LICENSE`、引擎许可和构建信息。
 
 发布版从 EXE 所在目录读取外置卡牌和服务端，启动不依赖当前工作目录。应分发完整 ZIP，用户解压后运行 `EOTA.exe`。
 

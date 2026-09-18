@@ -1,6 +1,6 @@
 # Mod 开发者卡牌 JSON 编写指南
 
-更新于 2026-09-17。面向使用当前 VNext 卡牌编辑器及内容编译器的 Mod 作者。卡牌格式为 `eota.card/v2`，效果语言为 5；教学卡按当前卡池收紧了费用与持续收益；正式设计可对照 [职业体系与强度约束](Content/CardSet-Redesign.zh-CN.md) 和 [完整卡表](CardTable.zh-CN.md)，再用实际牌组测试组合强度。
+更新于 2026-09-17。面向使用当前 VNext 卡牌编辑器及内容编译器的 Mod 作者。卡牌格式为 `eota.card/v2`，效果语言为 5；教学卡按当前卡池收紧了费用与持续收益；正式设计可对照 [体系牌组与强度约束](Content/ArchetypeDecks.zh-CN.md) 和 [完整卡表](CardTable.zh-CN.md)，再用实际牌组测试组合强度。
 
 从零开始可先读第 1–3 节，再按效果需要查阅第 4–10 节。可复制源文件见 [完整示例目录](Content/Examples/README.zh-CN.md)，玩家构筑与疲劳规则见 [玩法指南](GameplayGuide.zh-CN.md)，素材制作和编辑器操作见 [内容工具](Content/Authoring-Tools.zh-CN.md)。
 
@@ -250,7 +250,7 @@
 
 治疗根只在受疗目标与观察者均存活于本帧提交后时发动。`event.amount` 为该目标本帧实际恢复总量：满血治疗、增加最大生命或直接改已损失生命不触发；同帧多个治疗请求合并一次，不同帧可重复触发。同帧伤害即使抵消了净生命增加，也不抹去实际治疗量。`friendlyHeroHealed` 的 `eventSubject` 是己方英雄；三种治疗根不接受不匹配的 `subjectType`。友方治疗观察也可以附加给英雄。
 
-例如毒誓病患的 `selfHealed` 根使用 `damage enemyMinions`、`amount: "event.amount"`，只伤害自身本路敌人；缝魂祭坛的 `friendlyHealed` 根使用 `modifyNumber eventSubject`，只强化实际受治疗的那个友军。详见[灵魂使卡表与实现边界](Content/Soulweaver-Design.zh-CN.md#implementation)。
+例如毒誓病患的 `selfHealed` 根使用 `damage enemyMinions`、`amount: "event.amount"`，只伤害自身本路敌人；缝魂祭坛的 `friendlyHealed` 根使用 `modifyNumber eventSubject`，只强化实际受治疗的那个友军。
 
 观察者的触发范围与动作的选取范围独立。例如根写 `scope: "all"`、动作写 `enemyMinions` 而省略 scope，含义仍是全场事件触发后，影响来源本路敌方随从。
 

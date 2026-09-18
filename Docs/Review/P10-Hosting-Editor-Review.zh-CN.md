@@ -96,7 +96,7 @@ dotnet build Eota.Godot.csproj --no-restore --verbosity quiet
 
 ## 验证
 
-- `dotnet test Eota.sln -c Release --no-restore --verbosity quiet`：973 项通过（Kernel 154、Compiler 592、Integration 218、Architecture 7、Algebra 2）。覆盖构筑、卡组管理、严格准入、疲劳、当前格式、编辑器导出、Mod JSON、英雄斩杀与回手失败死亡、逐帧恢复、同帧归约及逐级减少迟缓。当前卡池为 230 张，每职业三个体系与 50＋2 张卡；246 个独立效果场景、108 场跨职业体系对局及两种尺寸的模板界面检查通过，详见 [卡池设计](../Content/CardSet-Redesign.zh-CN.md)。
+- `dotnet test Eota.sln -c Release --no-restore --verbosity quiet`：973 项通过（Kernel 154、Compiler 592、Integration 218、Architecture 7、Algebra 2）。覆盖构筑、卡组管理、严格准入、疲劳、当前格式、编辑器导出、Mod JSON、英雄斩杀与回手失败死亡、逐帧恢复、同帧归约及逐级减少迟缓。当前卡池为 282 张，每职业三个体系与 50＋2 张卡；246 个独立效果场景、108 场跨职业体系对局及两种尺寸的模板界面检查通过，当前定义见 [卡表](../CardTable.zh-CN.md)。
 - `--smoke-p10-decks`：1600×1000 和 1280×800，实际鼠标点击删除不会误进编辑页；取消保留文件、确认删除文件和选择项、新草稿可删。协议通过控件设为 24 张／2–4 副本／仅本职业／递增疲劳，保存后卡池过滤、数量和合法保存正确；开服页仅保留自己的牌组选择。测试用独立文件夹，恢复原用户协议文件。截图 `artifacts/p96-<尺寸>-p10-deck-*.png` 已目视检查。
 - `--smoke-p10-editor`：1600×1000 和 1280×800，表单留白、导出入口、永久场地禁用耐久、被动能力 JSON、类型字段、修改攻击后的预览、草稿包哈希变化、内置规则不变、错误效果清空预览并显示诊断；截图已目视检查。
 - `tools/Test-ManagedHosting.ps1 -GodotPath <Godot console exe>`：两个独立 Godot 进程，通过真实菜单启动／加入 30 秒限时 Host。加入端修改本局未使用的猎人卡，本地全包哈希不同，仍成功准入；检查倒计时、玩家一主动断开后重连、历史帧进入 Godot 表现队列以及诊断导出；玩家一胜，双方第 6 回合结束，恢复后的完整观察者哈希一致。还检查端口释放、占用失败不误停原服务、失败后恢复重试及新 launcher 读取上次房间。显式补发 smoke 在请求／重建期间暂停场景 pump，避免测试自行提前消费待验证的动画帧。

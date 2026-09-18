@@ -21,7 +21,7 @@
 
 在这魔法的余烬之中，谁将燃起新的火焰？完整设定见 **[核心世界观](Docs/Worldbuilding.zh-CN.md)**。
 
-当前可玩的卡池包含奥术师、守卫、猎人、工匠、灵魂使五个职业与中立卡。灵魂使以亡灵留场、死亡契约、主动牺牲和治疗转伤害为主要玩法，卡牌与组合见 [灵魂使大卡表](Docs/Content/Soulweaver-Design.zh-CN.md)。当前版本为 **1.1.0-pre-release**，卡池与规则仍在迭代，平衡性仍需实战检验。
+当前可玩的卡池包含奥术师、守卫、猎人、工匠、灵魂使五个职业与中立卡。灵魂使以亡灵留场、死亡契约、主动牺牲和治疗转伤害为主要玩法。当前版本为 **1.1.0-pre-release**，卡池与规则仍在迭代，平衡性仍需实战检验。
 
 ## 怎么玩
 
@@ -114,7 +114,6 @@ Copyright (C) 2026 EOTA contributors.
 | 第一局操作、完整回合流程、战斗与关键词 | [新手教程](Docs/BeginnerGuide.zh-CN.md) |
 | 全部卡牌的数值和效果 | [中文卡表](Docs/CardTable.zh-CN.md) |
 | 五职业的体系思路与现成牌组 | [十五套体系牌组](Docs/Content/ArchetypeDecks.zh-CN.md) |
-| 灵魂使 50 张基础卡、2 张衍生卡及小轴（已实装，待实测） | [灵魂使大卡表](Docs/Content/Soulweaver-Design.zh-CN.md) |
 | 卡组管理、对战协议、疲劳与联机确认 | [客户端与房间规则](Docs/GameplayGuide.zh-CN.md) |
 | 制作自定义卡牌和内容包 | [Mod 开发者 JSON 指南](Docs/CardJsonDesignGuide.zh-CN.md) |
 | 从源码制作 Windows 发布包 | [Windows 打包说明](Docs/WindowsRelease.zh-CN.md) |
