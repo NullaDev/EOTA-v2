@@ -17,6 +17,7 @@ public partial class GameApp
             await CaptureInteraction("p10-editor-minion");
             Require(_editorPage.GetNode<VBoxContainer>("Preview").GetChildCount() == 1, "Editor previews a prototype");
             const string id = "EOTA-CORE-GUA-MIN-001"; LoadEditorCard(_contentEditor.Read(id), id);
+            Require(_editorPage.GetNode<VBoxContainer>("Preview").GetChild<CardTile>(0).HasKeywordTooltip, "Editor preview keeps keyword explanations");
             EditorField<LineEdit>("Attack").Text = "999999"; EditorField<LineEdit>("Attack").EmitSignal(LineEdit.SignalName.TextChanged, "999999");
             _editorPage.GetNode<Button>("Validate").EmitSignal(BaseButton.SignalName.Pressed);
             Require(_editorPage.GetNode<VBoxContainer>("Preview").GetChild<CardTile>(0).Prototype.Attack == 999999, "Edited stat preview");

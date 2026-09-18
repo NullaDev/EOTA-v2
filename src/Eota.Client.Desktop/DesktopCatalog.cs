@@ -123,8 +123,9 @@ public sealed partial class DesktopCatalog
         deck.Cards.Select(card => new DeckEntry(CardPrototypeId.Parse(card.Id), card.Copies)));
 
     // Baseline keywords as displayed on the card face, so the client can explain them without
-    // maintaining its own copy of the English keyword list.
-    private static ImmutableArray<string> KeywordBriefs(CardDefinition card)
+    // maintaining its own copy of the English keyword list. Assembly-wide because the content
+    // editor's preview builds a CardPresentation too.
+    internal static ImmutableArray<string> KeywordBriefs(CardDefinition card)
     {
         var briefs = new List<string>();
         if (card is MinionCardDefinition minion) { briefs.AddRange(minion.Keywords.Select(MinionKeywordBrief)); }

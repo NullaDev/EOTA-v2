@@ -38,10 +38,11 @@ public partial class CardTile : Panel
     public string StatsText { get; private set; } = "";
     // The card face already shows its name, numbers and rules text, so hover carries keywords only.
     public string KeywordTooltip { get; private set; } = "";
-    // Regression guard: a keyword may never be explained twice on the same card.
     public bool HasDuplicateKeywordLines() =>
         KeywordTooltip.Split('\n').Where(line => line.Length > 0).Distinct(StringComparer.Ordinal).Count()
         != KeywordTooltip.Split('\n').Count(line => line.Length > 0);
+    // True when the tile reports keywords, i.e. its presentation carried a usable keyword array.
+    public bool HasKeywordTooltip => KeywordTooltip.Length > 0;
 
     public static CardTile CreatePrototype(CardPresentation prototype, bool detail = false) =>
         Create(prototype, detail ? "CardDetail" : "CardTile");
@@ -113,15 +114,18 @@ public partial class CardTile : Panel
             GetNode<Control>("HealthBox").TooltipText = "剩余耐久 " + entity.FieldEnergy;
             StatsText = entity.PermanentField ? "永久场地" : $"剩余耐久 {entity.FieldEnergy}";
         }
-        var slow = entity?.SlowTurnsRemaining;
-        GetNodeOrNull<SlowMarkers>("SlowMarkers")?.Bind(slow ?? 0);
-        var live = LiveKeywords(instance, slow);
+        // One slow value feeds both the icon strip and the tooltip: the entity's remaining turns, or
+        // the instance's own keyword when the card is only a projection (hand, mulligan, preview).
+        var live = LiveKeywords(instance, entity?.SlowTurnsRemaining);
+        var slow = live.Where(keyword => keyword.Kind == "Slow").Select(keyword => keyword.Parameter).DefaultIfEmpty(0).Max();
+        GetNodeOrNull<SlowMarkers>("SlowMarkers")?.Bind(slow);
         SetTooltip(KeywordLines(Prototype, PrintedKeywords(Prototype), live, includePrintedBlock: true, related: TokenKeywords(Prototype)));
     }
 
     private static List<string> PrintedKeywords(CardPresentation prototype)
     {
-        var printed = prototype.Keywords.ToList();
+        // Guarded: a presentation built outside the catalog may still carry a default array.
+        var printed = prototype.Keywords.IsDefault ? [] : prototype.Keywords.ToList();
         if (prototype.Speed is { } speed) { printed.Add(speed == "Fast" ? "快速" : "慢速"); }
         return printed;
     }

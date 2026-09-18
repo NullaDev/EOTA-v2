@@ -100,6 +100,7 @@ public sealed class DesktopContentEditor
 
     public CardPresentation Preview(EditableCard value, string? replacingId = null)
     {
+        ArgumentNullException.ThrowIfNull(value);
         var errors = Validate(value, replacingId);
         if (!errors.IsEmpty) { throw new InvalidDataException(string.Join('\n', errors)); }
         var single = CardContentCompiler.Compile([new ContentSourceDocument("preview", value.Json)]);
@@ -112,7 +113,8 @@ public sealed class DesktopContentEditor
         return new(id, value.Name, value.Description, art, card.Kind.ToString(), card.Profession.ToString(), card.Source.ToString(), card.Cost,
             (card as MinionCardDefinition)?.Attack, (card as MinionCardDefinition)?.Health,
             (card as SpellCardDefinition)?.Speed.ToString(), card is SpellCardDefinition { TargetScope: SpellTargetScope.Global })
-        { Tags = card.Tags, Durability = card is FieldCardDefinition { Lifetime: FiniteFieldLifetimeDefinition finite } ? finite.InitialEnergy : null };
+        // Keywords feed the client keyword tooltip; leaving them default would fault the card tile.
+        { Tags = card.Tags, Keywords = DesktopCatalog.KeywordBriefs(card), Durability = card is FieldCardDefinition { Lifetime: FiniteFieldLifetimeDefinition finite } ? finite.InitialEnergy : null };
     }
 
     public void DeleteCard(string id)
