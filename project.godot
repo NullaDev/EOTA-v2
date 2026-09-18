@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="EOTA v2"
-config/version="1.1.0-pre-release"
+config/version="1.1.1-pre-release"
 run/main_scene="res://Client/Godot/Main.tscn"
 config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
 config/icon="res://icon.svg"

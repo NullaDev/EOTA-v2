@@ -1,7 +1,7 @@
 # Embers of the Arcane VNext 总体架构
 
 > 状态：建议方案，作为重构实现的工程基线。  
-> 规则与验收合同：[ADR 决策索引](ADR/README.md)；玩法说明：[GameplayGuide.zh-CN.md](GameplayGuide.zh-CN.md)。  
+> 规则与验收合同：[ADR 决策索引](ADR/README.md)；客户端功能与操作：[客户端功能与操作](GameplayGuide.zh-CN.md)。  
 > 实施顺序：[ImplementationPlan.zh-CN.md](ImplementationPlan.zh-CN.md)。  
 > 目标：规则内核使用 Pure C#/.NET；Godot Mono 只是客户端适配器之一；权威服务端使用 Headless .NET；协议允许后续接入浏览器或其他 Web Adapter。
 
@@ -52,7 +52,7 @@ VNext 采用六边形架构，并严格区分四类模型：
 
 1. [ADR 决策索引](ADR/README.md)：规则和验收合同，各决策的 Accepted／Proposed 状态以正文为准。
 2. 本文：上述规则的工程实现边界。
-3. `GameplayGuide.zh-CN.md`：当前客户端的玩法和房间规则；`CardJsonDesignGuide.zh-CN.md`：当前内容格式与 Mod 编写指南。
+3. `GameplayGuide.zh-CN.md`：客户端功能、界面操作与存档位置；`CardJsonDesignGuide.zh-CN.md`：当前内容格式与 Mod 编写指南。
 4. `CardTable.zh-CN.md`：从当前源内容生成的卡表，不反向定义引擎规则。
 5. `ADR/`：规则与实现决策；用户明确修订的决定优先。
 
@@ -65,7 +65,7 @@ VNext 采用六边形架构，并严格区分四类模型：
 - `Content/Source/Cards` 保存卡牌 ID、职业、类型、数值、类别和效果定义；[当前卡表](CardTable.zh-CN.md)由这些源文件生成。
 - `Content/Source/Localization` 和 `Content/Source/Art` 保存本地化文本及美术配方，生成资源位于 `Content/Generated`。
 - `Client/Godot/Scenes` 和 `Client/Godot/GameTheme.tres` 定义界面布局与主题。
-- 九阶段玩法流程及各阶段的结算规则见 [玩法指南](GameplayGuide.zh-CN.md)与 [ADR](ADR/README.md)。
+- 九阶段玩法流程及各阶段的结算规则见 [新手教程](BeginnerGuide.zh-CN.md)与 [ADR](ADR/README.md)。
 
 ### 2.4 内核实现边界
 

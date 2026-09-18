@@ -2,7 +2,7 @@
 
 本页说明 `tools/` 下每个文件负责什么，内容与卡图如何从 `Content/Source` 编译成游戏读取的产物，以及游戏内卡牌编辑器的用法。工具只在开发仓库中使用，不随游戏发布包分发；输出写入 `Content/Generated`、`Docs/`、`exports/` 或 `artifacts/`（`artifacts/` 已被 `.gitignore` 排除，可随时删除）。
 
-规则、卡牌 JSON 写法与玩法分别见 [架构文档](../Docs/Architecture.zh-CN.md)、[JSON 编写指南](../Docs/CardJsonDesignGuide.zh-CN.md) 和 [当前玩法指南](../Docs/GameplayGuide.zh-CN.md)。
+规则、卡牌 JSON 写法与客户端操作分别见 [架构文档](../Docs/Architecture.zh-CN.md)、[JSON 编写指南](../Docs/CardJsonDesignGuide.zh-CN.md) 和 [客户端功能与操作](../Docs/GameplayGuide.zh-CN.md)。
 
 ## 运行前提
 
@@ -103,7 +103,6 @@ dotnet run --project tools/Eota.ContentCli -c Release -- emoji "🐸" artifacts/
 ## 回放工具：`Eota.ReplayCli`
 
 用正式内核重放命令，逐帧比较状态、回执、事件与 RNG，是确定性回归的主要手段。
-
 | 文件 | 作用 |
 |---|---|
 | `Program.cs` | 入口与用法；实现 `record`／`verify`（开局与牌序）和 `rng-vector`（打印 RNG 测试向量），另有 `PrintUsage`。 |
@@ -117,6 +116,16 @@ dotnet run --project tools/Eota.ReplayCli -c Release -- rng-vector 179 8
 ```
 
 `record-match` 会重写夹具文件；`verify-match` 只读比较。退出码：`0` 一致，`1` 参数错误，`2` 文件或 JSON 错误，`3` 内容或协议不合法，`4` 命令序列无法回放，`5` 逐帧结果不一致（会指出首个出错的帧）。各夹具的用法见 `tests/Fixtures/*/README.zh-CN.md`。
+
+## 夹具录制：`Eota.FixtureRecorder`
+
+一次性辅助工具，用来重建 `artifacts/P9GodotReplay`——`--smoke-remote` 读取的**客户端格式**回放。该夹具固定了具体的手牌实例 ID，所以卡牌内容一改就会失效；它走桌面会话驱动一局合法对局再保存，因此协议与种子会与开服端保持一致。
+
+```powershell
+dotnet run --project tools/Eota.FixtureRecorder -c Release -- . artifacts/P9GodotReplay 4
+```
+
+参数依次是仓库根、输出目录、要推进的回合数。它会同时写出 `replay.json`（客户端格式）与 `deck-one.json`、`deck-two.json`（必须与录制时使用的牌组一致，否则开服端重建的实例 ID 会对不上）。`protocol-v0.json` 由录制过程沿用，不再改写。
 
 ## 卡图工具：`EmojiArt`
 
@@ -195,7 +204,49 @@ node tools/EmojiArt/verify.mjs
 
 页首“导出卡牌”保存当前卡及其关联卡牌（包含递归衍生引用）和名称／说明，“导出内容包”保存全部编辑内容。先保存当前卡牌，再选择 `.eotapack.json` 路径。“内容包管理 → 导入并合并卡牌”按 ID 合并单卡包或整包，同 ID 替换，其他卡牌保留；导入后需单独启用。启用时编译并核对包的 RuleContentHash，复制为 `content/active.eotapack.json`，后续保存草稿不改变已启用版本。插图引用现有 `Content/Generated/Art/*.png`，暂不打包外部图片。
 
-自定义内容同样可以用于本机、AI 和开服。联机仅要求双方卡组所有卡牌及其关联衍生卡的规则与服务器一致；不要求整个卡池相同。第二位玩家确认时会重新核对两个席位的完整对局范围。只修改名称／说明不改变规则哈希。规则一致性不等同于自动评估卡牌平衡性；服务器不会接受客户端上传的数值或效果来覆盖房间规则。构筑限制与疲劳选择见 [当前玩法指南](../Docs/GameplayGuide.zh-CN.md)。
+自定义内容同样可以用于本机、AI 和开服。联机仅要求双方卡组所有卡牌及其关联衍生卡的规则与服务器一致；不要求整个卡池相同。第二位玩家确认时会重新核对两个席位的完整对局范围。只修改名称／说明不改变规则哈希。规则一致性不等同于自动评估卡牌平衡性；服务器不会接受客户端上传的数值或效果来覆盖房间规则。构筑限制与疲劳选择见 [客户端功能与操作](../Docs/GameplayGuide.zh-CN.md)。
+
+## 客户端冒烟测试
+
+客户端自带 12 个冒烟入口，用 .NET 版 Godot 直接运行，全部通过就表示界面与传输链路正常。多数可以 headless 运行，不弹窗口：
+
+```powershell
+& 'D:\Dev\Godot\Godot_v4.6.2-stable_mono_win64\Godot_v4.6.2-stable_mono_win64_console.exe' --path . --headless -- --smoke
+& 'D:\Dev\Godot\Godot_v4.6.2-stable_mono_win64\Godot_v4.6.2-stable_mono_win64_console.exe' --path . --resolution 1280x800 -- --smoke-ui-review
+```
+
+| 入口 | 覆盖 |
+|---|---|
+| `--smoke` | 本机对局、回放校验，并重写 `artifacts/P9GodotReplay` |
+| `--smoke-ui-review` | 图鉴排序、关键词悬停、牌组工坊、协议页、两种窗口尺寸 |
+| `--smoke-interactions` | 换牌、规划、撤回、法术标记、已提交锁定、图鉴与衍生卡 |
+| `--smoke-presentation` | 抽牌飞行、碰撞、打脸、数值动画、暂停／倍速／跳过 |
+| `--smoke-scene-lifetime` | 反复创建卡牌场景与 GC |
+| `--smoke-card-status` | 迟缓标记与标签展示 |
+| `--smoke-ai` | 三档 AI 完整对局与重开 |
+| `--smoke-p10-editor` | 卡牌编辑器：草稿隔离、统计预览、效果与场地校验 |
+| `--smoke-p10-decks` | 牌组删除、构筑限制、协议保存与按费用排序 |
+| `--smoke-p10-host` / `--smoke-p10-join` | 本机开服、加入、重连、补帧与诊断导出 |
+| `--smoke-remote` | 远程 WebSocket 投影与本地回放一致性 |
+
+两个需要额外前置条件：
+
+- **开服冒烟**需要先重新发布随包服务端，否则 `Server/win-x64` 里的旧构建会拒绝当前内容（`room-content-invalid`）：
+
+  ```powershell
+  dotnet publish src/Eota.Server.Host/Eota.Server.Host.csproj -c Release -r win-x64 --self-contained true -o Server/win-x64 --verbosity quiet
+  ```
+
+  然后一个进程跑 `--smoke-p10-host --invitation-file <路径>`，等它写出邀请文件后再用另一个进程跑 `--smoke-p10-join --invitation-file <路径>`。
+
+- **`--smoke-remote`** 需要先起一个开发 Host，并让 `artifacts/P9GodotReplay` 与当前内容一致（否则用上面的夹具录制工具重建）：
+
+  ```powershell
+  dotnet build src/Eota.Server.Host/Eota.Server.Host.csproj -c Release
+  src/Eota.Server.Host/bin/Release/net8.0/Eota.Server.Host.exe --fixture artifacts/P9GodotReplay --cards Content/Source/Cards --match-id p9-smoke --urls http://127.0.0.1:5086
+  ```
+
+  Host 就绪（`GET /health` 返回 200）后再运行客户端冒烟。`--fixture` 模式必须显式给 `--cards`，否则会去找夹具目录下不存在的 `Cards` 子目录。
 
 ## 其他说明
 

@@ -8,7 +8,7 @@
 
 牌组、协议、自定义内容、回放和房间存档默认保存在 `%APPDATA%\Godot\app_userdata\EOTA v2\`。更新游戏时可以解压到新目录，存档仍保留。
 
-初次游玩请阅读 `Docs/BeginnerGuide.zh-CN.md`，其中介绍开局操作、完整回合流程、战斗与资源规则。中文卡表见 `Docs/CardTable.zh-CN.md`，房间与协议选项见 `Docs/GameplayGuide.zh-CN.md`，卡牌编辑说明见 `Docs/CardJsonDesignGuide.zh-CN.md`。实际构建信息及卡牌规则哈希见 `release-manifest.json`。当前卡牌属于实验设计，尚未验证平衡性。
+初次游玩请阅读 `Docs/BeginnerGuide.zh-CN.md`，其中介绍开局操作、完整回合流程、战斗与资源规则。中文卡表见 `Docs/CardTable.zh-CN.md`，客户端各功能与操作见 `Docs/GameplayGuide.zh-CN.md`，卡牌编辑说明见 `Docs/CardJsonDesignGuide.zh-CN.md`。实际构建信息及卡牌规则哈希见 `release-manifest.json`。当前卡牌属于实验设计，尚未验证平衡性。
 
 Copyright (C) 2026 EOTA contributors. 项目原创代码、工具、文档与游戏内容采用 GNU GPLv3（GPL-3.0-only），完整条款见包内根目录的 `LICENSE`。源码与构建说明见 [项目仓库](https://github.com/NullaDev/EOTA-v2)。欢迎通过 [Issues](https://github.com/NullaDev/EOTA-v2/issues) 分享卡牌、玩法与世界观想法，或提交代码和内容改进。
 

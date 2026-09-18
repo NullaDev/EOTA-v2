@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
@@ -42,6 +42,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{CF82460E-B1FB-4611-909D-3DE5A9E72947}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eota.ContentCli", "tools\Eota.ContentCli\Eota.ContentCli.csproj", "{1F34037B-421F-4801-A9AF-8B3D45525A68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eota.FixtureRecorder", "tools\Eota.FixtureRecorder\Eota.FixtureRecorder.csproj", "{8BA972CD-08A0-42B1-B0EF-57FF93AC4294}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eota.Client.Desktop", "src\Eota.Client.Desktop\Eota.Client.Desktop.csproj", "{FEB36461-F8E9-4F6D-8D97-C73361337817}"
 EndProject
@@ -119,6 +121,10 @@ Global
 		{9686DC46-A640-492D-AB41-A84C0D828233}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1F34037B-421F-4801-A9AF-8B3D45525A68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1F34037B-421F-4801-A9AF-8B3D45525A68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BA972CD-08A0-42B1-B0EF-57FF93AC4294}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BA972CD-08A0-42B1-B0EF-57FF93AC4294}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BA972CD-08A0-42B1-B0EF-57FF93AC4294}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BA972CD-08A0-42B1-B0EF-57FF93AC4294}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1F34037B-421F-4801-A9AF-8B3D45525A68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F34037B-421F-4801-A9AF-8B3D45525A68}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FEB36461-F8E9-4F6D-8D97-C73361337817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
