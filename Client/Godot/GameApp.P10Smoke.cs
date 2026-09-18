@@ -65,14 +65,14 @@ public partial class GameApp
         var token = deadline.Token;
         try
         {
-            _catalog = new DesktopCatalog(_catalog.Root); _contentEditor = new DesktopContentEditor(_catalog);
+            _catalog = new DesktopCatalog(_catalog.Root); CardTile.UseCatalog(_catalog); _contentEditor = new DesktopContentEditor(_catalog);
             if (!hosting)
             {
                 const string unused = "EOTA-CORE-HUN-MIN-001";
                 var card = _contentEditor.Read(unused); var json = JsonNode.Parse(card.Json)!; json["attack"] = 999999;
                 _contentEditor.SaveCard(card with { Json = json.ToJsonString() }, unused);
                 var path = ProjectSettings.GlobalizePath("res://artifacts/p10-join-content.eotapack.json"); _contentEditor.SavePack(path);
-                _catalog = new DesktopCatalog(_catalog.Root, path);
+                _catalog = new DesktopCatalog(_catalog.Root, path); CardTile.UseCatalog(_catalog);
             }
             if (hosting)
             {

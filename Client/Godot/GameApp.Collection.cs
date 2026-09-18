@@ -38,7 +38,8 @@ public partial class GameApp
             related.Visible = !children.IsEmpty; back.Hide();
             foreach (var child in children)
             {
-                var tile = CardTile.CreateThumbnail(child); thumbnails.AddChild(tile); tile.TooltipText = child.Name;
+                var tile = CardTile.CreateThumbnail(child); thumbnails.AddChild(tile);
+                tile.TooltipText = tile.KeywordTooltip.Length > 0 ? tile.KeywordTooltip : child.Name;
                 tile.PrototypeClicked = value =>
                 {
                     ShowCard(value); back.Show();
@@ -59,7 +60,7 @@ public partial class GameApp
             foreach (var card in _catalog.Cards.Where(card => card.Source == "Core" && (filter is null || card.Profession == filter) && MatchesSearch(card, search.Text))
                 .OrderBy(card => LibraryProfessionOrder(card.Profession)).ThenBy(card => card.Cost).ThenBy(card => card.Id, StringComparer.Ordinal))
             {
-                var tile = CardTile.CreatePrototype(card); tile.TooltipText = ""; grid.AddChild(tile);
+                var tile = CardTile.CreatePrototype(card); grid.AddChild(tile);
                 tile.Inspected = value => { if (pinned is null) { hovered = tile; ShowCard(value); } };
                 tile.InspectionEnded = () => { if (pinned is null && hovered == tile) { hovered = null; Ui.Clear(detail); } };
                 tile.PrototypeClicked = value =>

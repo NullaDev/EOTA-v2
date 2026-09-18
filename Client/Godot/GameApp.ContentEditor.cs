@@ -194,6 +194,7 @@ public partial class GameApp
     private void ActivateContentPack(string? path)
     {
         _catalog = new DesktopCatalog(_catalog.Root, path);
+        CardTile.UseCatalog(_catalog);
         for (var index = 0; index < _decks.Count; index++)
         { if (_decks[index].Name == _decks[index].Profession) { _decks[index] = _catalog.DefaultDeck(_decks[index].Profession); } }
         File.WriteAllText(ProjectSettings.GlobalizePath("user://content-selection.txt"), path ?? "");

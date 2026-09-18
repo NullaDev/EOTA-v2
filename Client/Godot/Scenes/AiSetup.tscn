@@ -141,9 +141,17 @@ mouse_filter = 2
 layout_mode = 0
 offset_left = 24.0
 offset_top = 494.0
-offset_right = 264.0
+offset_right = 180.0
 offset_bottom = 542.0
 text = "146"
+
+[node name="RandomSeed" type="Button" parent="."]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 494.0
+offset_right = 284.0
+offset_bottom = 542.0
+text = "重随"
 
 [node name="ProtocolPanel" type="Panel" parent="."]
 layout_mode = 0
@@ -189,7 +197,7 @@ offset_left = 24.0
 offset_top = 710.0
 offset_right = 1144.0
 offset_bottom = 778.0
-text = "人机对战：你使用玩家一牌组，AI 使用玩家二牌组。"
+text = ""
 theme_override_font_sizes/font_size = 16
 mouse_filter = 2
 theme_type_variation = &"MutedLabel"

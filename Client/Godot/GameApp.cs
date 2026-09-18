@@ -28,6 +28,8 @@ public partial class GameApp : Control
     private Button _submit = null!;
     private ulong? _selected;
     private readonly HashSet<ulong> _mulligan = [];
+    private readonly Dictionary<ulong, ulong> _handOrder = [];
+    private ulong _handOrderNext;
     private readonly Queue<PresentationFramePayload> _frames = [];
     private ObserverView? _displayed;
     private ulong _revision;
@@ -49,11 +51,12 @@ public partial class GameApp : Control
             var contentRoot = OS.HasFeature("editor") ? ProjectSettings.GlobalizePath("res://")
                 : Path.GetDirectoryName(OS.GetExecutablePath())!;
             _catalog = new DesktopCatalog(contentRoot);
+            CardTile.UseCatalog(_catalog);
             _serverLauncher = new LocalServerLauncher(_catalog.Root, ProjectSettings.GlobalizePath("user://rooms"));
             var contentSelection = ProjectSettings.GlobalizePath("user://content-selection.txt");
             if (File.Exists(contentSelection) && File.ReadAllText(contentSelection).Trim() is { Length: > 0 } packPath)
             {
-                try { _catalog = new DesktopCatalog(_catalog.Root, packPath); }
+                try { _catalog = new DesktopCatalog(_catalog.Root, packPath); CardTile.UseCatalog(_catalog); }
                 catch (Exception error) { GD.PushWarning("自定义内容包未启用：" + error.Message); }
             }
             var protocolFile = ProjectSettings.GlobalizePath("user://protocol.json");
@@ -86,6 +89,7 @@ public partial class GameApp : Control
         var session = _session; _session = null; _battle = false;
         if (GodotObject.IsInstanceValid(_animations)) { _animations.Clear(); }
         _frames.Clear(); _displayed = null; _selected = null; _mulligan.Clear();
+        _handOrder.Clear(); _handOrderNext = 0;
         _replay = null; _replaySlider = null;
         if (session is not null) { await session.DisposeAsync(); }
     }

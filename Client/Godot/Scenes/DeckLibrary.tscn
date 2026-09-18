@@ -13,7 +13,7 @@ offset_left = 20.0
 offset_top = 8.0
 offset_right = 820.0
 offset_bottom = 56.0
-text = "我的卡组"
+text = "我的牌组"
 theme_override_font_sizes/font_size = 32
 mouse_filter = 2
 
@@ -23,7 +23,7 @@ offset_left = 22.0
 offset_top = 64.0
 offset_right = 1142.0
 offset_bottom = 96.0
-text = "选择一个卡组继续编辑，或创建新的职业卡组。"
+text = ""
 theme_override_font_sizes/font_size = 16
 mouse_filter = 2
 
@@ -33,7 +33,7 @@ offset_left = 988.0
 offset_top = 8.0
 offset_right = 1248.0
 offset_bottom = 62.0
-text = "＋ 新建卡组"
+text = "＋ 新建牌组"
 theme_type_variation = &"PrimaryButton"
 
 [node name="Scroll" type="ScrollContainer" parent="."]

@@ -18,7 +18,7 @@ public partial class EtherPips : Control
     public void Bind(int playerId, long level)
     {
         PlayerId = playerId; Level = level;
-        TooltipText = $"玩家 {playerId + 1} 的以太等级：{level}，仅对该玩家生效";
+        TooltipText = $"本路以太活化 {level}";
         Refresh();
     }
     private void Refresh()

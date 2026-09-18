@@ -10,7 +10,8 @@ namespace Eota.Client.Desktop;
 
 // Catalog projection of a card prototype. It contains no instance identity or current health.
 public sealed record CardPresentation(string Id, string Name, string Description, string TexturePath,
-    string Kind, string Profession, string Source, long Cost, long? Attack, long? Health, string? Speed, bool Global)
+    string Kind, string Profession, string Source, long Cost, long? Attack, long? Health, string? Speed, bool Global,
+    ImmutableArray<string> Keywords = default)
 {
     public long? Durability { get; init; }
     public ImmutableArray<string> Tags { get; init; } = [];
@@ -70,7 +71,7 @@ public sealed partial class DesktopCatalog
             presentation[card.Id].TexturePath, card.Kind.ToString(), card.Profession.ToString(), card.Source.ToString(), card.Cost,
             (card as MinionCardDefinition)?.Attack, (card as MinionCardDefinition)?.Health, (card as SpellCardDefinition)?.Speed.ToString(),
             card is SpellCardDefinition { TargetScope: SpellTargetScope.Global })
-        { Tags = card.Tags, Durability = card is FieldCardDefinition { Lifetime: FiniteFieldLifetimeDefinition finite } ? finite.InitialEnergy : null })
+        { Tags = card.Tags, Keywords = KeywordBriefs(card), Durability = card is FieldCardDefinition { Lifetime: FiniteFieldLifetimeDefinition finite } ? finite.InitialEnergy : null })
             .OrderBy(card => card.Id, StringComparer.Ordinal).ToImmutableArray();
         BuildRelatedCards();
         ArchetypeDecks = JsonSerializer.Deserialize<ImmutableArray<DesktopDeck>>(File.ReadAllText(Path.Combine(Root, "Content", "Generated", "archetype-decks.json")))
@@ -120,6 +121,36 @@ public sealed partial class DesktopCatalog
 
     private static DeckDefinition ToDeck(DesktopDeck deck) => DeckDefinition.Create(Enum.Parse<Profession>(deck.Profession),
         deck.Cards.Select(card => new DeckEntry(CardPrototypeId.Parse(card.Id), card.Copies)));
+
+    // Baseline keywords as displayed on the card face, so the client can explain them without
+    // maintaining its own copy of the English keyword list.
+    private static ImmutableArray<string> KeywordBriefs(CardDefinition card)
+    {
+        var briefs = new List<string>();
+        if (card is MinionCardDefinition minion) { briefs.AddRange(minion.Keywords.Select(MinionKeywordBrief)); }
+        else if (card is FieldCardDefinition field) { briefs.AddRange(field.Keywords.Select(FieldKeywordBrief)); }
+        if (card.StoredCharge > 0) { briefs.Add("蓄能 " + card.StoredCharge); }
+        return [.. briefs];
+    }
+
+    private static string MinionKeywordBrief(MinionKeywordDefinition keyword) => keyword.Kind switch
+    {
+        MinionKeywordKind.Slow => "迟缓 " + keyword.Parameter,
+        _ => MinionKeywordName(keyword.Kind)
+    };
+
+    private static string MinionKeywordName(MinionKeywordKind kind) => kind switch
+    {
+        MinionKeywordKind.Swift => "迅捷", MinionKeywordKind.Guard => "守备", MinionKeywordKind.Slow => "迟缓",
+        MinionKeywordKind.Replace => "替换", MinionKeywordKind.Replaceable => "可替换", MinionKeywordKind.Lifesteal => "吸血",
+        MinionKeywordKind.Skirmisher => "游击", MinionKeywordKind.Pursuit => "追猎", MinionKeywordKind.FirstStrike => "先攻",
+        MinionKeywordKind.Execute => "斩杀", _ => kind.ToString()
+    };
+
+    private static string FieldKeywordBrief(FieldKeywordKind kind) => kind switch
+    {
+        FieldKeywordKind.Replace => "替换", FieldKeywordKind.Replaceable => "可替换", _ => kind.ToString()
+    };
 
     public static void SaveDeck(string path, DesktopDeck deck) => File.WriteAllText(path,
         JsonSerializer.Serialize(deck, JsonOptions));

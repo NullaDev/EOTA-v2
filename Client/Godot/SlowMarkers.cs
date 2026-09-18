@@ -11,7 +11,6 @@ public partial class SlowMarkers : ScrollContainer
     public void Bind(long turns)
     {
         Turns = Math.Max(0, turns); Visible = Turns > 0;
-        TooltipText = $"迟缓 {Turns}：不能攻击或防守，每次战斗后减少1。";
         if (_strip is null)
         {
             _strip = new SlowIconStrip { MouseFilter = MouseFilterEnum.Ignore };

@@ -8,7 +8,7 @@ namespace Eota.GodotClient;
 public partial class GameApp
 {
     private CardPresentation Presentation(CardView card) => _catalog.Cards.FirstOrDefault(value => value.Id == card.PrototypeId)
-        ?? new CardPresentation(card.PrototypeId, card.PrototypeId, "此卡来自服务器的其他内容包。", "icon.svg", card.CardKind, "Neutral", "Test", card.Cost, card.Attack, card.MaximumHealth, null, false);
+        ?? new CardPresentation(card.PrototypeId, card.PrototypeId, "此卡来自服务器的其他内容包。", "icon.svg", card.CardKind, "Neutral", "Test", card.Cost, card.Attack, card.MaximumHealth, null, false, []);
 
     private CardTile Tile(CardView card, bool compact)
     {
@@ -30,7 +30,8 @@ public partial class GameApp
         Ui.Clear(_detail);
         var inspection = Ui.Instantiate<VBoxContainer>("CardInspection"); _detail.AddChild(inspection);
         inspection.GetNode<VBoxContainer>("Card").AddChild(CardTile.CreatePrototype(card));
-        inspection.GetNode<Label>("RulesScroll/Rules").Text = card.Description;
+        // The card face already carries the rules text, so this box explains the keywords only.
+        inspection.GetNode<Label>("RulesScroll/Rules").Text = CardTile.KeywordLinesOnly(card, null);
     }
 
     private void Render(ObserverView view)
@@ -75,7 +76,7 @@ public partial class GameApp
             _etherPips[(lane.LaneId, 1)].Bind(1, lane.PlayerTwo.EtherActivation);
         }
         Ui.Clear(_hand); Ui.Clear(_plans);
-        foreach (var card in view.Private?.Hand ?? [])
+        foreach (var card in HandInArrivalOrder(view.Private?.Hand ?? []))
         {
             var tile = Tile(card, false); _hand.AddChild(tile);
             tile.CanDrag = () => !_busy && !Animating && _frames.Count == 0 && view.Stage == "Planning";
@@ -215,6 +216,19 @@ public partial class GameApp
     private void FloatText(string text, Vector2 position, Color color)
     {
         _animations.Float(text, position, color);
+    }
+
+    // The observer hand arrives in canonical instance order, so a mid-game draw can land anywhere.
+    // Ordering by first appearance puts the newest card at the right end, where the draw animation lands.
+    private IEnumerable<CardView> HandInArrivalOrder(ImmutableArray<CardView> hand)
+    {
+        foreach (var card in hand)
+        {
+            if (!_handOrder.ContainsKey(card.CardInstanceId)) { _handOrder[card.CardInstanceId] = _handOrderNext++; }
+        }
+        var live = hand.Select(card => card.CardInstanceId).ToHashSet();
+        foreach (var stale in _handOrder.Keys.Where(id => !live.Contains(id)).ToArray()) { _handOrder.Remove(stale); }
+        return hand.OrderBy(card => _handOrder[card.CardInstanceId]);
     }
     private static string Stage(string stage) => stage switch { "Planning" => "规划", "Mulligan" => "换牌", "Combat" => "战斗", "Movement" => "移动", "Deployment" => "部署", "Cleanup" => "清理", _ => "结算" };
     private static string Outcome(string outcome) => outcome switch { "PlayerOneWon" => "玩家一获胜", "PlayerTwoWon" => "玩家二获胜", "Draw" => "平局", "RuleFailure" => "规则执行失败", _ => outcome };

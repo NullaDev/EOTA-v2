@@ -26,6 +26,9 @@ public partial class GameApp
             if (!libraryOrder.SequenceEqual(libraryOrder.OrderBy(entry => entry.Key).ThenBy(entry => entry.Cost).ThenBy(entry => entry.Id, StringComparer.Ordinal)))
             { throw new InvalidOperationException("Collection must be listed by profession, then cost."); }
             var showcase = prototypes.First(tile => tile.Prototype.Kind == "Minion");
+            var repeated = prototypes.Where(tile => tile.HasDuplicateKeywordLines()).Select(tile => tile.Prototype.Name).ToArray();
+            if (repeated.Length > 0)
+            { throw new InvalidOperationException("Keyword tooltips repeat a line: " + string.Join(", ", repeated)); }
             showcase.PrototypeClicked!(showcase.Prototype); await CaptureUi("card-detail");
             tabs.CurrentTab = 4;
             var builder = tabs.GetNode<Control>("DeckBuilder");

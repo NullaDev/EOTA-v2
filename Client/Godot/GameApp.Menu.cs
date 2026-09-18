@@ -7,10 +7,12 @@ public partial class GameApp
 {
     private DesktopProtocol _protocol = DesktopProtocol.Default;
     private Control _menuScreen = null!;
-    private string _seedText = "146";
+    private string _seedText = NewSeed();
     private int _aiDifficulty = 1;
     private int _setupTab = 7;
     private ILocalServerLauncher _serverLauncher = null!;
+
+    private static string NewSeed() => GD.Randi().ToString(System.Globalization.CultureInfo.InvariantCulture);
 
     private void BuildMenu()
     {
@@ -47,6 +49,10 @@ public partial class GameApp
             }
             one.Select(0); two.Select(1);
             var seed = setup.GetNode<LineEdit>("Seed"); seed.Text = _seedText; seed.TextChanged += value => _seedText = value;
+            // The field arrives with a fresh seed, so a reroll is only needed to change it on purpose.
+            var reroll = setup.GetNode<Button>("RandomSeed");
+            reroll.TooltipText = "重新生成一个种子";
+            reroll.Pressed += () => { _seedText = NewSeed(); seed.Text = _seedText; };
             var summary = setup.GetNode<Label>("ProtocolSummary"); summary.Text = _protocol.Summary; summaries.Add(summary);
             if (againstAi)
             {
