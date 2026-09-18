@@ -22,9 +22,14 @@ public partial class GameApp
         {
             if (current is null) { return; }
             Ui.Clear(rows); editor.GetNode<Label>("Count").Text = $"{current.Count} / {current.Protocol.RequiredDeckSize} 张 · 单卡 {current.Protocol.MinCopies}–{current.Protocol.MaxCopies}";
-            foreach (var entry in current.Build().Cards)
+            // The draft itself stays in canonical ID order; only the display follows the deck curve.
+            var prototypes = _catalog.Cards.ToDictionary(card => card.Id, StringComparer.Ordinal);
+            var entries = current.Build().Cards
+                .OrderBy(entry => prototypes.TryGetValue(entry.Id, out var known) ? known.Cost : long.MaxValue)
+                .ThenBy(entry => entry.Id, StringComparer.Ordinal);
+            foreach (var entry in entries)
             {
-                var card = _catalog.Cards.FirstOrDefault(card => card.Id == entry.Id);
+                prototypes.TryGetValue(entry.Id, out var card);
                 var row = Ui.Instantiate<HBoxContainer>("DeckRow"); rows.AddChild(row);
                 row.GetNode<Label>("Name").Text = card?.Name ?? entry.Id; row.GetNode<Label>("Cost").Text = card?.Cost.ToString() ?? "?";
                 var valid = current.Pool.Any(value => value.Id == entry.Id) && entry.Copies >= current.Protocol.MinCopies && entry.Copies <= current.Protocol.MaxCopies;

@@ -56,7 +56,8 @@ public partial class GameApp
         {
             ClearSelection(); Ui.Clear(grid);
             var filter = profession.Selected == 0 ? null : profession.Selected == Professions.Length + 1 ? "Neutral" : Professions[profession.Selected - 1];
-            foreach (var card in _catalog.Cards.Where(card => card.Source == "Core" && (filter is null || card.Profession == filter) && MatchesSearch(card, search.Text)))
+            foreach (var card in _catalog.Cards.Where(card => card.Source == "Core" && (filter is null || card.Profession == filter) && MatchesSearch(card, search.Text))
+                .OrderBy(card => LibraryProfessionOrder(card.Profession)).ThenBy(card => card.Cost).ThenBy(card => card.Id, StringComparer.Ordinal))
             {
                 var tile = CardTile.CreatePrototype(card); tile.TooltipText = ""; grid.AddChild(tile);
                 tile.Inspected = value => { if (pinned is null) { hovered = tile; ShowCard(value); } };
@@ -75,4 +76,9 @@ public partial class GameApp
 
     private static bool MatchesSearch(CardPresentation card, string search) => string.IsNullOrWhiteSpace(search)
         || (card.Name + card.Description + card.Id).Contains(search, StringComparison.OrdinalIgnoreCase);
+
+    // Library browsing groups the five professions in their in-game order, with neutral at the end.
+    private static readonly string[] LibraryProfessions = [.. Professions, "Neutral"];
+    private static int LibraryProfessionOrder(string profession)
+    { var index = Array.IndexOf(LibraryProfessions, profession); return index < 0 ? int.MaxValue : index; }
 }

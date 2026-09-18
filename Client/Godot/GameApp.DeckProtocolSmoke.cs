@@ -68,6 +68,11 @@ public partial class GameApp
             Tabs().CurrentTab = 4; Tiles().First().EmitSignal(BaseButton.SignalName.Pressed); await Frames();
             Require(Page().GetNode<GridContainer>("Editor/Scroll/Grid").GetChildren().OfType<CardTile>().All(card => card.Prototype.Profession == "Guardian"), "Profession-only protocol automatically filters cards");
             Require(Page().GetNode<Label>("Editor/Count").Text.StartsWith("24 / 24", StringComparison.Ordinal), "Configured deck size shown");
+            var deckRows = Page().GetNode<VBoxContainer>("Editor/DeckScroll/Rows").GetChildren().OfType<HBoxContainer>()
+                .Select(row => row.GetNode<Label>("Cost").Text).ToArray();
+            Require(deckRows.Length == _decks.First().Cards.Length, "Deck rows list every selected copy group");
+            Require(deckRows.All(cost => long.TryParse(cost, out _)), "Every deck row shows a cost");
+            Require(deckRows.Select(long.Parse).SequenceEqual(deckRows.Select(long.Parse).Order()), "Deck rows are listed by cost");
             Page().GetNode<LineEdit>("Editor/DeckName").Text = "24 张守卫牌组";
             await CaptureInteraction("p10-deck-construction");
             Page().GetNode<Button>("Editor/Save").EmitSignal(BaseButton.SignalName.Pressed); await Frames();

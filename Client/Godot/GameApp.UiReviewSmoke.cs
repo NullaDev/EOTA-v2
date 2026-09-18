@@ -21,6 +21,10 @@ public partial class GameApp
             if (prototypes.Length != _catalog.Cards.Count(card => card.Source == "Core") || prototypes.Any(tile => !tile.IsPrototype || tile.StatsText.Contains('/')))
             { throw new InvalidOperationException("Collection cards must bind only prototypes and maximum health."); }
             await CaptureUi("collection");
+            var libraryOrder = tabs.GetNode<Control>("Library").GetNode<GridContainer>("Scroll/Grid").GetChildren().OfType<CardTile>()
+                .Select(tile => (Key: LibraryProfessionOrder(tile.Prototype.Profession), tile.Prototype.Cost, tile.Prototype.Id)).ToArray();
+            if (!libraryOrder.SequenceEqual(libraryOrder.OrderBy(entry => entry.Key).ThenBy(entry => entry.Cost).ThenBy(entry => entry.Id, StringComparer.Ordinal)))
+            { throw new InvalidOperationException("Collection must be listed by profession, then cost."); }
             var showcase = prototypes.First(tile => tile.Prototype.Kind == "Minion");
             showcase.PrototypeClicked!(showcase.Prototype); await CaptureUi("card-detail");
             tabs.CurrentTab = 4;
