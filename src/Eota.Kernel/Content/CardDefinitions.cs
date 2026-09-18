@@ -25,7 +25,7 @@ public enum Profession
     Guardian = 2,
     Hunter = 3,
     Artisan = 4,
-    Soulbinder = 5
+    Soulweaver = 5
 }
 
 public enum SpellSpeed

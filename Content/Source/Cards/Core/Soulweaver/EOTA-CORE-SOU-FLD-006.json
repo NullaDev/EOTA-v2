@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-SOU-FLD-006",
+  "source": "core",
+  "profession": "soulweaver",
+  "kind": "field",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-SOU-FLD-006.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-SOU-FLD-006.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-FLD-006.png",
+  "lifetime": {
+    "kind": "finite",
+    "energy": 3
+  },
+  "effects": [
+    {
+      "id": "entryStage",
+      "trigger": {
+        "kind": "entryStage"
+      },
+      "body": {
+        "kind": "ifElse",
+        "condition": {
+          "kind": "exists",
+          "target": {
+            "kind": "friendlyMinions"
+          }
+        },
+        "then": {
+          "kind": "modifyNumber",
+          "target": {
+            "kind": "friendlyMinions",
+            "filter": {
+              "tag": "undead"
+            }
+          },
+          "amount": 1,
+          "attribute": "attack",
+          "operation": "add",
+          "duration": 1
+        },
+        "else": {
+          "kind": "summon",
+          "target": {
+            "kind": "friendlyLanes"
+          },
+          "prototype": "EOTA-TOKEN-SOU-MIN-001"
+        }
+      }
+    }
+  ]
+}

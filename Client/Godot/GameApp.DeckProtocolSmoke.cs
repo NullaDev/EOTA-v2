@@ -27,7 +27,7 @@ public partial class GameApp
             Require(_deckStore.Ids.Contains(id), "Cancel preserves the saved deck");
             await Click(SavedTile().GetNode<Button>("Delete"));
             dialog.GetOkButton().EmitSignal(BaseButton.SignalName.Pressed); await Frames();
-            Require(!_deckStore.Ids.Contains(id) && _decks.Count == 4 && _deckFiles.Count == 0, "Confirmed deletion removes file and selectors");
+            Require(!_deckStore.Ids.Contains(id) && _decks.Count == Professions.Length && _deckFiles.Count == 0, "Confirmed deletion removes file and selectors");
 
             Page().GetNode<Button>("Manager/New").EmitSignal(BaseButton.SignalName.Pressed);
             foreach (var profession in Professions)
@@ -78,7 +78,7 @@ public partial class GameApp
             Tabs().CurrentTab = 2;
             Require(Tabs().GetNodeOrNull<OptionButton>("Host/Two") is null && Tabs().GetNode<Label>("Host/OpponentDeck").Text.Contains("自行选择", StringComparison.Ordinal), "Hosting does not require knowing opponent deck");
             await CaptureInteraction("p10-deck-host");
-            GD.Print("P10_DECK_PROTOCOL_SMOKE_OK delete=pointer-and-confirmation draft=removable protocol=saved construction=filtered limits=24/2/4 opponent=self-selected archetypes=12 template=editable");
+            GD.Print("P10_DECK_PROTOCOL_SMOKE_OK delete=pointer-and-confirmation draft=removable protocol=saved construction=filtered limits=24/2/4 opponent=self-selected archetypes=15 template=editable");
             GetTree().Quit();
         }
         catch (Exception error) { GD.PushError(error.ToString()); GetTree().Quit(1); }

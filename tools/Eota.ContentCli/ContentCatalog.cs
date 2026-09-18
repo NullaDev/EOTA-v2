@@ -77,7 +77,7 @@ public sealed class ContentCatalog
                 };
                 var tags = card.Tags.IsEmpty ? "—" : string.Join("、", card.Tags.Select(tag => tag switch
                 {
-                    "beast" => "野兽", "mechanical" => "机械", "firearm" => "火器营", "hemomancer" => "血术师", _ => tag
+                    "beast" => "野兽", "mechanical" => "机械", "firearm" => "火器营", "hemomancer" => "血术师", "undead" => "亡灵", _ => tag
                 }));
                 lines.Add($"| {card.Kind switch { CardKind.Minion => "随从", CardKind.Field => "场地", _ => "法术" }} | {Escape(_localization[presentation.NameLocalizationKey])} | {Escape(tags)} | {card.Cost.ToString(CultureInfo.InvariantCulture)} | {stats} | {Escape(_localization[presentation.DescriptionLocalizationKey])} | `{card.Id}` |");
             }

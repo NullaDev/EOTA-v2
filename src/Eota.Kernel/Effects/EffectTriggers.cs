@@ -47,7 +47,11 @@ public static partial class EffectTriggers
             var owner = subject?.ControllerId ?? fact.PlayerId;
             var lane = subject?.LaneId ?? fact.LaneId;
             var leaving = fact.Kind is DomainEventKind.EntityDied or DomainEventKind.EntityLeft;
-            var observers = leaving ? before.Entities : entities.AsEnumerable();
+            var healing = fact.Kind is DomainEventKind.EntityHealed or DomainEventKind.HeroHealed;
+            // Healing belongs to surviving targets and observers in the committed frame.
+            // Damage/death triggers deliberately retain their existing frozen-source semantics.
+            if (fact.Kind == DomainEventKind.EntityHealed && !after.Entities.Any(value => value.Id == fact.EntityId)) { continue; }
+            var observers = leaving ? before.Entities : healing ? after.Entities : entities.AsEnumerable();
             foreach (var observer in observers.OrderBy(value => value.Id.Value))
             {
                 var finalObserver = entities.Single(value => value.Id == observer.Id);
@@ -64,6 +68,9 @@ public static partial class EffectTriggers
                         EffectTriggerKind.EnemyEntered => fact.Kind == DomainEventKind.EntityEntered && owner == observer.ControllerId.Opponent,
                         EffectTriggerKind.FriendlySpellCast => fact.Kind == DomainEventKind.SpellResolved && owner == observer.ControllerId && lane.HasValue,
                         EffectTriggerKind.SelfDamaged => fact.Kind == DomainEventKind.EntityDamaged && subject?.Id == observer.Id && fact.CurrentValue > 0,
+                        EffectTriggerKind.SelfHealed => fact.Kind == DomainEventKind.EntityHealed && subject?.Id == observer.Id && fact.CurrentValue > 0,
+                        EffectTriggerKind.FriendlyHealed => fact.Kind == DomainEventKind.EntityHealed && owner == observer.ControllerId && fact.CurrentValue > 0,
+                        EffectTriggerKind.FriendlyHeroHealed => fact.Kind == DomainEventKind.HeroHealed && owner == observer.ControllerId && fact.CurrentValue > 0,
                         EffectTriggerKind.Combat => fact.Kind == DomainEventKind.CombatDeclared && subject?.Id == observer.Id,
                         EffectTriggerKind.MinionCombat => fact.Kind == DomainEventKind.CombatDeclared && subject?.Id == observer.Id && fact.TargetEntityId.HasValue,
                         EffectTriggerKind.Attack => fact.Kind == DomainEventKind.AttackDeclared && subject?.Id == observer.Id,
@@ -79,9 +86,9 @@ public static partial class EffectTriggers
                         EffectTriggerKind.ReplacementEntered => fact.Kind == DomainEventKind.EntityEntered && subject?.Id == observer.Id && fact.TombstoneId.HasValue,
                         _ => false
                     };
-                    if (matching && (effect.Trigger.Scope == SelectionScope.All || lane == observer.LaneId)
+                    if (matching && (fact.Kind == DomainEventKind.HeroHealed || effect.Trigger.Scope == SelectionScope.All || lane == observer.LaneId)
                         && (!effect.Trigger.OtherOnly || subject?.Id != observer.Id)
-                        && (effect.Trigger.SubjectType is null || (effect.Trigger.SubjectType == EffectTargetType.Minion ? subject is MinionEntityState : subject is FieldEntityState)))
+                        && SubjectMatches(effect.Trigger.SubjectType, subject, fact))
                     {
                         results.Add(new EffectInvocation(source, effect, fact, subject,
                         fact.Kind == DomainEventKind.EntityEntered ? after.Tombstones.SingleOrDefault(value => value.Id == fact.TombstoneId) : null,
@@ -150,4 +157,13 @@ public static partial class EffectTriggers
 
     private static EffectSource Source(MatchState state, BattlefieldEntityState entity) => new(entity.CardInstanceId,
         state.CardInstances.Single(value => value.Id == entity.CardInstanceId).CurrentPrototypeId, entity.ControllerId, entity.LaneId, entity);
+
+    private static bool SubjectMatches(EffectTargetType? type, BattlefieldEntityState? subject, DomainEvent fact) => type switch
+    {
+        null => true,
+        EffectTargetType.Minion => subject is MinionEntityState,
+        EffectTargetType.Field => subject is FieldEntityState,
+        EffectTargetType.Hero => fact.Kind == DomainEventKind.HeroHealed && fact.PlayerId.HasValue,
+        _ => false
+    };
 }

@@ -46,30 +46,37 @@ theme_override_constants/separation = 16
 
 [node name="Guardian" type="Button" parent="Panel/Professions"]
 layout_mode = 2
-custom_minimum_size = Vector2(222, 120)
+custom_minimum_size = Vector2(174, 120)
 toggle_mode = true
-text = "♜  守护者"
+text = "♜  守卫"
 theme_override_font_sizes/font_size = 24
 
 [node name="Arcanist" type="Button" parent="Panel/Professions"]
 layout_mode = 2
-custom_minimum_size = Vector2(222, 120)
+custom_minimum_size = Vector2(174, 120)
 toggle_mode = true
 text = "✦  奥术师"
 theme_override_font_sizes/font_size = 24
 
 [node name="Artisan" type="Button" parent="Panel/Professions"]
 layout_mode = 2
-custom_minimum_size = Vector2(222, 120)
+custom_minimum_size = Vector2(174, 120)
 toggle_mode = true
 text = "⚒  工匠"
 theme_override_font_sizes/font_size = 24
 
 [node name="Hunter" type="Button" parent="Panel/Professions"]
 layout_mode = 2
-custom_minimum_size = Vector2(222, 120)
+custom_minimum_size = Vector2(174, 120)
 toggle_mode = true
 text = "➶  猎人"
+theme_override_font_sizes/font_size = 24
+
+[node name="Soulweaver" type="Button" parent="Panel/Professions"]
+layout_mode = 2
+custom_minimum_size = Vector2(174, 120)
+toggle_mode = true
+text = "☽  灵魂使"
 theme_override_font_sizes/font_size = 24
 
 [node name="Description" type="Label" parent="Panel"]

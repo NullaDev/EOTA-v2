@@ -300,7 +300,8 @@ public enum DomainEventKind
     EntityMechanicsChanged = 30,
     AttachedEffectsChanged = 31,
     EntityHealthLost = 32,
-    LaneStatusChanged = 33
+    LaneStatusChanged = 33,
+    HeroHealed = 34
 }
 
 public sealed record DomainEvent(

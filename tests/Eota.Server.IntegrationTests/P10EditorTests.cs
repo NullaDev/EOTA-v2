@@ -46,7 +46,7 @@ public sealed class P10EditorTests
             var small = new DesktopCatalog(Fixture.Root, path);
             Assert.Equal(2, small.Cards.Length); Assert.Equal(7, small.Cards.Single(value => value.Id == tokenId).Attack);
             var recipient = new DesktopContentEditor(catalog); recipient.ImportCards(path);
-            Assert.Equal(230, recipient.CardIds.Count()); Assert.Equal("导出的衍生卡", recipient.Read(tokenId).Name);
+            Assert.Equal(282, recipient.CardIds.Count()); Assert.Equal("导出的衍生卡", recipient.Read(tokenId).Name);
             Assert.Equal(editor.Export().RuleHash, recipient.Export().RuleHash);
         }
         finally { File.Delete(path); }
@@ -120,10 +120,11 @@ public sealed class P10EditorTests
     public void NewCardsUseV2SchemaAndPreserveEffectsAcrossRoundTrip(string kind)
     {
         var editor = new DesktopContentEditor(new DesktopCatalog(Fixture.Root)); var value = DesktopContentEditor.NewCard(kind);
+        var initialCount = editor.CardIds.Count();
         Assert.Empty(editor.Validate(value)); var id = editor.SaveCard(value);
         Assert.Contains(id, editor.CardIds); var pack = editor.Export();
         using var document = JsonDocument.Parse(editor.Read(id).Json);
         Assert.Equal("eota.card/v2", document.RootElement.GetProperty("schemaVersion").GetString());
-        Assert.Equal(kind, document.RootElement.GetProperty("kind").GetString()); Assert.Equal(231, pack.Cards.Length);
+        Assert.Equal(kind, document.RootElement.GetProperty("kind").GetString()); Assert.Equal(initialCount + 1, pack.Cards.Length);
     }
 }

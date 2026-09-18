@@ -22,7 +22,7 @@ public sealed class P8ToolTests
         var catalog = ContentCatalog.Load(Root);
         using var baseline = JsonDocument.Parse(File.ReadAllText(Path.Combine(Root, "Content", "Design", "card-baseline.json")));
         using var scenarios = JsonDocument.Parse(File.ReadAllText(Path.Combine(Root, "tests", "Fixtures", "P8Content", "scenarios.json")));
-        Assert.Equal(230, catalog.Bundle.Rules.Cards.Length);
+        Assert.Equal(282, catalog.Bundle.Rules.Cards.Length);
         var ids = baseline.RootElement.GetProperty("cards").EnumerateArray().Select(value => value.GetProperty("id").GetString()).Order(StringComparer.Ordinal);
         Assert.Equal(ids, catalog.Bundle.Rules.Cards.Select(value => value.Id.Value));
         var exercised = scenarios.RootElement.EnumerateArray().Select(value => value.GetProperty("cardId").GetString()).ToHashSet(StringComparer.Ordinal);
@@ -37,7 +37,7 @@ public sealed class P8ToolTests
             ("CORE-ART-MIN-003", "Swift", 0), ("CORE-ART-MIN-006", "Guard,Replaceable", 0), ("CORE-ART-MIN-010", "Guard", 1), ("CORE-ART-MIN-011", "", 1), ("CORE-ART-MIN-025", "Lifesteal", 1), ("CORE-ART-FLD-004", "", 2),
             ("CORE-HUN-MIN-003", "FirstStrike,Pursuit", 0), ("CORE-HUN-MIN-004", "Execute,Slow:1", 0), ("CORE-HUN-MIN-009", "Lifesteal,Skirmisher,Swift", 0), 
             ("CORE-HUN-MIN-012", "Pursuit", 0), ("CORE-HUN-MIN-015", "Guard", 0), ("CORE-HUN-MIN-026", "Execute,Pursuit", 0), ("CORE-NEU-MIN-008", "", 0),
-            ("TOKEN-ARC-MIN-001", "Guard", 0),
+            ("TOKEN-ARC-MIN-001", "Guard", 0), ("TOKEN-SOU-MIN-002", "Guard", 0),
             ("CORE-GUA-MIN-020", "Slow:1", 0), ("CORE-GUA-MIN-021", "FirstStrike,Slow:1", 0), ("CORE-GUA-MIN-022", "Swift", 0),
             ("CORE-ART-MIN-021", "Slow:4", 0), ("CORE-ART-MIN-022", "Slow:3", 2),
             ("CORE-HUN-MIN-021", "", 0),  ("CORE-HUN-MIN-023", "Pursuit,Swift", 0), 
@@ -62,11 +62,11 @@ public sealed class P8ToolTests
         Assert.Contains("| 封存泰坦 | 机械 | 6 | 10/12 |", catalog.RenderTable(), StringComparison.Ordinal);
         Assert.Contains("| 以太稽查员 | — | 3 | 3/3 |", catalog.RenderTable(), StringComparison.Ordinal);
         Assert.Contains("| 荒原投石兽 | 野兽 | 8 | 5/6 |", catalog.RenderTable(), StringComparison.Ordinal);
-        Assert.Equal(230, catalog.RenderTable().Split('\n').Count(line => line.Contains("| `EOTA-", StringComparison.Ordinal)));
+        Assert.Equal(282, catalog.RenderTable().Split('\n').Count(line => line.Contains("| `EOTA-", StringComparison.Ordinal)));
         using var recipes = JsonDocument.Parse(File.ReadAllText(Path.Combine(Root, "Content", "Source", "Art", "emoji-recipes.json")));
         var fused = recipes.RootElement.EnumerateObject().Where(value => value.Value.TryGetProperty("fusion", out _)).ToArray();
         Assert.Equal(199, fused.Length);
-        Assert.Equal(31, recipes.RootElement.EnumerateObject().Count(value => !value.Value.TryGetProperty("fusion", out _)));
+        Assert.Equal(83, recipes.RootElement.EnumerateObject().Count(value => !value.Value.TryGetProperty("fusion", out _)));
         Assert.All(recipes.RootElement.EnumerateObject().Where(value => !value.Value.TryGetProperty("fusion", out _)),
             value => Assert.Equal(1, new StringInfo(value.Value.GetProperty("emoji").GetString()!).LengthInTextElements));
         Assert.All(fused, value =>

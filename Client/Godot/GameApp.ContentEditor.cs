@@ -50,9 +50,9 @@ public partial class GameApp
         void Options(string field, string[] titles)
         { var option = EditorField<OptionButton>(field); foreach (var title in titles) { option.AddItem(title); } }
         Options("Kind", ["随从", "法术", "场地"]); Options("Source", ["基础卡", "衍生卡"]);
-        Options("Profession", ["中立", "守护者", "奥术师", "工匠", "猎人"]); Options("Speed", ["快速", "慢速"]); Options("Scope", ["一路", "全局"]);
+        Options("Profession", ["中立", "守卫", "奥术师", "工匠", "猎人", "灵魂使"]); Options("Speed", ["快速", "慢速"]); Options("Scope", ["一路", "全局"]);
         var profession = _editorPage.GetNode<OptionButton>("FilterProfession");
-        foreach (var value in new[] { "全部职业", "中立", "守护者", "奥术师", "工匠", "猎人" }) { profession.AddItem(value); }
+        foreach (var value in new[] { "全部职业", "中立", "守卫", "奥术师", "工匠", "猎人", "灵魂使" }) { profession.AddItem(value); }
         var kind = _editorPage.GetNode<OptionButton>("FilterKind");
         foreach (var value in new[] { "全部类型", "随从", "法术", "场地" }) { kind.AddItem(value); }
         var search = _editorPage.GetNode<LineEdit>("Search"); search.TextChanged += _ => RefreshEditorList();
@@ -219,7 +219,7 @@ public partial class GameApp
     private void RefreshEditorList()
     {
         var list = _editorPage.GetNode<ItemList>("List"); list.Clear(); var search = _editorPage.GetNode<LineEdit>("Search").Text.Trim();
-        var profession = new[] { "", "neutral", "guardian", "arcanist", "artisan", "hunter" }[_editorPage.GetNode<OptionButton>("FilterProfession").Selected];
+        var profession = new[] { "", "neutral", "guardian", "arcanist", "artisan", "hunter", "soulweaver" }[_editorPage.GetNode<OptionButton>("FilterProfession").Selected];
         var kind = new[] { "", "minion", "spell", "field" }[_editorPage.GetNode<OptionButton>("FilterKind").Selected];
         foreach (var id in _contentEditor!.CardIds)
         {
@@ -247,7 +247,7 @@ public partial class GameApp
             EditorField<TextEdit>("Description").Text = value.Description;
             EditorField<OptionButton>("Kind").Select(Array.IndexOf(new[] { "minion", "spell", "field" }, Text("kind")));
             EditorField<OptionButton>("Source").Select(Text("source") == "token" ? 1 : 0);
-            EditorField<OptionButton>("Profession").Select(Array.IndexOf(new[] { "neutral", "guardian", "arcanist", "artisan", "hunter" }, Text("profession")));
+            EditorField<OptionButton>("Profession").Select(Array.IndexOf(new[] { "neutral", "guardian", "arcanist", "artisan", "hunter", "soulweaver" }, Text("profession")));
             EditorField<OptionButton>("Speed").Select(Text("speed") == "slow" ? 1 : 0); EditorField<OptionButton>("Scope").Select(Text("targetScope") == "global" ? 1 : 0);
             EditorField<CheckBox>("Permanent").ButtonPressed = _editingCard["lifetime"]?["kind"]?.GetValue<string>() == "permanent";
             _editorPage.GetNode<TextEdit>("Pages/Effects").Text = DesktopContentEditor.AbilitiesJson(_editingCard);
@@ -273,7 +273,7 @@ public partial class GameApp
         long Number(string field) => long.TryParse(Line(field), out var value) ? value : throw new InvalidDataException($"{field} 必须是整数。");
         card["id"] = Line("Id"); card["cost"] = Number("Cost"); card["texturePath"] = Line("Texture");
         card["source"] = EditorField<OptionButton>("Source").Selected == 1 ? "token" : "core";
-        card["profession"] = new[] { "neutral", "guardian", "arcanist", "artisan", "hunter" }[EditorField<OptionButton>("Profession").Selected];
+        card["profession"] = new[] { "neutral", "guardian", "arcanist", "artisan", "hunter", "soulweaver" }[EditorField<OptionButton>("Profession").Selected];
         card["tags"] = new JsonArray(Line("Tags").Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Select(s => (JsonNode?)JsonValue.Create(s)).ToArray());
         DesktopContentEditor.ApplyAbilities(card, _editorPage.GetNode<TextEdit>("Pages/Effects").Text);
         var kind = card["kind"]!.GetValue<string>();

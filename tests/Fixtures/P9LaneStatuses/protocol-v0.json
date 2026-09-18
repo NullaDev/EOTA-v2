@@ -30,7 +30,7 @@
     "randomAlgorithmVersion": "splitmix64\u002Bxoshiro256ss/v1",
     "randomCallSchemaVersion": 4,
     "canonicalStateVersion": 10,
-    "effectLanguageVersion": 4,
+    "effectLanguageVersion": 5,
     "movementConflictPolicy": "centerFirst",
     "movementDirectionPreference": "outwardFirst",
     "maxEffectTriggerFramesPerTurn": 256,

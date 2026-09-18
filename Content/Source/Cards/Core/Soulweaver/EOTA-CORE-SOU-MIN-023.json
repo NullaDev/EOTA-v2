@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-SOU-MIN-023",
+  "source": "core",
+  "profession": "soulweaver",
+  "kind": "minion",
+  "cost": 4,
+  "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-023.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-023.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-023.png",
+  "attack": 5,
+  "health": 5,
+  "keywords": [
+    "guard"
+  ],
+  "tags": [
+    "undead"
+  ],
+  "effects": [
+    {
+      "id": "selfHealed",
+      "trigger": {
+        "kind": "selfHealed"
+      },
+      "body": {
+        "kind": "removeKeyword",
+        "target": {
+          "kind": "self"
+        },
+        "keyword": "guard",
+        "duration": 1
+      }
+    }
+  ]
+}

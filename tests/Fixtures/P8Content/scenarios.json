@@ -2600,5 +2600,716 @@
     "expect": {
       "ether": 3
     }
+  },
+  {
+    "id": "SOU-MIN-001",
+    "cardId": "EOTA-CORE-SOU-MIN-001",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "heroHealth": 92
+    }
+  },
+  {
+    "id": "SOU-MIN-002",
+    "cardId": "EOTA-CORE-SOU-MIN-002",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "friendlyPrototype": "EOTA-TOKEN-SOU-MIN-001",
+      "friendlyAttack": 1,
+      "keyword:swift": 1
+    }
+  },
+  {
+    "id": "SOU-MIN-003",
+    "cardId": "EOTA-CORE-SOU-MIN-003",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "friendlyPrototype": "EOTA-TOKEN-SOU-MIN-002",
+      "friendlyAttack": 3,
+      "keyword:guard": 1
+    }
+  },
+  {
+    "id": "SOU-MIN-004",
+    "cardId": "EOTA-CORE-SOU-MIN-004",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "hand": 1
+    }
+  },
+  {
+    "id": "SOU-MIN-005",
+    "cardId": "EOTA-CORE-SOU-MIN-005",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "enemyHealth": 18
+    }
+  },
+  {
+    "id": "SOU-MIN-006",
+    "cardId": "EOTA-CORE-SOU-MIN-006",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "enemyFields": 0
+    }
+  },
+  {
+    "id": "SOU-MIN-007",
+    "cardId": "EOTA-CORE-SOU-MIN-007",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "enemyHealth": 18,
+      "enemyMaxHealth": 18
+    }
+  },
+  {
+    "id": "SOU-MIN-008",
+    "cardId": "EOTA-CORE-SOU-MIN-008",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "enemyCount": 0,
+      "friendlyAttack": 3,
+      "keyword:guard": 1
+    }
+  },
+  {
+    "id": "SOU-MIN-016",
+    "cardId": "EOTA-CORE-SOU-MIN-016",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "hand": 2,
+      "heroHealth": 94
+    }
+  },
+  {
+    "id": "SOU-MIN-005-empty",
+    "cardId": "EOTA-CORE-SOU-MIN-005",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1,
+      "emptyEnemy": 1
+    },
+    "expect": {
+      "enemyHeroHealth": 98
+    }
+  },
+  {
+    "id": "SOU-MIN-008-empty",
+    "cardId": "EOTA-CORE-SOU-MIN-008",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1,
+      "emptyEnemy": 1
+    },
+    "expect": {
+      "friendlyAttack": 3
+    }
+  },
+  {
+    "id": "SOU-MIN-010",
+    "cardId": "EOTA-CORE-SOU-MIN-010",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "heroHealth": 87
+    }
+  },
+  {
+    "id": "SOU-MIN-010-death",
+    "cardId": "EOTA-CORE-SOU-MIN-010",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "heroHealth": 93
+    }
+  },
+  {
+    "id": "SOU-MIN-012",
+    "cardId": "EOTA-CORE-SOU-MIN-012",
+    "trigger": "combat",
+    "setup": {},
+    "expect": {
+      "friendlyAttached": 1
+    }
+  },
+  {
+    "id": "SOU-MIN-013",
+    "cardId": "EOTA-CORE-SOU-MIN-013",
+    "trigger": "selfHealed",
+    "setup": {},
+    "expect": {
+      "selfAttack": 2
+    }
+  },
+  {
+    "id": "SOU-MIN-014",
+    "cardId": "EOTA-CORE-SOU-MIN-014",
+    "trigger": "selfHealed",
+    "setup": {},
+    "expect": {
+      "hand": 1
+    }
+  },
+  {
+    "id": "SOU-MIN-015",
+    "cardId": "EOTA-CORE-SOU-MIN-015",
+    "trigger": "selfHealed",
+    "setup": {},
+    "expect": {
+      "heroHealth": 94
+    }
+  },
+  {
+    "id": "SOU-MIN-017",
+    "cardId": "EOTA-CORE-SOU-MIN-017",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "selfHealth": 4
+    }
+  },
+  {
+    "id": "SOU-MIN-018",
+    "cardId": "EOTA-CORE-SOU-MIN-018",
+    "trigger": "selfHealed",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 16
+    }
+  },
+  {
+    "id": "SOU-MIN-019",
+    "cardId": "EOTA-CORE-SOU-MIN-019",
+    "trigger": "friendlyHeroHealed",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 16
+    }
+  },
+  {
+    "id": "SOU-MIN-020",
+    "cardId": "EOTA-CORE-SOU-MIN-020",
+    "trigger": "friendlyHeroHealed",
+    "setup": {},
+    "expect": {
+      "enemyHeroHealth": 96
+    }
+  },
+  {
+    "id": "SOU-MIN-021",
+    "cardId": "EOTA-CORE-SOU-MIN-021",
+    "trigger": "selfHealed",
+    "setup": {},
+    "expect": {
+      "selfAttack": 9
+    }
+  },
+  {
+    "id": "SOU-MIN-021-death",
+    "cardId": "EOTA-CORE-SOU-MIN-021",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "heroHealth": 95
+    }
+  },
+  {
+    "id": "SOU-MIN-023",
+    "cardId": "EOTA-CORE-SOU-MIN-023",
+    "trigger": "selfHealed",
+    "setup": {},
+    "expect": {
+      "keyword:guard": 0
+    }
+  },
+  {
+    "id": "SOU-MIN-024",
+    "cardId": "EOTA-CORE-SOU-MIN-024",
+    "trigger": "selfEntered",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 17
+    }
+  },
+  {
+    "id": "SOU-MIN-025",
+    "cardId": "EOTA-CORE-SOU-MIN-025",
+    "trigger": "selfEntered",
+    "setup": {
+      "adjacentFriendly": 1
+    },
+    "expect": {
+      "adjacentAttached": 1,
+      "friendlyAttached": 0
+    }
+  },
+  {
+    "id": "SOU-FLD-001",
+    "cardId": "EOTA-CORE-SOU-FLD-001",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "friendlyAttached": 1
+    }
+  },
+  {
+    "id": "SOU-FLD-001-empty",
+    "cardId": "EOTA-CORE-SOU-FLD-001",
+    "trigger": "turnEnd",
+    "setup": {
+      "emptyFriendly": 1
+    },
+    "expect": {
+      "friendlyAttack": 3,
+      "keyword:guard": 1
+    }
+  },
+  {
+    "id": "SOU-FLD-002",
+    "cardId": "EOTA-CORE-SOU-FLD-002",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "friendlyHealth": 13
+    }
+  },
+  {
+    "id": "SOU-FLD-002-empty",
+    "cardId": "EOTA-CORE-SOU-FLD-002",
+    "trigger": "turnEnd",
+    "setup": {
+      "emptyFriendly": 1
+    },
+    "expect": {
+      "heroHealth": 92
+    }
+  },
+  {
+    "id": "SOU-FLD-003",
+    "cardId": "EOTA-CORE-SOU-FLD-003",
+    "trigger": "friendlyHealed",
+    "setup": {},
+    "expect": {
+      "friendlyAttack": 2,
+      "friendlyMaxHealth": 21,
+      "friendlyHealth": 11
+    }
+  },
+  {
+    "id": "SOU-FLD-004",
+    "cardId": "EOTA-CORE-SOU-FLD-004",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "friendlyCount": 0,
+      "hand": 2
+    }
+  },
+  {
+    "id": "SOU-FLD-005",
+    "cardId": "EOTA-CORE-SOU-FLD-005",
+    "trigger": "friendlyDied",
+    "setup": {
+      "friendlyDeath": 1
+    },
+    "expect": {
+      "heroHealth": 92
+    }
+  },
+  {
+    "id": "SOU-FLD-006",
+    "cardId": "EOTA-CORE-SOU-FLD-006",
+    "trigger": "entryStage",
+    "setup": {
+      "emptyFriendly": 1
+    },
+    "expect": {
+      "friendlyAttack": 1,
+      "keyword:swift": 1
+    }
+  },
+  {
+    "id": "SOU-FLD-007",
+    "cardId": "EOTA-CORE-SOU-FLD-007",
+    "trigger": "friendlyHeroHealed",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 16
+    }
+  },
+  {
+    "id": "SOU-FLD-008",
+    "cardId": "EOTA-CORE-SOU-FLD-008",
+    "trigger": "friendlyDied",
+    "setup": {
+      "friendlyDeath": 1
+    },
+    "expect": {
+      "hand": 1
+    }
+  },
+  {
+    "id": "SOU-SPL-001",
+    "cardId": "EOTA-CORE-SOU-SPL-001",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "hand": 2,
+      "friendlyCount": 0
+    }
+  },
+  {
+    "id": "SOU-SPL-002",
+    "cardId": "EOTA-CORE-SOU-SPL-002",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyHealth": 14
+    }
+  },
+  {
+    "id": "SOU-SPL-003",
+    "cardId": "EOTA-CORE-SOU-SPL-003",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyAttack": 2,
+      "friendlyAttached": 1
+    }
+  },
+  {
+    "id": "SOU-SPL-004",
+    "cardId": "EOTA-CORE-SOU-SPL-004",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "heroHealth": 92,
+      "friendlyAttached": 1
+    }
+  },
+  {
+    "id": "SOU-SPL-005",
+    "cardId": "EOTA-CORE-SOU-SPL-005",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyHealth": 16,
+      "friendlyMaxHealth": 23
+    }
+  },
+  {
+    "id": "SOU-SPL-006",
+    "cardId": "EOTA-CORE-SOU-SPL-006",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyHealth": 17,
+      "enemyAttached": 1
+    }
+  },
+  {
+    "id": "SOU-SPL-007",
+    "cardId": "EOTA-CORE-SOU-SPL-007",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyHealth": 13,
+      "heroHealth": 93
+    }
+  },
+  {
+    "id": "SOU-SPL-008",
+    "cardId": "EOTA-CORE-SOU-SPL-008",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyCount": 0,
+      "heroHealth": 96
+    }
+  },
+  {
+    "id": "SOU-SPL-009",
+    "cardId": "EOTA-CORE-SOU-SPL-009",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyCount": 0,
+      "enemyCount": 0
+    }
+  },
+  {
+    "id": "SOU-SPL-010",
+    "cardId": "EOTA-CORE-SOU-SPL-010",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyAttached": 1
+    }
+  },
+  {
+    "id": "SOU-SPL-011",
+    "cardId": "EOTA-CORE-SOU-SPL-011",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyHealth": 7,
+      "enemyHealth": 17
+    }
+  },
+  {
+    "id": "SOU-SPL-012",
+    "cardId": "EOTA-CORE-SOU-SPL-012",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "enemyPrototype": "EOTA-TOKEN-SOU-MIN-002",
+      "enemyHealth": 3
+    }
+  },
+  {
+    "id": "SOU-SPL-013",
+    "cardId": "EOTA-CORE-SOU-SPL-013",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyAttack": 1,
+      "keyword:guard": 1,
+      "keyword:swift": 0
+    }
+  },
+  {
+    "id": "SOU-SPL-014",
+    "cardId": "EOTA-CORE-SOU-SPL-014",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyAttached": 1,
+      "friendlyHealth": 12
+    }
+  },
+  {
+    "id": "SOU-SPL-015",
+    "cardId": "EOTA-CORE-SOU-SPL-015",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyHealth": 20,
+      "hand": 1
+    }
+  },
+  {
+    "id": "SOU-SPL-003-empty",
+    "cardId": "EOTA-CORE-SOU-SPL-003",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "emptyFriendly": 1
+    },
+    "expect": {
+      "friendlyAttack": 1,
+      "keyword:swift": 1
+    }
+  },
+  {
+    "id": "SOU-SPL-004-empty",
+    "cardId": "EOTA-CORE-SOU-SPL-004",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "emptyFriendly": 1
+    },
+    "expect": {
+      "heroHealth": 92,
+      "friendlyAttack": 3
+    }
+  },
+  {
+    "id": "SOU-SPL-009-empty",
+    "cardId": "EOTA-CORE-SOU-SPL-009",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "emptyFriendly": 1
+    },
+    "expect": {
+      "enemyHealth": 17
+    }
+  },
+  {
+    "id": "SOU-SPL-015-empty",
+    "cardId": "EOTA-CORE-SOU-SPL-015",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "emptyFriendly": 1
+    },
+    "expect": {
+      "hand": 1
+    }
+  },
+  {
+    "id": "SOU-MIN-001-token",
+    "cardId": "EOTA-TOKEN-SOU-MIN-001",
+    "trigger": "turnEnd",
+    "setup": {},
+    "expect": {
+      "friendlyCount": 0
+    }
+  },
+  {
+    "id": "SOU-MIN-026-death",
+    "cardId": "EOTA-CORE-SOU-MIN-026",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "enemyHeroHealth": 97,
+      "friendlyCount": 0
+    }
+  },
+  {
+    "id": "SOU-FLD-009-entry",
+    "cardId": "EOTA-CORE-SOU-FLD-009",
+    "trigger": "selfEntered",
+    "setup": {
+      "emptyFriendly": 1
+    },
+    "expect": {
+      "friendlyPrototype": "EOTA-TOKEN-SOU-MIN-001",
+      "keyword:Swift": 1
+    }
+  },
+  {
+    "id": "SOU-FLD-009-death",
+    "cardId": "EOTA-CORE-SOU-FLD-009",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1,
+      "emptyFriendly": 1
+    },
+    "expect": {
+      "friendlyPrototype": "EOTA-TOKEN-SOU-MIN-002",
+      "keyword:Guard": 1,
+      "friendlyFields": 0
+    }
+  },
+  {
+    "id": "SOU-FLD-009-blocked",
+    "cardId": "EOTA-CORE-SOU-FLD-009",
+    "trigger": "selfDied",
+    "setup": {
+      "death": 1
+    },
+    "expect": {
+      "friendlyPrototype": "TEST-P8-FRIEND",
+      "friendlyCount": 1,
+      "friendlyFields": 0
+    }
+  },
+  {
+    "id": "SOU-SPL-016-sacrifice",
+    "cardId": "EOTA-CORE-SOU-SPL-016",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyCount": 0,
+      "enemyHeroHealth": 99
+    }
+  },
+  {
+    "id": "SOU-SPL-016-empty",
+    "cardId": "EOTA-CORE-SOU-SPL-016",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "emptyFriendly": 1
+    },
+    "expect": {
+      "friendlyCount": 0,
+      "enemyHeroHealth": 100
+    }
+  },
+  {
+    "id": "SOU-SPL-017-both",
+    "cardId": "EOTA-CORE-SOU-SPL-017",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "friendlyHealth": 14,
+      "enemyHealth": 16
+    }
+  },
+  {
+    "id": "SOU-SPL-017-damage-only",
+    "cardId": "EOTA-CORE-SOU-SPL-017",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "emptyFriendly": 1
+    },
+    "expect": {
+      "friendlyCount": 0,
+      "enemyHealth": 16
+    }
+  },
+  {
+    "id": "SOU-SPL-017-heal-only",
+    "cardId": "EOTA-CORE-SOU-SPL-017",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "emptyEnemy": 1
+    },
+    "expect": {
+      "friendlyHealth": 14,
+      "enemyCount": 0
+    }
+  },
+  {
+    "id": "SOU-SPL-018-mobilize",
+    "cardId": "EOTA-CORE-SOU-SPL-018",
+    "trigger": "selfSpellCast",
+    "setup": {},
+    "expect": {
+      "keyword:Swift": 1,
+      "keyword:Guard": 0,
+      "friendlyAttached": 1
+    }
+  },
+  {
+    "id": "SOU-SPL-018-empty",
+    "cardId": "EOTA-CORE-SOU-SPL-018",
+    "trigger": "selfSpellCast",
+    "setup": {
+      "emptyFriendly": 1
+    },
+    "expect": {
+      "friendlyCount": 0
+    }
   }
 ]

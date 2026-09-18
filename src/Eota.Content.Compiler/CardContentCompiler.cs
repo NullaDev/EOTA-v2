@@ -550,7 +550,7 @@ public static class CardContentCompiler
             ("guardian", Profession.Guardian),
             ("hunter", Profession.Hunter),
             ("artisan", Profession.Artisan),
-            ("soulbinder", Profession.Soulbinder));
+            ("soulweaver", Profession.Soulweaver));
 
     private static bool TryParseSpellSpeed(string value, out SpellSpeed result) =>
         TryParseEnum(value, out result, ("fast", SpellSpeed.Fast), ("slow", SpellSpeed.Slow));

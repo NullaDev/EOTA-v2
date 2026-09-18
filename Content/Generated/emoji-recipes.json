@@ -1951,6 +1951,356 @@
     "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20201001/u1f480/u1f480_u1f4f0.png",
     "Profession": "neutral"
   },
+  "EOTA-CORE-SOU-FLD-001": {
+    "Emoji": "\uD83E\uDEA6",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-FLD-002": {
+    "Emoji": "\uD83C\uDFE5",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-FLD-003": {
+    "Emoji": "\uD83E\uDEA1",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-FLD-004": {
+    "Emoji": "\uD83E\uDEA8",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-FLD-005": {
+    "Emoji": "\uD83C\uDFEE",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-FLD-006": {
+    "Emoji": "\uD83C\uDF00",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-FLD-007": {
+    "Emoji": "\u26EA",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-FLD-008": {
+    "Emoji": "\uD83D\uDD14",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-FLD-009": {
+    "Emoji": "\uD83E\uDEA6",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-001": {
+    "Emoji": "\uD83D\uDD6F\uFE0F",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-002": {
+    "Emoji": "\u26B0\uFE0F",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-003": {
+    "Emoji": "\u26B1\uFE0F",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-004": {
+    "Emoji": "\uD83E\uDE78",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-005": {
+    "Emoji": "\uD83C\uDFEE",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-006": {
+    "Emoji": "\uD83E\uDD10",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-007": {
+    "Emoji": "\uD83E\uDDDF",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-008": {
+    "Emoji": "\uD83D\uDC80",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-010": {
+    "Emoji": "\uD83E\uDE79",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-012": {
+    "Emoji": "\uD83D\uDC94",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-013": {
+    "Emoji": "\uD83E\uDEA1",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-014": {
+    "Emoji": "\uD83D\uDCDC",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-015": {
+    "Emoji": "\uD83E\uDEC0",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-016": {
+    "Emoji": "\uD83C\uDFFA",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-017": {
+    "Emoji": "\uD83E\uDDF5",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-018": {
+    "Emoji": "\uD83E\uDD12",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-019": {
+    "Emoji": "\uD83D\uDE4F",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-020": {
+    "Emoji": "\uD83E\uDD2E",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-021": {
+    "Emoji": "\uD83E\uDDD9",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-023": {
+    "Emoji": "\uD83E\uDDDF",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-024": {
+    "Emoji": "\uD83D\uDDFF",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-025": {
+    "Emoji": "\uD83D\uDC51",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-MIN-026": {
+    "Emoji": "\uD83D\uDD25",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-SPL-001": {
+    "Emoji": "\uD83D\uDC7B",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-SPL-002": {
+    "Emoji": "\uD83E\uDDF5",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-SPL-003": {
+    "Emoji": "\uD83D\uDC7B",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-SPL-004": {
+    "Emoji": "\uD83E\uDDDF",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-SPL-005": {
+    "Emoji": "\uD83E\uDDB4",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-SPL-006": {
+    "Emoji": "\uD83D\uDCDC",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-SPL-007": {
+    "Emoji": "\u26B1\uFE0F",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-SPL-008": {
+    "Emoji": "\uD83E\uDE78",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-SPL-009": {
+    "Emoji": "\u26B0\uFE0F",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-SPL-010": {
+    "Emoji": "\u2709\uFE0F",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-SPL-011": {
+    "Emoji": "\uD83D\uDD25",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-SPL-012": {
+    "Emoji": "\u26B0\uFE0F",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-SPL-013": {
+    "Emoji": "\uD83D\uDCEF",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-SPL-014": {
+    "Emoji": "\uD83D\uDE4F",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-SPL-015": {
+    "Emoji": "\uD83D\uDCDC",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-SPL-016": {
+    "Emoji": "\uD83E\uDE78",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-SPL-017": {
+    "Emoji": "\uD83E\uDEA1",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-CORE-SOU-SPL-018": {
+    "Emoji": "\uD83E\uDE84",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
   "EOTA-TOKEN-ARC-MIN-001": {
     "Emoji": "\uD83D\uDC8E",
     "Top": "#614493",
@@ -2006,5 +2356,19 @@
     "Bottom": "#15281b",
     "Style": "card",
     "Profession": "hunter"
+  },
+  "EOTA-TOKEN-SOU-MIN-001": {
+    "Emoji": "\uD83D\uDC7B",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
+  },
+  "EOTA-TOKEN-SOU-MIN-002": {
+    "Emoji": "\uD83E\uDDDF",
+    "Top": "#397c7c",
+    "Bottom": "#102b33",
+    "Style": "card",
+    "Profession": "soulweaver"
   }
 }

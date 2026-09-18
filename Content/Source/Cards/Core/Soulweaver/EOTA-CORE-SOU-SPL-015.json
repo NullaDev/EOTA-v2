@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-SOU-SPL-015",
+  "source": "core",
+  "profession": "soulweaver",
+  "kind": "spell",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-015.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-015.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-015.png",
+  "speed": "fast",
+  "targetScope": "lane",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "retarget",
+            "target": {
+              "kind": "friendlyMinions"
+            },
+            "body": {
+              "kind": "heal",
+              "target": {
+                "kind": "targets"
+              },
+              "amount": "target.maxHealth - target.health"
+            }
+          },
+          {
+            "kind": "draw",
+            "target": {
+              "kind": "friendlyHero"
+            },
+            "count": 1
+          }
+        ]
+      }
+    }
+  ]
+}

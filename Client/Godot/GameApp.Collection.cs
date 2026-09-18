@@ -5,7 +5,7 @@ namespace Eota.GodotClient;
 
 public partial class GameApp
 {
-    private static readonly string[] Professions = ["Guardian", "Arcanist", "Artisan", "Hunter"];
+    private static readonly string[] Professions = ["Guardian", "Arcanist", "Artisan", "Hunter", "Soulweaver"];
     private string _deckProfession = "Guardian";
 
     private void BuildCollection(TabContainer tabs)
@@ -55,7 +55,7 @@ public partial class GameApp
         void Refresh()
         {
             ClearSelection(); Ui.Clear(grid);
-            var filter = profession.Selected == 0 ? null : profession.Selected == 5 ? "Neutral" : Professions[profession.Selected - 1];
+            var filter = profession.Selected == 0 ? null : profession.Selected == Professions.Length + 1 ? "Neutral" : Professions[profession.Selected - 1];
             foreach (var card in _catalog.Cards.Where(card => card.Source == "Core" && (filter is null || card.Profession == filter) && MatchesSearch(card, search.Text)))
             {
                 var tile = CardTile.CreatePrototype(card); tile.TooltipText = ""; grid.AddChild(tile);

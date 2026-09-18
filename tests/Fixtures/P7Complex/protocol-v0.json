@@ -32,6 +32,6 @@
     "randomAlgorithmVersion": "splitmix64+xoshiro256ss/v1",
     "randomCallSchemaVersion": 4,
     "canonicalStateVersion": 10,
-    "effectLanguageVersion": 4
+    "effectLanguageVersion": 5
   }
 }

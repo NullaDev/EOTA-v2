@@ -33,7 +33,7 @@ GameApp.DeckWorkshop 负责卡组列表、职业选择和编辑流程，DesktopD
 
 DeckTile 的 Delete 按钮用于删除已保存自建卡组及新建草稿，确认后同步文件和列表；默认模板保留。DesktopDeckStore 使用独立于名称的文件标识，重命名不会留下旧文件。构筑数量、卡池、填入默认牌组、保存校验均读取当前协议；改变协议保留原草稿，不合法项标红。ProtocolPage 的“构筑与疲劳”提供张数、副本上下限、三种职业规则和三种疲劳策略。HostSetup 只选择自己的参考牌组，OpponentDeck 固定显示由对方加入后选择。
 
-四职业介绍由 [GameApp.DeckWorkshop.cs](../GameApp.DeckWorkshop.cs) 中的 ProfessionDescription 定义，分别说明守护者、奥术师、猎人与工匠的背景及战术。ProfessionPicker 的说明区域为 222 像素高，使用 22 像素文字，容纳完整介绍。
+四职业介绍由 [GameApp.DeckWorkshop.cs](../GameApp.DeckWorkshop.cs) 中的 ProfessionDescription 定义，分别说明守卫、奥术师、猎人与工匠的背景及战术。ProfessionPicker 的说明区域为 222 像素高，使用 22 像素文字，容纳完整介绍。
 
 规划预览单独注册，真实战场实体继续按 EntityId 绑定。替换预览临时遮住原实体，取消后恢复；其他玩家和观战者不能看到这些私有规划。SpellPlans 为每张法术实例化 SpellPlanIcon，三张慢速法术显示三个沙漏。悬停预览对应卡牌，提交前点击按 PlanCommandId 撤回该张，图标不向路线透传点击；更多法术可横向滚动，保留逐张操作。
 

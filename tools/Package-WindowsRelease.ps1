@@ -12,7 +12,7 @@ if (!$Version) {
     $Version = $match.Groups[1].Value
 }
 if ($Version -notmatch '^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(-[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?$') {
-    throw 'Version must use major.minor.patch with an optional prerelease suffix, for example 1.0.0-prerelease.'
+    throw 'Version must use major.minor.patch with an optional prerelease suffix, for example 1.1.0-pre-release.'
 }
 $GodotPath = (Resolve-Path -LiteralPath $GodotPath).Path
 if (!$OutputDirectory) { $OutputDirectory = Join-Path $repositoryRoot 'exports' }

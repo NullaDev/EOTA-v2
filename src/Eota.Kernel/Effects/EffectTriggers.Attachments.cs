@@ -15,6 +15,7 @@ public static partial class EffectTriggers
         foreach (var fact in frame.Events.Events)
         {
             var leaving = fact.Kind is DomainEventKind.EntityDied or DomainEventKind.EntityLeft;
+            if (fact.Kind == DomainEventKind.EntityHealed && !frame.State.Entities.Any(value => value.Id == fact.EntityId)) { continue; }
             var entity = frame.State.Entities.SingleOrDefault(value => value.Id == fact.EntityId)
                 ?? frame.State.Tombstones.SingleOrDefault(value => value.EntityId == fact.EntityId)?.FinalEntity;
             var owner = entity?.ControllerId ?? fact.PlayerId;
@@ -37,11 +38,12 @@ public static partial class EffectTriggers
                         EffectTriggerKind.FriendlyCombat => fact.Kind == DomainEventKind.CombatDeclared && owner == player.Id,
                         EffectTriggerKind.EnemyCombat => fact.Kind == DomainEventKind.CombatDeclared && owner == player.Id.Opponent,
                         EffectTriggerKind.FriendlySpellCast => fact.Kind == DomainEventKind.SpellResolved && owner == player.Id,
+                        EffectTriggerKind.FriendlyHealed => fact.Kind == DomainEventKind.EntityHealed && owner == player.Id && fact.CurrentValue > 0,
+                        EffectTriggerKind.FriendlyHeroHealed => fact.Kind == DomainEventKind.HeroHealed && owner == player.Id && fact.CurrentValue > 0,
                         _ => false
                     };
-                    if (matches && (trigger.Scope == SelectionScope.All || lane == attached.Origin.LaneId)
-                        && (trigger.SubjectType is null || trigger.SubjectType == EffectTargetType.Minion && entity is MinionEntityState
-                            || trigger.SubjectType == EffectTargetType.Field && entity is FieldEntityState))
+                    if (matches && (fact.Kind == DomainEventKind.HeroHealed || trigger.Scope == SelectionScope.All || lane == attached.Origin.LaneId)
+                        && SubjectMatches(trigger.SubjectType, entity, fact))
                     {
                         results.Add(new EffectInvocation(attached.Origin with { ControllerId = player.Id, FrozenEntity = null }, definition, fact, entity,
                         EventPrototypeId: frame.State.Tombstones.SingleOrDefault(value => value.Id == fact.TombstoneId)?.PrototypeId is { } leftPrototype && leaving

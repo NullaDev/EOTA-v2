@@ -38,7 +38,7 @@ public sealed class P9DesktopTests
     public async Task DesktopLocalRemoteAndReplayAgreeIncludingMulliganCancelAndResync()
     {
         var catalog = new DesktopCatalog(Fixture.Root);
-        Assert.Equal(230, catalog.Cards.Length);
+        Assert.Equal(282, catalog.Cards.Length);
         foreach (var profession in new[] { "Guardian", "Arcanist", "Artisan", "Hunter" })
         { Assert.Empty(catalog.ValidateDeck(catalog.DefaultDeck(profession))); }
         var settings = new LocalMatchSettings(146, 6, 30, true);

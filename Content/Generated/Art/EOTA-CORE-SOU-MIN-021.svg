@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#397c7c"/><stop offset="1" stop-color="#102b33"/></linearGradient></defs>
+  <rect width="512" height="512" rx="32" fill="url(#bg)"/>
+  <circle cx="256" cy="250" r="177" fill="#ffffff" fill-opacity=".07"/>
+  <circle cx="256" cy="250" r="187" fill="none" stroke="#ffffff" stroke-opacity=".18" stroke-width="2"/>
+  <text x="256" y="330" text-anchor="middle" font-size="220" font-family="Segoe UI Emoji,Apple Color Emoji,Noto Color Emoji,sans-serif">🧙</text>
+</svg>

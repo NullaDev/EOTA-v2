@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-SOU-MIN-010",
+  "source": "core",
+  "profession": "soulweaver",
+  "kind": "minion",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-010.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-010.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-010.png",
+  "attack": 4,
+  "health": 5,
+  "keywords": [],
+  "effects": [
+    {
+      "id": "selfEntered",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "damage",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "amount": 3
+      }
+    },
+    {
+      "id": "selfDied",
+      "trigger": {
+        "kind": "selfDied"
+      },
+      "body": {
+        "kind": "heal",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "amount": 3
+      }
+    }
+  ]
+}

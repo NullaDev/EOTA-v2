@@ -13,6 +13,7 @@ public sealed class ProtocolCompilerTests
         Assert.Throws<ArgumentException>(() => CompiledGameProtocol.Compile(original with { RandomCallSchemaVersion = 2 }));
         Assert.Throws<ArgumentException>(() => CompiledGameProtocol.Compile(original with { CanonicalStateVersion = 5 }));
         Assert.Throws<ArgumentException>(() => CompiledGameProtocol.Compile(original with { EffectLanguageVersion = 1 }));
+        Assert.Throws<ArgumentException>(() => CompiledGameProtocol.Compile(original with { EffectLanguageVersion = 4 }));
     }
 
     [Fact]

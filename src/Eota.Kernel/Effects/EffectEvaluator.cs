@@ -231,6 +231,8 @@ public static partial class EffectEvaluator
             }
             if (selector.Kind == SelectorKind.EventSubject)
             {
+                if (Invocation.Event is { Kind: DomainEventKind.HeroHealed, PlayerId: { } healedPlayer })
+                { return [new EffectTarget(EffectTargetType.Hero, healedPlayer.Value)]; }
                 var entity = state.Entities.SingleOrDefault(value => value.Id == Invocation.Event?.EntityId);
                 return entity is null ? [] : [EntityTarget(entity)];
             }

@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "protocolId": "eota.test.initial-replay",
   "protocolVersion": 0,
-  "protocolHash": "93227578a68ad5e6daf55b8d5a670d00473aeed5783d31941f867808df8a885f",
+  "protocolHash": "948e2b95e569c30932d5ccd3f0ac27a3fb869a5890798b2de99207d9deb30d35",
   "contentSchemaVersion": "eota.card/v2",
   "ruleContentHash": "1369bbf2b787b0e6ce2146e03771fa696e5693f41ac71795b0f221ccebfe7d5d",
   "matchSeed": 123456789,
@@ -32,6 +32,6 @@
       }
     ]
   },
-  "expectedInitialStateHash": "8e31cf522681bbc045f2c8d75c9ffaf484c86d2fe437ac073e58574bfda3c7ef",
+  "expectedInitialStateHash": "050e84d07a5f427c97c1ec7812abeeeb2d93fe3940c0faa92c95a4e3ffb3e7cf",
   "expectedRngSampleCount": 6
 }

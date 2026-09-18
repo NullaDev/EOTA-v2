@@ -36,7 +36,8 @@ internal sealed class EffectCompiler(CardKind cardKind, bool hasLane)
                 Properties(trigger, path + ".trigger", "kind", "scope", "subjectType", "otherOnly");
                 compiler._trigger = EnumValue<EffectTriggerKind>(String(trigger, "kind", path + ".trigger"), path + ".trigger.kind");
                 compiler._subjectType = trigger.TryGetProperty("subjectType", out _) ? EnumValue<EffectTargetType>(String(trigger, "subjectType", path), path + ".trigger.subjectType")
-                    : compiler._trigger is EffectTriggerKind.SelfDamaged or EffectTriggerKind.Combat or EffectTriggerKind.Attack
+                    : compiler._trigger == EffectTriggerKind.FriendlyHeroHealed ? EffectTargetType.Hero
+                    : compiler._trigger is EffectTriggerKind.SelfDamaged or EffectTriggerKind.SelfHealed or EffectTriggerKind.FriendlyHealed or EffectTriggerKind.Combat or EffectTriggerKind.Attack
                         or EffectTriggerKind.FriendlyCombat or EffectTriggerKind.EnemyCombat or EffectTriggerKind.EnemyAttack or EffectTriggerKind.CombatDamage or EffectTriggerKind.MinionCombat ? EffectTargetType.Minion
                     : compiler._trigger is EffectTriggerKind.SelfEntered or EffectTriggerKind.SelfDied or EffectTriggerKind.SelfLeft or EffectTriggerKind.ReplacementEntered
                         ? card.Kind == CardKind.Minion ? EffectTargetType.Minion : EffectTargetType.Field : null;
@@ -46,8 +47,11 @@ internal sealed class EffectCompiler(CardKind cardKind, bool hasLane)
                 if (!attached && (compiler._trigger == EffectTriggerKind.SelfSpellCast) != (card.Kind == CardKind.Spell)
                     && (compiler._trigger == EffectTriggerKind.SelfSpellCast || card.Kind == CardKind.Spell))
                 { throw new EffectCompileException("invalid-trigger-source", path + ".trigger", "Spells use selfSpellCast; battlefield triggers need an entity source."); }
-                if (compiler._trigger is EffectTriggerKind.SelfDamaged or EffectTriggerKind.CombatDamage && card.Kind != CardKind.Minion)
-                { throw new EffectCompileException("invalid-trigger-source", path + ".trigger", "Self damage requires a minion."); }
+                if (compiler._trigger is EffectTriggerKind.SelfDamaged or EffectTriggerKind.SelfHealed or EffectTriggerKind.CombatDamage && card.Kind != CardKind.Minion)
+                { throw new EffectCompileException("invalid-trigger-source", path + ".trigger", "Self damage and healing require a minion."); }
+                if (compiler._trigger is EffectTriggerKind.SelfHealed or EffectTriggerKind.FriendlyHealed && compiler._subjectType != EffectTargetType.Minion
+                    || compiler._trigger == EffectTriggerKind.FriendlyHeroHealed && compiler._subjectType != EffectTargetType.Hero)
+                { throw new EffectCompileException("invalid-trigger-subject", path + ".trigger.subjectType", "Healing triggers require their matching minion or hero subject type."); }
                 var scope = Scope(trigger, path + ".trigger");
                 if (scope is not (SelectionScope.Lane or SelectionScope.All))
                 { throw new EffectCompileException("invalid-trigger-scope", path + ".trigger.scope", "Trigger scopes are lane or all; adjacent and otherLanes are selector scopes."); }
@@ -156,7 +160,8 @@ internal sealed class EffectCompiler(CardKind cardKind, bool hasLane)
                     { throw new EffectCompileException("invalid-attached-trigger", path + ".effect.trigger", "Attached effects use battlefield or player observation triggers."); }
                     if (receiver.Type == EffectTargetType.Hero && definitions[0].Trigger.Kind is not (EffectTriggerKind.FriendlyDied or EffectTriggerKind.EnemyDied
                         or EffectTriggerKind.FriendlyLeft or EffectTriggerKind.EnemyLeft or EffectTriggerKind.FriendlyEntered or EffectTriggerKind.EnemyEntered
-                        or EffectTriggerKind.EnemyAttack or EffectTriggerKind.FriendlySpellCast or EffectTriggerKind.FriendlyCombat or EffectTriggerKind.EnemyCombat or EffectTriggerKind.TurnEnd))
+                        or EffectTriggerKind.EnemyAttack or EffectTriggerKind.FriendlySpellCast or EffectTriggerKind.FriendlyCombat or EffectTriggerKind.EnemyCombat or EffectTriggerKind.TurnEnd
+                        or EffectTriggerKind.FriendlyHealed or EffectTriggerKind.FriendlyHeroHealed))
                     { throw new EffectCompileException("invalid-player-trigger", path + ".effect.trigger", "Player attachments require an observer or turn-end trigger."); }
                     return new GrantEffect(receiver.Selector, definitions[0], value.TryGetProperty("duration", out var attachedDuration)
                         ? Expression(attachedDuration, path + ".duration", targetType) : null);
@@ -358,7 +363,7 @@ internal sealed class EffectCompiler(CardKind cardKind, bool hasLane)
             _ => null
         };
         if (type is null) { throw new EffectCompileException("invalid-selector-scope", path, "Selector has no typed source/target in this context."); }
-        if (!hasLane && scope != SelectionScope.All && !previous && type != EffectTargetType.Card && kind is not (SelectorKind.FriendlyHero or SelectorKind.EnemyHero or SelectorKind.Targets))
+        if (!hasLane && scope != SelectionScope.All && !previous && type is not (EffectTargetType.Card or EffectTargetType.Hero) && kind != SelectorKind.Targets)
         { throw new EffectCompileException("invalid-selector-scope", path, "Global spells must select all lanes explicitly."); }
         var cardFilter = value.TryGetProperty("filter", out var filterJson) ? Filter(filterJson, path + ".filter") : null;
         if (cardFilter is not null && type is not (EffectTargetType.Minion or EffectTargetType.Field or EffectTargetType.Card))
@@ -390,7 +395,8 @@ internal sealed class EffectCompiler(CardKind cardKind, bool hasLane)
                 "previous.scalar" or "previous.affectedCount" or "previous.createdCount" or "previous.removedCount" => _previousAvailable,
                 "loop.index" => _loopAvailable,
                 "lane.ether" => hasLane,
-                "event.amount" => _trigger is EffectTriggerKind.SelfDamaged or EffectTriggerKind.CombatDamage,
+                "event.amount" => _trigger is EffectTriggerKind.SelfDamaged or EffectTriggerKind.CombatDamage
+                    or EffectTriggerKind.SelfHealed or EffectTriggerKind.FriendlyHealed or EffectTriggerKind.FriendlyHeroHealed,
                 "event.attack" or "event.health" or "event.maxHealth" or "event.slow" => _subjectType == EffectTargetType.Minion,
                 "event.energy" => _subjectType == EffectTargetType.Field,
                 "replaced.attack" or "replaced.health" or "replaced.maxHealth" => _trigger == EffectTriggerKind.ReplacementEntered && cardKind == CardKind.Minion,

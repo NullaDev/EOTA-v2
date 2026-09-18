@@ -124,7 +124,7 @@ public static class ObserverProjector
         foreach (var value in frame.Events.Events)
         {
             // Explicitly review each new domain-event family before making it public.
-            var visible = value.Kind is DomainEventKind.HeroHealthChanged or DomainEventKind.HeroMaximumHealthChanged
+            var visible = value.Kind is DomainEventKind.HeroHealthChanged or DomainEventKind.HeroMaximumHealthChanged or DomainEventKind.HeroHealed
                 or DomainEventKind.EntityStatsChanged or DomainEventKind.EntityDamaged or DomainEventKind.EntityHealed
                 or DomainEventKind.FieldEnergyChanged or DomainEventKind.EntityDied or DomainEventKind.EntityLeft
                 or DomainEventKind.MatchEnded or DomainEventKind.EntityEntered or DomainEventKind.EntityMoved

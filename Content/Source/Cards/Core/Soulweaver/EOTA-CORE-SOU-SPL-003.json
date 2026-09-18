@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-SOU-SPL-003",
+  "source": "core",
+  "profession": "soulweaver",
+  "kind": "spell",
+  "cost": 1,
+  "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-003.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-003.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-003.png",
+  "speed": "fast",
+  "targetScope": "lane",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "ifElse",
+        "condition": {
+          "kind": "exists",
+          "target": {
+            "kind": "friendlyMinions"
+          }
+        },
+        "then": {
+          "kind": "parallel",
+          "children": [
+            {
+              "kind": "modifyNumber",
+              "target": {
+                "kind": "friendlyMinions"
+              },
+              "amount": 1,
+              "attribute": "attack",
+              "operation": "add"
+            },
+            {
+              "kind": "grantEffect",
+              "target": {
+                "kind": "friendlyMinions"
+              },
+              "effect": {
+                "id": "selfDied",
+                "trigger": {
+                  "kind": "selfDied"
+                },
+                "body": {
+                  "kind": "summon",
+                  "target": {
+                    "kind": "friendlyLanes"
+                  },
+                  "prototype": "EOTA-TOKEN-SOU-MIN-001"
+                }
+              }
+            }
+          ]
+        },
+        "else": {
+          "kind": "summon",
+          "target": {
+            "kind": "friendlyLanes"
+          },
+          "prototype": "EOTA-TOKEN-SOU-MIN-001"
+        }
+      }
+    }
+  ]
+}

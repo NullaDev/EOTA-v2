@@ -120,7 +120,7 @@
       const profession = recipe.profession ?? recipe.Profession
         ?? Object.keys(palettes).find(id => palettes[id].top === (recipe.top ?? recipe.Top) && palettes[id].bottom === (recipe.bottom ?? recipe.Bottom))
         ?? 'neutral';
-      if (!palettes[profession]) throw new Error('配置中的职业无效，请使用 neutral、guardian、arcanist、artisan 或 hunter。');
+      if (!palettes[profession]) throw new Error(`配置中的职业无效，可用值：${Object.keys(palettes).join('、')}。`);
       $('profession').value = profession;
       $('style').value = recipe.style ?? recipe.Style ?? 'card'; $('name').value = id;
       activeFusion = result; modeChanged(); refresh();

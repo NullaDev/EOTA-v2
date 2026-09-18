@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-SOU-FLD-009",
+  "source": "core",
+  "profession": "soulweaver",
+  "kind": "field",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-SOU-FLD-009.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-SOU-FLD-009.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-FLD-009.png",
+  "lifetime": {
+    "kind": "finite",
+    "energy": 1
+  },
+  "effects": [
+    {
+      "id": "selfEntered",
+      "trigger": {
+        "kind": "selfEntered"
+      },
+      "body": {
+        "kind": "summon",
+        "target": {
+          "kind": "friendlyLanes"
+        },
+        "prototype": "EOTA-TOKEN-SOU-MIN-001"
+      }
+    },
+    {
+      "id": "selfDied",
+      "trigger": {
+        "kind": "selfDied"
+      },
+      "body": {
+        "kind": "summon",
+        "target": {
+          "kind": "friendlyLanes"
+        },
+        "prototype": "EOTA-TOKEN-SOU-MIN-002"
+      }
+    }
+  ]
+}

@@ -420,6 +420,12 @@ internal sealed partial class ReductionContext
                 currentHealth,
                 "health"));
         }
+        // Record actual restoration independently of the net health delta.
+        if (actualHealing > 0)
+        {
+            AddEvent(new EventDraft(DomainEventKind.HeroHealed, null, playerId, null, null,
+                TryInt64(actualHealing, out var eventHealing) ? eventHealing : null, "heal"));
+        }
     }
 
     public void ReduceMinion(IntentConflictGroup group)

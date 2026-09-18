@@ -150,9 +150,9 @@ public sealed class P95AiTests
     [InlineData(AiDifficulty.Easy, AiDifficulty.Normal, 146UL)]
     [InlineData(AiDifficulty.Normal, AiDifficulty.Easy, 2026UL)]
     [InlineData(AiDifficulty.Hard, AiDifficulty.Normal, 146UL)]
-    public async Task AllSixteenProfessionPairingsCompleteThroughOrdinaryClients(AiDifficulty oneDifficulty, AiDifficulty twoDifficulty, ulong seed)
+    public async Task AllTwentyFiveProfessionPairingsCompleteThroughOrdinaryClients(AiDifficulty oneDifficulty, AiDifficulty twoDifficulty, ulong seed)
     {
-        string[] professions = ["Guardian", "Arcanist", "Artisan", "Hunter"];
+        string[] professions = ["Guardian", "Arcanist", "Artisan", "Hunter", "Soulweaver"];
         var results = new List<object>();
         foreach (var one in professions)
         {

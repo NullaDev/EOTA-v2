@@ -35,7 +35,7 @@ public sealed class P8ContentTests
     [MemberData(nameof(Cards))]
     public void EveryCardCanBePlannedAndResolveThreeTurns(string prototype)
     {
-        var state = Create(opening: Rules.Cards.Length);
+        var state = Create(include: new CardPrototypeId(prototype), opening: 234);
         var card = state.CardInstances.Single(value => value.OwnerId == PlayerId.One && value.CurrentPrototypeId.Value == prototype);
         Rules.TryGetCard(card.CurrentPrototypeId, out var definition);
         AuthoritativeCommand command = definition is SpellCardDefinition spell
@@ -63,8 +63,8 @@ public sealed class P8ContentTests
         using var json = JsonDocument.Parse(scenarioJson);
         var scenario = json.RootElement; var setup = scenario.GetProperty("setup");
         long Option(string key, long fallback = 0) => setup.TryGetProperty(key, out var value) ? value.GetInt64() : fallback;
-        var state = Create(handLimit: (int)Option("handLimit", 200));
         var prototype = new CardPrototypeId(scenario.GetProperty("cardId").GetString()!);
+        var state = Create(include: prototype, handLimit: (int)Option("handLimit", 200));
         Rules.TryGetCard(prototype, out var definition);
         var friendlyPrototype = Option("friendlySoldier") == 1 ? new CardPrototypeId("EOTA-CORE-GUA-MIN-001") : Option("nonMechanical") == 1 ? Other : Friend;
         if (definition is MinionCardDefinition) { state = Summon(state, prototype, PlayerId.One, 0); }
@@ -107,9 +107,9 @@ public sealed class P8ContentTests
         var sourceCard = sourceEntity?.CardInstanceId ?? state.CardInstances.First(value => value.OwnerId == PlayerId.One && value.CurrentPrototypeId == prototype).Id;
         var trigger = Enum.Parse<EffectTriggerKind>(scenario.GetProperty("trigger").GetString()!, true);
         var effect = Assert.Single(definition!.Effects.Where(value => value.Trigger.Kind == trigger));
-        var eventEntity = trigger is EffectTriggerKind.FriendlyEntered or EffectTriggerKind.FriendlyCombat or EffectTriggerKind.FriendlyDied
+        var eventEntity = trigger is EffectTriggerKind.FriendlyEntered or EffectTriggerKind.FriendlyCombat or EffectTriggerKind.FriendlyDied or EffectTriggerKind.FriendlyHealed
             ? state.Entities.SingleOrDefault(value => value.Id == state.Lanes[0].PlayerOne.MinionEntityId)
-            : trigger is EffectTriggerKind.SelfDied or EffectTriggerKind.SelfDamaged or EffectTriggerKind.CombatDamage or EffectTriggerKind.MinionCombat
+            : trigger is EffectTriggerKind.SelfDied or EffectTriggerKind.SelfHealed or EffectTriggerKind.SelfDamaged or EffectTriggerKind.CombatDamage or EffectTriggerKind.MinionCombat
                 ? sourceEntity : state.Entities.SingleOrDefault(value => value.Id == state.Lanes[0].PlayerTwo.MinionEntityId);
         var enemyId = state.Lanes[0].PlayerTwo.MinionEntityId;
         if (Option("death") == 1 || Option("friendlyDeath") == 1)
@@ -176,6 +176,9 @@ public sealed class P8ContentTests
             "friendlyMaxHealth" => f!.MaximumHealth,
             "enemyAttack" => e!.Attack,
             "enemyHealth" => e!.CurrentHealth,
+            "enemyMaxHealth" => e!.MaximumHealth,
+            "enemyPrototype" => state.CardInstances.Single(c => c.Id == e!.CardInstanceId).CurrentPrototypeId.Value,
+            "adjacentAttached" => Minion(PlayerId.One, 1)!.AttachedEffects.Length,
             "enemySlow" => e!.SlowTurnsRemaining,
             "adjacentAttack" => Minion(PlayerId.One, 1)!.Attack,
             "adjacentMaxHealth" => Minion(PlayerId.One, 1)!.MaximumHealth,
@@ -210,12 +213,15 @@ public sealed class P8ContentTests
         return Convert.ToString(value, CultureInfo.InvariantCulture)!;
     }
 
-    private static MatchState Create(int opening = 0, int handLimit = 260)
+    private static MatchState Create(CardPrototypeId? include = null, int opening = 0, int handLimit = 500)
     {
+        // Keep the original draw fixture stable and add only the card under test.
+        // A content catalog can grow beyond the protocol's 256-card deck limit.
+        var cards = Rules.Cards.Where(card => card.Profession != Profession.Soulweaver || card.Id == include).ToArray();
         var protocol = CompiledGameProtocol.Compile(GameProtocolDefinition.DefaultV0 with
         {
-            RequiredDeckSize = Rules.Cards.Length,
-            OpeningHandSize = opening,
+            RequiredDeckSize = cards.Length,
+            OpeningHandSize = Math.Min(opening, cards.Length),
             HandLimit = handLimit,
             InitialPlayerCost = 100,
             InitialMaxCost = 100,
@@ -224,7 +230,7 @@ public sealed class P8ContentTests
             CardsDrawnPerTurn = 0,
             DeckConstructionPolicy = DeckConstructionPolicy.DevelopmentAnySource
         });
-        var deck = DeckDefinition.Create(Profession.Neutral, Rules.Cards.Select(card => new DeckEntry(card.Id, 1)));
+        var deck = DeckDefinition.Create(Profession.Neutral, cards.Select(card => new DeckEntry(card.Id, 1)));
         var state = MatchFactory.Create(new(protocol, Rules, 123456789, deck, deck)).State!;
         return state with { Players = state.Players.SetItem(0, state.Players[0] with { HeroHealth = 90 }) };
     }

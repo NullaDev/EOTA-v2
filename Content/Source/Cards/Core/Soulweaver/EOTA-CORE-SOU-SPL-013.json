@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-SOU-SPL-013",
+  "source": "core",
+  "profession": "soulweaver",
+  "kind": "spell",
+  "cost": 4,
+  "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-013.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-013.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-013.png",
+  "speed": "fast",
+  "targetScope": "global",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "friendlyMinions",
+              "scope": "all",
+              "filter": {
+                "tag": "undead"
+              }
+            },
+            "amount": 1,
+            "attribute": "attack",
+            "operation": "add",
+            "duration": 1
+          },
+          {
+            "kind": "addKeyword",
+            "target": {
+              "kind": "friendlyMinions",
+              "scope": "all",
+              "filter": {
+                "tag": "undead"
+              }
+            },
+            "keyword": "swift",
+            "duration": 1
+          },
+          {
+            "kind": "removeKeyword",
+            "target": {
+              "kind": "friendlyMinions",
+              "scope": "all",
+              "filter": {
+                "tag": "undead"
+              }
+            },
+            "keyword": "guard",
+            "duration": 1
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -850,5 +850,202 @@
         "Copies": 2
       }
     ]
+  },
+  {
+    "Name": "亡灵换防",
+    "Profession": "Soulweaver",
+    "Description": "以死亡能力留下游魂与僵尸，荒冢灵龛前后接续阵地，催魂令与驱役号令组织亡灵进攻。",
+    "Cards": [
+      {
+        "Id": "EOTA-CORE-SOU-MIN-001",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-MIN-002",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-MIN-003",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-MIN-007",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-MIN-023",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-FLD-001",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-SPL-003",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-SPL-004",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-SPL-013",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-MIN-008",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-SOU-MIN-024",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-SOU-MIN-025",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-SOU-SPL-009",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-SOU-FLD-009",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-SPL-018",
+        "Copies": 2
+      }
+    ]
+  },
+  {
+    "Name": "殉道祭仪",
+    "Profession": "Soulweaver",
+    "Description": "索命怨灵负责解场换防，遗愿容器提供资源，焚愿怨灵配合献躯燃魂或催魂令将死亡收益转为进攻。",
+    "Cards": [
+      {
+        "Id": "EOTA-CORE-SOU-MIN-001",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-MIN-002",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-MIN-004",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-MIN-008",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-MIN-016",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-FLD-005",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-FLD-006",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-SPL-001",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-SPL-010",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-FLD-008",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-SOU-SPL-009",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-SOU-MIN-026",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-SPL-016",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-SPL-018",
+        "Copies": 3
+      }
+    ]
+  },
+  {
+    "Name": "缝魂逆祷",
+    "Profession": "Soulweaver",
+    "Description": "汲魂缝合兼顾解场与治疗，通过使徒传递治疗、逆祷修士解场、布道者压低敌方英雄生命。",
+    "Cards": [
+      {
+        "Id": "EOTA-CORE-SOU-MIN-010",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-MIN-013",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-MIN-015",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-MIN-017",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-MIN-018",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-FLD-002",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-FLD-003",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-SPL-002",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-SPL-004",
+        "Copies": 3
+      },
+      {
+        "Id": "EOTA-CORE-SOU-MIN-014",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-SOU-MIN-019",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-SOU-MIN-020",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-SOU-SPL-014",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-SOU-SPL-015",
+        "Copies": 2
+      },
+      {
+        "Id": "EOTA-CORE-SOU-SPL-017",
+        "Copies": 3
+      }
+    ]
   }
 ]

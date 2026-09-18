@@ -86,7 +86,7 @@ internal static class Ui
         CustomMinimumSize = new Vector2(size, size),
         MouseFilter = Control.MouseFilterEnum.Ignore
     };
-    public static string Profession(string value) => value switch { "Guardian" => "守护者", "Arcanist" => "奥术师", "Artisan" => "工匠", "Hunter" => "猎人", _ => "中立" };
+    public static string Profession(string value) => value switch { "Guardian" => "守卫", "Arcanist" => "奥术师", "Artisan" => "工匠", "Hunter" => "猎人", "Soulweaver" => "灵魂使", _ => "中立" };
     public static string Reason(string code) => code switch
     {
         "None" => "可以放置",

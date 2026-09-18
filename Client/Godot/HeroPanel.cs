@@ -8,7 +8,7 @@ public partial class HeroPanel : Panel
     public void Bind(PublicPlayerView player)
     {
         GetNode<Label>("Profession").Text = Ui.Profession(player.Profession);
-        GetNode<Label>("Crest").Text = player.Profession switch { "Guardian" => "♜", "Arcanist" => "✦", "Artisan" => "⚒", "Hunter" => "➶", _ => "◇" };
+        GetNode<Label>("Crest").Text = player.Profession switch { "Guardian" => "♜", "Arcanist" => "✦", "Artisan" => "⚒", "Hunter" => "➶", "Soulweaver" => "☽", _ => "◇" };
         GetNode<Label>("Seat").Text = $"玩家 {player.PlayerId + 1}";
         GetNode<Label>("Health/Value").Text = player.HeroHealth.ToString();
         GetNode<Control>("Health").TooltipText = $"生命 {player.HeroHealth}/{player.HeroMaximumHealth}";

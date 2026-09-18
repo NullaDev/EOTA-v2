@@ -28,7 +28,7 @@ public partial class GameApp
             var manager = builder.GetNode<Control>("Manager"); var editor = builder.GetNode<Control>("Editor");
             var picker = builder.GetNode<Control>("ProfessionPicker");
             await CaptureInteraction("deck-library");
-            foreach (var index in Enumerable.Range(0, 4))
+            foreach (var index in Enumerable.Range(0, Professions.Length))
             {
                 manager.GetNode<Button>("New").EmitSignal(BaseButton.SignalName.Pressed);
                 picker.GetNode<Button>("Panel/Professions/" + Professions[index]).EmitSignal(BaseButton.SignalName.Pressed);
@@ -131,7 +131,7 @@ public partial class GameApp
             if (lastLane.GetGlobalRect().End.X > board.GetGlobalRect().End.X + 1
                 || _hand.GetChildCount() != 10 || _hand.GetChild<Control>(9).GetGlobalRect().End.X > hand.GetGlobalRect().End.X + 1)
             { throw new InvalidOperationException("Last lane or hand card is unreachable by scrolling."); }
-            GD.Print($"P9_UI_REVIEW_SMOKE_OK prototypes={prototypes.Length} decks=4 manager=verified professions=described drafts=retained ether=per-player hosting=available layouts=6,12 hand=10 scroll=end turn=5");
+            GD.Print($"P9_UI_REVIEW_SMOKE_OK prototypes={prototypes.Length} decks={Professions.Length} manager=verified professions=described drafts=retained ether=per-player hosting=available layouts=6,12 hand=10 scroll=end turn=5");
             await CloseSession(); GetTree().Quit();
         }
         catch (Exception error) { _busy = false; GD.PushError(error.ToString()); await CloseSession(); GetTree().Quit(1); }

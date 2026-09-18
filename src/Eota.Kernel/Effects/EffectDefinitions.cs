@@ -7,7 +7,8 @@ public enum EffectTriggerKind
 {
     SelfEntered, FriendlyEntered, EnemyEntered, SelfSpellCast, FriendlySpellCast, SelfDamaged, Combat, Attack, TurnEnd,
     SelfDied, SelfLeft, FriendlyDied, EnemyDied, FriendlyLeft, EnemyLeft, FriendlyCombat, EnemyCombat, EnemyAttack, ReplacementEntered,
-    PreCombatCharge, EndTurnCharge, CombatDamage, EntryStage, CombatStage, MinionCombat
+    PreCombatCharge, EndTurnCharge, CombatDamage, EntryStage, CombatStage, MinionCombat,
+    SelfHealed, FriendlyHealed, FriendlyHeroHealed
 }
 public enum SelectionScope { Lane, All, Adjacent, OtherLanes }
 public enum SelectorKind

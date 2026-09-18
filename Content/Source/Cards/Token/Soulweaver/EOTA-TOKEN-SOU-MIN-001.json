@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-TOKEN-SOU-MIN-001",
+  "source": "token",
+  "profession": "soulweaver",
+  "kind": "minion",
+  "cost": 1,
+  "nameLocalizationKey": "card.EOTA-TOKEN-SOU-MIN-001.name",
+  "descriptionLocalizationKey": "card.EOTA-TOKEN-SOU-MIN-001.description",
+  "texturePath": "Content/Generated/Art/EOTA-TOKEN-SOU-MIN-001.png",
+  "attack": 1,
+  "health": 1,
+  "keywords": [
+    "swift"
+  ],
+  "tags": [
+    "undead"
+  ],
+  "effects": [
+    {
+      "id": "turnEnd",
+      "trigger": {
+        "kind": "turnEnd"
+      },
+      "body": {
+        "kind": "kill",
+        "target": {
+          "kind": "self"
+        }
+      }
+    }
+  ]
+}

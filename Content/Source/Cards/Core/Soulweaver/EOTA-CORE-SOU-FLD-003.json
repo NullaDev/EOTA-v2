@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-SOU-FLD-003",
+  "source": "core",
+  "profession": "soulweaver",
+  "kind": "field",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-SOU-FLD-003.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-SOU-FLD-003.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-FLD-003.png",
+  "lifetime": {
+    "kind": "finite",
+    "energy": 3
+  },
+  "effects": [
+    {
+      "id": "friendlyHealed",
+      "trigger": {
+        "kind": "friendlyHealed"
+      },
+      "body": {
+        "kind": "parallel",
+        "children": [
+          {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "eventSubject"
+            },
+            "amount": 1,
+            "attribute": "attack",
+            "operation": "add"
+          },
+          {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "eventSubject"
+            },
+            "amount": 1,
+            "attribute": "maximumHealth",
+            "operation": "add"
+          }
+        ]
+      }
+    }
+  ]
+}

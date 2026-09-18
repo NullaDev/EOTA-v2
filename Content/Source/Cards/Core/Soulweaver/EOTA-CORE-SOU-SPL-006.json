@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-SOU-SPL-006",
+  "source": "core",
+  "profession": "soulweaver",
+  "kind": "spell",
+  "cost": 3,
+  "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-006.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-006.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-006.png",
+  "speed": "slow",
+  "targetScope": "lane",
+  "effects": [
+    {
+      "id": "selfSpellCast",
+      "trigger": {
+        "kind": "selfSpellCast"
+      },
+      "body": {
+        "kind": "retarget",
+        "target": {
+          "kind": "enemyMinions"
+        },
+        "body": {
+          "kind": "sequence",
+          "steps": [
+            {
+              "kind": "grantEffect",
+              "target": {
+                "kind": "targets"
+              },
+              "effect": {
+                "id": "selfDied",
+                "trigger": {
+                  "kind": "selfDied"
+                },
+                "body": {
+                  "kind": "damage",
+                  "target": {
+                    "kind": "friendlyHero"
+                  },
+                  "amount": 3
+                }
+              }
+            },
+            {
+              "kind": "damage",
+              "target": {
+                "kind": "targets"
+              },
+              "amount": 3
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

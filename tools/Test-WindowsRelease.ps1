@@ -1,7 +1,7 @@
 param(
     [Parameter(Mandatory = $true)][string]$ArchivePath,
-    [ValidateSet('startup', 'local', 'scenes', 'ai', 'ui', 'hosting')]
-    [string[]]$Checks = @('startup', 'local', 'scenes', 'ai', 'ui', 'hosting')
+    [ValidateSet('startup', 'local', 'scenes', 'ai', 'ui', 'decks', 'hosting')]
+    [string[]]$Checks = @('startup', 'local', 'scenes', 'ai', 'ui', 'decks', 'hosting')
 )
 $ErrorActionPreference = 'Stop'
 $repositoryRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
@@ -75,6 +75,10 @@ try {
     if ($Checks -contains 'ui') {
         $ui = Start-ReleaseCheck 'ui' '--resolution 1280x800 -- --smoke-ui-review'
         Confirm-ReleaseCheck $ui 'ui' 'P9_UI_REVIEW_SMOKE_OK' 90
+    }
+    if ($Checks -contains 'decks') {
+        $decks = Start-ReleaseCheck 'decks' '--resolution 1280x800 -- --smoke-p10-decks'
+        Confirm-ReleaseCheck $decks 'decks' 'P10_DECK_PROTOCOL_SMOKE_OK'
     }
     if ($Checks -contains 'hosting') {
         $invitation = Join-Path $workDirectory 'invitation.tmp'

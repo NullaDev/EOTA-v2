@@ -192,6 +192,12 @@ public partial class GameApp
         Render(frame.View);
         foreach (var value in frame.Events)
         {
+            if (value.Kind == "HeroHealed" && value.PlayerId is { } healedPlayer && value.CurrentValue is > 0)
+            {
+                var own = frame.View.Private?.PlayerId ?? 0;
+                var hero = _heroes[healedPlayer == own ? 0 : 1];
+                FloatText("治疗 +" + value.CurrentValue, hero.GetGlobalRect().GetCenter(), Ui.Accent);
+            }
             if (value.EntityId is { } id && _registry.TryGetValue(id, out var tile))
             {
                 var color = value.Kind == "EntityHealed" ? Ui.Accent : value.Kind is "EntityDamaged" or "EntityHealthLost" ? new Color("f28578") : new Color("b8d8ee");

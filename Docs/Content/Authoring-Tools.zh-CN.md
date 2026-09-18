@@ -2,7 +2,7 @@
 
 卡牌字段、完整效果语法、内容包与协议的写法见 [Mod 开发者 JSON 编写指南](../CardJsonDesignGuide.zh-CN.md)。本页侧重素材生成、源码构建和客户端编辑器操作；可编译示例见 [Examples](Examples/README.zh-CN.md)。
 
-当前 230 张卡按 [四职业体系](CardSet-Redesign.zh-CN.md) 设计，平衡仍在迭代。规则 JSON、中文文本与卡图配方分别维护。卡图按卡名选择 emoji；新增卡没有合适符号时可使用职业默认图案，法术可用快速 ⚡／慢速 ⏳。
+当前 282 张卡按 [职业体系](CardSet-Redesign.zh-CN.md) 设计，平衡仍在迭代。规则 JSON、中文文本与卡图配方分别维护。卡图按卡名选择 emoji；新增卡没有合适符号时可使用职业默认图案，法术可用快速 ⚡／慢速 ⏳。
 
 ## 一键生成卡表
 
@@ -27,7 +27,7 @@ PNG 是游戏可用的素材；SVG 中的 emoji 文字仅用于浏览器预览�
 
 ## 交互生成卡图与图标
 
-卡图渐变背景统一由 `Content/Source/Art/profession-palettes.json` 定义：守护者蓝、奥术师紫、工匠棕、猎人绿、中立灰棕。职业由卡牌的 profession 字段决定，同职业随从、法术、场地与衍生卡保持一致。网页选择职业后自动应用配色；更改色板或新增卡牌后运行 `node tools/EmojiArt/sync-profession-colors.mjs` 同步配置及网页色板，再通过 `Build-Content.ps1 -WithPng` 重建。内容编译会拒绝职业配色不匹配的卡图配置。
+卡图渐变背景统一由 `Content/Source/Art/profession-palettes.json` 定义：守卫蓝、奥术师紫、工匠棕、猎人绿、灵魂使青绿、中立灰棕。职业由卡牌的 profession 字段决定，同职业随从、法术、场地与衍生卡保持一致。网页选择职业后自动应用配色；更改色板或新增卡牌后运行 `node tools/EmojiArt/sync-profession-colors.mjs` 同步配置及网页色板，再通过 `Build-Content.ps1 -WithPng` 重建。内容编译会拒绝职业配色不匹配的卡图配置。
 
 直接用 Chrome／Edge 打开 [Emoji 卡图工具](../../tools/EmojiArt/index.html)，无需启动服务器。在“图案来源”中选择“单个 emoji”或“双 emoji 合并”。合并模式分别输入两个 emoji，也可从“可合并的第二个 emoji”列表选取，点击“合并 emoji”预览。选择卡牌职业和 256／512／1024 尺寸后点击“下载 PNG”；支持带职业渐变背景的卡图，以及透明背景的图标。此工具保留在开发仓库，Godot 游戏发布包不包含素材制作工具。
 
@@ -56,7 +56,7 @@ node tools/EmojiArt/export.mjs Content/Source/Art/ui-icons.json Content/Generate
 
 冻结／锁闭作用于整条路、影响双方，图标显示在路的状态区域。P9 已补齐通用路状态，根据服务端公开状态显示和更新图标；语义见 [ADR-027](../ADR/027-lane-statuses.md)，接入及验证见 [P9 验收](../Review/P9-Godot-Review.zh-CN.md)。
 
-当前 230 张卡中有 199 张使用 Emoji Kitchen 双 emoji 融合图，另外 31 张使用单个 Unicode emoji；不再把两个独立 emoji 并排缩小绘制。复杂卡名和复合效果优先寻找融合图，例如困倦搬运工使用打哈欠的纸箱组合；白板随从、语义简单或没有准确组合的卡保留单个 emoji，例如原野巨犀使用 `🦏`。融合只替换中央图案；职业渐变背景、圆形光环、卡面名称、说明和数值布局保持原样。
+当前 282 张卡中有 199 张使用 Emoji Kitchen 双 emoji 融合图，另外 83 张使用单个 Unicode emoji；不再把两个独立 emoji 并排缩小绘制。复杂卡名和复合效果优先寻找融合图，例如困倦搬运工使用打哈欠的纸箱组合；白板随从、语义简单或没有准确组合的卡保留单个 emoji，例如原野巨犀使用 `🦏`。融合只替换中央图案；职业渐变背景、圆形光环、卡面名称、说明和数值布局保持原样。
 
 融合兼容关系通过 MIT 许可的 [emoji-mixer](https://github.com/MattFor/emoji-mixer) 核对，实际透明图由 Google Emoji Kitchen 提供并缓存到源码目录。每条配方保留原 emoji、缓存路径和原始 `gstatic.com` URL，便于审计或恢复。具体来源说明见 [融合素材目录](../../Content/Source/Art/Fusions/README.zh-CN.md)。这些融合图当前用于内部测试素材；公开发行前应再次确认 Emoji Kitchen 图像的发行许可。
 
@@ -70,9 +70,9 @@ node tools/EmojiArt/export.mjs Content/Source/Art/ui-icons.json Content/Generate
 
 | 路径 | 用途 |
 |---|---|
-| Content/Source/Cards | 可直接维护的 230 份 V2 规则 JSON |
-| Content/Source/Decks/archetypes.json | 十二套体系模板，构建后生成 archetype-decks.json 供客户端读取 |
-| Content/Source/Localization/zh-CN.json | 264 个名称／描述条目 |
+| Content/Source/Cards | 可直接维护的 282 份 V2 规则 JSON |
+| Content/Source/Decks/archetypes.json | 十五套体系模板，构建后生成 archetype-decks.json 供客户端读取 |
+| Content/Source/Localization/zh-CN.json | 564 个名称／描述条目 |
 | Content/Source/Art/emoji-recipes.json | 卡名对应的 emoji 与配色，和规则分离 |
 | Content/Source/Art/Fusions | 199 张已选择的透明融合图及来源说明 |
 | Content/Source/Art/ui-icons.json | 五个透明图标的配方 |

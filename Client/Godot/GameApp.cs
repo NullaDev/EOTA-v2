@@ -59,7 +59,7 @@ public partial class GameApp : Control
             var protocolFile = ProjectSettings.GlobalizePath("user://protocol.json");
             if (File.Exists(protocolFile))
             { try { _protocol = DesktopProtocol.Parse(File.ReadAllText(protocolFile)); } catch (InvalidDataException) { GD.PushWarning("已保存的对战协议无效，使用默认值。"); } }
-            foreach (var profession in new[] { "Guardian", "Arcanist", "Artisan", "Hunter" }) { _decks.Add(_catalog.DefaultDeck(profession, _protocol)); }
+            foreach (var profession in Professions) { _decks.Add(_catalog.DefaultDeck(profession, _protocol)); }
             _deckStore = new DesktopDeckStore(ProjectSettings.GlobalizePath("user://decks"));
             foreach (var id in _deckStore.Ids)
             { try { var deck = _deckStore.Read(id); _decks.Add(deck); _deckFiles.Add(deck, id); } catch (Exception) { GD.PushWarning("无法载入牌组：" + id); } }

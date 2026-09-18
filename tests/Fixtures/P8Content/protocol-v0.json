@@ -32,7 +32,7 @@
     "randomAlgorithmVersion": "splitmix64\u002Bxoshiro256ss/v1",
     "randomCallSchemaVersion": 4,
     "canonicalStateVersion": 10,
-    "effectLanguageVersion": 4,
+    "effectLanguageVersion": 5,
     "maxEffectTriggerFramesPerTurn": 256,
     "maxEffectIntentsPerFrame": 4096
   }

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-TOKEN-SOU-MIN-002",
+  "source": "token",
+  "profession": "soulweaver",
+  "kind": "minion",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-TOKEN-SOU-MIN-002.name",
+  "descriptionLocalizationKey": "card.EOTA-TOKEN-SOU-MIN-002.description",
+  "texturePath": "Content/Generated/Art/EOTA-TOKEN-SOU-MIN-002.png",
+  "attack": 3,
+  "health": 3,
+  "keywords": [
+    "guard"
+  ],
+  "tags": [
+    "undead"
+  ],
+  "effects": []
+}

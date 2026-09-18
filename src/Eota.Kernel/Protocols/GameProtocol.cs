@@ -114,7 +114,7 @@ public sealed record GameProtocolDefinition(
         SupportedEffectLanguageVersion);
 
     public const int MatchStateCanonicalVersion = Matches.MatchStateHasher.CanonicalSchemaVersion;
-    public const int SupportedEffectLanguageVersion = 4;
+    public const int SupportedEffectLanguageVersion = 5;
 }
 
 public sealed record CompiledGameProtocol(GameProtocolDefinition Definition, Hash256 Hash)

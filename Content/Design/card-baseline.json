@@ -97,7 +97,7 @@
       "name": "血晶孵化场",
       "cost": 2,
       "stats": "2回合",
-      "description": "回合结束时，若本路没有友方随从，召唤1个血晶守卫；否则共鸣1：本路友方随从获得+1/+1。",
+      "description": "回合结束时，若本路没有友方随从，召唤1个0/3并具有守备的血晶守卫；否则共鸣1：本路友方随从获得+1/+1。",
       "kind": "field",
       "source": "core",
       "profession": "arcanist"
@@ -217,7 +217,7 @@
       "name": "余烬引路人",
       "cost": 2,
       "stats": "2/2",
-      "description": "死亡时，将1张余烬结晶加入手牌。",
+      "description": "死亡时，将1张余烬结晶加入手牌（0费慢速法术：本路己方以太活化等级+1，并防止下一次自然衰减）。",
       "kind": "minion",
       "source": "core",
       "profession": "arcanist"
@@ -527,7 +527,7 @@
       "name": "垃圾场",
       "cost": 1,
       "stats": "3回合",
-      "description": "本路友方随从死亡时，如果是机械，在本路召唤一个破烂堆。",
+      "description": "本路友方随从死亡时，如果是机械，在本路召唤一个0/2并具有守备、可替换的破烂堆。",
       "kind": "field",
       "source": "core",
       "profession": "artisan"
@@ -557,7 +557,7 @@
       "name": "回收分拣线",
       "cost": 3,
       "stats": "2回合",
-      "description": "入场时，将1张备用零件加入手牌。回合结束时，若本路有友方机械，下回合临时费用+1。",
+      "description": "入场时，将1张备用零件加入手牌（1费快速法术：为本路友方机械恢复2点生命，本回合使其攻击力+1）。回合结束时，若本路有友方机械，下回合临时费用+1。",
       "kind": "field",
       "source": "core",
       "profession": "artisan"
@@ -607,7 +607,7 @@
       "name": "废料搬运机",
       "cost": 2,
       "stats": "2/2",
-      "description": "死亡时，召唤一个破烂堆。",
+      "description": "死亡时，在本路召唤一个0/2并具有守备、可替换的破烂堆。",
       "kind": "minion",
       "source": "core",
       "profession": "artisan"
@@ -757,7 +757,7 @@
       "name": "铆接技师",
       "cost": 3,
       "stats": "2/3",
-      "description": "入场时，将1张备用零件加入手牌。",
+      "description": "入场时，将1张备用零件加入手牌（1费快速法术：为本路友方机械恢复2点生命，本回合使其攻击力+1）。",
       "kind": "minion",
       "source": "core",
       "profession": "artisan"
@@ -857,7 +857,7 @@
       "name": "紧急拆除",
       "cost": 1,
       "stats": "-",
-      "description": "快速：指定路的友方随从如果是机械，将其破坏，在原地召唤一个破烂堆。",
+      "description": "快速：指定路的友方随从如果是机械，将其破坏，在原地召唤一个0/2并具有守备、可替换的破烂堆。",
       "kind": "spell",
       "source": "core",
       "profession": "artisan"
@@ -957,7 +957,7 @@
       "name": "弹射脱离",
       "cost": 2,
       "stats": "-",
-      "description": "快速：使本路友方机械回手，然后将1张备用零件加入手牌。回手失败则不生成零件。",
+      "description": "快速：使本路友方机械回手，然后将1张备用零件加入手牌（1费快速法术：为本路友方机械恢复2点生命，本回合使其攻击力+1）。回手失败则不生成零件。",
       "kind": "spell",
       "source": "core",
       "profession": "artisan"
@@ -1047,7 +1047,7 @@
       "name": "征兵广场",
       "cost": 4,
       "stats": "2回合",
-      "description": "回合结束时，在本路召唤一个民兵。如果本路已有随从，改为加入手牌。",
+      "description": "回合结束时，在本路召唤一个1/1并具有可替换的民兵；如果本路已有友方随从，改为将一张1费1/1并具有可替换的民兵加入手牌。",
       "kind": "field",
       "source": "core",
       "profession": "guardian"
@@ -1107,7 +1107,7 @@
       "name": "民兵征募官",
       "cost": 4,
       "stats": "2/3",
-      "description": "回合结束时，将1张民兵加入手牌。",
+      "description": "回合结束时，将1张1费1/1并具有可替换的民兵加入手牌。",
       "kind": "minion",
       "source": "core",
       "profession": "guardian"
@@ -1147,7 +1147,7 @@
       "name": "民兵小队长",
       "cost": 2,
       "stats": "2/2",
-      "description": "死亡时，将一张民兵加入手牌。",
+      "description": "死亡时，将一张1费1/1并具有可替换的民兵加入手牌。",
       "kind": "minion",
       "source": "core",
       "profession": "guardian"
@@ -1157,7 +1157,7 @@
       "name": "战斗英雄",
       "cost": 3,
       "stats": "3/2",
-      "description": "战斗时，将一张民兵加入手牌。",
+      "description": "战斗时，将一张1费1/1并具有可替换的民兵加入手牌。",
       "kind": "minion",
       "source": "core",
       "profession": "guardian"
@@ -1207,7 +1207,7 @@
       "name": "民兵大队长",
       "cost": 4,
       "stats": "3/4",
-      "description": "死亡时，将2张民兵加入手牌。",
+      "description": "死亡时，将2张1费1/1并具有可替换的民兵加入手牌。",
       "kind": "minion",
       "source": "core",
       "profession": "guardian"
@@ -1247,7 +1247,7 @@
       "name": "兵工送弹员",
       "cost": 3,
       "stats": "2/2",
-      "description": "入场时，将1张备用弹药加入手牌。",
+      "description": "入场时，将1张备用弹药加入手牌（1费快速法术：对本路敌方随从造成1点伤害）。",
       "kind": "minion",
       "source": "core",
       "profession": "guardian"
@@ -1307,7 +1307,7 @@
       "name": "殿后旗手",
       "cost": 4,
       "stats": "3/4",
-      "description": "死亡时，在本路召唤1个获得守备的民兵。",
+      "description": "死亡时，在本路召唤1个1/1并具有可替换的民兵，使其获得守备。",
       "kind": "minion",
       "source": "core",
       "profession": "guardian"
@@ -1337,7 +1337,7 @@
       "name": "换防",
       "cost": 2,
       "stats": "-",
-      "description": "快速：选定路己方随从回到手牌，在该路召唤一个民兵。",
+      "description": "快速：选定路己方随从回到手牌，在该路召唤一个1/1并具有可替换的民兵。",
       "kind": "spell",
       "source": "core",
       "profession": "guardian"
@@ -1357,7 +1357,7 @@
       "name": "紧急动员",
       "cost": 1,
       "stats": "-",
-      "description": "慢速：召唤一个民兵。",
+      "description": "慢速：召唤一个1/1并具有可替换的民兵。",
       "kind": "spell",
       "source": "core",
       "profession": "guardian"
@@ -1397,7 +1397,7 @@
       "name": "坚守阵线",
       "cost": 6,
       "stats": "-",
-      "description": "慢速：在所有路上各召唤一个民兵。",
+      "description": "慢速：在所有路上各召唤一个1/1并具有可替换的民兵。",
       "kind": "spell",
       "source": "core",
       "profession": "guardian"
@@ -1417,7 +1417,7 @@
       "name": "征兵令",
       "cost": 3,
       "stats": "-",
-      "description": "慢速：将3张民兵加入手牌。",
+      "description": "慢速：将3张1费1/1并具有可替换的民兵加入手牌。",
       "kind": "spell",
       "source": "core",
       "profession": "guardian"
@@ -1637,7 +1637,7 @@
       "name": "猎犬饲养员",
       "cost": 3,
       "stats": "2/2",
-      "description": "回合结束时，将一张猎犬加入手牌。",
+      "description": "回合结束时，将一张1费1/1并具有追猎的猎犬加入手牌。",
       "kind": "minion",
       "source": "core",
       "profession": "hunter"
@@ -1717,7 +1717,7 @@
       "name": "兽灵学徒",
       "cost": 2,
       "stats": "1/3",
-      "description": "入场时，将1张驯兽口哨加入手牌。",
+      "description": "入场时，将1张驯兽口哨加入手牌（1费快速法术：本路友方野兽获得+1生命，本回合获得游击）。",
       "kind": "minion",
       "source": "core",
       "profession": "hunter"
@@ -1767,7 +1767,7 @@
       "name": "兽灵领主",
       "cost": 6,
       "stats": "4/5",
-      "description": "入场时，在相邻路的己方空位各召唤1只猎犬。",
+      "description": "入场时，在相邻路的己方空位各召唤1只1/1并具有追猎的猎犬。",
       "kind": "minion",
       "source": "core",
       "profession": "hunter"
@@ -1827,7 +1827,7 @@
       "name": "荒原母狼",
       "cost": 4,
       "stats": "3/4",
-      "description": "死亡时，在本路召唤1只猎犬。",
+      "description": "死亡时，在本路召唤1只1/1并具有追猎的猎犬。",
       "kind": "minion",
       "source": "core",
       "profession": "hunter"
@@ -1867,7 +1867,7 @@
       "name": "放出猎犬",
       "cost": 2,
       "stats": "-",
-      "description": "快速：选择一路，召唤一个猎犬，使其获得迅捷。如果该路已有随从，改为使其获得追猎和+1攻击力。",
+      "description": "快速：选择一路，召唤一个1/1并具有追猎的猎犬，使其获得迅捷。如果该路已有友方随从，改为使其获得追猎和+1攻击力。",
       "kind": "spell",
       "source": "core",
       "profession": "hunter"
@@ -1907,7 +1907,7 @@
       "name": "荒野围猎",
       "cost": 7,
       "stats": "-",
-      "description": "快速：在所有路召唤一个猎犬。",
+      "description": "快速：在所有路各召唤一个1/1并具有追猎的猎犬。",
       "kind": "spell",
       "source": "core",
       "profession": "hunter"
@@ -1927,7 +1927,7 @@
       "name": "兽群呼唤",
       "cost": 1,
       "stats": "-",
-      "description": "慢速：将1张猎犬和1张驯兽口哨加入手牌。",
+      "description": "慢速：将1张1费1/1并具有追猎的猎犬和1张驯兽口哨加入手牌（口哨为1费快速法术：本路友方野兽获得+1生命，本回合获得游击）。",
       "kind": "spell",
       "source": "core",
       "profession": "hunter"
@@ -2147,7 +2147,7 @@
       "name": "哥布林攻城车",
       "cost": 6,
       "stats": "4/7",
-      "description": "死亡时，在本路召唤1个哥布林雇佣兵。",
+      "description": "死亡时，在本路召唤1个1/2的哥布林雇佣兵。",
       "kind": "minion",
       "source": "core",
       "profession": "neutral"
@@ -2221,6 +2221,506 @@
       "kind": "spell",
       "source": "core",
       "profession": "neutral"
+    },
+    {
+      "id": "EOTA-CORE-SOU-FLD-001",
+      "name": "夜行墓园",
+      "cost": 2,
+      "stats": "2回合",
+      "description": "回合结束时，若本路有友方随从，使其获得“死亡时，在本路召唤一个 3/3 并具有守备的僵尸”；否则在本路召唤一个 3/3 并具有守备的僵尸。",
+      "kind": "field",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-FLD-002",
+      "name": "苍白诊所",
+      "cost": 2,
+      "stats": "3回合",
+      "description": "回合结束时，若本路有友方随从，为其恢复 3 点生命；否则为己方英雄恢复 2 点生命。",
+      "kind": "field",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-FLD-003",
+      "name": "缝魂祭坛",
+      "cost": 2,
+      "stats": "3回合",
+      "description": "每当本路友方随从受到治疗后，使其永久获得 +1/+1。",
+      "kind": "field",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-FLD-004",
+      "name": "献祭石台",
+      "cost": 3,
+      "stats": "2回合",
+      "description": "回合结束时，若本路有友方随从，消灭该随从，然后抽两张牌。",
+      "kind": "field",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-FLD-005",
+      "name": "养魂灯",
+      "cost": 1,
+      "stats": "3回合",
+      "description": "每当本路友方随从死亡时，为己方英雄恢复 2 点生命。",
+      "kind": "field",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-FLD-006",
+      "name": "惊魂裂隙",
+      "cost": 2,
+      "stats": "3回合",
+      "description": "每回合双方部署后，若本路没有友方随从，召唤一个 1/1 并具有迅捷的游魂；游魂回合结束时死亡。否则，若本路友方随从是亡灵，使其本回合获得 +1 攻击力。",
+      "kind": "field",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-FLD-007",
+      "name": "逆祷圣坛",
+      "cost": 3,
+      "stats": "3回合",
+      "description": "每当己方英雄受到治疗后，也对本路敌方随从造成等量伤害。",
+      "kind": "field",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-FLD-008",
+      "name": "安魂礼堂",
+      "cost": 2,
+      "stats": "3回合",
+      "description": "每当本路友方随从死亡时，抽一张牌。",
+      "kind": "field",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-FLD-009",
+      "name": "荒冢灵龛",
+      "cost": 2,
+      "stats": "1回合",
+      "description": "入场时，在本路召唤一个 1/1 并具有迅捷、回合结束时死亡的游魂。死亡时，在本路召唤一个 3/3 并具有守备的僵尸。",
+      "kind": "field",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-001",
+      "name": "墓门侍僧",
+      "cost": 1,
+      "stats": "1/2",
+      "description": "死亡时，为己方英雄恢复 2 点生命。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-002",
+      "name": "裹尸信徒",
+      "cost": 2,
+      "stats": "2/3",
+      "description": "死亡时，在本路召唤一个 1/1 并具有迅捷的游魂；游魂回合结束时死亡。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-003",
+      "name": "送葬执事",
+      "cost": 4,
+      "stats": "3/4",
+      "description": "死亡时，在本路召唤一个 3/3 并具有守备的僵尸。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-004",
+      "name": "自愿献身者",
+      "cost": 2,
+      "stats": "2/2",
+      "description": "死亡时，抽一张牌。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-005",
+      "name": "骨灯看守",
+      "cost": 3,
+      "stats": "2/4",
+      "description": "死亡时，若本路有敌方随从，对其造成 2 点伤害；否则对敌方英雄造成 2 点伤害。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-006",
+      "name": "缄口殉道者",
+      "cost": 3,
+      "stats": "3/3",
+      "description": "死亡时，摧毁本路敌方场地。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-007",
+      "name": "疫病行尸",
+      "cost": 3,
+      "stats": "3/6",
+      "description": "守备。死亡时，使本路敌方随从永久失去 2 点最大生命。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-008",
+      "name": "索命怨灵",
+      "cost": 4,
+      "stats": "1/1",
+      "description": "死亡时，消灭本路敌方随从，并在本路召唤一个 3/3 并具有守备的僵尸。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-010",
+      "name": "血誓苦修者",
+      "cost": 3,
+      "stats": "4/5",
+      "description": "入场时，对己方英雄造成 3 点伤害。死亡时，为己方英雄恢复 3 点生命。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-012",
+      "name": "裂魂苦行者",
+      "cost": 2,
+      "stats": "2/3",
+      "description": "战斗时，使自身获得“死亡时，对敌方英雄造成 1 点伤害”。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-013",
+      "name": "针线狂信徒",
+      "cost": 2,
+      "stats": "1/4",
+      "description": "每当自身受到治疗后，永久获得 +1 攻击力。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-014",
+      "name": "赎伤传道者",
+      "cost": 4,
+      "stats": "2/5",
+      "description": "每当自身受到治疗后，抽一张牌。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-015",
+      "name": "疮痕使徒",
+      "cost": 3,
+      "stats": "3/4",
+      "description": "每当自身受到治疗后，为己方英雄恢复等量生命。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-016",
+      "name": "遗愿容器",
+      "cost": 3,
+      "stats": "0/2",
+      "description": "死亡时，抽两张牌，并为己方英雄恢复 4 点生命。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-017",
+      "name": "缝魂行医者",
+      "cost": 3,
+      "stats": "2/4",
+      "description": "回合结束时，为自身恢复 2 点生命。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-018",
+      "name": "毒誓病患",
+      "cost": 3,
+      "stats": "2/5",
+      "description": "每当自身受到治疗后，也对本路敌方随从造成等量伤害。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-019",
+      "name": "逆祷修士",
+      "cost": 5,
+      "stats": "3/6",
+      "description": "每当己方英雄受到治疗后，也对本路敌方随从造成等量伤害。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-020",
+      "name": "呕魂布道者",
+      "cost": 5,
+      "stats": "3/5",
+      "description": "每当己方英雄受到治疗后，也对敌方英雄造成等量伤害。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-021",
+      "name": "不朽教长",
+      "cost": 7,
+      "stats": "5/8",
+      "description": "每当自身受到治疗后，永久获得等量攻击力。死亡时，为己方英雄恢复等于自身攻击力的生命。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-023",
+      "name": "不眠役尸",
+      "cost": 4,
+      "stats": "5/5",
+      "description": "守备。每当自身受到治疗后，本回合失去守备。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-024",
+      "name": "缚棺巨像",
+      "cost": 6,
+      "stats": "5/8",
+      "description": "守备。入场时，对本路敌方随从造成 3 点伤害。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-025",
+      "name": "幽骸统御者",
+      "cost": 7,
+      "stats": "5/7",
+      "description": "入场时，使相邻路友方随从获得“死亡时，在本路召唤一个 3/3 并具有守备的僵尸”。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-MIN-026",
+      "name": "焚愿怨灵",
+      "cost": 3,
+      "stats": "3/2",
+      "description": "死亡时，对敌方英雄造成等同于自身攻击力的伤害。",
+      "kind": "minion",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-SPL-001",
+      "name": "离身仪式",
+      "cost": 2,
+      "stats": "-",
+      "description": "若本路有友方随从，消灭该随从，然后抽两张牌。",
+      "kind": "spell",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-SPL-002",
+      "name": "缝魂术",
+      "cost": 1,
+      "stats": "-",
+      "description": "为本路友方随从恢复 4 点生命。",
+      "kind": "spell",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-SPL-003",
+      "name": "唤灵术",
+      "cost": 1,
+      "stats": "-",
+      "description": "若本路有友方随从，使其永久获得 +1 攻击力及“死亡时，在本路召唤一个 1/1 并具有迅捷、回合结束时死亡的游魂”；否则在本路召唤一个 1/1 并具有迅捷、回合结束时死亡的游魂。",
+      "kind": "spell",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-SPL-004",
+      "name": "缝尸术",
+      "cost": 2,
+      "stats": "-",
+      "description": "为己方英雄恢复 2 点生命。若本路有友方随从，使其获得“死亡时，在本路召唤一个 3/3 并具有守备的僵尸”；否则在本路召唤一个 3/3 并具有守备的僵尸。",
+      "kind": "spell",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-SPL-005",
+      "name": "骨甲缝合",
+      "cost": 2,
+      "stats": "-",
+      "description": "本路友方随从永久获得 +0/+3，然后为其恢复 3 点生命。",
+      "kind": "spell",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-SPL-006",
+      "name": "送葬之咒",
+      "cost": 3,
+      "stats": "-",
+      "description": "使本路敌方随从获得“死亡时，对己方英雄造成 3 点伤害”，然后对该随从造成 3 点伤害。",
+      "kind": "spell",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-SPL-007",
+      "name": "灰烬施济",
+      "cost": 3,
+      "stats": "-",
+      "description": "为所有友方随从及己方英雄各恢复 3 点生命。",
+      "kind": "spell",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-SPL-008",
+      "name": "血肉供养",
+      "cost": 2,
+      "stats": "-",
+      "description": "若本路有友方随从，消灭该随从，然后为己方英雄恢复 6 点生命。",
+      "kind": "spell",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-SPL-009",
+      "name": "同葬",
+      "cost": 3,
+      "stats": "-",
+      "description": "若本路有友方随从，消灭本路双方随从；否则对本路敌方随从造成 3 点伤害。",
+      "kind": "spell",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-SPL-010",
+      "name": "临终嘱托",
+      "cost": 1,
+      "stats": "-",
+      "description": "使本路友方随从获得“死亡时，抽一张牌，并为己方英雄恢复 2 点生命”。",
+      "kind": "spell",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-SPL-011",
+      "name": "幽火扫荡",
+      "cost": 4,
+      "stats": "-",
+      "description": "对双方所有随从造成 3 点伤害。",
+      "kind": "spell",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-SPL-012",
+      "name": "棺木封存",
+      "cost": 4,
+      "stats": "-",
+      "description": "将本路敌方随从变形为一个 3/3 并具有守备的僵尸。",
+      "kind": "spell",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-SPL-013",
+      "name": "驱役号令",
+      "cost": 4,
+      "stats": "-",
+      "description": "所有友方亡灵本回合获得 +1 攻击力、迅捷，并失去守备。",
+      "kind": "spell",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-SPL-014",
+      "name": "逆转祷言",
+      "cost": 2,
+      "stats": "-",
+      "description": "本回合，使本路友方随从获得“受到治疗后，也对敌方英雄造成等量伤害”，然后为该随从恢复 2 点生命。",
+      "kind": "spell",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-SPL-015",
+      "name": "续命之契",
+      "cost": 3,
+      "stats": "-",
+      "description": "为本路友方随从恢复全部失去的生命，并抽一张牌。",
+      "kind": "spell",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-SPL-016",
+      "name": "献躯燃魂",
+      "cost": 2,
+      "stats": "-",
+      "description": "消灭本路友方随从，并对敌方英雄造成等同于该随从攻击力的伤害。",
+      "kind": "spell",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-SPL-017",
+      "name": "汲魂缝合",
+      "cost": 3,
+      "stats": "-",
+      "description": "对本路敌方随从造成 4 点伤害，并为本路友方随从恢复 4 点生命。",
+      "kind": "spell",
+      "source": "core",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-CORE-SOU-SPL-018",
+      "name": "催魂令",
+      "cost": 1,
+      "stats": "-",
+      "description": "使本路友方随从本回合获得迅捷并失去守备；回合结束时，消灭该随从。",
+      "kind": "spell",
+      "source": "core",
+      "profession": "soulweaver"
     },
     {
       "id": "EOTA-TOKEN-ARC-MIN-001",
@@ -2301,6 +2801,26 @@
       "kind": "spell",
       "source": "token",
       "profession": "hunter"
+    },
+    {
+      "id": "EOTA-TOKEN-SOU-MIN-001",
+      "name": "游魂",
+      "cost": 1,
+      "stats": "1/1",
+      "description": "迅捷。回合结束时，消灭自身。",
+      "kind": "minion",
+      "source": "token",
+      "profession": "soulweaver"
+    },
+    {
+      "id": "EOTA-TOKEN-SOU-MIN-002",
+      "name": "僵尸",
+      "cost": 2,
+      "stats": "3/3",
+      "description": "守备。",
+      "kind": "minion",
+      "source": "token",
+      "profession": "soulweaver"
     }
   ]
 }

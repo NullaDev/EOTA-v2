@@ -18,7 +18,7 @@ public sealed record CardPresentation(string Id, string Name, string Description
         : Kind == "Minion" ? "随从" : Kind == "Field" ? "场地" : Global ? "全局法术" : "路线法术";
     public static string TagLabel(string tag) => tag switch
     {
-        "beast" => "野兽", "mechanical" => "机械", "firearm" => "火器营", "hemomancer" => "血术师", _ => tag
+        "beast" => "野兽", "mechanical" => "机械", "firearm" => "火器营", "hemomancer" => "血术师", "undead" => "亡灵", _ => tag
     };
 }
 public sealed record DeckCard(string Id, int Copies);

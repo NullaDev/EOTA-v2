@@ -8830,6 +8830,2059 @@
   },
   {
     "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-FLD-001",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "field",
+    "cost": 2,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-FLD-001.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-FLD-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-FLD-001.png",
+    "lifetime": {
+      "kind": "finite",
+      "energy": 2
+    },
+    "effects": [
+      {
+        "id": "turnEnd",
+        "trigger": {
+          "kind": "turnEnd"
+        },
+        "body": {
+          "kind": "ifElse",
+          "condition": {
+            "kind": "exists",
+            "target": {
+              "kind": "friendlyMinions"
+            }
+          },
+          "then": {
+            "kind": "grantEffect",
+            "target": {
+              "kind": "friendlyMinions"
+            },
+            "effect": {
+              "id": "selfDied",
+              "trigger": {
+                "kind": "selfDied"
+              },
+              "body": {
+                "kind": "summon",
+                "target": {
+                  "kind": "friendlyLanes"
+                },
+                "prototype": "EOTA-TOKEN-SOU-MIN-002"
+              }
+            }
+          },
+          "else": {
+            "kind": "summon",
+            "target": {
+              "kind": "friendlyLanes"
+            },
+            "prototype": "EOTA-TOKEN-SOU-MIN-002"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-FLD-002",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "field",
+    "cost": 2,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-FLD-002.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-FLD-002.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-FLD-002.png",
+    "lifetime": {
+      "kind": "finite",
+      "energy": 3
+    },
+    "effects": [
+      {
+        "id": "turnEnd",
+        "trigger": {
+          "kind": "turnEnd"
+        },
+        "body": {
+          "kind": "ifElse",
+          "condition": {
+            "kind": "exists",
+            "target": {
+              "kind": "friendlyMinions"
+            }
+          },
+          "then": {
+            "kind": "heal",
+            "target": {
+              "kind": "friendlyMinions"
+            },
+            "amount": 3
+          },
+          "else": {
+            "kind": "heal",
+            "target": {
+              "kind": "friendlyHero"
+            },
+            "amount": 2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-FLD-003",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "field",
+    "cost": 2,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-FLD-003.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-FLD-003.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-FLD-003.png",
+    "lifetime": {
+      "kind": "finite",
+      "energy": 3
+    },
+    "effects": [
+      {
+        "id": "friendlyHealed",
+        "trigger": {
+          "kind": "friendlyHealed"
+        },
+        "body": {
+          "kind": "parallel",
+          "children": [
+            {
+              "kind": "modifyNumber",
+              "target": {
+                "kind": "eventSubject"
+              },
+              "amount": 1,
+              "attribute": "attack",
+              "operation": "add"
+            },
+            {
+              "kind": "modifyNumber",
+              "target": {
+                "kind": "eventSubject"
+              },
+              "amount": 1,
+              "attribute": "maximumHealth",
+              "operation": "add"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-FLD-004",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "field",
+    "cost": 3,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-FLD-004.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-FLD-004.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-FLD-004.png",
+    "lifetime": {
+      "kind": "finite",
+      "energy": 2
+    },
+    "effects": [
+      {
+        "id": "turnEnd",
+        "trigger": {
+          "kind": "turnEnd"
+        },
+        "body": {
+          "kind": "ifElse",
+          "condition": {
+            "kind": "exists",
+            "target": {
+              "kind": "friendlyMinions"
+            }
+          },
+          "then": {
+            "kind": "sequence",
+            "steps": [
+              {
+                "kind": "kill",
+                "target": {
+                  "kind": "friendlyMinions"
+                }
+              },
+              {
+                "kind": "draw",
+                "target": {
+                  "kind": "friendlyHero"
+                },
+                "count": 2
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-FLD-005",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "field",
+    "cost": 1,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-FLD-005.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-FLD-005.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-FLD-005.png",
+    "lifetime": {
+      "kind": "finite",
+      "energy": 3
+    },
+    "effects": [
+      {
+        "id": "friendlyDied",
+        "trigger": {
+          "kind": "friendlyDied",
+          "subjectType": "minion"
+        },
+        "body": {
+          "kind": "heal",
+          "target": {
+            "kind": "friendlyHero"
+          },
+          "amount": 2
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-FLD-006",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "field",
+    "cost": 2,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-FLD-006.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-FLD-006.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-FLD-006.png",
+    "lifetime": {
+      "kind": "finite",
+      "energy": 3
+    },
+    "effects": [
+      {
+        "id": "entryStage",
+        "trigger": {
+          "kind": "entryStage"
+        },
+        "body": {
+          "kind": "ifElse",
+          "condition": {
+            "kind": "exists",
+            "target": {
+              "kind": "friendlyMinions"
+            }
+          },
+          "then": {
+            "kind": "modifyNumber",
+            "target": {
+              "kind": "friendlyMinions",
+              "filter": {
+                "tag": "undead"
+              }
+            },
+            "amount": 1,
+            "attribute": "attack",
+            "operation": "add",
+            "duration": 1
+          },
+          "else": {
+            "kind": "summon",
+            "target": {
+              "kind": "friendlyLanes"
+            },
+            "prototype": "EOTA-TOKEN-SOU-MIN-001"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-FLD-007",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "field",
+    "cost": 3,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-FLD-007.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-FLD-007.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-FLD-007.png",
+    "lifetime": {
+      "kind": "finite",
+      "energy": 3
+    },
+    "effects": [
+      {
+        "id": "friendlyHeroHealed",
+        "trigger": {
+          "kind": "friendlyHeroHealed"
+        },
+        "body": {
+          "kind": "damage",
+          "target": {
+            "kind": "enemyMinions"
+          },
+          "amount": "event.amount"
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-FLD-008",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "field",
+    "cost": 2,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-FLD-008.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-FLD-008.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-FLD-008.png",
+    "lifetime": {
+      "kind": "finite",
+      "energy": 3
+    },
+    "effects": [
+      {
+        "id": "friendlyDied",
+        "trigger": {
+          "kind": "friendlyDied",
+          "subjectType": "minion"
+        },
+        "body": {
+          "kind": "draw",
+          "target": {
+            "kind": "friendlyHero"
+          },
+          "count": 1
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-FLD-009",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "field",
+    "cost": 2,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-FLD-009.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-FLD-009.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-FLD-009.png",
+    "lifetime": {
+      "kind": "finite",
+      "energy": 1
+    },
+    "effects": [
+      {
+        "id": "selfEntered",
+        "trigger": {
+          "kind": "selfEntered"
+        },
+        "body": {
+          "kind": "summon",
+          "target": {
+            "kind": "friendlyLanes"
+          },
+          "prototype": "EOTA-TOKEN-SOU-MIN-001"
+        }
+      },
+      {
+        "id": "selfDied",
+        "trigger": {
+          "kind": "selfDied"
+        },
+        "body": {
+          "kind": "summon",
+          "target": {
+            "kind": "friendlyLanes"
+          },
+          "prototype": "EOTA-TOKEN-SOU-MIN-002"
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-001",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 1,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-001.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-001.png",
+    "attack": 1,
+    "health": 2,
+    "keywords": [],
+    "effects": [
+      {
+        "id": "selfDied",
+        "trigger": {
+          "kind": "selfDied"
+        },
+        "body": {
+          "kind": "heal",
+          "target": {
+            "kind": "friendlyHero"
+          },
+          "amount": 2
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-002",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 2,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-002.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-002.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-002.png",
+    "attack": 2,
+    "health": 3,
+    "keywords": [],
+    "effects": [
+      {
+        "id": "selfDied",
+        "trigger": {
+          "kind": "selfDied"
+        },
+        "body": {
+          "kind": "summon",
+          "target": {
+            "kind": "friendlyLanes"
+          },
+          "prototype": "EOTA-TOKEN-SOU-MIN-001"
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-003",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 4,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-003.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-003.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-003.png",
+    "attack": 3,
+    "health": 4,
+    "keywords": [],
+    "effects": [
+      {
+        "id": "selfDied",
+        "trigger": {
+          "kind": "selfDied"
+        },
+        "body": {
+          "kind": "summon",
+          "target": {
+            "kind": "friendlyLanes"
+          },
+          "prototype": "EOTA-TOKEN-SOU-MIN-002"
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-004",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 2,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-004.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-004.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-004.png",
+    "attack": 2,
+    "health": 2,
+    "keywords": [],
+    "effects": [
+      {
+        "id": "selfDied",
+        "trigger": {
+          "kind": "selfDied"
+        },
+        "body": {
+          "kind": "draw",
+          "target": {
+            "kind": "friendlyHero"
+          },
+          "count": 1
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-005",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 3,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-005.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-005.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-005.png",
+    "attack": 2,
+    "health": 4,
+    "keywords": [],
+    "effects": [
+      {
+        "id": "selfDied",
+        "trigger": {
+          "kind": "selfDied"
+        },
+        "body": {
+          "kind": "ifElse",
+          "condition": {
+            "kind": "exists",
+            "target": {
+              "kind": "enemyMinions"
+            }
+          },
+          "then": {
+            "kind": "damage",
+            "target": {
+              "kind": "enemyMinions"
+            },
+            "amount": 2
+          },
+          "else": {
+            "kind": "damage",
+            "target": {
+              "kind": "enemyHero"
+            },
+            "amount": 2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-006",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 3,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-006.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-006.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-006.png",
+    "attack": 3,
+    "health": 3,
+    "keywords": [],
+    "effects": [
+      {
+        "id": "selfDied",
+        "trigger": {
+          "kind": "selfDied"
+        },
+        "body": {
+          "kind": "kill",
+          "target": {
+            "kind": "enemyFields"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-007",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 3,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-007.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-007.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-007.png",
+    "attack": 3,
+    "health": 6,
+    "keywords": [
+      "guard"
+    ],
+    "tags": [
+      "undead"
+    ],
+    "effects": [
+      {
+        "id": "selfDied",
+        "trigger": {
+          "kind": "selfDied"
+        },
+        "body": {
+          "kind": "modifyNumber",
+          "target": {
+            "kind": "enemyMinions"
+          },
+          "amount": -2,
+          "attribute": "maximumHealth",
+          "operation": "add"
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-008",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 4,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-008.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-008.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-008.png",
+    "attack": 1,
+    "health": 1,
+    "keywords": [],
+    "tags": [
+      "undead"
+    ],
+    "effects": [
+      {
+        "id": "selfDied",
+        "trigger": {
+          "kind": "selfDied"
+        },
+        "body": {
+          "kind": "parallel",
+          "children": [
+            {
+              "kind": "kill",
+              "target": {
+                "kind": "enemyMinions"
+              }
+            },
+            {
+              "kind": "summon",
+              "target": {
+                "kind": "friendlyLanes"
+              },
+              "prototype": "EOTA-TOKEN-SOU-MIN-002"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-010",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 3,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-010.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-010.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-010.png",
+    "attack": 4,
+    "health": 5,
+    "keywords": [],
+    "effects": [
+      {
+        "id": "selfEntered",
+        "trigger": {
+          "kind": "selfEntered"
+        },
+        "body": {
+          "kind": "damage",
+          "target": {
+            "kind": "friendlyHero"
+          },
+          "amount": 3
+        }
+      },
+      {
+        "id": "selfDied",
+        "trigger": {
+          "kind": "selfDied"
+        },
+        "body": {
+          "kind": "heal",
+          "target": {
+            "kind": "friendlyHero"
+          },
+          "amount": 3
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-012",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 2,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-012.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-012.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-012.png",
+    "attack": 2,
+    "health": 3,
+    "keywords": [],
+    "effects": [
+      {
+        "id": "combat",
+        "trigger": {
+          "kind": "combat"
+        },
+        "body": {
+          "kind": "grantEffect",
+          "target": {
+            "kind": "self"
+          },
+          "effect": {
+            "id": "selfDied",
+            "trigger": {
+              "kind": "selfDied"
+            },
+            "body": {
+              "kind": "damage",
+              "target": {
+                "kind": "enemyHero"
+              },
+              "amount": 1
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-013",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 2,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-013.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-013.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-013.png",
+    "attack": 1,
+    "health": 4,
+    "keywords": [],
+    "effects": [
+      {
+        "id": "selfHealed",
+        "trigger": {
+          "kind": "selfHealed"
+        },
+        "body": {
+          "kind": "modifyNumber",
+          "target": {
+            "kind": "self"
+          },
+          "amount": 1,
+          "attribute": "attack",
+          "operation": "add"
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-014",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 4,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-014.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-014.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-014.png",
+    "attack": 2,
+    "health": 5,
+    "keywords": [],
+    "effects": [
+      {
+        "id": "selfHealed",
+        "trigger": {
+          "kind": "selfHealed"
+        },
+        "body": {
+          "kind": "draw",
+          "target": {
+            "kind": "friendlyHero"
+          },
+          "count": 1
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-015",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 3,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-015.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-015.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-015.png",
+    "attack": 3,
+    "health": 4,
+    "keywords": [],
+    "effects": [
+      {
+        "id": "selfHealed",
+        "trigger": {
+          "kind": "selfHealed"
+        },
+        "body": {
+          "kind": "heal",
+          "target": {
+            "kind": "friendlyHero"
+          },
+          "amount": "event.amount"
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-016",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 3,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-016.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-016.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-016.png",
+    "attack": 0,
+    "health": 2,
+    "keywords": [],
+    "tags": [
+      "undead"
+    ],
+    "effects": [
+      {
+        "id": "selfDied",
+        "trigger": {
+          "kind": "selfDied"
+        },
+        "body": {
+          "kind": "parallel",
+          "children": [
+            {
+              "kind": "draw",
+              "target": {
+                "kind": "friendlyHero"
+              },
+              "count": 2
+            },
+            {
+              "kind": "heal",
+              "target": {
+                "kind": "friendlyHero"
+              },
+              "amount": 4
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-017",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 3,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-017.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-017.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-017.png",
+    "attack": 2,
+    "health": 4,
+    "keywords": [],
+    "effects": [
+      {
+        "id": "turnEnd",
+        "trigger": {
+          "kind": "turnEnd"
+        },
+        "body": {
+          "kind": "heal",
+          "target": {
+            "kind": "self"
+          },
+          "amount": 2
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-018",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 3,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-018.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-018.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-018.png",
+    "attack": 2,
+    "health": 5,
+    "keywords": [],
+    "effects": [
+      {
+        "id": "selfHealed",
+        "trigger": {
+          "kind": "selfHealed"
+        },
+        "body": {
+          "kind": "damage",
+          "target": {
+            "kind": "enemyMinions"
+          },
+          "amount": "event.amount"
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-019",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 5,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-019.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-019.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-019.png",
+    "attack": 3,
+    "health": 6,
+    "keywords": [],
+    "effects": [
+      {
+        "id": "friendlyHeroHealed",
+        "trigger": {
+          "kind": "friendlyHeroHealed"
+        },
+        "body": {
+          "kind": "damage",
+          "target": {
+            "kind": "enemyMinions"
+          },
+          "amount": "event.amount"
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-020",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 5,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-020.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-020.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-020.png",
+    "attack": 3,
+    "health": 5,
+    "keywords": [],
+    "effects": [
+      {
+        "id": "friendlyHeroHealed",
+        "trigger": {
+          "kind": "friendlyHeroHealed"
+        },
+        "body": {
+          "kind": "damage",
+          "target": {
+            "kind": "enemyHero"
+          },
+          "amount": "event.amount"
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-021",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 7,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-021.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-021.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-021.png",
+    "attack": 5,
+    "health": 8,
+    "keywords": [],
+    "effects": [
+      {
+        "id": "selfHealed",
+        "trigger": {
+          "kind": "selfHealed"
+        },
+        "body": {
+          "kind": "modifyNumber",
+          "target": {
+            "kind": "self"
+          },
+          "amount": "event.amount",
+          "attribute": "attack",
+          "operation": "add"
+        }
+      },
+      {
+        "id": "selfDied",
+        "trigger": {
+          "kind": "selfDied"
+        },
+        "body": {
+          "kind": "heal",
+          "target": {
+            "kind": "friendlyHero"
+          },
+          "amount": "source.attack"
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-023",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 4,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-023.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-023.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-023.png",
+    "attack": 5,
+    "health": 5,
+    "keywords": [
+      "guard"
+    ],
+    "tags": [
+      "undead"
+    ],
+    "effects": [
+      {
+        "id": "selfHealed",
+        "trigger": {
+          "kind": "selfHealed"
+        },
+        "body": {
+          "kind": "removeKeyword",
+          "target": {
+            "kind": "self"
+          },
+          "keyword": "guard",
+          "duration": 1
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-024",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 6,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-024.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-024.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-024.png",
+    "attack": 5,
+    "health": 8,
+    "keywords": [
+      "guard"
+    ],
+    "tags": [
+      "undead"
+    ],
+    "effects": [
+      {
+        "id": "selfEntered",
+        "trigger": {
+          "kind": "selfEntered"
+        },
+        "body": {
+          "kind": "damage",
+          "target": {
+            "kind": "enemyMinions"
+          },
+          "amount": 3
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-025",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 7,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-025.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-025.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-025.png",
+    "attack": 5,
+    "health": 7,
+    "keywords": [],
+    "tags": [
+      "undead"
+    ],
+    "effects": [
+      {
+        "id": "selfEntered",
+        "trigger": {
+          "kind": "selfEntered"
+        },
+        "body": {
+          "kind": "grantEffect",
+          "target": {
+            "kind": "friendlyMinions",
+            "scope": "adjacent"
+          },
+          "effect": {
+            "id": "selfDied",
+            "trigger": {
+              "kind": "selfDied"
+            },
+            "body": {
+              "kind": "summon",
+              "target": {
+                "kind": "friendlyLanes"
+              },
+              "prototype": "EOTA-TOKEN-SOU-MIN-002"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-MIN-026",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 3,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-MIN-026.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-MIN-026.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-MIN-026.png",
+    "attack": 3,
+    "health": 2,
+    "tags": [
+      "undead"
+    ],
+    "keywords": [],
+    "effects": [
+      {
+        "id": "selfDied",
+        "trigger": {
+          "kind": "selfDied"
+        },
+        "body": {
+          "kind": "damage",
+          "target": {
+            "kind": "enemyHero"
+          },
+          "amount": "source.attack"
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-SPL-001",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "spell",
+    "cost": 2,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-001.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-001.png",
+    "speed": "fast",
+    "targetScope": "lane",
+    "effects": [
+      {
+        "id": "selfSpellCast",
+        "trigger": {
+          "kind": "selfSpellCast"
+        },
+        "body": {
+          "kind": "ifElse",
+          "condition": {
+            "kind": "exists",
+            "target": {
+              "kind": "friendlyMinions"
+            }
+          },
+          "then": {
+            "kind": "sequence",
+            "steps": [
+              {
+                "kind": "kill",
+                "target": {
+                  "kind": "friendlyMinions"
+                }
+              },
+              {
+                "kind": "draw",
+                "target": {
+                  "kind": "friendlyHero"
+                },
+                "count": 2
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-SPL-002",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "spell",
+    "cost": 1,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-002.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-002.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-002.png",
+    "speed": "fast",
+    "targetScope": "lane",
+    "effects": [
+      {
+        "id": "selfSpellCast",
+        "trigger": {
+          "kind": "selfSpellCast"
+        },
+        "body": {
+          "kind": "heal",
+          "target": {
+            "kind": "friendlyMinions"
+          },
+          "amount": 4
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-SPL-003",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "spell",
+    "cost": 1,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-003.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-003.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-003.png",
+    "speed": "fast",
+    "targetScope": "lane",
+    "effects": [
+      {
+        "id": "selfSpellCast",
+        "trigger": {
+          "kind": "selfSpellCast"
+        },
+        "body": {
+          "kind": "ifElse",
+          "condition": {
+            "kind": "exists",
+            "target": {
+              "kind": "friendlyMinions"
+            }
+          },
+          "then": {
+            "kind": "parallel",
+            "children": [
+              {
+                "kind": "modifyNumber",
+                "target": {
+                  "kind": "friendlyMinions"
+                },
+                "amount": 1,
+                "attribute": "attack",
+                "operation": "add"
+              },
+              {
+                "kind": "grantEffect",
+                "target": {
+                  "kind": "friendlyMinions"
+                },
+                "effect": {
+                  "id": "selfDied",
+                  "trigger": {
+                    "kind": "selfDied"
+                  },
+                  "body": {
+                    "kind": "summon",
+                    "target": {
+                      "kind": "friendlyLanes"
+                    },
+                    "prototype": "EOTA-TOKEN-SOU-MIN-001"
+                  }
+                }
+              }
+            ]
+          },
+          "else": {
+            "kind": "summon",
+            "target": {
+              "kind": "friendlyLanes"
+            },
+            "prototype": "EOTA-TOKEN-SOU-MIN-001"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-SPL-004",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "spell",
+    "cost": 2,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-004.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-004.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-004.png",
+    "speed": "fast",
+    "targetScope": "lane",
+    "effects": [
+      {
+        "id": "selfSpellCast",
+        "trigger": {
+          "kind": "selfSpellCast"
+        },
+        "body": {
+          "kind": "parallel",
+          "children": [
+            {
+              "kind": "heal",
+              "target": {
+                "kind": "friendlyHero"
+              },
+              "amount": 2
+            },
+            {
+              "kind": "ifElse",
+              "condition": {
+                "kind": "exists",
+                "target": {
+                  "kind": "friendlyMinions"
+                }
+              },
+              "then": {
+                "kind": "grantEffect",
+                "target": {
+                  "kind": "friendlyMinions"
+                },
+                "effect": {
+                  "id": "selfDied",
+                  "trigger": {
+                    "kind": "selfDied"
+                  },
+                  "body": {
+                    "kind": "summon",
+                    "target": {
+                      "kind": "friendlyLanes"
+                    },
+                    "prototype": "EOTA-TOKEN-SOU-MIN-002"
+                  }
+                }
+              },
+              "else": {
+                "kind": "summon",
+                "target": {
+                  "kind": "friendlyLanes"
+                },
+                "prototype": "EOTA-TOKEN-SOU-MIN-002"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-SPL-005",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "spell",
+    "cost": 2,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-005.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-005.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-005.png",
+    "speed": "fast",
+    "targetScope": "lane",
+    "effects": [
+      {
+        "id": "selfSpellCast",
+        "trigger": {
+          "kind": "selfSpellCast"
+        },
+        "body": {
+          "kind": "retarget",
+          "target": {
+            "kind": "friendlyMinions"
+          },
+          "body": {
+            "kind": "sequence",
+            "steps": [
+              {
+                "kind": "modifyNumber",
+                "target": {
+                  "kind": "targets"
+                },
+                "amount": 3,
+                "attribute": "maximumHealth",
+                "operation": "add"
+              },
+              {
+                "kind": "heal",
+                "target": {
+                  "kind": "targets"
+                },
+                "amount": 3
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-SPL-006",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "spell",
+    "cost": 3,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-006.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-006.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-006.png",
+    "speed": "slow",
+    "targetScope": "lane",
+    "effects": [
+      {
+        "id": "selfSpellCast",
+        "trigger": {
+          "kind": "selfSpellCast"
+        },
+        "body": {
+          "kind": "retarget",
+          "target": {
+            "kind": "enemyMinions"
+          },
+          "body": {
+            "kind": "sequence",
+            "steps": [
+              {
+                "kind": "grantEffect",
+                "target": {
+                  "kind": "targets"
+                },
+                "effect": {
+                  "id": "selfDied",
+                  "trigger": {
+                    "kind": "selfDied"
+                  },
+                  "body": {
+                    "kind": "damage",
+                    "target": {
+                      "kind": "friendlyHero"
+                    },
+                    "amount": 3
+                  }
+                }
+              },
+              {
+                "kind": "damage",
+                "target": {
+                  "kind": "targets"
+                },
+                "amount": 3
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-SPL-007",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "spell",
+    "cost": 3,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-007.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-007.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-007.png",
+    "speed": "slow",
+    "targetScope": "global",
+    "effects": [
+      {
+        "id": "selfSpellCast",
+        "trigger": {
+          "kind": "selfSpellCast"
+        },
+        "body": {
+          "kind": "parallel",
+          "children": [
+            {
+              "kind": "heal",
+              "target": {
+                "kind": "friendlyMinions",
+                "scope": "all"
+              },
+              "amount": 3
+            },
+            {
+              "kind": "heal",
+              "target": {
+                "kind": "friendlyHero"
+              },
+              "amount": 3
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-SPL-008",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "spell",
+    "cost": 2,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-008.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-008.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-008.png",
+    "speed": "fast",
+    "targetScope": "lane",
+    "effects": [
+      {
+        "id": "selfSpellCast",
+        "trigger": {
+          "kind": "selfSpellCast"
+        },
+        "body": {
+          "kind": "ifElse",
+          "condition": {
+            "kind": "exists",
+            "target": {
+              "kind": "friendlyMinions"
+            }
+          },
+          "then": {
+            "kind": "sequence",
+            "steps": [
+              {
+                "kind": "kill",
+                "target": {
+                  "kind": "friendlyMinions"
+                }
+              },
+              {
+                "kind": "heal",
+                "target": {
+                  "kind": "friendlyHero"
+                },
+                "amount": 6
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-SPL-009",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "spell",
+    "cost": 3,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-009.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-009.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-009.png",
+    "speed": "slow",
+    "targetScope": "lane",
+    "effects": [
+      {
+        "id": "selfSpellCast",
+        "trigger": {
+          "kind": "selfSpellCast"
+        },
+        "body": {
+          "kind": "ifElse",
+          "condition": {
+            "kind": "exists",
+            "target": {
+              "kind": "friendlyMinions"
+            }
+          },
+          "then": {
+            "kind": "kill",
+            "target": {
+              "kind": "allMinions"
+            }
+          },
+          "else": {
+            "kind": "damage",
+            "target": {
+              "kind": "enemyMinions"
+            },
+            "amount": 3
+          }
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-SPL-010",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "spell",
+    "cost": 1,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-010.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-010.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-010.png",
+    "speed": "fast",
+    "targetScope": "lane",
+    "effects": [
+      {
+        "id": "selfSpellCast",
+        "trigger": {
+          "kind": "selfSpellCast"
+        },
+        "body": {
+          "kind": "grantEffect",
+          "target": {
+            "kind": "friendlyMinions"
+          },
+          "effect": {
+            "id": "selfDied",
+            "trigger": {
+              "kind": "selfDied"
+            },
+            "body": {
+              "kind": "parallel",
+              "children": [
+                {
+                  "kind": "draw",
+                  "target": {
+                    "kind": "friendlyHero"
+                  },
+                  "count": 1
+                },
+                {
+                  "kind": "heal",
+                  "target": {
+                    "kind": "friendlyHero"
+                  },
+                  "amount": 2
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-SPL-011",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "spell",
+    "cost": 4,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-011.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-011.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-011.png",
+    "speed": "slow",
+    "targetScope": "global",
+    "effects": [
+      {
+        "id": "selfSpellCast",
+        "trigger": {
+          "kind": "selfSpellCast"
+        },
+        "body": {
+          "kind": "damage",
+          "target": {
+            "kind": "allMinions",
+            "scope": "all"
+          },
+          "amount": 3
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-SPL-012",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "spell",
+    "cost": 4,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-012.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-012.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-012.png",
+    "speed": "slow",
+    "targetScope": "lane",
+    "effects": [
+      {
+        "id": "selfSpellCast",
+        "trigger": {
+          "kind": "selfSpellCast"
+        },
+        "body": {
+          "kind": "transform",
+          "target": {
+            "kind": "enemyMinions"
+          },
+          "prototype": "EOTA-TOKEN-SOU-MIN-002"
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-SPL-013",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "spell",
+    "cost": 4,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-013.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-013.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-013.png",
+    "speed": "fast",
+    "targetScope": "global",
+    "effects": [
+      {
+        "id": "selfSpellCast",
+        "trigger": {
+          "kind": "selfSpellCast"
+        },
+        "body": {
+          "kind": "parallel",
+          "children": [
+            {
+              "kind": "modifyNumber",
+              "target": {
+                "kind": "friendlyMinions",
+                "scope": "all",
+                "filter": {
+                  "tag": "undead"
+                }
+              },
+              "amount": 1,
+              "attribute": "attack",
+              "operation": "add",
+              "duration": 1
+            },
+            {
+              "kind": "addKeyword",
+              "target": {
+                "kind": "friendlyMinions",
+                "scope": "all",
+                "filter": {
+                  "tag": "undead"
+                }
+              },
+              "keyword": "swift",
+              "duration": 1
+            },
+            {
+              "kind": "removeKeyword",
+              "target": {
+                "kind": "friendlyMinions",
+                "scope": "all",
+                "filter": {
+                  "tag": "undead"
+                }
+              },
+              "keyword": "guard",
+              "duration": 1
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-SPL-014",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "spell",
+    "cost": 2,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-014.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-014.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-014.png",
+    "speed": "fast",
+    "targetScope": "lane",
+    "effects": [
+      {
+        "id": "selfSpellCast",
+        "trigger": {
+          "kind": "selfSpellCast"
+        },
+        "body": {
+          "kind": "retarget",
+          "target": {
+            "kind": "friendlyMinions"
+          },
+          "body": {
+            "kind": "sequence",
+            "steps": [
+              {
+                "kind": "grantEffect",
+                "target": {
+                  "kind": "targets"
+                },
+                "effect": {
+                  "id": "selfHealed",
+                  "trigger": {
+                    "kind": "selfHealed"
+                  },
+                  "body": {
+                    "kind": "damage",
+                    "target": {
+                      "kind": "enemyHero"
+                    },
+                    "amount": "event.amount"
+                  }
+                },
+                "duration": 1
+              },
+              {
+                "kind": "heal",
+                "target": {
+                  "kind": "targets"
+                },
+                "amount": 2
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-SPL-015",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "spell",
+    "cost": 3,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-015.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-015.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-015.png",
+    "speed": "fast",
+    "targetScope": "lane",
+    "effects": [
+      {
+        "id": "selfSpellCast",
+        "trigger": {
+          "kind": "selfSpellCast"
+        },
+        "body": {
+          "kind": "parallel",
+          "children": [
+            {
+              "kind": "retarget",
+              "target": {
+                "kind": "friendlyMinions"
+              },
+              "body": {
+                "kind": "heal",
+                "target": {
+                  "kind": "targets"
+                },
+                "amount": "target.maxHealth - target.health"
+              }
+            },
+            {
+              "kind": "draw",
+              "target": {
+                "kind": "friendlyHero"
+              },
+              "count": 1
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-SPL-016",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "spell",
+    "cost": 2,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-016.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-016.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-016.png",
+    "speed": "fast",
+    "targetScope": "lane",
+    "effects": [
+      {
+        "id": "selfSpellCast",
+        "trigger": {
+          "kind": "selfSpellCast"
+        },
+        "body": {
+          "kind": "retarget",
+          "target": {
+            "kind": "friendlyMinions"
+          },
+          "body": {
+            "kind": "parallel",
+            "children": [
+              {
+                "kind": "kill",
+                "target": {
+                  "kind": "targets"
+                }
+              },
+              {
+                "kind": "damage",
+                "target": {
+                  "kind": "enemyHero"
+                },
+                "amount": "target.attack"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-SPL-017",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "spell",
+    "cost": 3,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-017.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-017.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-017.png",
+    "speed": "fast",
+    "targetScope": "lane",
+    "effects": [
+      {
+        "id": "selfSpellCast",
+        "trigger": {
+          "kind": "selfSpellCast"
+        },
+        "body": {
+          "kind": "parallel",
+          "children": [
+            {
+              "kind": "damage",
+              "target": {
+                "kind": "enemyMinions"
+              },
+              "amount": 4
+            },
+            {
+              "kind": "heal",
+              "target": {
+                "kind": "friendlyMinions"
+              },
+              "amount": 4
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-CORE-SOU-SPL-018",
+    "source": "core",
+    "profession": "soulweaver",
+    "kind": "spell",
+    "cost": 1,
+    "nameLocalizationKey": "card.EOTA-CORE-SOU-SPL-018.name",
+    "descriptionLocalizationKey": "card.EOTA-CORE-SOU-SPL-018.description",
+    "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-SPL-018.png",
+    "speed": "fast",
+    "targetScope": "lane",
+    "effects": [
+      {
+        "id": "selfSpellCast",
+        "trigger": {
+          "kind": "selfSpellCast"
+        },
+        "body": {
+          "kind": "parallel",
+          "children": [
+            {
+              "kind": "addKeyword",
+              "target": {
+                "kind": "friendlyMinions"
+              },
+              "keyword": "swift",
+              "duration": 1
+            },
+            {
+              "kind": "removeKeyword",
+              "target": {
+                "kind": "friendlyMinions"
+              },
+              "keyword": "guard",
+              "duration": 1
+            },
+            {
+              "kind": "grantEffect",
+              "target": {
+                "kind": "friendlyMinions"
+              },
+              "effect": {
+                "id": "turnEnd",
+                "trigger": {
+                  "kind": "turnEnd"
+                },
+                "body": {
+                  "kind": "kill",
+                  "target": {
+                    "kind": "self"
+                  }
+                }
+              },
+              "duration": 1
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
     "id": "EOTA-TOKEN-ARC-MIN-001",
     "source": "token",
     "profession": "arcanist",
@@ -9069,5 +11122,58 @@
     ],
     "speed": "fast",
     "targetScope": "lane"
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-TOKEN-SOU-MIN-001",
+    "source": "token",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 1,
+    "nameLocalizationKey": "card.EOTA-TOKEN-SOU-MIN-001.name",
+    "descriptionLocalizationKey": "card.EOTA-TOKEN-SOU-MIN-001.description",
+    "texturePath": "Content/Generated/Art/EOTA-TOKEN-SOU-MIN-001.png",
+    "attack": 1,
+    "health": 1,
+    "keywords": [
+      "swift"
+    ],
+    "tags": [
+      "undead"
+    ],
+    "effects": [
+      {
+        "id": "turnEnd",
+        "trigger": {
+          "kind": "turnEnd"
+        },
+        "body": {
+          "kind": "kill",
+          "target": {
+            "kind": "self"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "schemaVersion": "eota.card/v2",
+    "id": "EOTA-TOKEN-SOU-MIN-002",
+    "source": "token",
+    "profession": "soulweaver",
+    "kind": "minion",
+    "cost": 2,
+    "nameLocalizationKey": "card.EOTA-TOKEN-SOU-MIN-002.name",
+    "descriptionLocalizationKey": "card.EOTA-TOKEN-SOU-MIN-002.description",
+    "texturePath": "Content/Generated/Art/EOTA-TOKEN-SOU-MIN-002.png",
+    "attack": 3,
+    "health": 3,
+    "keywords": [
+      "guard"
+    ],
+    "tags": [
+      "undead"
+    ],
+    "effects": []
   }
 ]

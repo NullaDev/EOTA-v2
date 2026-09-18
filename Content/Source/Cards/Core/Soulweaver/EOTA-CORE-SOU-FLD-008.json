@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "EOTA-CORE-SOU-FLD-008",
+  "source": "core",
+  "profession": "soulweaver",
+  "kind": "field",
+  "cost": 2,
+  "nameLocalizationKey": "card.EOTA-CORE-SOU-FLD-008.name",
+  "descriptionLocalizationKey": "card.EOTA-CORE-SOU-FLD-008.description",
+  "texturePath": "Content/Generated/Art/EOTA-CORE-SOU-FLD-008.png",
+  "lifetime": {
+    "kind": "finite",
+    "energy": 3
+  },
+  "effects": [
+    {
+      "id": "friendlyDied",
+      "trigger": {
+        "kind": "friendlyDied",
+        "subjectType": "minion"
+      },
+      "body": {
+        "kind": "draw",
+        "target": {
+          "kind": "friendlyHero"
+        },
+        "count": 1
+      }
+    }
+  ]
+}

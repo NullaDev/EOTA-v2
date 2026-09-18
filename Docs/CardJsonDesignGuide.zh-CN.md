@@ -1,6 +1,6 @@
 # Mod 开发者卡牌 JSON 编写指南
 
-更新于 2026-09-14。面向使用当前 VNext 卡牌编辑器及内容编译器的 Mod 作者。卡牌格式为 `eota.card/v2`，效果语言为 4；教学卡按当前卡池收紧了费用与持续收益；正式设计可对照 [四职业体系与强度约束](Content/CardSet-Redesign.zh-CN.md) 和 [完整卡表](CardTable.zh-CN.md)，再用实际牌组测试组合强度。
+更新于 2026-09-17。面向使用当前 VNext 卡牌编辑器及内容编译器的 Mod 作者。卡牌格式为 `eota.card/v2`，效果语言为 5；教学卡按当前卡池收紧了费用与持续收益；正式设计可对照 [职业体系与强度约束](Content/CardSet-Redesign.zh-CN.md) 和 [完整卡表](CardTable.zh-CN.md)，再用实际牌组测试组合强度。
 
 从零开始可先读第 1–3 节，再按效果需要查阅第 4–10 节。可复制源文件见 [完整示例目录](Content/Examples/README.zh-CN.md)，玩家构筑与疲劳规则见 [玩法指南](GameplayGuide.zh-CN.md)，素材制作和编辑器操作见 [内容工具](Content/Authoring-Tools.zh-CN.md)。
 
@@ -111,7 +111,7 @@
 | `kind` | 必填 | `minion`、`field`、`spell` |
 | `id` | 字符串，必填 | 卡牌原型 ID；对战实例 ID 由服务器创建 |
 | `source` | `core` | `core`、`token`、`test` |
-| `profession` | `neutral` | `neutral`、`guardian`、`arcanist`、`artisan`、`hunter`、`soulbinder` |
+| `profession` | `neutral` | `neutral`、`guardian`、`arcanist`、`artisan`、`hunter`、`soulweaver` |
 | `cost` | 整数，0 | 原始费用；权威值可为负，支付使用非负费用 |
 | `tags` | 字符串数组，`[]` | 自定义过滤标签，如 `mechanical`、`beast`；重复值规范化去重 |
 | `effects` | 数组，`[]` | 最多 32 个效果根 |
@@ -120,7 +120,7 @@
 | `descriptionLocalizationKey` | 字符串，可省略 | 规则说明键 |
 | `texturePath` | 字符串，空 | 插图资源路径，不参与规则哈希 |
 
-`soulbinder` 在内容枚举中存在，但当前客户端的新建职业入口仅提供守卫、奥术师、工匠和猎人。编译一种职业不等于已经提供完整客户端职业玩法。
+`soulweaver` 对应灵魂使（`Soulweaver`），客户端已提供该职业的卡牌、组牌入口与三个起始模板。
 
 ### 随从 `minion`
 
@@ -229,6 +229,9 @@
 | `selfSpellCast` | 当前法术结算，法术的唯一普通根 |
 | `friendlySpellCast` | 友方路线法术结算；全局法术无路线，不触发此观察 |
 | `selfDamaged` | 自身随从本帧受到正伤害；不能用于场地 |
+| `selfHealed` | 自身随从实际恢复正数生命，默认主体 `minion`；不能用于场地或英雄附件 |
+| `friendlyHealed` | 友方随从实际恢复正数生命，默认主体 `minion`；默认本路，可指定 `all` |
+| `friendlyHeroHealed` | 己方英雄实际恢复正数生命，默认主体 `hero`；无路线限制，效果动作仍保留自己的选择范围 |
 | `selfDied` / `selfLeft` | 自身死亡／普通离场；死亡也会产生普通离场事实，放逐除外 |
 | `friendlyDied` / `enemyDied` | 友方／敌方实体死亡 |
 | `friendlyLeft` / `enemyLeft` | 友方／敌方实体普通离场，包含死亡、回手、替换离场，不含放逐 |
@@ -244,6 +247,10 @@
 | `preCombatCharge` | 战斗前充能，必须有根字段 `charge` |
 | `endTurnCharge` | 回合结束充能，必须有根字段 `charge` |
 | `turnEnd` | 随从／场地回合结束效果 |
+
+治疗根只在受疗目标与观察者均存活于本帧提交后时发动。`event.amount` 为该目标本帧实际恢复总量：满血治疗、增加最大生命或直接改已损失生命不触发；同帧多个治疗请求合并一次，不同帧可重复触发。同帧伤害即使抵消了净生命增加，也不抹去实际治疗量。`friendlyHeroHealed` 的 `eventSubject` 是己方英雄；三种治疗根不接受不匹配的 `subjectType`。友方治疗观察也可以附加给英雄。
+
+例如毒誓病患的 `selfHealed` 根使用 `damage enemyMinions`、`amount: "event.amount"`，只伤害自身本路敌人；缝魂祭坛的 `friendlyHealed` 根使用 `modifyNumber eventSubject`，只强化实际受治疗的那个友军。详见[灵魂使卡表与实现边界](Content/Soulweaver-Design.zh-CN.md#implementation)。
 
 观察者的触发范围与动作的选取范围独立。例如根写 `scope: "all"`、动作写 `enemyMinions` 而省略 scope，含义仍是全场事件触发后，影响来源本路敌方随从。
 
@@ -1116,7 +1123,7 @@ amount、count、duration 和 compare 两侧可写整数或算术字符串。例
 | `lane.ether` | 来源控制方本路以太，需要来源路线；全局法术不能用 |
 | `source.attack` / `source.health` / `source.maxHealth` / `source.slow` | 随从来源；离场后可读冻结来源数据 |
 | `source.energy` | 有限场地来源的耐久值，永久场地读取会报错 |
-| `event.amount` | selfDamaged／combatDamage 的实际事件伤害量 |
+| `event.amount` | selfDamaged／combatDamage 的实际事件伤害量；selfHealed／friendlyHealed／friendlyHeroHealed 的实际恢复量 |
 | `event.attack` / `event.health` / `event.maxHealth` / `event.slow` | 事件主体为随从且当前事件确有主体 |
 | `event.energy` | 事件主体为有限场地 |
 | `replaced.attack` / `replaced.health` / `replaced.maxHealth` | 随从 replacementEntered 的被替换者冻结数据 |
@@ -1336,6 +1343,13 @@ target.* 必须在 forEach／retarget 绑定内使用。source 与 owner 不会�
 ```
 
 源码工程中的文本位于 `Content/Source/Localization/zh-CN.json`；独立内容包放在 Texts 字典。当前编辑器要求卡名非空、最多 120 字，说明最多 8192 字。文本不会参与规则哈希，也不会被解析为效果。
+
+召唤、生成或变形为指定卡牌时，说明应写出该原型的关键属性，避免要求玩家另查卡表：
+
+- 随从写攻击／生命，并列出简单关键词，例如“召唤一个1/1并具有追猎的猎犬”。额外赋予的能力单独说明，例如“使其获得迅捷”，不要混淆原型能力与来源效果。
+- 加入手牌时还应写费用，例如“将一张1费1/1并具有可替换的民兵加入手牌”。
+- 衍生法术写费用、速度和简短效果，例如“获得一张备用弹药（1费快速法术：对本路敌方随从造成1点伤害）”。
+- 附加能力中的“自身”“己方”“本路”以承载者为准；将能力附给敌方随从时，尤其要核对英雄归属。修改说明不改变效果，属性必须以被引用原型和实际 JSON 为准。
 
 ### 插图
 
