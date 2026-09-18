@@ -65,8 +65,8 @@ public sealed class P8ToolTests
         Assert.Equal(282, catalog.RenderTable().Split('\n').Count(line => line.Contains("| `EOTA-", StringComparison.Ordinal)));
         using var recipes = JsonDocument.Parse(File.ReadAllText(Path.Combine(Root, "Content", "Source", "Art", "emoji-recipes.json")));
         var fused = recipes.RootElement.EnumerateObject().Where(value => value.Value.TryGetProperty("fusion", out _)).ToArray();
-        Assert.Equal(199, fused.Length);
-        Assert.Equal(83, recipes.RootElement.EnumerateObject().Count(value => !value.Value.TryGetProperty("fusion", out _)));
+        Assert.Equal(251, fused.Length);
+        Assert.Equal(31, recipes.RootElement.EnumerateObject().Count(value => !value.Value.TryGetProperty("fusion", out _)));
         Assert.All(recipes.RootElement.EnumerateObject().Where(value => !value.Value.TryGetProperty("fusion", out _)),
             value => Assert.Equal(1, new StringInfo(value.Value.GetProperty("emoji").GetString()!).LengthInTextElements));
         Assert.All(fused, value =>

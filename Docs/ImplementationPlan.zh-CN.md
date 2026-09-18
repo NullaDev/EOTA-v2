@@ -6,7 +6,7 @@
 > 卡池：已实装，五职业各 50 张基础卡，每职业 2 张衍生卡，中立 22 张，共 282 张。十五套 40 张模板已同步。
 > 2026-09-18 核验：973 项测试通过（Kernel 154、Compiler 592、Integration 218、Architecture 7、Algebra 2），含全卡池 313 个独立效果场景和 108 场跨职业体系对局。构筑模板在 1600×1000 与 1280×800 两种窗口尺寸验收通过。平衡尚未定稿，AI 采样中的强弱差异和人工复核重点记录在各阶段的验收文档中，卡池数值以 [卡表](CardTable.zh-CN.md) 为准。  
 > P10 当前记录：[开服、牌组准入与卡牌编辑器](Review/P10-Hosting-Editor-Review.zh-CN.md)。  
-> 当前记录：[P9.6 交互与动画](Review/P96-Interaction-Review.zh-CN.md)；AI 验收：[P9.5](Review/P95-AI-Review.zh-CN.md)；历史页面反馈：[P9 第二轮反馈](Review/P9-Scene-Review-2.zh-CN.md)；前次交付：[P9](Review/P9-Godot-Review.zh-CN.md)；内容验收：[P8](Review/P8-Content-Review.zh-CN.md)；生成卡表：[CardTable](CardTable.zh-CN.md)；工具用法：[内容工具](Content/Authoring-Tools.zh-CN.md)。规则提案状态见各 ADR，尚未公开冻结，卡牌平衡性尚未验证。  
+> 当前记录：[P9.6 交互与动画](Review/P96-Interaction-Review.zh-CN.md)；AI 验收：[P9.5](Review/P95-AI-Review.zh-CN.md)；历史页面反馈：[P9 第二轮反馈](Review/P9-Scene-Review-2.zh-CN.md)；前次交付：[P9](Review/P9-Godot-Review.zh-CN.md)；内容验收：[P8](Review/P8-Content-Review.zh-CN.md)；生成卡表：[CardTable](CardTable.zh-CN.md)；工具用法：[开发工具与内容制作](../tools/README.zh-CN.md)。规则提案状态见各 ADR，尚未公开冻结，卡牌平衡性尚未验证。  
 > 架构基线：[Architecture.zh-CN.md](Architecture.zh-CN.md)。  
 > 规则基线：根目录 `Docs/ADR/` 中的 Accepted 决策及供 V0 开发使用的 Proposed 提案；各自状态保持明确。  
 > 当前内容清单：[282 张卡表](CardTable.zh-CN.md)；源文件为 `Content/Source/Cards`，十五套模板为 `Content/Source/Decks/archetypes.json`。

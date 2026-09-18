@@ -36,7 +36,7 @@ P8 阶段代码核对（历史记录）：当时 VNext 的 `CombatRules.CanActiv
 - [内容构建脚本](../../tools/Build-Content.ps1)：生成规则二进制、可重编译源文档、表现清单、文本、SVG 预览、差异与能力覆盖报告；加 -WithPng 可一起更新全部 PNG。
 - [Eota.ContentCli](../../tools/Eota.ContentCli/Program.cs) 提供 check / build / table / emoji 命令；批量 PNG 使用无 npm 依赖的 Node 导出器和本机 Chrome／Edge。
 
-完整使用方法与输入／输出目录见 [内容工具说明](../Content/Authoring-Tools.zh-CN.md)。规则描述仍由设计者维护，卡表生成器不把自然语言描述当成可验证的规则程序。
+完整使用方法与输入／输出目录见 [开发工具与内容制作](../../tools/README.zh-CN.md)。规则描述仍由设计者维护，卡表生成器不把自然语言描述当成可验证的规则程序。
 
 ## 验证结果
 

@@ -1,4 +1,4 @@
-﻿# P7 复杂效果验收
+# P7 复杂效果验收
 
 > 状态：开发协议 V0 下的 P7 已完成，2026-09-09。规则取舍仍按各 ADR 的 Proposed / Accepted 状态管理；不表示首个公开协议已经冻结。
 
@@ -23,7 +23,7 @@
 
 [CardTable 能力映射](P7-CardTable-Coverage.zh-CN.md) 列出 132 个 ID 对应的通用 IR / Intent 路径。P7 验证引擎表达能力；132 张卡的 JSON、数值、文本和逐卡验收属于 P8，不计入 P7 验收范围。
 
-后续口径：用户已明确这 132 张卡也是原型期实验设计，不能据此声称平衡性达标；“正式录入”仅指 VNext 管线。P8 当前实现与工具见 [P8 验收](P8-Content-Review.zh-CN.md)及[内容工具说明](../Content/Authoring-Tools.zh-CN.md)，卡图重新按 emoji 生成。
+后续口径：用户已明确这 132 张卡也是原型期实验设计，不能据此声称平衡性达标；“正式录入”仅指 VNext 管线。P8 当前实现与工具见 [P8 验收](P8-Content-Review.zh-CN.md)及[开发工具与内容制作](../../tools/README.zh-CN.md)，卡图重新按 emoji 生成。
 
 ## 验证结果
 

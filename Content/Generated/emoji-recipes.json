@@ -1952,353 +1952,453 @@
     "Profession": "neutral"
   },
   "EOTA-CORE-SOU-FLD-001": {
-    "Emoji": "\uD83E\uDEA6",
+    "Emoji": "\uD83D\uDC80\uD83E\uDEA8",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-FLD-001.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20220406/u1faa8/u1faa8_u1f480.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-FLD-002": {
-    "Emoji": "\uD83C\uDFE5",
+    "Emoji": "\uD83E\uDD12\uD83D\uDC9A",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-FLD-002.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20250130/u1f49a/u1f49a_u1f912.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-FLD-003": {
-    "Emoji": "\uD83E\uDEA1",
+    "Emoji": "\uD83E\uDEA1\u2696",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-FLD-003.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u2696-ufe0f/u2696-ufe0f_u1faa1.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-FLD-004": {
-    "Emoji": "\uD83E\uDEA8",
+    "Emoji": "\uD83D\uDCE6\uD83E\uDE78",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-FLD-004.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f4e6/u1f4e6_u1fa78.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-FLD-005": {
-    "Emoji": "\uD83C\uDFEE",
+    "Emoji": "\uD83D\uDD25\uD83E\uDEC0",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-FLD-005.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f525/u1f525_u1fac0.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-FLD-006": {
-    "Emoji": "\uD83C\uDF00",
+    "Emoji": "\uD83C\uDF2A\uD83D\uDC7B",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-FLD-006.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230216/u1f47b/u1f47b_u1f32a-ufe0f.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-FLD-007": {
-    "Emoji": "\u26EA",
+    "Emoji": "\uD83D\uDE4F\uD83D\uDC80",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-FLD-007.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20250430/u1f64f/u1f64f_u1f480.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-FLD-008": {
-    "Emoji": "\uD83D\uDD14",
+    "Emoji": "\uD83D\uDE4F\uD83C\uDCCF",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-FLD-008.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20250430/u1f64f/u1f64f_u1f0cf.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-FLD-009": {
-    "Emoji": "\uD83E\uDEA6",
+    "Emoji": "\uD83E\uDDB4\uD83D\uDCE6",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-FLD-009.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f4e6/u1f4e6_u1f9b4.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-001": {
-    "Emoji": "\uD83D\uDD6F\uFE0F",
+    "Emoji": "\uD83E\uDEA8\uD83D\uDE4F",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-001.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20250430/u1f64f/u1f64f_u1faa8.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-002": {
-    "Emoji": "\u26B0\uFE0F",
+    "Emoji": "\uD83E\uDDF5\uD83D\uDC7B",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-002.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260202/u1f47b/u1f47b_u1f9f5.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-003": {
-    "Emoji": "\u26B1\uFE0F",
+    "Emoji": "\uD83E\uDDB4\uD83E\uDD12",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-003.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f9b4/u1f9b4_u1f912.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-004": {
-    "Emoji": "\uD83E\uDE78",
+    "Emoji": "\u2764\uD83C\uDCCF",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-004.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f0cf/u1f0cf_u2764-ufe0f.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-005": {
-    "Emoji": "\uD83C\uDFEE",
+    "Emoji": "\uD83E\uDDB4\uD83D\uDD25",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-005.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230803/u1f525/u1f525_u1f9b4.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-006": {
-    "Emoji": "\uD83E\uDD10",
+    "Emoji": "\uD83E\uDD10\uD83E\uDEA8",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-006.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20220406/u1faa8/u1faa8_u1f910.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-007": {
-    "Emoji": "\uD83E\uDDDF",
+    "Emoji": "\uD83E\uDD12\uD83E\uDDA0",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-007.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20201001/u1f912/u1f912_u1f9a0.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-008": {
-    "Emoji": "\uD83D\uDC80",
+    "Emoji": "\uD83D\uDC80\uD83D\uDC7B",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-008.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230216/u1f480/u1f480_u1f47b.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-010": {
-    "Emoji": "\uD83E\uDE79",
+    "Emoji": "\uD83D\uDC94\uD83E\uDE78",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-010.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f494/u1f494_u1fa78.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-012": {
-    "Emoji": "\uD83D\uDC94",
+    "Emoji": "\u26D3\uD83D\uDC7B",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-012.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260202/u1f47b/u1f47b_u26d3-ufe0f.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-013": {
-    "Emoji": "\uD83E\uDEA1",
+    "Emoji": "\uD83E\uDEA1\uD83D\uDCA5",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-013.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20231113/u1f4a5/u1f4a5_u1faa1.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-014": {
-    "Emoji": "\uD83D\uDCDC",
+    "Emoji": "\uD83D\uDC9A\uD83C\uDCCF",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-014.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f0cf/u1f0cf_u1f49a.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-015": {
-    "Emoji": "\uD83E\uDEC0",
+    "Emoji": "\uD83E\uDE78\uD83E\uDD15",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-015.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f915/u1f915_u1fa78.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-016": {
-    "Emoji": "\uD83C\uDFFA",
+    "Emoji": "\uD83C\uDFFA\uD83C\uDCCF",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-016.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f3fa/u1f3fa_u1f0cf.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-017": {
-    "Emoji": "\uD83E\uDDF5",
+    "Emoji": "\uD83E\uDEA1\uD83E\uDD15",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-017.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f915/u1f915_u1faa1.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-018": {
-    "Emoji": "\uD83E\uDD12",
+    "Emoji": "\uD83E\uDD2E\uD83E\uDD22",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-018.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20201001/u1f922/u1f922_u1f92e.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-019": {
-    "Emoji": "\uD83D\uDE4F",
+    "Emoji": "\uD83D\uDE4F\uD83D\uDCA5",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-019.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260128/u1f64f/u1f64f_u1f4a5.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-020": {
-    "Emoji": "\uD83E\uDD2E",
+    "Emoji": "\uD83E\uDD2E\uD83D\uDC80",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-020.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230301/u1f92e/u1f92e_u1f480.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-021": {
-    "Emoji": "\uD83E\uDDD9",
+    "Emoji": "\uD83D\uDC51\u267E",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-021.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u267e-ufe0f/u267e-ufe0f_u1f451.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-023": {
-    "Emoji": "\uD83E\uDDDF",
+    "Emoji": "\uD83D\uDC80\uD83E\uDD71",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-023.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230301/u1f971/u1f971_u1f480.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-024": {
-    "Emoji": "\uD83D\uDDFF",
+    "Emoji": "\uD83E\uDEA8\u26D3",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-024.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u26d3-ufe0f/u26d3-ufe0f_u1faa8.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-025": {
-    "Emoji": "\uD83D\uDC51",
+    "Emoji": "\uD83D\uDC51\uD83D\uDC7B",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-025.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230216/u1f47b/u1f47b_u1f451.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-MIN-026": {
-    "Emoji": "\uD83D\uDD25",
+    "Emoji": "\uD83D\uDD25\uD83D\uDC80",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-MIN-026.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20201001/u1f480/u1f480_u1f525.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-SPL-001": {
-    "Emoji": "\uD83D\uDC7B",
+    "Emoji": "\uD83D\uDE4F\uD83C\uDCCF",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-SPL-001.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20250430/u1f64f/u1f64f_u1f0cf.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-SPL-002": {
-    "Emoji": "\uD83E\uDDF5",
+    "Emoji": "\uD83E\uDEA1\uD83D\uDC94",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-SPL-002.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f494/u1f494_u1faa1.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-SPL-003": {
-    "Emoji": "\uD83D\uDC7B",
+    "Emoji": "\uD83E\uDE84\uD83D\uDC7B",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-SPL-003.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20210521/u1fa84/u1fa84_u1f47b.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-SPL-004": {
-    "Emoji": "\uD83E\uDDDF",
+    "Emoji": "\uD83E\uDDF5\uD83E\uDD12",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-SPL-004.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f9f5/u1f9f5_u1f912.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-SPL-005": {
-    "Emoji": "\uD83E\uDDB4",
+    "Emoji": "\uD83E\uDDB4\u26D3",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-SPL-005.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u26d3-ufe0f/u26d3-ufe0f_u1f9b4.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-SPL-006": {
-    "Emoji": "\uD83D\uDCDC",
+    "Emoji": "\uD83D\uDC80\uD83D\uDD25",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-SPL-006.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20201001/u1f480/u1f480_u1f525.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-SPL-007": {
-    "Emoji": "\u26B1\uFE0F",
+    "Emoji": "\uD83D\uDE4F\uD83D\uDC9A",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-SPL-007.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20250430/u1f64f/u1f64f_u1f49a.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-SPL-008": {
-    "Emoji": "\uD83E\uDE78",
+    "Emoji": "\uD83E\uDE78\uD83D\uDC94",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-SPL-008.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f494/u1f494_u1fa78.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-SPL-009": {
-    "Emoji": "\u26B0\uFE0F",
+    "Emoji": "\uD83E\uDDB4\uD83D\uDC7B",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-SPL-009.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20220815/u1f47b/u1f47b_u1f9b4.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-SPL-010": {
-    "Emoji": "\u2709\uFE0F",
+    "Emoji": "\uD83E\uDD10\uD83C\uDCCF",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-SPL-010.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f0cf/u1f0cf_u1f910.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-SPL-011": {
-    "Emoji": "\uD83D\uDD25",
+    "Emoji": "\uD83D\uDD25\uD83C\uDF2A",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-SPL-011.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230127/u1f32a-ufe0f/u1f32a-ufe0f_u1f525.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-SPL-012": {
-    "Emoji": "\u26B0\uFE0F",
+    "Emoji": "\uD83D\uDCE6\uD83D\uDC80",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-SPL-012.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20241021/u1f4e6/u1f4e6_u1f480.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-SPL-013": {
-    "Emoji": "\uD83D\uDCEF",
+    "Emoji": "\uD83C\uDFBA\uD83D\uDC7B",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-SPL-013.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20260202/u1f47b/u1f47b_u1f3ba.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-SPL-014": {
-    "Emoji": "\uD83D\uDE4F",
+    "Emoji": "\uD83D\uDE4F\uD83D\uDD25",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-SPL-014.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20250430/u1f64f/u1f64f_u1f525.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-SPL-015": {
-    "Emoji": "\uD83D\uDCDC",
+    "Emoji": "\uD83C\uDF4E\uD83C\uDCCF",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-SPL-015.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f0cf/u1f0cf_u1f34e.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-SPL-016": {
-    "Emoji": "\uD83E\uDE78",
+    "Emoji": "\u2764\uD83D\uDD25",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-SPL-016.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230821/u2764-ufe0f/u2764-ufe0f_u1f525.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-SPL-017": {
-    "Emoji": "\uD83E\uDEA1",
+    "Emoji": "\uD83E\uDDF5\uD83D\uDD25",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-SPL-017.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230803/u1f525/u1f525_u1f9f5.png",
     "Profession": "soulweaver"
   },
   "EOTA-CORE-SOU-SPL-018": {
-    "Emoji": "\uD83E\uDE84",
+    "Emoji": "\uD83E\uDEA1\uD83D\uDE08",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-CORE-SOU-SPL-018.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u1f608/u1f608_u1faa1.png",
     "Profession": "soulweaver"
   },
   "EOTA-TOKEN-ARC-MIN-001": {
@@ -2358,17 +2458,21 @@
     "Profession": "hunter"
   },
   "EOTA-TOKEN-SOU-MIN-001": {
-    "Emoji": "\uD83D\uDC7B",
+    "Emoji": "\uD83D\uDC7B\uD83C\uDF2A",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-TOKEN-SOU-MIN-001.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20230216/u1f47b/u1f47b_u1f32a-ufe0f.png",
     "Profession": "soulweaver"
   },
   "EOTA-TOKEN-SOU-MIN-002": {
-    "Emoji": "\uD83E\uDDDF",
+    "Emoji": "\uD83E\uDEA8\uD83D\uDC80",
     "Top": "#397c7c",
     "Bottom": "#102b33",
     "Style": "card",
+    "Fusion": "Fusions/EOTA-TOKEN-SOU-MIN-002.png",
+    "FusionSource": "https://www.gstatic.com/android/keyboard/emojikitchen/20220406/u1faa8/u1faa8_u1f480.png",
     "Profession": "soulweaver"
   }
 }

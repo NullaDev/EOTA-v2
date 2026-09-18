@@ -2,7 +2,7 @@
 
 更新于 2026-09-17。面向使用当前 VNext 卡牌编辑器及内容编译器的 Mod 作者。卡牌格式为 `eota.card/v2`，效果语言为 5；教学卡按当前卡池收紧了费用与持续收益；正式设计可对照 [体系牌组与强度约束](Content/ArchetypeDecks.zh-CN.md) 和 [完整卡表](CardTable.zh-CN.md)，再用实际牌组测试组合强度。
 
-从零开始可先读第 1–3 节，再按效果需要查阅第 4–10 节。可复制源文件见 [完整示例目录](Content/Examples/README.zh-CN.md)，玩家构筑与疲劳规则见 [玩法指南](GameplayGuide.zh-CN.md)，素材制作和编辑器操作见 [内容工具](Content/Authoring-Tools.zh-CN.md)。
+从零开始可先读第 1–3 节，再按效果需要查阅第 4–10 节。可复制源文件见 [完整示例目录](Content/Examples/README.zh-CN.md)，玩家构筑与疲劳规则见 [玩法指南](GameplayGuide.zh-CN.md)，素材制作和编辑器操作见 [开发工具与内容制作](../tools/README.zh-CN.md)。
 
 ## 目录
 
@@ -1353,7 +1353,7 @@ target.* 必须在 forEach／retarget 绑定内使用。source 与 owner 不会�
 
 ### 插图
 
-texturePath 使用客户端能读取的资源，如 `Content/Generated/Art/EOTA-CORE-GUA-MIN-001.png`。规则编译器允许省略图片，但当前客户端启用目录会检查路径必须位于 `Content/Generated/Art/`、以 .png 结尾、实际存在，且不得含 `..` 或反斜杠。因此面向游戏发布的卡牌应填写有效路径。图片不参与规则哈希，缺失图片不会由编译器自动创建。emoji PNG 制作方法见 [素材工具](Content/Authoring-Tools.zh-CN.md)。当前 `.eotapack.json` 不嵌入外部图片，接收者仍需拥有对应资源；最稳妥的起步方式是引用游戏已有图片。
+texturePath 使用客户端能读取的资源，如 `Content/Generated/Art/EOTA-CORE-GUA-MIN-001.png`。规则编译器允许省略图片，但当前客户端启用目录会检查路径必须位于 `Content/Generated/Art/`、以 .png 结尾、实际存在，且不得含 `..` 或反斜杠。因此面向游戏发布的卡牌应填写有效路径。图片不参与规则哈希，缺失图片不会由编译器自动创建。emoji PNG 制作方法见 [卡图工具](../tools/README.zh-CN.md#卡图工具emojiart)。当前 `.eotapack.json` 不嵌入外部图片，接收者仍需拥有对应资源；最稳妥的起步方式是引用游戏已有图片。
 
 ### 三种 JSON 容器不要混用
 

@@ -14,7 +14,7 @@
 
 | 位置 | 保存内容 | 是否随仓库分发 |
 |---|---|---|
-| `Content/Source/Art/Fusions` | 199 张现有卡牌融合原图，重复来源去重后为 187 张 | 是 |
+| `Content/Source/Art/Fusions` | 251 张现有卡牌融合原图，重复来源去重后为 235 张 | 是 |
 | `tools/EmojiArt/shared-cache/*.json` | 从网页导出的其他组合原图，不限于现有卡牌 | 将文件提交后才会分发 |
 | `tools/EmojiArt/fusion-cache.js` | 上述素材合并后的网页离线数据 | 是；接收者直接打开 HTML 即可使用 |
 | 浏览器 IndexedDB：`eota-emoji-fusions-v1` → `images` | 当前浏览器首次联网获取或导入的其他组合 | 否；需显式导出 |
@@ -53,4 +53,4 @@ node tools/EmojiArt/export.mjs Content/Source/Art/ui-icons.json Content/Generate
 
 浏览器验收运行 `node tools/EmojiArt/verify.mjs`，覆盖离线缓存、新组合联网、实际 PNG 下载、配置导入、不支持的组合、网络失败与异步切换；还验证页面重载后的持久缓存、全新浏览器环境中的缓存导入，以及加入共享素材后的独立工具副本断网运行。需要本机 Chrome／Edge，在线用例需要访问图片服务；日志、截图与下载结果保存到 `artifacts/emoji-art-check-*`。
 
-详见 [内容工具说明](../../Docs/Content/Authoring-Tools.zh-CN.md)。普通 emoji 外观跟随系统字体；融合结果使用缓存素材，跨系统保持一致。
+详见 [开发工具与内容制作](../README.zh-CN.md)。普通 emoji 外观跟随系统字体；融合结果使用缓存素材，跨系统保持一致。

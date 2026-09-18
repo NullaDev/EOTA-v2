@@ -12,4 +12,4 @@
 
 Copyright (C) 2026 EOTA contributors. 项目原创代码、工具、文档与游戏内容采用 GNU GPLv3（GPL-3.0-only），完整条款见包内根目录的 `LICENSE`。源码与构建说明见 [项目仓库](https://github.com/NullaDev/EOTA-v2)。欢迎通过 [Issues](https://github.com/NullaDev/EOTA-v2/issues) 分享卡牌、玩法与世界观想法，或提交代码和内容改进。
 
-第三方组件和素材保留各自的版权与许可。本游戏使用 [Godot Engine](https://godotengine.org)，引擎及其第三方组件许可随包保存在 `Docs/Godot-LICENSES.txt`。[Godot 许可说明](https://godotengine.org/license/)可在线查阅；.NET 组件许可随运行库提供。Emoji Kitchen 融合图及生成卡图中包含的第三方图像部分不适用本项目的原创内容授权，来源说明见 `Docs/Content/Authoring-Tools.zh-CN.md`。
+第三方组件和素材保留各自的版权与许可。本游戏使用 [Godot Engine](https://godotengine.org)，引擎及其第三方组件许可随包保存在 `Docs/Godot-LICENSES.txt`。[Godot 许可说明](https://godotengine.org/license/)可在线查阅；.NET 组件许可随运行库提供。Emoji Kitchen 融合图及生成卡图中包含的第三方图像部分不适用本项目的原创内容授权，相关来源与制作流程见项目仓库的 `tools/README.zh-CN.md`。

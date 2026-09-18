@@ -117,6 +117,7 @@ Copyright (C) 2026 EOTA contributors.
 | 卡组管理、对战协议、疲劳与联机确认 | [客户端与房间规则](Docs/GameplayGuide.zh-CN.md) |
 | 制作自定义卡牌和内容包 | [Mod 开发者 JSON 指南](Docs/CardJsonDesignGuide.zh-CN.md) |
 | 从源码制作 Windows 发布包 | [Windows 打包说明](Docs/WindowsRelease.zh-CN.md) |
+| 各开发工具与内容制作流程 | [开发工具与内容制作](tools/README.zh-CN.md) |
 | 规则内核、服务端与客户端如何协作 | [项目架构](Docs/Architecture.zh-CN.md) |
 
-仅游玩时使用发布包即可；修改源码需要 Godot .NET 版与 .NET SDK。卡图制作工具保留在开发仓库中，使用方式见 [素材与编辑工具说明](Docs/Content/Authoring-Tools.zh-CN.md)。
+仅游玩时使用发布包即可；修改源码需要 Godot .NET 版与 .NET SDK。卡图制作与内容构建工具保留在开发仓库中，使用方式见 [开发工具与内容制作](tools/README.zh-CN.md)。

@@ -6,7 +6,7 @@
 | [完整教学示例](Examples/README.zh-CN.md) | 9 张源卡、中文文本、教学协议、牌组及验证命令 |
 | [卡牌费用模型](CardCostModel.zh-CN.md) | 身材、关键词、治疗、共鸣资源与组合总成本的审核尺度 |
 | [体系示例牌组](ArchetypeDecks.zh-CN.md) | 十五套完整 40 张构筑、费用曲线与使用思路 |
-| [素材与编辑工具](Authoring-Tools.zh-CN.md) | emoji 卡图、源码构建、卡牌编辑器、导入导出和启用 |
+| [开发工具与内容制作](../../tools/README.zh-CN.md) | 内容构建、卡表、回放工具与 emoji 卡图制作 |
 | [当前玩法指南](../GameplayGuide.zh-CN.md) | 玩家操作、构筑要求、疲劳与联机规则 |
 | [生成卡表](../CardTable.zh-CN.md) | 五职业共 282 张卡的名称、说明与数值 |
 
