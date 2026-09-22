@@ -48,9 +48,21 @@ internal static class Ui
         foreach (var texture in Textures.Values) { texture.Dispose(); }
         Textures.Clear();
     }
-    public static readonly Color Background = new("171c19");
-    public static readonly Color Panel = new("252d27");
-    public static readonly Color Accent = new("d9b76e");
+    // Tokens mirror Docs/UIGuideline.zh-CN.md and Client/Godot/GameTheme.tres.
+    public static readonly Color Background = new("12161b");
+    public static readonly Color Surface = new("1b2128");
+    public static readonly Color SurfaceRaised = new("232b34");
+    public static readonly Color Outline = new("2f3a45");
+    public static readonly Color Panel = Surface;
+    public static readonly Color Accent = new("d8b46a");
+    public static readonly Color AccentInk = new("1a1509");
+    public static readonly Color TextPrimary = new("e6edf3");
+    public static readonly Color TextMuted = new("9aa7b2");
+    public static readonly Color Positive = new("6fd08c");
+    public static readonly Color Negative = new("e8796a");
+    public static readonly Color Info = new("6fb3d8");
+    public static readonly Color SideSelf = new("2b3a4a");
+    public static readonly Color SideOpponent = new("3a2b2b");
     public static StyleBoxFlat Box(Color color, int radius = 10, Color? border = null) => new()
     {
         BgColor = color,
@@ -62,16 +74,16 @@ internal static class Ui
         BorderWidthTop = 1,
         BorderWidthRight = 1,
         BorderWidthBottom = 1,
-        BorderColor = border ?? new Color("344655"),
-        ContentMarginLeft = 10,
-        ContentMarginRight = 10,
-        ContentMarginTop = 8,
-        ContentMarginBottom = 8
+        BorderColor = border ?? Outline,
+        ContentMarginLeft = 12,
+        ContentMarginRight = 12,
+        ContentMarginTop = 10,
+        ContentMarginBottom = 10
     };
-    public static Label Text(string text, int size = 16) { var label = new Label { Text = text }; label.AddThemeFontSizeOverride("font_size", size); return label; }
+    public static Label Text(string text, int size = 18) { var label = new Label { Text = text }; label.AddThemeFontSizeOverride("font_size", size); return label; }
     public static Button Button(string text, Action action)
     {
-        var button = new Button { Text = text, CustomMinimumSize = new Vector2(0, 38) };
+        var button = new Button { Text = text, CustomMinimumSize = new Vector2(0, 40) };
         button.Pressed += action; return button;
     }
     public static void Clear(Node node)

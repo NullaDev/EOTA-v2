@@ -8,7 +8,6 @@
       "eota.transport.contracts": {
         "type": "Project"
       }
-    },
-    "net8.0/win-x64": {}
+    }
   }
 }

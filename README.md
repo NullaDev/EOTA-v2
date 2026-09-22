@@ -118,6 +118,7 @@ Copyright (C) 2026 EOTA contributors.
 | 制作自定义卡牌和内容包 | [Mod 开发者 JSON 指南](Docs/CardJsonDesignGuide.zh-CN.md) |
 | 从源码制作 Windows 发布包 | [Windows 打包说明](Docs/WindowsRelease.zh-CN.md) |
 | 各开发工具与内容制作流程 | [开发工具与内容制作](tools/README.zh-CN.md) |
+| 改界面前必须遵守的配色、字阶与分区 | [界面设计规范](Docs/UIGuideline.zh-CN.md) |
 | 规则内核、服务端与客户端如何协作 | [项目架构](Docs/Architecture.zh-CN.md) |
 
 仅游玩时使用发布包即可；修改源码需要 Godot .NET 版与 .NET SDK。卡图制作与内容构建工具保留在开发仓库中，使用方式见 [开发工具与内容制作](tools/README.zh-CN.md)。

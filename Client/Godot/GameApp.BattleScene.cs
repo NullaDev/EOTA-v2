@@ -26,8 +26,8 @@ public partial class GameApp
         _root.AddChild(_battleScreen);
         _animations = _battleScreen.GetNode<BattleAnimations>("Animations");
         _matchInfo = _battleScreen.GetNode<Label>("Toolbar/MatchInfo");
-        _aiStatusLabel = _battleScreen.GetNode<Label>("AiStatus");
-        _matchClockLabel = _battleScreen.GetNode<Label>("MatchClock");
+        _aiStatusLabel = _battleScreen.GetNode<Label>("Toolbar/AiStatus");
+        _matchClockLabel = _battleScreen.GetNode<Label>("Toolbar/MatchClock");
         _aiStatusLabel.Visible = _session?.AiSettings is not null;
         RefreshAiStatus();
         _heroes = [_battleScreen.GetNode<HeroPanel>("Player"), _battleScreen.GetNode<HeroPanel>("Opponent")];
@@ -133,7 +133,7 @@ public partial class GameApp
             "Finished" => "对局结束", "Stopped" => "已停止", "Faulted" => "行动中断，请重开",
             _ => "正在准备…"
         };
-        _aiStatusLabel.Text = name + " AI\n" + text;
+        _aiStatusLabel.Text = $"{name} AI · {text}";
         _aiStatusLabel.TooltipText = status.Error ?? "";
     }
 
@@ -145,7 +145,7 @@ public partial class GameApp
         var seconds = timer.RemainingSeconds;
         var view = _session!.Client.Store.View!;
         var submitted = view.Private is { } own && view.Players.Single(p => p.PlayerId == own.PlayerId).Submitted;
-        _matchClockLabel.Text = $"{(submitted ? "等待对方" : "提交倒计时")}\n{seconds} 秒";
+        _matchClockLabel.Text = $"{(submitted ? "等待对方" : "提交倒计时")} {seconds} 秒";
         _matchClockLabel.AddThemeColorOverride("font_color", seconds <= 10 ? new Color("f28578") : new Color("c8ab6b"));
     }
 }

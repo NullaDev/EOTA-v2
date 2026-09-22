@@ -4,38 +4,41 @@
 
 [node name="ProtocolField" type="HBoxContainer"]
 layout_mode = 3
-custom_minimum_size = Vector2(1120, 44)
-size_flags_vertical = 3
+custom_minimum_size = Vector2(760, 44)
+size_flags_horizontal = 4
 theme = ExtResource("theme")
-theme_override_constants/separation = 20
+theme_override_constants/separation = 16
+
+; 参数行固定 760 宽并整体居中：标签 300 + 取值 440。
+; 取值控件不拉伸，避免数字输入框横跨整个页面。
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
-custom_minimum_size = Vector2(390, 44)
+custom_minimum_size = Vector2(300, 44)
 text = "协议项目"
 vertical_alignment = 1
 
 [node name="Number" type="LineEdit" parent="."]
 layout_mode = 2
-size_flags_horizontal = 3
-custom_minimum_size = Vector2(0, 44)
+size_flags_horizontal = 0
+custom_minimum_size = Vector2(440, 44)
 
 [node name="Choice" type="OptionButton" parent="."]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 visible = false
-custom_minimum_size = Vector2(0, 44)
+custom_minimum_size = Vector2(440, 44)
 
 [node name="Toggle" type="CheckBox" parent="."]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 visible = false
 text = "启用"
-custom_minimum_size = Vector2(0, 44)
+custom_minimum_size = Vector2(440, 44)
 
 [node name="Value" type="Label" parent="."]
 layout_mode = 2
+size_flags_horizontal = 0
 vertical_alignment = 1
-size_flags_horizontal = 3
 visible = false
-custom_minimum_size = Vector2(0, 44)
+custom_minimum_size = Vector2(440, 44)

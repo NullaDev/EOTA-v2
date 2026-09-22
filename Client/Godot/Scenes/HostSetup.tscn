@@ -24,6 +24,7 @@ offset_bottom = 98.0
 text = "建立房间，邀请另一位玩家。双方确认协议与牌组后开局。"
 theme_override_font_sizes/font_size = 16
 mouse_filter = 2
+theme_type_variation = &"MutedLabel"
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -51,8 +52,9 @@ offset_top = 200.0
 offset_right = 1198.0
 offset_bottom = 272.0
 text = ""
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 16
 mouse_filter = 2
+theme_type_variation = &"MutedLabel"
 
 [node name="MatchNameTitle" type="Label" parent="."]
 layout_mode = 0
@@ -177,6 +179,7 @@ offset_top = 646.0
 offset_right = 306.0
 offset_bottom = 708.0
 text = "启动服务器"
+theme_type_variation = &"PrimaryButton"
 
 [node name="Stop" type="Button" parent="."]
 layout_mode = 0
@@ -209,6 +212,7 @@ offset_top = 732.0
 offset_right = 406.0
 offset_bottom = 790.0
 text = "复制玩家二邀请"
+theme_type_variation = &"ToolButton"
 
 [node name="CopySpectator" type="Button" parent="."]
 layout_mode = 0
@@ -217,6 +221,7 @@ offset_top = 732.0
 offset_right = 814.0
 offset_bottom = 790.0
 text = "复制观战邀请"
+theme_type_variation = &"ToolButton"
 
 [node name="CopyOne" type="Button" parent="."]
 layout_mode = 0
@@ -225,3 +230,4 @@ offset_top = 732.0
 offset_right = 1230.0
 offset_bottom = 790.0
 text = "复制玩家一邀请"
+theme_type_variation = &"ToolButton"

@@ -248,6 +248,13 @@ node tools/EmojiArt/verify.mjs
 
   Host 就绪（`GET /health` 返回 200）后再运行客户端冒烟。`--fixture` 模式必须显式给 `--cards`，否则会去找夹具目录下不存在的 `Cards` 子目录。
 
+  **每次运行 `--smoke-remote` 都要新起一个 Host**：夹具对局在 Host 进程内只播种一次，第一次连接会把夹具命令走完，第二次连接再提交同样的命令就会被拒绝（`CardNotInHand` 或 `PlayerAlreadySubmitted`）。重启前先确认 5086 端口已释放，否则旧进程仍在监听、会继续回答请求：
+
+  ```powershell
+  Get-Process Eota.Server.Host -ErrorAction SilentlyContinue | Stop-Process -Force
+  netstat -ano | Select-String ':5086'   # 应无输出
+  ```
+
 ## 其他说明
 
 - 各 CLI 目录下的 `*.cs.uid` 由 Godot 4 自动生成，用于脚本资源的稳定标识，随仓库提交，不要手工编辑。

@@ -200,8 +200,9 @@ theme_override_font_sizes/font_size = 16
 
 [node name="Permanent" type="CheckBox" parent="Pages/Basic/Margin/Fields"]
 layout_mode = 2
-custom_minimum_size = Vector2(320, 42)
-size_flags_horizontal = 3
+size_flags_horizontal = 0
+custom_minimum_size = Vector2(42, 42)
+tooltip_text = "勾选后该场地不消耗耐久"
 
 [node name="EnergyLabel" type="Label" parent="Pages/Basic/Margin/Fields"]
 layout_mode = 2

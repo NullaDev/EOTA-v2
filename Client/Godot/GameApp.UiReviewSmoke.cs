@@ -218,6 +218,9 @@ public partial class GameApp
     private void CheckLayout()
     {
         var board = _battleScreen.GetNode<ScrollContainer>("BoardScroll").GetGlobalRect();
+        var lanes = _battleScreen.GetNode<HBoxContainer>("BoardScroll/Lanes");
+        if (lanes.GetChildCount() == 6 && lanes.Size.X > board.Size.X + 1)
+        { throw new InvalidOperationException($"Six lanes must fit the board without scrolling: {lanes.Size.X} > {board.Size.X}"); }
         var handScroll = _battleScreen.GetNode<ScrollContainer>("HandScroll");
         var hand = handScroll.GetGlobalRect();
         if (board.Intersects(hand) || _submit.GetGlobalRect().Intersects(hand))

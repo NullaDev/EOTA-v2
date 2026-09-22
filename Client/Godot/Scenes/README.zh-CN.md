@@ -23,17 +23,17 @@
 | CardInspection / PlanChip | 战场原型详情、可取消的规划条目 |
 | EtherPips | 独立玩家的以太条：零级隐藏，每级一幅波浪图标 |
 
-窗口按 1600×1000 画布保持比例缩放。卡牌尺寸、边框与文字区域由场景定义，颜色和控件状态由 `../GameTheme.tres` 统一维护。路线、卡牌和参数行按数据数量重复实例化；额外路线与手牌横向滚动，长描述有独立滚动区域。
+窗口按 1600×1000 画布保持比例缩放。卡牌尺寸、边框与文字区域由场景定义，颜色和控件状态由 `../GameTheme.tres` 统一维护；可用的 theme type variation 与各界面分区尺寸见 [界面设计规范](../../../Docs/UIGuideline.zh-CN.md)。路线、卡牌和参数行按数据数量重复实例化；额外路线与手牌横向滚动，长描述有独立滚动区域。
 
 以太条使用生成的 `ether.png`，渲染时裁去透明留边；图片文件未修改。大于固定条容量的自定义等级可以横向滚动逐个查看，不把多级合并为单个数字。归属绑定 `(LaneId, PlayerId)`，切换席位只改变上下位置。
 
-CardTile 的展示模式绑定 CardPresentation 原型投影，不创建假的实例。有限场地原型携带初始耐久，场上实例绑定 FieldEnergy；无限场地不显示徽章。图鉴主列表为 222 张基础卡，另外 8 张衍生卡通过编译后的效果引用关联到来源卡，不直接混入主列表。悬停预览，点击外框锁定；离开、取消锁定或筛选时清理详情。
+CardTile 的展示模式绑定 CardPresentation 原型投影，不创建假的实例。有限场地原型携带初始耐久，场上实例绑定 FieldEnergy；无限场地不显示徽章。图鉴主列表为 272 张基础卡，另外 10 张衍生卡（每职业 2 张）通过编译后的效果引用关联到来源卡，不直接混入主列表。悬停预览，点击外框锁定；离开、取消锁定或筛选时清理详情。
 
 GameApp.DeckWorkshop 负责卡组列表、职业选择和编辑流程，DesktopDeckDraft 负责职业卡池和每个卡组的草稿；允许同职业多个草稿，返回列表或切换页面保留本次运行中的编辑。只有点击保存才写入用户牌组目录，构筑合法性继续由正式 MatchFactory 校验。旧 DeckBuilder.tscn 为历史场景，当前 MenuScreen 引用 DeckWorkshop.tscn。
 
 DeckTile 的 Delete 按钮用于删除已保存自建卡组及新建草稿，确认后同步文件和列表；默认模板保留。DesktopDeckStore 使用独立于名称的文件标识，重命名不会留下旧文件。构筑数量、卡池、填入默认牌组、保存校验均读取当前协议；改变协议保留原草稿，不合法项标红。ProtocolPage 的“构筑与疲劳”提供张数、副本上下限、三种职业规则和三种疲劳策略。HostSetup 只选择自己的参考牌组，OpponentDeck 固定显示由对方加入后选择。
 
-四职业介绍由 [GameApp.DeckWorkshop.cs](../GameApp.DeckWorkshop.cs) 中的 ProfessionDescription 定义，分别说明守卫、奥术师、猎人与工匠的背景及战术。ProfessionPicker 的说明区域为 222 像素高，使用 22 像素文字，容纳完整介绍。
+五职业介绍由 [GameApp.DeckWorkshop.cs](../GameApp.DeckWorkshop.cs) 中的 ProfessionDescription 定义，分别说明守卫、奥术师、工匠、猎人与灵魂使的背景及战术。ProfessionPicker 的说明区域为 210 像素高，使用 22 像素文字，容纳完整介绍。
 
 规划预览单独注册，真实战场实体继续按 EntityId 绑定。替换预览临时遮住原实体，取消后恢复；其他玩家和观战者不能看到这些私有规划。SpellPlans 为每张法术实例化 SpellPlanIcon，三张慢速法术显示三个沙漏。悬停预览对应卡牌，提交前点击按 PlanCommandId 撤回该张，图标不向路线透传点击；更多法术可横向滚动，保留逐张操作。
 
@@ -41,7 +41,7 @@ BattleAnimations 通过表现播放器推进时间，随从攻击及打脸均固
 
 CardTile 数值颜色通过 GameTheme 的 stat_reduced／stat_increased 维护：当前生命低于当前最大生命时优先显示红字；满血且超过 CardPresentation.Health 时显示绿字。攻击与 CardPresentation.Attack 比较，低于原值红、高于原值绿。治疗恢复、强化消失或节点更新回原值时移除字体颜色覆盖；图鉴原型保持原值颜色。
 
-AiSetup 固定场景提供 AI 牌组与简单／普通／困难选择；玩家固定为玩家一，玩家二由 AI 自动换牌、规划、提交。LocalSetup 只提供两位本机玩家设置。BattleScreen 固定包含 AI 状态和“重新开始”按钮；返回大厅／重开会先停止旧 AI。策略在 `Eota.Client.AI` 后台执行，场景只绑定 Desktop 配置与状态；回放不重新运行策略。最新验收见 [P9.6](../../../Docs/Review/P96-Interaction-Review.zh-CN.md)，策略验收见 [P9.5](../../../Docs/Review/P95-AI-Review.zh-CN.md)。
+AiSetup 固定场景提供 AI 牌组与简单／普通／困难选择；玩家固定为玩家一，玩家二由 AI 自动换牌、规划、提交。LocalSetup 只提供两位本机玩家设置。BattleScreen 的 `Toolbar/AiStatus` 在工具栏显示 AI 难度与状态，工具栏还固定包含“重开”按钮；返回大厅／重开会先停止旧 AI。策略在 `Eota.Client.AI` 后台执行，场景只绑定 Desktop 配置与状态；回放不重新运行策略。战场分带（工具栏／主战区／决策区／手牌区）与六路不滚动的约束见 [界面设计规范](../../../Docs/UIGuideline.zh-CN.md) 第 8 节。最新验收见 [P9.6](../../../Docs/Review/P96-Interaction-Review.zh-CN.md)，策略验收见 [P9.5](../../../Docs/Review/P95-AI-Review.zh-CN.md)。
 
 固定场景为当前布局源文件。artifacts 中早期的场景生成脚本和本轮一次性 author_p96 脚本只保留操作记录，不应重新运行来覆盖手工维护后的场景。
 
@@ -51,6 +51,6 @@ CardEditor 的编辑包保存到 `user://content/draft.eotapack.json`；启用�
 
 基本属性表单使用固定的 `Pages/Basic/Margin/Fields`，页签下方和四边留白、行间距由场景维护。场地强度／耐久合一，Permanent 切换立即禁用 Energy；禁止攻击、蓄能和关键词移入效果 JSON 对象。页首固定 ExportCard／ExportPack 按钮，单卡包含规则引用闭包；导入按 ID 合并。联机准备提交逐卡规则清单，只校验双方卡组及其相关卡牌，房间协议仍绑定服务器冻结内容。
 
-HostSetup 的 Timeout 固定控件选择不限时／30／60／120／180 秒；RemoteSetup 与 RoomProtocolReview 显示并核对时限。BattleScreen 的 MatchClock 节点绑定服务器倒计时，独立于动画暂停／倍速；不限时、本机或回放隐藏。远程会话重连期间停止旧表现，收到同席位新快照后重建战场，保留动画速度与暂停选择。
+HostSetup 的 Timeout 固定控件选择不限时／30／60／120／180 秒；RemoteSetup 与 RoomProtocolReview 显示并核对时限。BattleScreen 的 `Toolbar/MatchClock` 节点绑定服务器倒计时，独立于动画暂停／倍速；不限时、本机或回放隐藏。远程会话重连期间停止旧表现，收到同席位新快照后重建战场，保留动画速度与暂停选择。
 
 BattleScreen 的联机工具栏增加 SaveDiagnostics，导出元数据到 `user://diagnostics/`。重连返回的补发批次由 Client.Core 整批校验；场景先取出基准视图及帧队列再重建，继续复用抽牌／碰撞动画。窗口失效时直接显示当前快照，不产生模拟战斗结果。

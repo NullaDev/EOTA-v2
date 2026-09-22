@@ -47,8 +47,8 @@ public partial class GameApp
             var player = view.Players.Single(value => value.PlayerId == (index == 0 ? own : 1 - own));
             _heroes[index].Bind(player);
         }
-        var cost = _battleScreen.GetNode<Label>("Cost");
-        cost.Text = view.Private is { } privateView ? $"可用费用\n{privateView.AvailableCost} / {view.Players.Single(player => player.PlayerId == own).MaxCost}" : "观战";
+        var cost = _battleScreen.GetNode<Label>("CostPanel/Cost");
+        cost.Text = view.Private is { } privateView ? $"{privateView.AvailableCost} / {view.Players.Single(player => player.PlayerId == own).MaxCost}" : "—";
         var alive = view.Entities.Select(value => value.EntityId).ToHashSet();
         foreach (var id in _registry.Keys.Where(id => !alive.Contains(id)).ToArray())
         { var node = _registry[id]; node.GetParent().RemoveChild(node); node.QueueFree(); _registry.Remove(id); }
