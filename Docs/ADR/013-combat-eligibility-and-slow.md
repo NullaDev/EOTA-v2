@@ -23,4 +23,4 @@
 
 迟缓使用计数式 slow X，按本决策规定限制主动攻击与防守资格。交战关系和伤害帧使用这些资格，见 [ADR-014](014-combat-damage-frames.md)；阶段推进遵循 [ADR-015](015-turn-progression-and-cleanup.md)。
 
-未来效果在战斗中新增迟缓的获得边界，需结合触发队列继续实现；当前实现范围见 [P4 检查点](../Review/P4-Gameplay-Review.zh-CN.md)。
+效果在战斗中新增、移除或重新获得迟缓时的计数消耗边界，见 [ADR-017](017-keyword-updates.md)。

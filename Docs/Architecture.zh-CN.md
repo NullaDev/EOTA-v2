@@ -1,8 +1,7 @@
-# Embers of the Arcane VNext 总体架构
+# EOTA v2 总体架构
 
-> 状态：建议方案，作为重构实现的工程基线。  
+> 本文记录项目的工程基线与依赖边界。文档入口与目录职责见 [文档导航](README.md)。
 > 规则与验收合同：[ADR 决策索引](ADR/README.md)；客户端功能与操作：[客户端功能与操作](GameplayGuide.zh-CN.md)。  
-> 实施顺序：[ImplementationPlan.zh-CN.md](ImplementationPlan.zh-CN.md)。  
 > 目标：规则内核使用 Pure C#/.NET；Godot Mono 只是客户端适配器之一；权威服务端使用 Headless .NET；协议允许后续接入浏览器或其他 Web Adapter。
 
 ## 1. 结论
@@ -113,7 +112,7 @@ VNext 采用六边形架构，并严格区分四类模型：
 - 每一个随机调用、身份分配、冲突键和错误结果都可以回放和审计。
 - 严禁用“遍历得恰好稳定”代替协议定义。
 
-## 4. 建议的解决方案与目录
+## 4. 解决方案与目录
 
 ```text
 /
@@ -129,7 +128,10 @@ VNext 采用六边形架构，并严格区分四类模型：
 │  ├─ Source/
 │  │  ├─ Cards/
 │  │  ├─ Protocols/
-│  │  └─ Localization/
+│  │  ├─ Decks/
+│  │  ├─ Localization/
+│  │  └─ Art/
+│  ├─ Generated/
 │  └─ Schemas/
 ├─ src/
 │  ├─ Eota.Kernel/
@@ -144,21 +146,23 @@ VNext 采用六边形架构，并严格区分四类模型：
 │  ├─ Eota.Client.Desktop/
 │  ├─ Eota.Client.Transport.WebSocket/
 │  └─ Eota.Client.Transport.InProcess/
-├─ Godot/
-│  ├─ Scenes/
-│  ├─ Scripts/
-│  └─ Assets/
+├─ Client/Godot/
+│  ├─ Main.tscn
+│  ├─ GameApp.cs
+│  ├─ GameTheme.tres
+│  └─ Scenes/
 ├─ tools/
 │  ├─ Eota.ContentCli/
-│  └─ Eota.ReplayCli/
+│  ├─ Eota.ReplayCli/
+│  ├─ Eota.FixtureRecorder/
+│  └─ EmojiArt/
 └─ tests/
    ├─ Eota.Kernel.Tests/
    ├─ Eota.Kernel.Algebra.Tests/
    ├─ Eota.Content.Compiler.Tests/
-   ├─ Eota.Replay.Tests/
    ├─ Eota.Server.IntegrationTests/
-   ├─ Eota.Contract.Tests/
-   └─ Eota.Architecture.Tests/
+   ├─ Eota.Architecture.Tests/
+   └─ Fixtures/
 ```
 
 首版不建议继续拆小 `Eota.Kernel`。阶段、效果、归约、回放编码在语义上高度相关，过早拆成大量程序集会增加循环依赖风险。先在一个内核程序集内用命名空间和 `internal` 边界隔离；只有出现明确的独立发布或编译需求时再拆项目。
@@ -616,94 +620,3 @@ Server 日志和指标可记录 `MatchId`、revision、turn/stage/frame、耗时
 - 玩家一、玩家二和观战者投影的隐藏信息泄漏测试。
 - Content Compiler 对当前全部卡牌进行 schema、引用、类型和确定性校验。
 - Headless Server 多局并发与单局邮箱背压测试。
-
-## 16. 实施顺序
-
-### 里程碑 0：工程护栏
-
-- 建立 solution、项目引用、统一编译选项和 architecture tests。
-- 冻结强类型 ID、错误码、协议/内容/状态规范编码版本。
-- 项目依赖限定在本仓库声明的项目和 NuGet 包中。
-
-完成标准：Kernel 可以在没有 Godot 的普通 `dotnet test` 中构建；反向依赖会使测试失败。
-
-### 里程碑 1：确定性地基
-
-- 实现 Manifest、Protocol、RuleContentPack、稳定 ID、Canonical Encoder、SHA-256 和 GlobalRuleRng。
-- 实现最小 MatchState、命令日志、状态哈希和回放 CLI。
-- 只支持洗牌、起手和空白回合。
-
-完成标准：独立进程重放得到相同牌序、ID、RNG 计数和哈希。
-
-### 里程碑 2：无效果基础对局
-
-- 规划/取消/提交命令、九阶段状态机。
-- 随从/场地部署、移动、基础战斗、费用和清理。
-- 单帧 API、领域事件和观察者投影雏形。
-
-完成标准：无卡牌效果的完整比赛可回放，双方/路线遍历置乱不改变结果。
-
-### 里程碑 3：意图与归约
-
-- 实现快照、Effect IR、WorkItem、Intent、Conflict Group、Reducer、Commit、Receipt。
-- 先完成数值、伤害、治疗、关键词、击杀和资源 reducer。
-- 建立所有代数性质测试。
-
-完成标准：每个 Intent 恰好一份回执；基础冲突矩阵全部通过排列测试。
-
-### 里程碑 4：触发链与复杂区域
-
-- Tombstone、冻结观察者、Frozen Source、Continuation。
-- 召唤、移动、替换、变形、回手、放逐、抽牌、检索、生成和容量窗口。
-- `Parallel`、`Sequence`、分支与有界循环。
-
-完成标准：VNext 文档的复杂冲突、离场观察和结果传递案例全部成为 golden replay。
-
-### 里程碑 5：内容重新录入
-
-- 定义 V2 schema 和编译器。
-- 在 `Content/Source/Cards` 中编写 V2 卡牌定义，并生成 `Docs/CardTable.zh-CN.md`。
-- 在 `Content/Source/Localization` 和 `Content/Source/Art` 中维护本地化与资源元数据。
-- 对卡表描述无法唯一确定的 VNext 语义建立人工确认清单。
-
-完成标准：卡表中的全部卡牌已重新录入并通过编译；规则内容和表现内容分别生成稳定 manifest。
-
-### 里程碑 6：Server 与 Godot Adapter
-
-- MatchActor、持久化端口、WebSocket transport、重连和隐藏信息投影。
-- Client.Core、InProcess/Remote transport。
-- Godot 战斗 UI 只绑定投影和表现事件。
-
-完成标准：Headless Server、进程内本地模式和 Replay CLI 对同一命令日志产生相同最终权威哈希；Godot 暂停或跳过动画不改变结果。
-
-## 17. 首版明确不做
-
-- 不让客户端进行 lockstep 权威计算或接受客户端状态上传。
-- 不在卡牌内容中加载任意 C# 插件或脚本。
-- 只接受当前 V2 schema 的卡牌定义，不提供其他格式的转换入口。
-- 不把数据库、WebSocket 或 Godot 抽象塞进 Kernel。
-- 不为了动画逐步播放而暂停服务端结算。
-- 不在首版建立微服务；一个 Headless Host 内按单局 Actor 隔离即可。
-- 不提前实现浏览器 UI，但保证 schema、投影和 transport 端口不依赖 Godot。
-
-## 18. 架构验收清单
-
-开始大规模实现前和每个里程碑结束时检查：
-
-- [ ] `Eota.Kernel` 可由普通 .NET 测试进程独立运行。
-- [ ] Kernel 不引用 Godot、网络、存储、时间或本地化。
-- [ ] 同帧效果只读同一快照，动作只产生 Intent。
-- [ ] Conflict Grouper 在随机前得到完整、规范冲突组。
-- [ ] 每个 Intent 无论成功与否都恰好生成一个 Receipt。
-- [ ] 触发器只由提交后的 DomainEvent 创建并进入后续帧。
-- [ ] 离场观察者与 Frozen Source 不查询提交后的战场猜测历史。
-- [ ] 稳定 ID、RNG、规范编码和哈希均有版本与测试向量。
-- [ ] Server 是联机唯一权威，同一比赛只有一个逻辑写者。
-- [ ] 网络只交换版本化契约、命令和观察者投影。
-- [ ] Godot 只产生命令并消费投影/表现事件。
-- [ ] 玩家投影不会泄漏对手手牌、牌库顺序、RNG 或完整回执。
-- [ ] 本地、Server 和 Replay CLI 使用同一 Kernel 路径。
-- [ ] 新 Transport 或 Web UI 无需修改 Kernel。
-- [ ] 规则、内容和协议变更会使对应版本/hash 改变。
-
-满足以上边界后，VNext 才真正具备“Pure C# 内核 + Headless Server + Godot/Web 可替换前端”的架构，而不是把原型的即时可变模型换一个目录继续使用。

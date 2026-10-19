@@ -181,9 +181,9 @@ node tools/EmojiArt/verify.mjs
 | `Icons/ether.png` | 以太 | 🌊 |
 | `Icons/slow-minion.png` | 迟缓随从 | 🐌 |
 
-冻结／锁闭作用于整条路、影响双方，图标显示在路的状态区域。语义见 [ADR-027](../Docs/ADR/027-lane-statuses.md)，接入及验证见 [P9 验收](../Docs/Review/P9-Godot-Review.zh-CN.md)。
+冻结／锁闭作用于整条路、影响双方，图标显示在路的状态区域。语义见 [ADR-027](../Docs/ADR/027-lane-statuses.md)，固定回放与验证命令见 [路状态夹具](../tests/Fixtures/P9LaneStatuses/README.zh-CN.md)。
 
-## 游戏内卡牌编辑器（P10）
+## 游戏内卡牌编辑器
 
 首页进入“卡牌编辑器”。左侧筛选或选择卡牌，中间编辑基本属性、效果 JSON 或完整 V2 JSON，右侧显示编译后的原型预览。修改约 0.4 秒后刷新，也可以点击“校验预览”。类型不同会显示攻击／最大生命、法术速度／范围或场地耐久等对应属性。
 

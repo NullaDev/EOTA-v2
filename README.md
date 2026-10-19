@@ -108,6 +108,8 @@ Copyright (C) 2026 EOTA contributors.
 
 ## 继续了解
 
+完整入口见 [文档导航](Docs/README.md)，按玩家、内容作者和代码贡献者分类。
+
 | 想了解的内容 | 文档 |
 | --- | --- |
 | 末法时代、城邦与六方势力的完整设定 | [核心世界观](Docs/Worldbuilding.zh-CN.md) |
@@ -121,4 +123,4 @@ Copyright (C) 2026 EOTA contributors.
 | 改界面前必须遵守的配色、字阶与分区 | [界面设计规范](Docs/UIGuideline.zh-CN.md) |
 | 规则内核、服务端与客户端如何协作 | [项目架构](Docs/Architecture.zh-CN.md) |
 
-仅游玩时使用发布包即可；修改源码需要 Godot .NET 版与 .NET SDK。卡图制作与内容构建工具保留在开发仓库中，使用方式见 [开发工具与内容制作](tools/README.zh-CN.md)。
+仅游玩时使用发布包即可；修改源码需要 Godot .NET 版与 .NET SDK。目录职责与文档维护约定见 [文档导航](Docs/README.md)。卡图制作与内容构建工具保留在开发仓库中，使用方式见 [开发工具与内容制作](tools/README.zh-CN.md)。

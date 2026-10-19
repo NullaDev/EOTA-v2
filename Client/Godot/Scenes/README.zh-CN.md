@@ -41,13 +41,13 @@ BattleAnimations 通过表现播放器推进时间，随从攻击及打脸均固
 
 CardTile 数值颜色通过 GameTheme 的 stat_reduced／stat_increased 维护：当前生命低于当前最大生命时优先显示红字；满血且超过 CardPresentation.Health 时显示绿字。攻击与 CardPresentation.Attack 比较，低于原值红、高于原值绿。治疗恢复、强化消失或节点更新回原值时移除字体颜色覆盖；图鉴原型保持原值颜色。
 
-AiSetup 固定场景提供 AI 牌组与简单／普通／困难选择；玩家固定为玩家一，玩家二由 AI 自动换牌、规划、提交。LocalSetup 只提供两位本机玩家设置。BattleScreen 的 `Toolbar/AiStatus` 在工具栏显示 AI 难度与状态，工具栏还固定包含“重开”按钮；返回大厅／重开会先停止旧 AI。策略在 `Eota.Client.AI` 后台执行，场景只绑定 Desktop 配置与状态；回放不重新运行策略。战场分带（工具栏／主战区／决策区／手牌区）与六路不滚动的约束见 [界面设计规范](../../../Docs/UIGuideline.zh-CN.md) 第 8 节。最新验收见 [P9.6](../../../Docs/Review/P96-Interaction-Review.zh-CN.md)，策略验收见 [P9.5](../../../Docs/Review/P95-AI-Review.zh-CN.md)。
+AiSetup 固定场景提供 AI 牌组与简单／普通／困难选择；玩家固定为玩家一，玩家二由 AI 自动换牌、规划、提交。LocalSetup 只提供两位本机玩家设置。BattleScreen 的 `Toolbar/AiStatus` 在工具栏显示 AI 难度与状态，工具栏还固定包含“重开”按钮；返回大厅／重开会先停止旧 AI。策略在 `Eota.Client.AI` 后台执行，场景只绑定 Desktop 配置与状态；回放不重新运行策略。战场分带（工具栏／主战区／决策区／手牌区）与六路不滚动的约束见 [界面设计规范](../../../Docs/UIGuideline.zh-CN.md) 第 8 节。
 
-固定场景为当前布局源文件。artifacts 中早期的场景生成脚本和本轮一次性 author_p96 脚本只保留操作记录，不应重新运行来覆盖手工维护后的场景。
+固定场景为当前布局源文件，直接维护 `.tscn`、主题与绑定脚本；重复元素由运行时实例化。
 
-本机开服注入 `LocalServerLauncher`，执行随游戏分发的 `Server/win-x64/Eota.Server.Host.exe`，只管理本次持有的进程。玩家先核对规则与协议，再确认自己的牌组；双方都通过服务器校验才进入对局。协议、牌组与规则在房间中锁定。详情见 [P10 验收](../../../Docs/Review/P10-Hosting-Editor-Review.zh-CN.md)。
+本机开服注入 `LocalServerLauncher`，执行随游戏分发的 `Server/win-x64/Eota.Server.Host.exe`，只管理本次持有的进程。玩家先核对规则与协议，再确认自己的牌组；双方都通过服务器校验才进入对局。协议、牌组与规则在房间中锁定。连接方式见 [传输契约](../../../Docs/Transport/README.zh-CN.md)。
 
-CardEditor 的编辑包保存到 `user://content/draft.eotapack.json`；启用复制为独立 active 包。菜单和对战重建前保留未保存的编辑状态，显式保存才落盘。编辑器从当前 V2 定义编译预览，不实例化对战状态。artifacts/author_p10_scenes.py 为一次性初稿记录，后续布局以手工修改后的 tscn 为准，不要重新运行覆盖。
+CardEditor 的编辑包保存到 `user://content/draft.eotapack.json`；启用复制为独立 active 包。菜单和对战重建前保留未保存的编辑状态，显式保存才落盘。编辑器从当前 V2 定义编译预览，不实例化对战状态。
 
 基本属性表单使用固定的 `Pages/Basic/Margin/Fields`，页签下方和四边留白、行间距由场景维护。场地强度／耐久合一，Permanent 切换立即禁用 Energy；禁止攻击、蓄能和关键词移入效果 JSON 对象。页首固定 ExportCard／ExportPack 按钮，单卡包含规则引用闭包；导入按 ID 合并。联机准备提交逐卡规则清单，只校验双方卡组及其相关卡牌，房间协议仍绑定服务器冻结内容。
 

@@ -36,4 +36,4 @@
 
 ## 实现边界
 
-P4 时抽牌属于系统新回合 reducer。P7 开发实现已按 [ADR-020 提案](020-hand-allocation-windows.md) 将其拆为新回合资源 Intent 和通用 HandCardIntent，烧牌仍进入 Removed。历史切片验收见 [P4 检查点](../Review/P4-Gameplay-Review.zh-CN.md)，当前执行进度见 [P7 检查点](../Review/P7-Complex-Effects-Review.zh-CN.md)。
+抽牌按 [ADR-020 提案](020-hand-allocation-windows.md) 拆为新回合资源 Intent 和通用 HandCardIntent，烧牌仍进入 Removed。可配置抽牌与疲劳的后续规则见 [ADR-029](029-configurable-decks-and-fatigue.md)。

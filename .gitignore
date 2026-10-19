@@ -27,6 +27,9 @@ TestResults/
 # Local reference copy; its source is maintained in a separate repository.
 /Prototype/
 
+# Private development notes, plans, and review records.
+/.local/
+
 # IDE and per-user settings
 .idea/
 .vs/

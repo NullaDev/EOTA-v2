@@ -21,6 +21,6 @@
 
 RNG 算法、调用排序与原子提交继续由 [ADR-005](005-global-rule-rng.md) 定义；规范编码由 [ADR-004](004-canonical-encoding.md) 定义；替换的生命周期事实由 [ADR-007](007-lifecycle-and-tombstones.md) 定义。
 
-当前版本号、回放入口与验收结果见 [P4 检查点](../Review/P4-Gameplay-Review.zh-CN.md)。CLI 命令与夹具说明见 [完整对局回放](../../tests/Fixtures/P4Match/README.zh-CN.md) 和 [中心随机移动回放](../../tests/Fixtures/P4CenterMovement/README.zh-CN.md)。
+CLI 命令与夹具说明见 [完整对局回放](../../tests/Fixtures/P4Match/README.zh-CN.md) 和 [中心随机移动回放](../../tests/Fixtures/P4CenterMovement/README.zh-CN.md)。
 
 保留本编号和路径用于解析历史引用；新增引用应直接指向相应决策。此次仅整理文档，不修改规则、代码或协议版本。

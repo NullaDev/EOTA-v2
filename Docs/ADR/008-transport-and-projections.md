@@ -16,6 +16,6 @@
 
 ## 理由
 
-Contract V0 的具体 wire schema、连接/序号约定及开发入口见 [传输契约说明](../Transport/README.zh-CN.md)；实施与验收状态见 [P5 检查点](../Review/P5-Server-Client-Review.zh-CN.md)。
+Contract V0 的具体 wire schema、连接/序号约定及开发入口见 [传输契约说明](../Transport/README.zh-CN.md)。
 
 该边界既防止隐藏信息泄漏，也让未来 Web、gRPC 或其他前端无需引用 Godot 或 Kernel 程序集。
