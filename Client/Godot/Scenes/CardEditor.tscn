@@ -12,8 +12,9 @@ offset_top = 8.0
 offset_right = 1230.0
 offset_bottom = 56.0
 text = "卡牌编辑器"
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 34
 mouse_filter = 2
+theme_type_variation = &"Title"
 
 [node name="Help" type="Label" parent="."]
 layout_mode = 0
@@ -22,8 +23,9 @@ offset_top = 64.0
 offset_right = 1250.0
 offset_bottom = 102.0
 text = "自定义内容包在启用后用于新对局。"
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 15
 mouse_filter = 2
+theme_type_variation = &"MutedLabel"
 
 [node name="Search" type="LineEdit" parent="."]
 layout_mode = 0
@@ -92,7 +94,7 @@ layout_mode = 0
 offset_left = 334.0
 offset_top = 124.0
 offset_right = 928.0
-offset_bottom = 690.0
+offset_bottom = 696.0
 
 [node name="Basic" type="ScrollContainer" parent="Pages"]
 layout_mode = 2
@@ -289,11 +291,11 @@ offset_bottom = 554.0
 [node name="Validation" type="Label" parent="."]
 layout_mode = 0
 offset_left = 950.0
-offset_top = 574.0
+offset_top = 558.0
 offset_right = 1250.0
-offset_bottom = 706.0
+offset_bottom = 680.0
 text = "选择或新建一张卡牌"
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 15
 mouse_filter = 2
 
 [node name="ValidationScroll" type="ScrollContainer" parent="."]
@@ -301,7 +303,7 @@ layout_mode = 0
 offset_left = 334.0
 offset_top = 714.0
 offset_right = 928.0
-offset_bottom = 772.0
+offset_bottom = 806.0
 horizontal_scroll_mode = 0
 
 [node name="Errors" type="Label" parent="ValidationScroll"]
@@ -314,18 +316,20 @@ custom_minimum_size = Vector2(564, 0)
 [node name="Save" type="Button" parent="."]
 layout_mode = 0
 offset_left = 950.0
-offset_top = 720.0
-offset_right = 1086.0
-offset_bottom = 776.0
+offset_top = 704.0
+offset_right = 1250.0
+offset_bottom = 764.0
 text = "保存卡牌"
+theme_type_variation = &"PrimaryButton"
 
 [node name="Validate" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1102.0
-offset_top = 720.0
+offset_left = 950.0
+offset_top = 774.0
 offset_right = 1250.0
-offset_bottom = 776.0
+offset_bottom = 816.0
 text = "校验预览"
+theme_type_variation = &"ToolButton"
 
 [node name="Pack" type="Button" parent="."]
 layout_mode = 0
@@ -334,6 +338,7 @@ offset_top = 12.0
 offset_right = 1250.0
 offset_bottom = 58.0
 text = "内容包管理"
+theme_type_variation = &"ToolButton"
 
 [node name="PackDialog" type="Window" parent="."]
 layout_mode = 2
@@ -394,6 +399,7 @@ offset_right = 850.0
 offset_bottom = 58.0
 text = "导出卡牌"
 tooltip_text = "导出当前卡牌、关联衍生卡和文字"
+theme_type_variation = &"ToolButton"
 
 [node name="ExportPack" type="Button" parent="."]
 layout_mode = 0
@@ -402,3 +408,4 @@ offset_top = 12.0
 offset_right = 1030.0
 offset_bottom = 58.0
 text = "导出内容包"
+theme_type_variation = &"ToolButton"

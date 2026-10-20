@@ -16,9 +16,9 @@ offset_top = 8.0
 offset_right = 1170.0
 offset_bottom = 56.0
 text = "编辑牌组"
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 34
 mouse_filter = 2
-
+theme_type_variation = &"Title"
 
 [node name="Help" type="Label" parent="."]
 layout_mode = 0
@@ -27,9 +27,10 @@ offset_top = 62.0
 offset_right = 1240.0
 offset_bottom = 94.0
 text = ""
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 15
 mouse_filter = 2
 theme_type_variation = &"MutedLabel"
+text_overrun_behavior = 3
 
 [node name="Search" type="LineEdit" parent="."]
 layout_mode = 0
@@ -58,7 +59,7 @@ layout_mode = 0
 offset_left = 806.0
 offset_top = 110.0
 offset_right = 1250.0
-offset_bottom = 766.0
+offset_bottom = 806.0
 theme_type_variation = &"Raised"
 mouse_filter = 2
 
@@ -73,20 +74,20 @@ text = "我的牌组"
 [node name="Count" type="Label" parent="."]
 layout_mode = 0
 offset_left = 826.0
-offset_top = 250.0
+offset_top = 190.0
 offset_right = 1230.0
-offset_bottom = 292.0
+offset_bottom = 228.0
 text = "0 / 40"
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 22
 mouse_filter = 2
 
 
 [node name="DeckScroll" type="ScrollContainer" parent="."]
 layout_mode = 0
 offset_left = 826.0
-offset_top = 308.0
+offset_top = 244.0
 offset_right = 1230.0
-offset_bottom = 652.0
+offset_bottom = 646.0
 horizontal_scroll_mode = 0
 
 [node name="Rows" type="VBoxContainer" parent="DeckScroll"]
@@ -97,25 +98,27 @@ theme_override_constants/separation = 6
 [node name="Default" type="Button" parent="."]
 layout_mode = 0
 offset_left = 826.0
-offset_top = 688.0
-offset_right = 1090.0
-offset_bottom = 736.0
-text = "填入默认牌组"
+offset_top = 662.0
+offset_right = 1078.0
+offset_bottom = 704.0
+text = "使用默认牌组"
+theme_type_variation = &"ToolButton"
 
 [node name="Clear" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1102.0
-offset_top = 688.0
+offset_left = 1090.0
+offset_top = 662.0
 offset_right = 1230.0
-offset_bottom = 736.0
+offset_bottom = 704.0
 text = "清空"
+theme_type_variation = &"ToolButton"
 
 [node name="Save" type="Button" parent="."]
 layout_mode = 0
-offset_left = 806.0
-offset_top = 782.0
-offset_right = 1250.0
-offset_bottom = 826.0
+offset_left = 826.0
+offset_top = 720.0
+offset_right = 1230.0
+offset_bottom = 784.0
 text = "保存牌组"
 theme_type_variation = &"PrimaryButton"
 

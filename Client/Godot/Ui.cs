@@ -49,15 +49,15 @@ internal static class Ui
         Textures.Clear();
     }
     // Tokens mirror Docs/UIGuideline.zh-CN.md and Client/Godot/GameTheme.tres.
-    public static readonly Color Background = new("12161b");
-    public static readonly Color Surface = new("1b2128");
-    public static readonly Color SurfaceRaised = new("232b34");
-    public static readonly Color Outline = new("2f3a45");
+    public static readonly Color Background = new("171d1b");
+    public static readonly Color Surface = new("222625");
+    public static readonly Color SurfaceRaised = new("2b302d");
+    public static readonly Color Outline = new("424642");
     public static readonly Color Panel = Surface;
-    public static readonly Color Accent = new("d8b46a");
-    public static readonly Color AccentInk = new("1a1509");
-    public static readonly Color TextPrimary = new("e6edf3");
-    public static readonly Color TextMuted = new("9aa7b2");
+    public static readonly Color Accent = new("c4aa7a");
+    public static readonly Color AccentInk = new("24281e");
+    public static readonly Color TextPrimary = new("e7e5d8");
+    public static readonly Color TextMuted = new("b5b9a8");
     public static readonly Color Positive = new("6fd08c");
     public static readonly Color Negative = new("e8796a");
     public static readonly Color Info = new("6fb3d8");

@@ -27,92 +27,132 @@ offset_right = 238.0
 offset_bottom = 1000.0
 theme_type_variation = &"Panel"
 mouse_filter = 2
+visible = false
 
 [node name="Logo" type="Label" parent="."]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 32.0
-offset_right = 212.0
-offset_bottom = 86.0
+offset_left = 40.0
+offset_top = 24.0
+offset_right = 150.0
+offset_bottom = 66.0
 text = "EOTA"
-theme_override_font_sizes/font_size = 42
+theme_override_font_sizes/font_size = 30
 mouse_filter = 2
-theme_override_colors/font_color = Color(0.851, 0.7176, 0.4314, 1)
 
 [node name="Name" type="Label" parent="."]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 98.0
-offset_right = 206.0
-offset_bottom = 132.0
+offset_left = 154.0
+offset_top = 29.0
+offset_right = 354.0
+offset_bottom = 63.0
 text = "以太余烬"
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 22
 mouse_filter = 2
 
 
-[node name="Navigation" type="VBoxContainer" parent="."]
+[node name="Navigation" type="Control" parent="."]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 202.0
-offset_right = 218.0
-offset_bottom = 754.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1600.0
+offset_bottom = 150.0
 theme_override_constants/separation = 12
+mouse_filter = 2
+z_index = 10
 
 [node name="Ai" type="Button" parent="Navigation"]
-layout_mode = 2
-custom_minimum_size = Vector2(198, 54)
+layout_mode = 0
+custom_minimum_size = Vector2(0, 42)
 toggle_mode = true
 theme_type_variation = &"NavButton"
 text = "人机对战"
+offset_left = 398.0
+offset_top = 100.0
+offset_right = 592.0
+offset_bottom = 142.0
+theme_override_font_sizes/font_size = 17
 
 [node name="Local" type="Button" parent="Navigation"]
-layout_mode = 2
-custom_minimum_size = Vector2(198, 54)
+layout_mode = 0
+custom_minimum_size = Vector2(0, 42)
 toggle_mode = true
 theme_type_variation = &"NavButton"
 text = "本机双人"
+offset_left = 600.0
+offset_top = 100.0
+offset_right = 794.0
+offset_bottom = 142.0
+theme_override_font_sizes/font_size = 17
 
 [node name="Remote" type="Button" parent="Navigation"]
-layout_mode = 2
-custom_minimum_size = Vector2(198, 54)
+layout_mode = 0
+custom_minimum_size = Vector2(0, 42)
 toggle_mode = true
 theme_type_variation = &"NavButton"
 text = "加入服务器"
+offset_left = 802.0
+offset_top = 100.0
+offset_right = 996.0
+offset_bottom = 142.0
+theme_override_font_sizes/font_size = 17
 
 [node name="Host" type="Button" parent="Navigation"]
-layout_mode = 2
-custom_minimum_size = Vector2(198, 54)
+layout_mode = 0
+custom_minimum_size = Vector2(0, 42)
 toggle_mode = true
 theme_type_variation = &"NavButton"
 text = "本机开服"
+offset_left = 1004.0
+offset_top = 100.0
+offset_right = 1198.0
+offset_bottom = 142.0
+theme_override_font_sizes/font_size = 17
 
 [node name="Library" type="Button" parent="Navigation"]
-layout_mode = 2
-custom_minimum_size = Vector2(198, 54)
+layout_mode = 0
+custom_minimum_size = Vector2(0, 48)
 toggle_mode = true
 theme_type_variation = &"NavButton"
 text = "卡牌图鉴"
+offset_left = 980.0
+offset_top = 24.0
+offset_right = 1130.0
+offset_bottom = 72.0
 
 [node name="DeckBuilder" type="Button" parent="Navigation"]
-layout_mode = 2
-custom_minimum_size = Vector2(198, 54)
+layout_mode = 0
+custom_minimum_size = Vector2(0, 48)
 toggle_mode = true
 theme_type_variation = &"NavButton"
 text = "牌组工坊"
+offset_left = 816.0
+offset_top = 24.0
+offset_right = 966.0
+offset_bottom = 72.0
 
 [node name="Protocol" type="Button" parent="Navigation"]
-layout_mode = 2
-custom_minimum_size = Vector2(198, 54)
+layout_mode = 0
+custom_minimum_size = Vector2(0, 48)
 toggle_mode = true
-theme_type_variation = &"NavButton"
+theme_type_variation = &"Button"
 text = "对战协议"
+offset_left = 1288.0
+offset_top = 138.0
+offset_right = 1512.0
+offset_bottom = 186.0
+visible = false
 
 [node name="Replay" type="Button" parent="Navigation"]
-layout_mode = 2
-custom_minimum_size = Vector2(198, 54)
+layout_mode = 0
+custom_minimum_size = Vector2(0, 48)
 toggle_mode = true
-theme_type_variation = &"NavButton"
+theme_type_variation = &"Button"
 text = "对局回放"
+offset_left = 1288.0
+offset_top = 88.0
+offset_right = 1512.0
+offset_bottom = 136.0
+visible = false
 
 [node name="Header" type="Label" parent="."]
 layout_mode = 0
@@ -123,21 +163,26 @@ offset_bottom = 66.0
 text = "EMBERS OF THE ARCANE"
 theme_override_font_sizes/font_size = 18
 mouse_filter = 2
-theme_override_colors/font_color = Color(0.7725, 0.6745, 0.4549, 1)
+visible = false
 
 [node name="Editor" type="Button" parent="Navigation"]
-layout_mode = 2
-custom_minimum_size = Vector2(198, 54)
+layout_mode = 0
+custom_minimum_size = Vector2(0, 48)
 toggle_mode = true
-theme_type_variation = &"NavButton"
+theme_type_variation = &"Button"
 text = "卡牌编辑器"
+offset_left = 1288.0
+offset_top = 188.0
+offset_right = 1512.0
+offset_bottom = 236.0
+visible = false
 
 [node name="Tabs" type="TabContainer" parent="."]
 layout_mode = 0
-offset_left = 258.0
-offset_top = 100.0
-offset_right = 1580.0
-offset_bottom = 942.0
+offset_left = 160.0
+offset_top = 156.0
+offset_right = 1440.0
+offset_bottom = 984.0
 tabs_visible = false
 
 [node name="Local" parent="Tabs" instance=ExtResource("Local")]
@@ -163,17 +208,39 @@ layout_mode = 2
 
 [node name="Status" type="Label" parent="."]
 layout_mode = 0
-offset_left = 276.0
-offset_top = 960.0
-offset_right = 1546.0
-offset_bottom = 986.0
+offset_left = 184.0
+offset_top = 970.0
+offset_right = 1414.0
+offset_bottom = 996.0
 text = ""
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 14
 mouse_filter = 2
 theme_type_variation = &"MutedLabel"
+text_overrun_behavior = 3
 
 [node name="Ai" parent="Tabs" instance=ExtResource("Ai")]
 layout_mode = 2
 
 [node name="Editor" parent="Tabs" instance=ExtResource("Editor")]
 layout_mode = 2
+
+[node name="Play" type="Button" parent="Navigation"]
+text = "开始对战"
+theme_type_variation = &"NavButton"
+layout_mode = 0
+offset_left = 652.0
+offset_top = 24.0
+offset_right = 802.0
+offset_bottom = 72.0
+toggle_mode = true
+
+
+[node name="More" type="Button" parent="Navigation"]
+text = "更多  ···"
+theme_type_variation = &"ToolButton"
+layout_mode = 0
+offset_left = 1288.0
+offset_top = 24.0
+offset_right = 1512.0
+offset_bottom = 72.0
+toggle_mode = true

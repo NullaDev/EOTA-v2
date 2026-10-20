@@ -4,7 +4,7 @@
 
 | 场景 | 用途 |
 |---|---|
-| MenuScreen | 侧边导航与固定页面实例，在编辑器内即可查看页面结构 |
+| MenuScreen | 顶部主导航、对战方式与「更多」菜单；固定页面实例可在编辑器内查看 |
 | LocalSetup / AiSetup / RemoteSetup / HostSetup | 本机双人、三档人机、双方牌组核对、受管理进程开服／恢复／邀请 |
 | CardEditor | V2 卡牌列表、按类型编辑属性、效果／完整 JSON、原型预览、内容包管理 |
 | RoomProtocolReview / RoomProtocolRow | 开局确认前查看房间的完整玩法协议，使用只读参数行 |
@@ -17,13 +17,15 @@
 | BattleScreen / HeroPanel / Lane | 战场框架、双方英雄和固定随从／场地槽位 |
 | CardTile / CardDetail | 原型或手牌卡面、图鉴大图详情 |
 | MinionTile / FieldTile | 战场实例表现：随从显示当前生命，有限场地右下角显示剩余耐久 |
-| CardOutline / SpellPlans / SpellPlanIcon | 待入场与图鉴锁定绿框、路线和全局每张法术独立的可撤回图标 |
+| CardOutline / SpellPlans / SpellPlanIcon | 待入场与图鉴锁定金色边框、路线和全局每张法术独立的可撤回图标 |
 | LaneStatuses | 路线标题旁的冻结／锁闭标记，32×32 图标裁去透明留白，固定节点按状态显隐 |
 | BattleAnimations / CardBack / ImpactFlash | 按表现时钟播放的抽牌、碰撞、浮字与隐藏卡背 |
-| CardInspection / PlanChip | 战场原型详情、可取消的规划条目 |
+| CardInspection / PlanChip | 通用原型详情组件、可取消的规划条目；战场悬停使用 CardDetail 大图 |
 | EtherPips | 独立玩家的以太条：零级隐藏，每级一幅波浪图标 |
 
-窗口按 1600×1000 画布保持比例缩放。卡牌尺寸、边框与文字区域由场景定义，颜色和控件状态由 `../GameTheme.tres` 统一维护；可用的 theme type variation 与各界面分区尺寸见 [界面设计规范](../../../Docs/UIGuideline.zh-CN.md)。路线、卡牌和参数行按数据数量重复实例化；额外路线与手牌横向滚动，长描述有独立滚动区域。
+窗口按 1600×1000 画布保持比例缩放。卡牌尺寸、边框与文字区域由场景定义，颜色和控件状态由 `../GameTheme.tres` 统一维护；布局原则与各界面分区见 [界面设计规范](../../../Docs/UIGuideline.zh-CN.md)。路线、卡牌和参数行按数据数量重复实例化；额外路线与手牌横向滚动。小卡保留两行摘要，完整说明在详情中阅读。
+
+`GameApp.Interface.cs` 绑定主导航、折叠对战设置、战场工具菜单和悬停详情定位。战场的英雄位于上下中央，费用、阶段、提交及反馈聚集在右下方；详情靠近所指卡牌，移开后隐藏。`TableBackdrop.cs` 绘制低对比桌面装饰且忽略鼠标输入。主操作使用黄铜主题，辅助按钮与次级文字降低视觉权重。
 
 以太条使用生成的 `ether.png`，渲染时裁去透明留边；图片文件未修改。大于固定条容量的自定义等级可以横向滚动逐个查看，不把多级合并为单个数字。归属绑定 `(LaneId, PlayerId)`，切换席位只改变上下位置。
 
@@ -41,7 +43,7 @@ BattleAnimations 通过表现播放器推进时间，随从攻击及打脸均固
 
 CardTile 数值颜色通过 GameTheme 的 stat_reduced／stat_increased 维护：当前生命低于当前最大生命时优先显示红字；满血且超过 CardPresentation.Health 时显示绿字。攻击与 CardPresentation.Attack 比较，低于原值红、高于原值绿。治疗恢复、强化消失或节点更新回原值时移除字体颜色覆盖；图鉴原型保持原值颜色。
 
-AiSetup 固定场景提供 AI 牌组与简单／普通／困难选择；玩家固定为玩家一，玩家二由 AI 自动换牌、规划、提交。LocalSetup 只提供两位本机玩家设置。BattleScreen 的 `Toolbar/AiStatus` 在工具栏显示 AI 难度与状态，工具栏还固定包含“重开”按钮；返回大厅／重开会先停止旧 AI。策略在 `Eota.Client.AI` 后台执行，场景只绑定 Desktop 配置与状态；回放不重新运行策略。战场分带（工具栏／主战区／决策区／手牌区）与六路不滚动的约束见 [界面设计规范](../../../Docs/UIGuideline.zh-CN.md) 第 8 节。
+AiSetup 固定场景提供 AI 牌组与简单／普通／困难选择；玩家固定为玩家一，玩家二由 AI 自动换牌、规划、提交。LocalSetup 只提供两位本机玩家设置。两页的随机种子和协议入口默认折叠。BattleScreen 的 `Toolbar/AiStatus` 显示 AI 难度与状态，“重开”位于「对局菜单」；返回大厅／重开会先停止旧 AI。策略在 `Eota.Client.AI` 后台执行，场景只绑定 Desktop 配置与状态；回放不重新运行策略。战场布局与六路不滚动的约束见 [界面设计规范](../../../Docs/UIGuideline.zh-CN.md#战场)。
 
 固定场景为当前布局源文件，直接维护 `.tscn`、主题与绑定脚本；重复元素由运行时实例化。
 
@@ -53,4 +55,4 @@ CardEditor 的编辑包保存到 `user://content/draft.eotapack.json`；启用�
 
 HostSetup 的 Timeout 固定控件选择不限时／30／60／120／180 秒；RemoteSetup 与 RoomProtocolReview 显示并核对时限。BattleScreen 的 `Toolbar/MatchClock` 节点绑定服务器倒计时，独立于动画暂停／倍速；不限时、本机或回放隐藏。远程会话重连期间停止旧表现，收到同席位新快照后重建战场，保留动画速度与暂停选择。
 
-BattleScreen 的联机工具栏增加 SaveDiagnostics，导出元数据到 `user://diagnostics/`。重连返回的补发批次由 Client.Core 整批校验；场景先取出基准视图及帧队列再重建，继续复用抽牌／碰撞动画。窗口失效时直接显示当前快照，不产生模拟战斗结果。
+BattleScreen 的联机「对局菜单」包含 SaveDiagnostics，导出元数据到 `user://diagnostics/`。重连返回的补发批次由 Client.Core 整批校验；场景先取出基准视图及帧队列再重建，继续复用抽牌／碰撞动画。窗口失效时直接显示当前快照，不产生模拟战斗结果。

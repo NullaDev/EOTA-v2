@@ -13,6 +13,17 @@ public partial class GameApp
         {
             var tabs = _menuScreen.GetNode<TabContainer>("Tabs");
             await CaptureUi("menu");
+            var setup = tabs.GetNode<Control>("Ai");
+            Require(!setup.GetNode<Control>("Seed").IsVisibleInTree(), "Seed is secondary information");
+            setup.GetNode<Button>("Advanced").ButtonPressed = true;
+            Require(setup.GetNode<Control>("Seed").IsVisibleInTree(), "Advanced settings remain accessible");
+            await CaptureUi("advanced");
+            setup.GetNode<Button>("Advanced").ButtonPressed = false;
+            var more = _menuScreen.GetNode<Button>("Navigation/More"); more.ButtonPressed = true;
+            Require(_menuScreen.GetNode<Button>("Navigation/Editor").IsVisibleInTree(), "Creation tools remain accessible");
+            await CaptureUi("more"); more.ButtonPressed = false;
+            foreach (var (index, name) in new[] { (1, "remote"), (6, "replay"), (8, "editor") })
+            { tabs.CurrentTab = index; await CaptureUi(name); }
             _menuScreen.GetNode<Button>("Tabs/Local/Protocol").EmitSignal(BaseButton.SignalName.Pressed);
             if (tabs.GetTabTitle(tabs.CurrentTab) != "对战协议") { throw new InvalidOperationException("Protocol entry failed."); }
             await CaptureUi("protocol");
@@ -118,6 +129,16 @@ public partial class GameApp
             _busy = false;
             BuildBattle(); Inspect(_catalog.Cards.First(card => card.Kind == "Minion"));
             await CaptureUi("battle"); CheckLayout();
+            var options = _battleScreen.GetNode<Button>("Toolbar/Options");
+            Require(!_battleScreen.GetNode<Button>("Toolbar/Pause").IsVisibleInTree(), "Playback tools are initially tucked away");
+            options.ButtonPressed = true;
+            Require(_battleScreen.GetNode<Button>("Toolbar/Pause").IsVisibleInTree(), "Battle menu exposes playback tools");
+            await CaptureUi("battle-menu"); options.ButtonPressed = false;
+            var hovered = _hand.GetChildren().OfType<CardTile>().First();
+            InspectFrom(hovered.Prototype, hovered); await CaptureUi("inspection");
+            Require(_battleScreen.GetNode<Control>("DetailPanel").IsVisibleInTree(), "Hover inspection opens beside the source card");
+            ClearInspection(hovered);
+            Require(!_battleScreen.GetNode<Control>("DetailPanel").Visible, "Inspection closes after leaving the source card");
             await CheckEtherPresentation();
             await CloseSession();
             // More lanes scroll horizontally while the fixed slot dimensions remain unchanged.
@@ -225,6 +246,10 @@ public partial class GameApp
         var hand = handScroll.GetGlobalRect();
         if (board.Intersects(hand) || _submit.GetGlobalRect().Intersects(hand))
         { throw new InvalidOperationException("Battle regions overlap."); }
+        if (_status.GetGlobalRect().Intersects(hand)) { throw new InvalidOperationException("Status overlaps the hand."); }
+        var viewport = new Rect2(Vector2.Zero, GetViewportRect().Size);
+        foreach (var control in new Control[] { _submit, _heroes[0], _heroes[1], _battleScreen.GetNode<Control>("CostPanel") })
+        { if (!viewport.Encloses(control.GetGlobalRect())) { throw new InvalidOperationException("Important battle controls leave the viewport."); } }
         var scrollbarHeight = handScroll.GetHScrollBar().IsVisibleInTree() ? handScroll.GetHScrollBar().Size.Y : 0;
         if (_hand.GetChildren().OfType<CardTile>().Any(tile => tile.Size.Y > hand.Size.Y - scrollbarHeight))
         { throw new InvalidOperationException("Hand cards are clipped by the scrollbar."); }

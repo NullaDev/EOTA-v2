@@ -5,7 +5,7 @@
 
 [node name="HeroPanel" type="Panel"]
 layout_mode = 3
-custom_minimum_size = Vector2(180, 216)
+custom_minimum_size = Vector2(336, 76)
 size_flags_vertical = 3
 theme = ExtResource("theme")
 theme_type_variation = &"Raised"
@@ -16,23 +16,22 @@ script = ExtResource("script")
 
 [node name="Crest" type="Label" parent="."]
 layout_mode = 0
-offset_left = 8.0
+offset_left = 14.0
 offset_top = 8.0
-offset_right = 68.0
-offset_bottom = 74.0
+offset_right = 62.0
+offset_bottom = 64.0
 text = "♜"
-theme_override_font_sizes/font_size = 44
+theme_override_font_sizes/font_size = 36
 mouse_filter = 2
 horizontal_alignment = 1
 vertical_alignment = 1
-theme_override_colors/font_color = Color(0.851, 0.7176, 0.4314, 1)
 
 [node name="Profession" type="Label" parent="."]
 layout_mode = 0
-offset_left = 72.0
-offset_top = 14.0
-offset_right = 172.0
-offset_bottom = 46.0
+offset_left = 74.0
+offset_top = 8.0
+offset_right = 194.0
+offset_bottom = 38.0
 text = "守卫"
 theme_override_font_sizes/font_size = 22
 mouse_filter = 2
@@ -40,22 +39,23 @@ vertical_alignment = 1
 
 [node name="Seat" type="Label" parent="."]
 layout_mode = 0
-offset_left = 72.0
-offset_top = 50.0
-offset_right = 172.0
-offset_bottom = 74.0
+offset_left = 74.0
+offset_top = 42.0
+offset_right = 156.0
+offset_bottom = 66.0
 text = "玩家一"
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 13
 mouse_filter = 2
 vertical_alignment = 1
 theme_type_variation = &"MutedLabel"
+visible = false
 
 [node name="Health" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 88.0
-offset_right = 90.0
-offset_bottom = 168.0
+offset_left = 260.0
+offset_top = 8.0
+offset_right = 322.0
+offset_bottom = 68.0
 theme_type_variation = &"Health"
 mouse_filter = 2
 
@@ -63,33 +63,34 @@ mouse_filter = 2
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
-offset_right = 80.0
-offset_bottom = 80.0
+offset_right = 62.0
+offset_bottom = 60.0
 text = "30"
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 34
 mouse_filter = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Resources" type="Label" parent="."]
 layout_mode = 0
-offset_left = 98.0
-offset_top = 92.0
-offset_right = 172.0
-offset_bottom = 164.0
+offset_left = 172.0
+offset_top = 14.0
+offset_right = 246.0
+offset_bottom = 58.0
 text = "手牌 4\n牌库 36"
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 12
 mouse_filter = 2
 horizontal_alignment = 2
 
 [node name="State" type="Label" parent="."]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 176.0
-offset_right = 172.0
-offset_bottom = 210.0
+offset_left = 74.0
+offset_top = 42.0
+offset_right = 244.0
+offset_bottom = 66.0
 text = "准备中"
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 mouse_filter = 2
 vertical_alignment = 1
 theme_type_variation = &"MutedLabel"
+horizontal_alignment = 0

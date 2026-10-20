@@ -17,11 +17,12 @@ public partial class GameApp
     }
 
     private Control? _inspectionOwner;
-    private void InspectFrom(CardPresentation card, Control owner) { _inspectionOwner = owner; Inspect(card); }
+    private void InspectFrom(CardPresentation card, Control owner)
+    { _inspectionOwner = owner; Inspect(card); if (_battle) { PositionInspection(owner); } }
     private void ClearInspection(Control owner)
     {
         if (_inspectionOwner != owner || !_battle) { return; }
-        _inspectionOwner = null; Ui.Clear(_detail);
+        _inspectionOwner = null; Ui.Clear(_detail); _battleScreen.GetNode<Control>("DetailPanel").Hide();
     }
 
     private void Inspect(CardPresentation card)
@@ -29,7 +30,7 @@ public partial class GameApp
         if (!_battle) { return; }
         Ui.Clear(_detail);
         var inspection = Ui.Instantiate<VBoxContainer>("CardInspection"); _detail.AddChild(inspection);
-        inspection.GetNode<VBoxContainer>("Card").AddChild(CardTile.CreatePrototype(card));
+        inspection.GetNode<VBoxContainer>("Card").AddChild(CardTile.CreatePrototype(card, true));
         // The card face already carries the rules text, so this box explains the keywords only.
         inspection.GetNode<Label>("RulesScroll/Rules").Text = CardTile.KeywordLinesOnly(card, null);
     }
@@ -37,10 +38,11 @@ public partial class GameApp
     private void Render(ObserverView view)
     {
         if (_inspectionOwner is { } owner && (!GodotObject.IsInstanceValid(owner) || !owner.IsInsideTree()))
-        { _inspectionOwner = null; Ui.Clear(_detail); }
+        { _inspectionOwner = null; Ui.Clear(_detail); _battleScreen.GetNode<Control>("DetailPanel").Hide(); }
         _displayed = view;
         var own = view.Private?.PlayerId ?? 0;
-        _matchInfo.Text = $"第 {view.Turn} 回合 · {Stage(view.Stage)} · {(view.Private is null ? "观战" : $"玩家 {own + 1}")}";
+        _matchInfo.Text = $"第 {view.Turn} 回合\n{Stage(view.Stage)}";
+        _matchInfo.TooltipText = view.Private is null ? "正在观战" : $"你是玩家 {own + 1} · 双方同时规划";
         if (view.Status != "Active") { _matchInfo.Text += " · " + Outcome(view.Outcome); }
         for (var index = 0; index < 2; index++)
         {
@@ -94,10 +96,11 @@ public partial class GameApp
             chip.Disabled = view.Stage != "Planning" || view.Players.Single(player => player.PlayerId == own).Submitted;
             chip.Pressed += () => CancelPlan(plan.PlanCommandId);
         }
-        _submit.Text = view.Stage == "Mulligan" ? $"确认换牌（{_mulligan.Count} 张）" : "提交回合";
+        _submit.Text = view.Stage == "Mulligan" ? "确认换牌" : "提交回合";
+        _submit.TooltipText = view.Stage == "Mulligan" ? "点击选择要替换的手牌；不选则保留全部。" : "双方提交后开始自动结算。";
         Highlight();
         if (_inspectionOwner is { } previous && (!GodotObject.IsInstanceValid(previous) || !previous.IsInsideTree()))
-        { _inspectionOwner = null; Ui.Clear(_detail); }
+        { _inspectionOwner = null; Ui.Clear(_detail); _battleScreen.GetNode<Control>("DetailPanel").Hide(); }
     }
 
     private bool Allowed(ulong card, int? lane) => !_busy && !Animating && _frames.Count == 0 && _session?.Client.Store.NeedsSnapshot == false
@@ -182,7 +185,13 @@ public partial class GameApp
         var view = store.View;
         _submit.Disabled = _busy || Animating || _frames.Count > 0 || store.NeedsSnapshot || view?.Private is null || view.Status != "Active"
             || view.Stage is not ("Mulligan" or "Planning") || view.Players.Single(player => player.PlayerId == view.Private.PlayerId).Submitted;
-        if (view?.Stage == "Mulligan") { _submit.Text = $"确认换牌（{_mulligan.Count} 张）"; }
+        if (view?.Stage == "Mulligan") { _submit.Text = _mulligan.Count == 0 ? "确认换牌" : $"确认换牌 · {_mulligan.Count}"; }
+        else if (view?.Status != "Active") { _submit.Text = "对局结束"; }
+        else if (Animating || _frames.Count > 0) { _submit.Text = "正在结算"; }
+        else if (view.Private is { } seat && view.Players.Single(player => player.PlayerId == seat.PlayerId).Submitted)
+        { _submit.Text = "等待对手"; }
+        else { _submit.Text = "提交回合"; }
+        _status.TooltipText = _status.Text;
     }
 
     private void Present(PresentationFramePayload frame)

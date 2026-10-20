@@ -14,8 +14,9 @@ offset_top = 8.0
 offset_right = 820.0
 offset_bottom = 56.0
 text = "我的牌组"
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 34
 mouse_filter = 2
+theme_type_variation = &"Title"
 
 [node name="Help" type="Label" parent="."]
 layout_mode = 0
@@ -24,8 +25,9 @@ offset_top = 64.0
 offset_right = 1142.0
 offset_bottom = 96.0
 text = ""
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 15
 mouse_filter = 2
+theme_type_variation = &"MutedLabel"
 
 [node name="New" type="Button" parent="."]
 layout_mode = 0

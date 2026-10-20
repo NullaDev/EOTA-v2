@@ -12,8 +12,9 @@ offset_top = 8.0
 offset_right = 1230.0
 offset_bottom = 56.0
 text = "本机开服"
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 34
 mouse_filter = 2
+theme_type_variation = &"Title"
 
 [node name="Help" type="Label" parent="."]
 layout_mode = 0
@@ -22,212 +23,218 @@ offset_top = 64.0
 offset_right = 1230.0
 offset_bottom = 98.0
 text = "建立房间，邀请另一位玩家。双方确认协议与牌组后开局。"
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 15
 mouse_filter = 2
 theme_type_variation = &"MutedLabel"
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 118.0
-offset_right = 1230.0
-offset_bottom = 306.0
+offset_left = 758.0
+offset_top = 122.0
+offset_right = 1238.0
+offset_bottom = 802.0
 theme_type_variation = &"Raised"
 mouse_filter = 2
 
 [node name="Availability" type="Label" parent="."]
 layout_mode = 0
-offset_left = 50.0
-offset_top = 140.0
-offset_right = 1198.0
+offset_left = 790.0
+offset_top = 146.0
+offset_right = 1206.0
 offset_bottom = 184.0
 text = "服务器已停止"
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 24
 mouse_filter = 2
 
 [node name="Notice" type="Label" parent="."]
 layout_mode = 0
-offset_left = 50.0
-offset_top = 200.0
-offset_right = 1198.0
-offset_bottom = 272.0
+offset_left = 790.0
+offset_top = 202.0
+offset_right = 1206.0
+offset_bottom = 318.0
 text = ""
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 15
 mouse_filter = 2
 theme_type_variation = &"MutedLabel"
+autowrap_mode = 3
 
 [node name="MatchNameTitle" type="Label" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 326.0
-offset_right = 604.0
-offset_bottom = 358.0
+offset_left = 36.0
+offset_top = 128.0
+offset_right = 696.0
+offset_bottom = 154.0
 text = "房间名称"
 theme_override_font_sizes/font_size = 18
 mouse_filter = 2
 
 [node name="MatchName" type="LineEdit" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 368.0
-offset_right = 604.0
-offset_bottom = 416.0
+offset_left = 36.0
+offset_top = 170.0
+offset_right = 696.0
+offset_bottom = 220.0
 text = "我的对局"
 
 [node name="PortTitle" type="Label" parent="."]
 layout_mode = 0
-offset_left = 646.0
-offset_top = 326.0
-offset_right = 816.0
-offset_bottom = 358.0
+offset_left = 360.0
+offset_top = 362.0
+offset_right = 476.0
+offset_bottom = 388.0
 text = "端口"
 theme_override_font_sizes/font_size = 18
 mouse_filter = 2
 
 [node name="Port" type="LineEdit" parent="."]
 layout_mode = 0
-offset_left = 646.0
-offset_top = 368.0
-offset_right = 816.0
-offset_bottom = 416.0
+offset_left = 360.0
+offset_top = 402.0
+offset_right = 476.0
+offset_bottom = 450.0
 text = "5075"
 
 [node name="Lan" type="CheckBox" parent="."]
 layout_mode = 0
-offset_left = 846.0
-offset_top = 368.0
-offset_right = 1230.0
-offset_bottom = 416.0
-text = "允许局域网加入"
+offset_left = 492.0
+offset_top = 402.0
+offset_right = 696.0
+offset_bottom = 450.0
+text = "允许局域网"
 
 [node name="OneTitle" type="Label" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 440.0
-offset_right = 604.0
-offset_bottom = 472.0
-text = "玩家一牌组（自己）"
+offset_left = 36.0
+offset_top = 244.0
+offset_right = 696.0
+offset_bottom = 270.0
+text = "你的牌组"
 theme_override_font_sizes/font_size = 18
 mouse_filter = 2
 
 [node name="TwoTitle" type="Label" parent="."]
 layout_mode = 0
-offset_left = 646.0
-offset_top = 440.0
-offset_right = 1230.0
-offset_bottom = 472.0
+offset_left = 790.0
+offset_top = 340.0
+offset_right = 1206.0
+offset_bottom = 366.0
 text = "对方牌组"
 theme_override_font_sizes/font_size = 18
 mouse_filter = 2
+theme_type_variation = &"MutedLabel"
 
 [node name="One" type="OptionButton" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 480.0
-offset_right = 604.0
-offset_bottom = 530.0
+offset_left = 36.0
+offset_top = 284.0
+offset_right = 696.0
+offset_bottom = 334.0
 
 [node name="OpponentDeck" type="Label" parent="."]
 layout_mode = 0
-offset_left = 646.0
-offset_top = 480.0
-offset_right = 1230.0
-offset_bottom = 530.0
+offset_left = 790.0
+offset_top = 378.0
+offset_right = 1206.0
+offset_bottom = 418.0
 text = "由对方加入后自行选择"
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 17
 
 [node name="ProtocolSummary" type="Label" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 552.0
-offset_right = 620.0
-offset_bottom = 620.0
+offset_left = 36.0
+offset_top = 478.0
+offset_right = 476.0
+offset_bottom = 574.0
 text = ""
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 15
 autowrap_mode = 2
 mouse_filter = 2
 
 [node name="TimeoutTitle" type="Label" parent="."]
 layout_mode = 0
-offset_left = 646.0
-offset_top = 544.0
-offset_right = 916.0
-offset_bottom = 576.0
-text = "换牌与每回合提交时限"
+offset_left = 36.0
+offset_top = 362.0
+offset_right = 336.0
+offset_bottom = 388.0
+text = "每回合思考时间"
 theme_override_font_sizes/font_size = 16
 mouse_filter = 2
 
 [node name="Timeout" type="OptionButton" parent="."]
 layout_mode = 0
-offset_left = 646.0
-offset_top = 578.0
-offset_right = 916.0
-offset_bottom = 626.0
+offset_left = 36.0
+offset_top = 402.0
+offset_right = 336.0
+offset_bottom = 450.0
 
 [node name="Protocol" type="Button" parent="."]
 layout_mode = 0
-offset_left = 942.0
-offset_top = 558.0
-offset_right = 1230.0
-offset_bottom = 614.0
-text = "选择对战协议"
+offset_left = 492.0
+offset_top = 500.0
+offset_right = 696.0
+offset_bottom = 546.0
+text = "自定义规则"
+theme_type_variation = &"ToolButton"
 
 [node name="Start" type="Button" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 646.0
-offset_right = 306.0
-offset_bottom = 708.0
-text = "启动服务器"
+offset_left = 36.0
+offset_top = 608.0
+offset_right = 696.0
+offset_bottom = 676.0
+text = "创建房间"
 theme_type_variation = &"PrimaryButton"
 
 [node name="Stop" type="Button" parent="."]
 layout_mode = 0
-offset_left = 644.0
-offset_top = 646.0
-offset_right = 920.0
-offset_bottom = 708.0
+offset_left = 376.0
+offset_top = 704.0
+offset_right = 696.0
+offset_bottom = 750.0
 text = "停止服务器"
+theme_type_variation = &"ToolButton"
 
 [node name="Join" type="Button" parent="."]
 layout_mode = 0
-offset_left = 942.0
-offset_top = 646.0
-offset_right = 1230.0
-offset_bottom = 708.0
-text = "自己加入"
+offset_left = 790.0
+offset_top = 534.0
+offset_right = 1206.0
+offset_bottom = 596.0
+text = "进入我的房间"
+theme_type_variation = &"Button"
 
 [node name="Resume" type="Button" parent="."]
 layout_mode = 0
-offset_left = 326.0
-offset_top = 646.0
-offset_right = 622.0
-offset_bottom = 708.0
+offset_left = 36.0
+offset_top = 704.0
+offset_right = 356.0
+offset_bottom = 750.0
 text = "恢复上次房间"
+theme_type_variation = &"ToolButton"
 
 [node name="CopyTwo" type="Button" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 732.0
-offset_right = 406.0
-offset_bottom = 790.0
-text = "复制玩家二邀请"
+offset_left = 790.0
+offset_top = 458.0
+offset_right = 1206.0
+offset_bottom = 512.0
+text = "复制朋友的邀请"
 theme_type_variation = &"ToolButton"
 
 [node name="CopySpectator" type="Button" parent="."]
 layout_mode = 0
-offset_left = 426.0
-offset_top = 732.0
-offset_right = 814.0
-offset_bottom = 790.0
+offset_left = 790.0
+offset_top = 634.0
+offset_right = 1206.0
+offset_bottom = 678.0
 text = "复制观战邀请"
 theme_type_variation = &"ToolButton"
 
 [node name="CopyOne" type="Button" parent="."]
 layout_mode = 0
-offset_left = 834.0
-offset_top = 732.0
-offset_right = 1230.0
-offset_bottom = 790.0
+offset_left = 790.0
+offset_top = 694.0
+offset_right = 1206.0
+offset_bottom = 738.0
 text = "复制玩家一邀请"
 theme_type_variation = &"ToolButton"

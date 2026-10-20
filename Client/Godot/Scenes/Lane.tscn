@@ -9,7 +9,7 @@
 
 [node name="Lane" type="PanelContainer"]
 layout_mode = 3
-custom_minimum_size = Vector2(164, 552)
+custom_minimum_size = Vector2(164, 518)
 theme = ExtResource("theme")
 theme_type_variation = &"LanePanel"
 size_flags_vertical = 0
@@ -20,7 +20,7 @@ script = ExtResource("drop")
 
 [node name="Slots" type="Control" parent="."]
 layout_mode = 2
-custom_minimum_size = Vector2(164, 552)
+custom_minimum_size = Vector2(164, 518)
 mouse_filter = 1
 
 [node name="Title" type="Label" parent="Slots"]
@@ -38,9 +38,9 @@ theme_type_variation = &"MutedLabel"
 [node name="OpponentField" type="Control" parent="Slots"]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 36.0
+offset_top = 34.0
 offset_right = 158.0
-offset_bottom = 110.0
+offset_bottom = 108.0
 mouse_filter = 1
 
 [node name="Frame" type="Panel" parent="Slots/OpponentField"]
@@ -58,19 +58,19 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 152.0
 offset_bottom = 74.0
-text = "—"
-theme_override_font_sizes/font_size = 24
+text = "场地"
+theme_override_font_sizes/font_size = 12
 mouse_filter = 2
 horizontal_alignment = 1
 vertical_alignment = 1
-theme_override_colors/font_color = Color(0.3373, 0.3843, 0.298, 1)
+theme_type_variation = &"Micro"
 
 [node name="OpponentMinion" type="Control" parent="Slots"]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 114.0
+offset_top = 112.0
 offset_right = 158.0
-offset_bottom = 234.0
+offset_bottom = 232.0
 mouse_filter = 1
 
 [node name="Frame" type="Panel" parent="Slots/OpponentMinion"]
@@ -88,19 +88,18 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 152.0
 offset_bottom = 120.0
-text = "◇"
+text = ""
 theme_override_font_sizes/font_size = 24
 mouse_filter = 2
 horizontal_alignment = 1
 vertical_alignment = 1
-theme_override_colors/font_color = Color(0.3373, 0.3843, 0.298, 1)
 
 [node name="PlayerMinion" type="Control" parent="Slots"]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 342.0
+offset_top = 320.0
 offset_right = 158.0
-offset_bottom = 462.0
+offset_bottom = 440.0
 mouse_filter = 1
 
 [node name="Frame" type="Panel" parent="Slots/PlayerMinion"]
@@ -118,19 +117,18 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 152.0
 offset_bottom = 120.0
-text = "◇"
+text = ""
 theme_override_font_sizes/font_size = 24
 mouse_filter = 2
 horizontal_alignment = 1
 vertical_alignment = 1
-theme_override_colors/font_color = Color(0.3373, 0.3843, 0.298, 1)
 
 [node name="PlayerField" type="Control" parent="Slots"]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 470.0
+offset_top = 444.0
 offset_right = 158.0
-offset_bottom = 544.0
+offset_bottom = 518.0
 mouse_filter = 1
 
 [node name="Frame" type="Panel" parent="Slots/PlayerField"]
@@ -148,26 +146,26 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 152.0
 offset_bottom = 74.0
-text = "—"
-theme_override_font_sizes/font_size = 24
+text = "场地"
+theme_override_font_sizes/font_size = 12
 mouse_filter = 2
 horizontal_alignment = 1
 vertical_alignment = 1
-theme_override_colors/font_color = Color(0.3373, 0.3843, 0.298, 1)
+theme_type_variation = &"Micro"
 
 [node name="OpponentEther" parent="Slots" instance=ExtResource("ether")]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 236.0
+offset_top = 232.0
 offset_right = 158.0
-offset_bottom = 260.0
+offset_bottom = 256.0
 
 [node name="PlayerEther" parent="Slots" instance=ExtResource("ether")]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 314.0
+offset_top = 296.0
 offset_right = 158.0
-offset_bottom = 338.0
+offset_bottom = 320.0
 
 [node name="States" parent="Slots" instance=ExtResource("states")]
 layout_mode = 0
@@ -178,7 +176,7 @@ offset_bottom = 34.0
 
 [node name="SpellPlans" parent="Slots" instance=ExtResource("spells")]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 264.0
-offset_right = 156.0
-offset_bottom = 312.0
+offset_left = 6.0
+offset_top = 256.0
+offset_right = 158.0
+offset_bottom = 296.0

@@ -111,6 +111,7 @@ public partial class GameApp
                 { _slots[(lane.LaneId, player, kind)] = node.GetNode<Control>("Slots/" + prefix + kind); }
             }
         }
+        ConfigureBattleTools();
         Render(initial); _revision = _session?.Client.Store.MatchRevision ?? 0;
         if (resumed is not null) { foreach (var frame in resumed.Frames) { _frames.Enqueue(frame); } }
         _submit.Disabled = initial.Private is null;

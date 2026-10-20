@@ -52,7 +52,7 @@ theme_override_font_sizes/font_size = 22
 mouse_filter = 2
 horizontal_alignment = 1
 text_overrun_behavior = 3
-theme_override_colors/font_color = Color(0.1451, 0.1608, 0.1176, 1)
+theme_override_colors/font_color = Color(0.1608, 0.1804, 0.1451, 1)
 
 [node name="Description" type="Label" parent="."]
 layout_mode = 0
@@ -66,7 +66,7 @@ mouse_filter = 2
 autowrap_mode = 3
 text_overrun_behavior = 3
 max_lines_visible = 6
-theme_override_colors/font_color = Color(0.2157, 0.2196, 0.1647, 1)
+theme_override_colors/font_color = Color(0.2275, 0.2353, 0.1882, 1)
 
 [node name="CostBox" type="Panel" parent="."]
 layout_mode = 0
@@ -99,7 +99,7 @@ text = "随从"
 theme_override_font_sizes/font_size = 14
 mouse_filter = 2
 horizontal_alignment = 1
-theme_override_colors/font_color = Color(0.3647, 0.3608, 0.2627, 1)
+theme_override_colors/font_color = Color(0.3843, 0.3725, 0.3059, 1)
 
 [node name="AttackBox" type="Panel" parent="."]
 layout_mode = 0

@@ -73,12 +73,14 @@ public partial class GameApp
                 BuildBattle();
             });
             setup.GetNode<Button>("Protocol").Pressed += () => { _setupTab = setup.GetIndex(); tabs.CurrentTab = tabs.GetNode<Control>("Protocol").GetIndex(); };
+            ConfigurePreparation(setup);
         }
         BuildHostedServer(tabs, summaries);
         BuildCollection(tabs); BuildDeckBuilder(tabs); BuildReplayMenu(tabs);
         BuildContentEditor(tabs);
         BuildProtocolPage(tabs, summaries);
         _status.Text = "";
+        ConfigureMenuNavigation(tabs);
     }
 
     private int BuildProtocolPage(TabContainer tabs, IReadOnlyList<Label> summaries)

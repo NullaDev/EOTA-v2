@@ -24,9 +24,9 @@ offset_top = 8.0
 offset_right = 1170.0
 offset_bottom = 56.0
 text = "卡牌图鉴"
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 34
 mouse_filter = 2
-
+theme_type_variation = &"Title"
 
 [node name="Help" type="Label" parent="."]
 layout_mode = 0
@@ -35,7 +35,7 @@ offset_top = 62.0
 offset_right = 1240.0
 offset_bottom = 94.0
 text = "移到卡牌上查看；点击锁定详情，再次点击取消。"
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 15
 mouse_filter = 2
 theme_type_variation = &"MutedLabel"
 
@@ -91,7 +91,7 @@ theme_type_variation = &"MutedLabel"
 
 [node name="Related" parent="." instance=ExtResource("related")]
 layout_mode = 0
-offset_left = 960.0
+offset_left = 994.0
 offset_top = 640.0
-offset_right = 1286.0
+offset_right = 1254.0
 offset_bottom = 824.0

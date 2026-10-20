@@ -16,9 +16,9 @@ offset_top = 8.0
 offset_right = 1170.0
 offset_bottom = 56.0
 text = "对战协议"
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 34
 mouse_filter = 2
-
+theme_type_variation = &"Title"
 
 [node name="Help" type="Label" parent="."]
 layout_mode = 0
@@ -27,22 +27,22 @@ offset_top = 62.0
 offset_right = 1240.0
 offset_bottom = 94.0
 text = "调整牌组张数、构筑限制、疲劳及其他对战规则，保存后用于构筑和新对局。"
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 15
 mouse_filter = 2
 theme_type_variation = &"MutedLabel"
 
 [node name="Groups" type="TabContainer" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 154.0
-offset_right = 1230.0
-offset_bottom = 708.0
+offset_left = 124.0
+offset_top = 128.0
+offset_right = 1156.0
+offset_bottom = 720.0
 
 [node name="Actions" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 24.0
+offset_left = 124.0
 offset_top = 750.0
-offset_right = 1230.0
+offset_right = 1156.0
 offset_bottom = 804.0
 theme_override_constants/separation = 16
 
