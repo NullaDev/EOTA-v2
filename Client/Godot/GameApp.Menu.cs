@@ -17,6 +17,7 @@ public partial class GameApp
     private void BuildMenu()
     {
         CaptureEditorDraft();
+        if (!LoadSelectedPackages()) { return; }
         for (var i = 0; i < _decks.Count; i++)
         { if (!_deckFiles.ContainsKey(_decks[i]) && _decks[i].Name == _decks[i].Profession) { _decks[i] = _catalog.DefaultDeck(_decks[i].Profession, _protocol); } }
         _battle = false; Ui.Clear(_root);
@@ -46,8 +47,19 @@ public partial class GameApp
             {
                 var title = $"{(deck.Name == deck.Profession ? "默认牌组" : deck.Name)} · {Ui.Profession(deck.Profession)} · {deck.Cards.Sum(card => card.Copies)} 张";
                 one.AddItem(title); two.AddItem(title);
+                var missing = _catalog.MissingContent(deck);
+                if (!missing.IsEmpty)
+                {
+                    foreach (var choice in new[] { one, two })
+                    {
+                        choice.SetItemText(choice.ItemCount - 1, title + " · 缺少内容");
+                        choice.SetItemDisabled(choice.ItemCount - 1, true);
+                        choice.SetItemTooltip(choice.ItemCount - 1, "牌组已保留。缺少：" + string.Join("、", missing));
+                    }
+                }
             }
-            one.Select(0); two.Select(1);
+            one.Select(_decks.Count > 0 ? 0 : -1); two.Select(_decks.Count > 1 ? 1 : _decks.Count - 1);
+            setup.GetNode<Button>("Start").Disabled = _decks.Count == 0;
             var seed = setup.GetNode<LineEdit>("Seed"); seed.Text = _seedText; seed.TextChanged += value => _seedText = value;
             // The field arrives with a fresh seed, so a reroll is only needed to change it on purpose.
             var reroll = setup.GetNode<Button>("RandomSeed");
@@ -65,6 +77,7 @@ public partial class GameApp
             setup.GetNode<Button>("Start").Pressed += () => Run(async () =>
             {
                 if (!ulong.TryParse(seed.Text, out var value)) { throw new InvalidDataException("请输入非负整数种子。"); }
+                _catalog.RequireAvailableDeck(_decks[one.Selected]); _catalog.RequireAvailableDeck(_decks[two.Selected]);
                 _setupTab = setup.GetIndex();
                 await CloseSession();
                 _session = await DesktopSession.LocalAsync(_catalog, _decks[one.Selected], _decks[two.Selected],

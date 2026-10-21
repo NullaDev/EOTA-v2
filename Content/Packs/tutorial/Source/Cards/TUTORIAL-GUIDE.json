@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "TUTORIAL-GUIDE",
+  "source": "core",
+  "profession": "wayfarer",
+  "kind": "minion",
+  "cost": 3,
+  "attack": 3,
+  "health": 4,
+  "keywords": [],
+  "effects": [],
+  "nameLocalizationKey": "card.TUTORIAL-GUIDE.name",
+  "descriptionLocalizationKey": "card.TUTORIAL-GUIDE.description",
+  "texturePath": "pack://tutorial/Art/TUTORIAL-GUIDE.png"
+}

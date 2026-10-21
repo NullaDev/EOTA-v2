@@ -6,7 +6,7 @@ namespace Eota.GodotClient;
 public partial class GameApp
 {
     private readonly List<Control> _battleTools = [];
-    private static readonly string[] MenuToolNames = ["Replay", "Protocol", "Editor"];
+    private static readonly string[] MenuToolNames = ["Replay", "Protocol", "Editor", "ContentPacks"];
 
     private static void AddTableBackdrop(Control screen, bool board)
     {
@@ -19,6 +19,11 @@ public partial class GameApp
         AddTableBackdrop(_menuScreen, false);
         var play = _menuScreen.GetNode<Button>("Navigation/Play");
         var more = _menuScreen.GetNode<Button>("Navigation/More");
+        var packages = new Button { Name = "ContentPacks", Text = "内容包", Position = new Vector2(1288, 238), Size = new Vector2(224, 48), Visible = false };
+        _menuScreen.GetNode<Control>("Navigation").AddChild(packages); packages.Pressed += ShowContentPackages;
+        // GUI picking follows sibling order, independently of CanvasItem.ZIndex.
+        // Keep dropdown children above the page for both painting and mouse input.
+        _menuScreen.MoveChild(_menuScreen.GetNode<Control>("Navigation"), _menuScreen.GetChildCount() - 1);
         play.Pressed += () => tabs.CurrentTab = _setupTab is 0 or 1 or 2 or 7 ? _setupTab : 7;
         more.Toggled += open =>
         {
@@ -64,7 +69,9 @@ public partial class GameApp
     {
         AddTableBackdrop(_battleScreen, true);
         _battleTools.Clear();
-        foreach (var name in new[] { "Restart", "SaveReplay", "Resync", "SaveDiagnostics", "Pause", "Speed", "Skip" })
+        var packages = new Button { Name = "ContentPacks", Text = "内容包", Size = new Vector2(196, 46) };
+        _battleScreen.GetNode<Control>("Toolbar").AddChild(packages); packages.Pressed += ShowContentPackages;
+        foreach (var name in new[] { "Restart", "SaveReplay", "Resync", "SaveDiagnostics", "Pause", "Speed", "Skip", "ContentPacks" })
         {
             var control = _battleScreen.GetNode<Control>("Toolbar/" + name);
             if (control.Visible) { _battleTools.Add(control); }

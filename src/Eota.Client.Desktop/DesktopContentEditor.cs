@@ -16,13 +16,82 @@ public sealed class DesktopContentEditor
     private static readonly string[] AbilityKeys = ["effects", "keywords", "storedCharge", "preventsActiveAttacksInLane"];
     private readonly SortedDictionary<string, JsonObject> _cards = new(StringComparer.Ordinal);
     private readonly Dictionary<string, string> _texts;
+    private DesktopCatalog? _dependencyContext;
+    public string PackageId { get; set; } = "custom";
+    public string PackageVersion { get; set; } = "1.0.0";
+    public string PackageName { get; set; } = "自定义内容包";
+    public ImmutableArray<ContentDependency> Dependencies { get; set; } = [];
+    public ImmutableArray<ContentDeck> Decks { get; set; } = [];
+    public ImmutableArray<ContentProfession> Professions { get; set; } = [];
+    public IEnumerable<ContentProfession> AvailableProfessions => Professions.Concat(_dependencyContext?.Professions ?? []).DistinctBy(p => p.Id);
+    private readonly Dictionary<string, string> _assetFiles = new(StringComparer.Ordinal);
+    private readonly HashSet<string> _ownedPackageIds = new(StringComparer.Ordinal);
+    private void ReadAssets(ContentPackage package)
+    {
+        PackageAssets.ValidateFiles(package); _ownedPackageIds.Add(package.Id);
+        foreach (var path in package.Assets.Keys) { _assetFiles[path] = PackageAssets.FilePath(package, path); }
+    }
     public IEnumerable<string> CardIds => _cards.Keys;
+    public void UseDependencyContext(DesktopCatalog catalog) => _dependencyContext = catalog;
 
     public DesktopContentEditor(DesktopCatalog catalog)
     {
         ArgumentNullException.ThrowIfNull(catalog);
         foreach (var card in catalog.SourceCards) { _cards.Add(card.GetProperty("id").GetString()!, JsonNode.Parse(card.GetRawText())!.AsObject()); }
-        _texts = new(catalog.Texts, StringComparer.Ordinal);
+        _texts = new(catalog.Texts, StringComparer.Ordinal); Professions = catalog.Professions;
+        foreach (var pack in catalog.Packages) { ReadAssets(pack); }
+    }
+
+    public static DesktopContentEditor NewPackage(DesktopCatalog catalog)
+    {
+        var editor = new DesktopContentEditor(catalog) { _dependencyContext = catalog,
+            Dependencies = [.. catalog.Packages.Select(p => new ContentDependency(p.Id))] };
+        editor._cards.Clear(); editor._texts.Clear(); editor.Professions = []; editor._assetFiles.Clear(); editor._ownedPackageIds.Clear();
+        return editor;
+    }
+
+    public static DesktopContentEditor OpenPackage(DesktopCatalog catalog, string path)
+    {
+        var package = ReadPackage(path);
+        var editor = NewPackage(catalog);
+        editor.PackageId = package.Id; editor.PackageVersion = package.Version; editor.PackageName = package.Name;
+        editor.Dependencies = package.Dependencies; editor.Decks = package.Decks; editor.Professions = package.Professions; editor.ReadAssets(package);
+        foreach (var card in package.Cards) { editor._cards.Add(card.GetProperty("id").GetString()!, JsonNode.Parse(card.GetRawText())!.AsObject()); }
+        foreach (var pair in package.Texts) { editor._texts.Add(pair.Key, pair.Value); }
+        return editor;
+    }
+
+    private ImmutableArray<ContentPackage> DependencyPackages()
+    {
+        if (Dependencies.IsDefaultOrEmpty) { return []; }
+        var known = _dependencyContext?.Packages.ToDictionary(p => p.Id, StringComparer.Ordinal) ?? [];
+        var result = new Dictionary<string, ContentPackage>(StringComparer.Ordinal);
+        void Include(string id)
+        {
+            if (result.ContainsKey(id)) { return; }
+            if (!known.TryGetValue(id, out var dependency)) { throw new InvalidDataException($"编辑内容包需要先启用依赖 {id}。"); }
+            result.Add(id, dependency);
+            foreach (var next in dependency.Dependencies) { Include(next.Id); }
+        }
+        foreach (var dependency in Dependencies) { Include(dependency.Id); }
+        return [.. result.Values];
+    }
+
+    private IEnumerable<ContentSourceDocument> Documents(string? replacingId = null) => DependencyPackages()
+        .SelectMany(p => p.Cards.Select(c => new ContentSourceDocument(p.Id + "/" + c.GetProperty("id").GetString(), c.GetRawText())))
+        .Concat(_cards.Where(pair => pair.Key != replacingId).Select(pair => new ContentSourceDocument(pair.Key, pair.Value.ToJsonString())));
+
+    public void SetDependencies(string value)
+    {
+        Dependencies = [.. value.Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries).Select(item =>
+        {
+            var hashParts = item.Split('#', StringSplitOptions.TrimEntries);
+            var parts = hashParts[0].Split('@', StringSplitOptions.TrimEntries);
+            if (parts.Length > 2 || !ContentPackages.IsId(parts[0]) || parts.Length == 2 && !ContentPackages.IsVersion(parts[1]))
+            { throw new InvalidDataException("依赖格式为包 ID 或 包 ID@版本，多个依赖用英文逗号分隔。"); }
+            if (hashParts.Length > 2 || hashParts.Length == 2 && !ContentPackages.IsHash(hashParts[1])) { throw new InvalidDataException("依赖 hash 必须是 64 位小写 SHA-256。"); }
+            return new ContentDependency(parts[0], parts.Length == 2 ? parts[1] : null, hashParts.Length == 2 ? hashParts[1] : null);
+        })];
     }
 
     public EditableCard Read(string id)
@@ -36,7 +105,7 @@ public sealed class DesktopContentEditor
     {
         var id = "EOTA-USER-" + Guid.NewGuid().ToString("N")[..12].ToUpperInvariant();
         var card = new JsonObject { ["schemaVersion"] = "eota.card/v2", ["id"] = id, ["source"] = "core", ["profession"] = "neutral",
-            ["kind"] = kind, ["cost"] = 1, ["effects"] = new JsonArray(), ["texturePath"] = "Content/Generated/Art/EOTA-CORE-NEU-MIN-001.png" };
+            ["kind"] = kind, ["cost"] = 1, ["effects"] = new JsonArray(), ["texturePath"] = PackageAssets.Placeholder };
         ChangeKind(card, kind);
         return new(card.ToJsonString(Options), "新卡牌", "");
     }
@@ -79,7 +148,7 @@ public sealed class DesktopContentEditor
     {
         ArgumentNullException.ThrowIfNull(value);
         // Compile the raw document before parsing to a mutable DOM, preserving duplicate-key diagnostics.
-        var documents = _cards.Where(pair => pair.Key != replacingId).Select(pair => new ContentSourceDocument(pair.Key, pair.Value.ToJsonString()))
+        var documents = Documents(replacingId)
             .Append(new ContentSourceDocument("编辑中的卡牌", value.Json));
         var result = CardContentCompiler.Compile(documents);
         return result.Diagnostics.Select(d => $"{d.SourceName} {d.Path}: {d.Code} — {d.Message}").ToImmutableArray();
@@ -105,21 +174,26 @@ public sealed class DesktopContentEditor
         if (!errors.IsEmpty) { throw new InvalidDataException(string.Join('\n', errors)); }
         var single = CardContentCompiler.Compile([new ContentSourceDocument("preview", value.Json)]);
         // Cross-card references need the complete pack during compilation.
-        var compiled = single.IsSuccess ? single : CardContentCompiler.Compile(_cards.Where(pair => pair.Key != replacingId)
-            .Select(pair => new ContentSourceDocument(pair.Key, pair.Value.ToJsonString())).Append(new ContentSourceDocument("preview", value.Json)));
+        var compiled = single.IsSuccess ? single : CardContentCompiler.Compile(Documents(replacingId).Append(new ContentSourceDocument("preview", value.Json)));
         using var json = JsonDocument.Parse(value.Json); var id = json.RootElement.GetProperty("id").GetString()!;
         var card = compiled.Content!.Rules.Cards.Single(c => c.Id.Value == id);
         var art = compiled.Content.Presentation.Cards.Single(c => c.Id == card.Id).TexturePath;
+        if (art.StartsWith("pack://", StringComparison.Ordinal))
+        {
+            var (owner, relative) = PackageAssets.Split(art);
+            art = _ownedPackageIds.Contains(owner) && _assetFiles.TryGetValue(relative, out var file) ? file : _dependencyContext!.ResolveTexture(art);
+        }
+        if (art == PackageAssets.Placeholder) { art = "res://Client/Assets/card-placeholder.svg"; }
         return new(id, value.Name, value.Description, art, card.Kind.ToString(), card.Profession.ToString(), card.Source.ToString(), card.Cost,
             (card as MinionCardDefinition)?.Attack, (card as MinionCardDefinition)?.Health,
             (card as SpellCardDefinition)?.Speed.ToString(), card is SpellCardDefinition { TargetScope: SpellTargetScope.Global })
         // Keywords feed the client keyword tooltip; leaving them default would fault the card tile.
-        { Tags = card.Tags, Keywords = DesktopCatalog.KeywordBriefs(card), Durability = card is FieldCardDefinition { Lifetime: FiniteFieldLifetimeDefinition finite } ? finite.InitialEnergy : null };
+        { Tags = card.Tags, TagNames = card.Tags.ToImmutableDictionary(tag => tag, tag => _texts.FirstOrDefault(p => p.Key.StartsWith("tag.", StringComparison.Ordinal) && p.Key.EndsWith("." + tag, StringComparison.Ordinal)).Value ?? tag, StringComparer.Ordinal), Keywords = DesktopCatalog.KeywordBriefs(card), Durability = card is FieldCardDefinition { Lifetime: FiniteFieldLifetimeDefinition finite } ? finite.InitialEnergy : null };
     }
 
     public void DeleteCard(string id)
     {
-        var remaining = _cards.Where(pair => pair.Key != id).Select(pair => new ContentSourceDocument(pair.Key, pair.Value.ToJsonString()));
+        var remaining = Documents(id);
         var result = CardContentCompiler.Compile(remaining);
         if (!result.IsSuccess) { throw new InvalidDataException(string.Join('\n', result.Diagnostics.Select(d => d.Message))); }
         _cards.Remove(id); _texts.Remove($"card.{id}.name"); _texts.Remove($"card.{id}.description");
@@ -127,17 +201,53 @@ public sealed class DesktopContentEditor
 
     public DesktopContentPack Export()
     {
-        var result = CardContentCompiler.Compile(_cards.Select(pair => new ContentSourceDocument(pair.Key, pair.Value.ToJsonString())));
+        var result = CardContentCompiler.Compile(Documents());
         if (!result.IsSuccess) { throw new InvalidDataException(string.Join('\n', result.Diagnostics.Select(d => d.Message))); }
         return new(1, result.Content!.Rules.Hash.ToString(), _cards.Values.Select(card => JsonSerializer.SerializeToElement(card)).ToArray(), new(_texts));
     }
 
-    public void SavePack(string path) => WriteAtomic(path, JsonSerializer.Serialize(Export(), Options));
+    public ContentPackage ExportPackage()
+    {
+        var data = Export();
+        foreach (var owner in _ownedPackageIds)
+        {
+            foreach (var pair in data.Texts.Where(p => p.Key.StartsWith("tag." + owner + ".", StringComparison.Ordinal)).ToArray())
+            { data.Texts.Remove(pair.Key); data.Texts["tag." + PackageId + "." + pair.Key[(owner.Length + 5)..]] = pair.Value; }
+        }
+        var pack = ContentPackages.Seal(new(ContentPackage.Schema, PackageId, PackageVersion, PackageName, "", Dependencies,
+            [.. data.Cards.Select(c => RebaseCard(c, PackageId))], data.Texts.ToImmutableDictionary(StringComparer.Ordinal), Decks)
+        { Professions = Professions, Assets = _assetFiles.ToImmutableDictionary(p => p.Key,
+            p => Convert.ToHexString(System.Security.Cryptography.SHA256.HashData(File.ReadAllBytes(p.Value))).ToLowerInvariant(), StringComparer.Ordinal) });
+        _ = ContentPackages.Load(DependencyPackages().Append(pack));
+        return pack;
+    }
+
+    private JsonElement RebaseCard(JsonElement card, string id)
+    {
+        var node = JsonNode.Parse(card.GetRawText())!.AsObject();
+        if (node["texturePath"]?.GetValue<string>() is { } reference && reference.StartsWith("pack://", StringComparison.Ordinal))
+        {
+            var (owner, relative) = PackageAssets.Split(reference);
+            if (_ownedPackageIds.Contains(owner) || owner == PackageId) { node["texturePath"] = "pack://" + id + "/" + relative; }
+        }
+        return JsonSerializer.SerializeToElement(node);
+    }
+    private void WritePackage(string path, ContentPackage pack)
+    {
+        foreach (var (relative, source) in _assetFiles)
+        {
+            var target = PackageAssets.FilePath(pack with { AssetDirectory = Path.GetDirectoryName(Path.GetFullPath(path)) }, relative);
+            if (string.Equals(source, target, StringComparison.OrdinalIgnoreCase)) { continue; }
+            Directory.CreateDirectory(Path.GetDirectoryName(target)!); File.Copy(source, target, overwrite: true);
+        }
+        WriteAtomic(path, JsonSerializer.Serialize(pack, ContentPackages.JsonOptions));
+    }
+    public void SavePack(string path) => WritePackage(path, ExportPackage());
 
     public DesktopContentPack ExportCards(IEnumerable<string> ids)
     {
         var complete = Export();
-        var compiled = CardContentCompiler.Compile(complete.Cards.Select(card => new ContentSourceDocument(card.GetProperty("id").GetString()!, card.GetRawText()))).Content!;
+        var compiled = CardContentCompiler.Compile(Documents()).Content!;
         var scope = CardRuleScope.Closure(compiled.Rules, ids.Select(Eota.Kernel.Primitives.CardPrototypeId.Parse)).ToHashSet();
         if (scope.Count == 0) { throw new InvalidDataException("请先选择要导出的卡牌。"); }
         var cards = complete.Cards.Where(card => scope.Contains(Eota.Kernel.Primitives.CardPrototypeId.Parse(card.GetProperty("id").GetString()!))).ToArray();
@@ -147,22 +257,52 @@ public sealed class DesktopContentEditor
         return new(1, rules.Hash.ToString(), cards, _texts.Where(pair => keys.Contains(pair.Key)).ToDictionary(pair => pair.Key, pair => pair.Value, StringComparer.Ordinal));
     }
 
-    public void SaveCards(string path, IEnumerable<string> ids) => WriteAtomic(path, JsonSerializer.Serialize(ExportCards(ids), Options));
+    public void SaveCards(string path, IEnumerable<string> ids)
+    {
+        var cards = ExportCards(ids);
+        var id = PackageId[..Math.Min(PackageId.Length, 50)] + "-cards";
+        var complete = ExportPackage();
+        var texts = cards.Texts.ToImmutableDictionary(StringComparer.Ordinal).ToBuilder();
+        foreach (var pair in complete.Texts.Where(p => p.Key.StartsWith("tag." + PackageId + ".", StringComparison.Ordinal)))
+        { texts["tag." + id + "." + pair.Key[(PackageId.Length + 5)..]] = pair.Value; }
+        var pack = ContentPackages.Seal(complete with { Id = id, Name = PackageName + " · 选卡", Decks = [],
+            Cards = [.. cards.Cards.Select(c => RebaseCard(c, id))], Texts = texts.ToImmutable() });
+        _ = ContentPackages.Load(DependencyPackages().Append(pack)); WritePackage(path, pack);
+    }
 
     // A card export can be merged into the current draft without replacing unrelated cards.
     public void ImportCards(string path)
     {
+        var package = ReadPackage(path);
         var imported = LoadPack(path);
         var combined = new SortedDictionary<string, JsonObject>(_cards, StringComparer.Ordinal);
         foreach (var card in imported.Cards) { combined[card.GetProperty("id").GetString()!] = JsonNode.Parse(card.GetRawText())!.AsObject(); }
         if (combined.Count > 2048) { throw new InvalidDataException("内容包最多支持 2048 张卡牌。"); }
-        var compiled = CardContentCompiler.Compile(combined.Select(pair => new ContentSourceDocument(pair.Key, pair.Value.ToJsonString())));
+        var compiled = CardContentCompiler.Compile(DependencyPackages().SelectMany(p => p.Cards.Select(c => new ContentSourceDocument(c.GetProperty("id").GetString()!, c.GetRawText())))
+            .Concat(combined.Select(pair => new ContentSourceDocument(pair.Key, pair.Value.ToJsonString()))));
         if (!compiled.IsSuccess) { throw new InvalidDataException(string.Join('\n', compiled.Diagnostics.Select(d => d.Message))); }
+        ReadAssets(package);
+        Professions = [.. Professions.Concat(package.Professions).DistinctBy(p => p.Id)];
         _cards.Clear(); foreach (var pair in combined) { _cards.Add(pair.Key, pair.Value); }
         foreach (var pair in imported.Texts) { _texts[pair.Key] = pair.Value; }
     }
 
     public static DesktopContentPack LoadPack(string path)
+    {
+        var pack = ReadPackage(path);
+        var compiled = CardContentCompiler.Compile(pack.Cards.Select(c => new ContentSourceDocument(c.GetProperty("id").GetString()!, c.GetRawText())));
+        return new(1, compiled.Content?.Rules.Hash.ToString() ?? "", [.. pack.Cards], pack.Texts.ToDictionary(p => p.Key, p => p.Value, StringComparer.Ordinal));
+    }
+
+    public static ContentPackage ReadPackage(string path)
+    {
+        if (new FileInfo(path).Length > 8 * 1024 * 1024) { throw new InvalidDataException("内容包超过 8 MiB。"); }
+        using var document = JsonDocument.Parse(File.ReadAllText(path));
+        if (document.RootElement.TryGetProperty("schemaVersion", out _)) { return ContentPackages.Read(path); }
+        throw new InvalidDataException("旧版内容包需要升级为 eota.content-pack/v3：补充 professions 与 assets 后重新构建。原文件和牌组已保留。");
+    }
+
+    private static DesktopContentPack LoadLegacyPack(string path)
     {
         if (new FileInfo(path).Length > 8 * 1024 * 1024) { throw new InvalidDataException("内容包超过 8 MB。"); }
         var pack = JsonSerializer.Deserialize<DesktopContentPack>(File.ReadAllText(path)) ?? throw new InvalidDataException("无效内容包。");

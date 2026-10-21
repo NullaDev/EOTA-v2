@@ -26,8 +26,8 @@ public static class FileMatchLoader
     {
         using var document = JsonDocument.Parse(File.ReadAllText(path));
         var root = document.RootElement;
-        if (!Enum.TryParse<Profession>(root.GetProperty("profession").GetString(), ignoreCase: true, out var profession)
-            || !Enum.IsDefined(profession)) { throw new InvalidDataException("Unknown profession."); }
+        if (!Profession.TryParse(root.GetProperty("profession").GetString(), out var profession)
+           ) { throw new InvalidDataException("Unknown profession."); }
         return DeckDefinition.Create(profession, root.GetProperty("cards").EnumerateArray().Select(value => new DeckEntry(
             CardPrototypeId.Parse(value.GetProperty("id").GetString()!), value.GetProperty("copies").GetInt32())));
     }

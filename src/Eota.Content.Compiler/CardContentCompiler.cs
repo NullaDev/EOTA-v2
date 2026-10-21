@@ -541,16 +541,7 @@ public static class CardContentCompiler
     private static bool TryParseCardSource(string value, out CardSource result) =>
         TryParseEnum(value, out result, ("core", CardSource.Core), ("token", CardSource.Token), ("test", CardSource.Test));
 
-    private static bool TryParseProfession(string value, out Profession result) =>
-        TryParseEnum(
-            value,
-            out result,
-            ("neutral", Profession.Neutral),
-            ("arcanist", Profession.Arcanist),
-            ("guardian", Profession.Guardian),
-            ("hunter", Profession.Hunter),
-            ("artisan", Profession.Artisan),
-            ("soulweaver", Profession.Soulweaver));
+    private static bool TryParseProfession(string value, out Profession result) => Profession.TryParse(value, out result);
 
     private static bool TryParseSpellSpeed(string value, out SpellSpeed result) =>
         TryParseEnum(value, out result, ("fast", SpellSpeed.Fast), ("slow", SpellSpeed.Slow));

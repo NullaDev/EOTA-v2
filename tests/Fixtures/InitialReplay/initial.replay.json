@@ -2,12 +2,12 @@
   "formatVersion": 1,
   "protocolId": "eota.test.initial-replay",
   "protocolVersion": 0,
-  "protocolHash": "948e2b95e569c30932d5ccd3f0ac27a3fb869a5890798b2de99207d9deb30d35",
+  "protocolHash": "f945cfbde1e536227a81694dfe7cd5efb0437b868b380577f82b40df76d65f7e",
   "contentSchemaVersion": "eota.card/v2",
-  "ruleContentHash": "1369bbf2b787b0e6ce2146e03771fa696e5693f41ac71795b0f221ccebfe7d5d",
+  "ruleContentHash": "81dac262403b74339227f87f8e969af7346460e875021829e7457f2ed1aab127",
   "matchSeed": 123456789,
   "playerOneDeck": {
-    "profession": "neutral",
+    "profession": "Neutral",
     "cards": [
       {
         "id": "TEST-MINION-A",
@@ -20,7 +20,7 @@
     ]
   },
   "playerTwoDeck": {
-    "profession": "neutral",
+    "profession": "Neutral",
     "cards": [
       {
         "id": "TEST-MINION-A",
@@ -32,6 +32,6 @@
       }
     ]
   },
-  "expectedInitialStateHash": "050e84d07a5f427c97c1ec7812abeeeb2d93fe3940c0faa92c95a4e3ffb3e7cf",
+  "expectedInitialStateHash": "24f85808bc5eb6d3cf6b03d799ef011904855203aa59e04f73d8df7c7e489800",
   "expectedRngSampleCount": 6
 }

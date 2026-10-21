@@ -248,10 +248,10 @@ public sealed partial class SoulweaverRuntimeTests
         => FrameResolver.Resolve(state, [new SummonIntent(state.NextIntentId, owner ?? PlayerId.One, owner ?? PlayerId.One, new(lane), Id(code), code[0] == 'F' ? BattlefieldSlotKind.Field : BattlefieldSlotKind.Minion)]).State;
     private static MatchState Create()
     {
-        var cards = Rules.Cards.Where(card => card.Profession == Profession.Soulweaver || card.Id == Dummy).ToArray();
+        var cards = Rules.Cards.Where(card => card.Profession == Profession.Parse("Soulweaver") || card.Id == Dummy).ToArray();
         var protocol = CompiledGameProtocol.Compile(GameProtocolDefinition.DefaultV0 with { RequiredDeckSize = cards.Length, OpeningHandSize = 0, HandLimit = 500,
             InitialHeroHealth = 100, InitialPlayerCost = 100, InitialMaxCost = 100, MaxCostLimit = 100, CardsDrawnPerTurn = 0, DeckConstructionPolicy = DeckConstructionPolicy.DevelopmentAnySource });
-        var deck = DeckDefinition.Create(Profession.Soulweaver, cards.Select(card => new DeckEntry(card.Id, 1)));
+        var deck = DeckDefinition.Create(Profession.Parse("Soulweaver"), cards.Select(card => new DeckEntry(card.Id, 1)));
         return MatchFactory.Create(new(protocol, Rules, 123456789, deck, deck)).State!;
     }
     private static RuleContentPack LoadRules()

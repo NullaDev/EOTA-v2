@@ -15,12 +15,10 @@ public sealed record CardPresentation(string Id, string Name, string Description
 {
     public long? Durability { get; init; }
     public ImmutableArray<string> Tags { get; init; } = [];
-    public string TypeLabel => Kind == "Minion" && !Tags.IsEmpty ? string.Join("·", Tags.Select(TagLabel)) + "·随从"
+    public ImmutableDictionary<string, string> TagNames { get; init; } = ImmutableDictionary<string, string>.Empty;
+    public string TypeLabel => Kind == "Minion" && !Tags.IsEmpty ? string.Join("·", Tags.Select(tag => TagNames.GetValueOrDefault(tag, TagLabel(tag)))) + "·随从"
         : Kind == "Minion" ? "随从" : Kind == "Field" ? "场地" : Global ? "全局法术" : "路线法术";
-    public static string TagLabel(string tag) => tag switch
-    {
-        "beast" => "野兽", "mechanical" => "机械", "firearm" => "火器营", "hemomancer" => "血术师", "undead" => "亡灵", _ => tag
-    };
+    public static string TagLabel(string tag) => tag;
 }
 public sealed record DeckCard(string Id, int Copies);
 public sealed record DesktopDeck(string Name, string Profession, ImmutableArray<DeckCard> Cards);
@@ -37,50 +35,63 @@ public sealed partial class DesktopCatalog
     public ImmutableDictionary<string, string> CardRules { get; }
     public string Root { get; }
     public string? ContentPackPath { get; }
+    public ImmutableArray<ContentPackage> Packages { get; }
+    public ImmutableArray<Eota.Transport.Contracts.RoomContentPack> ContentPacks =>
+        [.. Packages.Select(p => new Eota.Transport.Contracts.RoomContentPack(p.Id, p.Version, p.Hash))];
     public ImmutableArray<DesktopDeck> ArchetypeDecks { get; }
+    public ImmutableArray<ContentProfession> Professions { get; }
+    public string ResolveTexture(string reference)
+    {
+        if (reference.Length == 0 || reference == PackageAssets.Placeholder) { return "res://Client/Assets/card-placeholder.svg"; }
+        var (id, path) = PackageAssets.Split(reference);
+        var pack = Packages.SingleOrDefault(p => p.Id == id) ?? throw new InvalidDataException("未启用资源所属包：" + id);
+        if (!pack.Assets.ContainsKey(path)) { throw new InvalidDataException("未登记的资源：" + reference); }
+        return PackageAssets.FilePath(pack, path);
+    }
     internal JsonElement[] SourceCards { get; }
     internal Dictionary<string, string> Texts { get; }
 
     public DesktopCatalog(string root, string? contentPackPath = null)
+        : this(root, DesktopContentPackages.LoadFile(root, contentPackPath), contentPackPath) { }
+
+    public DesktopCatalog(string root, IEnumerable<ContentPackage> packages)
+        : this(root, ContentPackages.Load(packages), null) { }
+
+    private DesktopCatalog(string root, LoadedContentPackages loaded, string? contentPackPath)
     {
         Root = Path.GetFullPath(root);
         ContentPackPath = contentPackPath;
-        var pack = contentPackPath is null ? null : DesktopContentEditor.LoadPack(contentPackPath);
-        using var document = JsonDocument.Parse(File.ReadAllText(Path.Combine(Root, "Content", "Generated", "cards.sources.json")));
-        SourceCards = pack?.Cards ?? document.RootElement.EnumerateArray().Select(card => card.Clone()).ToArray();
-        var sources = SourceCards.Select(card =>
-            new ContentSourceDocument(card.GetProperty("id").GetString()!, card.GetRawText()));
-        var compiled = CardContentCompiler.Compile(sources);
-        if (!compiled.IsSuccess) { throw new InvalidDataException(string.Join("; ", compiled.Diagnostics.Select(value => value.Message))); }
-        _rules = compiled.Content!.Rules;
+        Packages = loaded.Packages;
+        foreach (var package in Packages) { PackageAssets.ValidateFiles(package); }
+        Professions = [.. Packages.SelectMany(p => p.Professions).OrderBy(p => p.Order).ThenBy(p => p.Id, StringComparer.Ordinal)];
+        SourceCards = loaded.Packages.SelectMany(p => p.Cards).ToArray();
+        _rules = loaded.Content.Rules;
         CardRules = _rules.Cards.ToImmutableDictionary(card => card.Id.Value, card => _rules.CardRuleHash(card.Id).ToString(), StringComparer.Ordinal);
         AiCards = ProjectAiCards(_rules);
-        var texts = pack?.Texts ?? JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText(Path.Combine(Root, "Content", "Generated", "zh-CN.json")))!;
+        var texts = loaded.Texts.ToDictionary(p => p.Key, p => p.Value, StringComparer.Ordinal);
         Texts = texts;
-        var presentation = compiled.Content.Presentation.Cards.ToDictionary(card => card.Id);
-        foreach (var card in presentation.Values)
-        {
-            if (!card.TexturePath.StartsWith("Content/Generated/Art/", StringComparison.Ordinal)
-                || !card.TexturePath.EndsWith(".png", StringComparison.OrdinalIgnoreCase) || card.TexturePath.Contains("..", StringComparison.Ordinal)
-                || card.TexturePath.Contains('\\') || !File.Exists(Path.Combine(Root, card.TexturePath)))
-            { throw new InvalidDataException($"卡牌 {card.Id} 的插图不存在，请使用现有 Content/Generated/Art/*.png 资源。"); }
-        }
+        var presentation = loaded.Content.Presentation.Cards.ToDictionary(card => card.Id);
+        var owners = Packages.SelectMany(p => p.Cards.Select(c => (Id: c.GetProperty("id").GetString()!, Owner: p.Id)))
+            .ToDictionary(p => p.Id, p => p.Owner, StringComparer.Ordinal);
+        foreach (var card in presentation.Values) { _ = ResolveTexture(card.TexturePath); }
         Cards = _rules.Cards.Select(card => new CardPresentation(card.Id.Value,
             texts.GetValueOrDefault(presentation[card.Id].NameLocalizationKey, card.Id.Value),
             texts.GetValueOrDefault(presentation[card.Id].DescriptionLocalizationKey, ""),
             presentation[card.Id].TexturePath, card.Kind.ToString(), card.Profession.ToString(), card.Source.ToString(), card.Cost,
             (card as MinionCardDefinition)?.Attack, (card as MinionCardDefinition)?.Health, (card as SpellCardDefinition)?.Speed.ToString(),
             card is SpellCardDefinition { TargetScope: SpellTargetScope.Global })
-        { Tags = card.Tags, Keywords = KeywordBriefs(card), Durability = card is FieldCardDefinition { Lifetime: FiniteFieldLifetimeDefinition finite } ? finite.InitialEnergy : null })
+        { Tags = card.Tags, TagNames = card.Tags.ToImmutableDictionary(tag => tag, tag => texts.GetValueOrDefault("tag." + owners[card.Id.Value] + "." + tag, tag), StringComparer.Ordinal),
+            Keywords = KeywordBriefs(card), Durability = card is FieldCardDefinition { Lifetime: FiniteFieldLifetimeDefinition finite } ? finite.InitialEnergy : null })
             .OrderBy(card => card.Id, StringComparer.Ordinal).ToImmutableArray();
         BuildRelatedCards();
-        ArchetypeDecks = JsonSerializer.Deserialize<ImmutableArray<DesktopDeck>>(File.ReadAllText(Path.Combine(Root, "Content", "Generated", "archetype-decks.json")))
+        ArchetypeDecks = loaded.Decks.Select(deck => new DesktopDeck(deck.Name, deck.Profession, [.. deck.Cards.Select(c => new DeckCard(c.Id, c.Copies))]))
             .Where(deck => deck.Cards.All(entry => _rules.Cards.Any(card => card.Id.Value == entry.Id && card.Source == CardSource.Core))).ToImmutableArray();
     }
 
     public ImmutableArray<CardPresentation> ConstructibleCards(string profession, DesktopProtocol protocol)
     {
-        var allowed = _rules.Cards.Where(card => MatchFactory.IsCardAllowed(card, Enum.Parse<Profession>(profession), protocol.Definition.DeckConstructionPolicy))
+        if (!Professions.Any(p => p.Id == profession && p.Playable)) { return []; }
+        var allowed = _rules.Cards.Where(card => MatchFactory.IsCardAllowed(card, Profession.Parse(profession), protocol.Definition.DeckConstructionPolicy))
             .Select(card => card.Id.Value).ToHashSet(StringComparer.Ordinal);
         return [.. Cards.Where(card => allowed.Contains(card.Id)).OrderBy(card => card.Cost).ThenBy(card => card.Id, StringComparer.Ordinal)];
     }
@@ -116,10 +127,34 @@ public sealed partial class DesktopCatalog
         return new MatchCreationRequest(protocol, _rules, settings.Seed, ToDeck(one), ToDeck(two));
     }
 
-    public ImmutableArray<string> ValidateDeck(DesktopDeck deck, DesktopProtocol? protocol = null) => MatchFactory.Create(CreateRequest(deck, deck, new LocalMatchSettings(ProtocolJson: protocol?.Json))).Errors
-        .Select(value => value.DetailCode).Distinct(StringComparer.Ordinal).ToImmutableArray();
+    public ImmutableArray<string> MissingCards(DesktopDeck deck)
+    {
+        ArgumentNullException.ThrowIfNull(deck);
+        return [.. deck.Cards.Select(c => c.Id).Where(id => !CardRules.ContainsKey(id)).Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal)];
+    }
 
-    private static DeckDefinition ToDeck(DesktopDeck deck) => DeckDefinition.Create(Enum.Parse<Profession>(deck.Profession),
+    public ImmutableArray<string> MissingContent(DesktopDeck deck) =>
+        Professions.Any(p => p.Id == deck.Profession && p.Playable) ? MissingCards(deck) : ["职业：" + deck.Profession, .. MissingCards(deck)];
+
+    public void RequireAvailableDeck(DesktopDeck deck)
+    {
+        var missing = MissingCards(deck);
+        if (!Professions.Any(p => p.Id == deck.Profession && p.Playable))
+        { throw new InvalidDataException($"“{deck.Name}”的职业 {deck.Profession} 未启用；牌组已保留，暂不能编辑或对战。"); }
+        if (!missing.IsEmpty)
+        { throw new InvalidDataException($"“{deck.Name}”缺少 {missing.Length} 种卡牌，暂不能编辑或对战。请启用对应内容包；牌组仍保留。\n" + string.Join("、", missing)); }
+    }
+
+    public ImmutableArray<string> ValidateDeck(DesktopDeck deck, DesktopProtocol? protocol = null)
+    {
+        if (!Professions.Any(p => p.Id == deck.Profession && p.Playable)) { return ["missing-profession: " + deck.Profession]; }
+        var missing = MissingCards(deck);
+        if (!missing.IsEmpty) { return ["missing-content: " + string.Join(", ", missing)]; }
+        return MatchFactory.Create(CreateRequest(deck, deck, new LocalMatchSettings(ProtocolJson: protocol?.Json))).Errors
+            .Select(value => value.DetailCode).Distinct(StringComparer.Ordinal).ToImmutableArray();
+    }
+
+    private static DeckDefinition ToDeck(DesktopDeck deck) => DeckDefinition.Create(Profession.Parse(deck.Profession),
         deck.Cards.Select(card => new DeckEntry(CardPrototypeId.Parse(card.Id), card.Copies)));
 
     // Baseline keywords as displayed on the card face, so the client can explain them without

@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" path="res://Client/Godot/GameTheme.tres" id="theme"]
 [ext_resource type="Script" path="res://Client/Godot/EtherPips.cs" id="script"]
-[ext_resource type="Texture2D" path="res://Content/Generated/Icons/ether.png" id="ether"]
+[ext_resource type="Texture2D" path="res://Client/Assets/Icons/ether.png" id="ether"]
 
 [node name="EtherPips" type="Control"]
 layout_mode = 3

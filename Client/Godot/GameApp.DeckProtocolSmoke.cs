@@ -32,10 +32,10 @@ public partial class GameApp
             Page().GetNode<Button>("Manager/New").EmitSignal(BaseButton.SignalName.Pressed);
             foreach (var profession in Professions)
             {
-                Page().GetNode<Button>("ProfessionPicker/Panel/Professions/" + profession).EmitSignal(BaseButton.SignalName.Pressed);
+                Page().GetNode<Button>("ProfessionPicker/Panel/ProfessionScroll/Professions/" + profession).EmitSignal(BaseButton.SignalName.Pressed);
                 Require(Page().GetNode<OptionButton>("ProfessionPicker/Panel/Template").ItemCount == 4, "Each profession offers a blank deck and three archetypes");
             }
-            Page().GetNode<Button>("ProfessionPicker/Panel/Professions/Guardian").EmitSignal(BaseButton.SignalName.Pressed);
+            Page().GetNode<Button>("ProfessionPicker/Panel/ProfessionScroll/Professions/Guardian").EmitSignal(BaseButton.SignalName.Pressed);
             var template = Page().GetNode<OptionButton>("ProfessionPicker/Panel/Template");
             await Click(template); await CaptureInteraction("cardset-archetypes"); template.GetPopup().Hide();
             template.Select(3);

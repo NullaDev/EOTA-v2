@@ -50,19 +50,11 @@ public partial class GameApp : Control
             // and the managed server are distributed next to the executable.
             var contentRoot = OS.HasFeature("editor") ? ProjectSettings.GlobalizePath("res://")
                 : Path.GetDirectoryName(OS.GetExecutablePath())!;
-            _catalog = new DesktopCatalog(contentRoot);
-            CardTile.UseCatalog(_catalog);
-            _serverLauncher = new LocalServerLauncher(_catalog.Root, ProjectSettings.GlobalizePath("user://rooms"));
-            var contentSelection = ProjectSettings.GlobalizePath("user://content-selection.txt");
-            if (File.Exists(contentSelection) && File.ReadAllText(contentSelection).Trim() is { Length: > 0 } packPath)
-            {
-                try { _catalog = new DesktopCatalog(_catalog.Root, packPath); CardTile.UseCatalog(_catalog); }
-                catch (Exception error) { GD.PushWarning("自定义内容包未启用：" + error.Message); }
-            }
+            _packageStore = new DesktopContentPackages(contentRoot, ProjectSettings.GlobalizePath("user://content"));
+            _serverLauncher = new LocalServerLauncher(contentRoot, ProjectSettings.GlobalizePath("user://rooms"));
             var protocolFile = ProjectSettings.GlobalizePath("user://protocol.json");
             if (File.Exists(protocolFile))
             { try { _protocol = DesktopProtocol.Parse(File.ReadAllText(protocolFile)); } catch (InvalidDataException) { GD.PushWarning("已保存的对战协议无效，使用默认值。"); } }
-            foreach (var profession in Professions) { _decks.Add(_catalog.DefaultDeck(profession, _protocol)); }
             _deckStore = new DesktopDeckStore(ProjectSettings.GlobalizePath("user://decks"));
             foreach (var id in _deckStore.Ids)
             { try { var deck = _deckStore.Read(id); _decks.Add(deck); _deckFiles.Add(deck, id); } catch (Exception) { GD.PushWarning("无法载入牌组：" + id); } }
@@ -79,6 +71,8 @@ public partial class GameApp : Control
             if (OS.GetCmdlineUserArgs().Contains("--smoke-p10-decks")) { _ = DeckProtocolSmokeAsync(); }
             if (OS.GetCmdlineUserArgs().Contains("--smoke-p10-host")) { _ = HostedMatchSmokeAsync(true); }
             if (OS.GetCmdlineUserArgs().Contains("--smoke-p10-join")) { _ = HostedMatchSmokeAsync(false); }
+            if (OS.GetCmdlineUserArgs().Contains("--smoke-content-packs")) { _ = ContentPackagesSmokeAsync(); }
+            if (OS.GetCmdlineUserArgs().Contains("--smoke-tutorial")) { _ = TutorialSmokeAsync(); }
         }
         catch (Exception error) { _root.AddChild(Ui.Text("内容载入失败：" + error.Message)); GD.PushError(error.ToString()); }
     }
@@ -102,7 +96,12 @@ public partial class GameApp : Control
         {
             _busy = true;
             try { await action(); }
-            catch (Exception error) { if (GodotObject.IsInstanceValid(_status)) { _status.Text = Ui.Reason(error.Message); } GD.PushWarning(error.ToString()); }
+            catch (Exception error)
+            {
+                if (GodotObject.IsInstanceValid(_status)) { _status.Text = Ui.Reason(error.Message); }
+                if (error.Message.Contains("content-pack-mismatch", StringComparison.Ordinal)) { ShowContentPackMismatch(error.Message); }
+                GD.PushWarning(error.ToString());
+            }
             finally { _busy = false; }
         }
     }

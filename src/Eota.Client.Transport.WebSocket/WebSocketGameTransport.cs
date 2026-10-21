@@ -22,6 +22,10 @@ public sealed class WebSocketGameTransport : IGameClientTransport
 
     public static async Task<WebSocketGameTransport> ConnectAuthenticatedAsync(Uri endpoint, string matchId, string ruleContentHash,
         string? protocolHash, string? credential, string? roomSettingsHash = null, CancellationToken cancellationToken = default)
+        => await ConnectWithContentAsync(endpoint, matchId, ruleContentHash, protocolHash, credential, roomSettingsHash, null, cancellationToken).ConfigureAwait(false);
+
+    public static async Task<WebSocketGameTransport> ConnectWithContentAsync(Uri endpoint, string matchId, string ruleContentHash,
+        string? protocolHash, string? credential, string? roomSettingsHash, string? contentPacksHash, CancellationToken cancellationToken = default)
     {
         ArgumentNullException.ThrowIfNull(endpoint);
         ArgumentException.ThrowIfNullOrWhiteSpace(matchId);
@@ -31,6 +35,7 @@ public sealed class WebSocketGameTransport : IGameClientTransport
         socket.Options.SetRequestHeader(MatchHandshake.RuleContentHashHeader, ruleContentHash);
         if (protocolHash is not null) { socket.Options.SetRequestHeader(MatchHandshake.ProtocolHashHeader, protocolHash); }
         if (roomSettingsHash is not null) { socket.Options.SetRequestHeader(RoomTiming.SettingsHashHeader, roomSettingsHash); }
+        if (contentPacksHash is not null) { socket.Options.SetRequestHeader(RoomContentPacks.HashHeader, contentPacksHash); }
         if (credential is not null) { socket.Options.SetRequestHeader("Authorization", "Bearer " + credential); }
         try
         {

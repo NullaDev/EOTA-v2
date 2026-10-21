@@ -8,7 +8,7 @@ namespace Eota.Kernel.Content;
 
 public sealed class RuleContentPack
 {
-    public const ushort CanonicalSchemaVersion = 6;
+    public const ushort CanonicalSchemaVersion = 7;
 
     private readonly Dictionary<CardPrototypeId, CardDefinition> _cardsById;
 
@@ -130,7 +130,7 @@ public sealed class RuleContentPack
             writer.WriteString(card.Id.Value);
             writer.WriteInt32((int)card.Kind);
             writer.WriteInt32((int)card.Source);
-            writer.WriteInt32((int)card.Profession);
+            writer.WriteString(card.Profession.ToString());
             writer.WriteInt64(card.Cost);
             writer.WriteInt64(card.StoredCharge);
             writer.WriteCount(card.Tags.Length);

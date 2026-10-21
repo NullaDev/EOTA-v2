@@ -72,10 +72,10 @@ public sealed class LocalServerLauncher(string applicationRoot, string roomsDire
                     if (!deckErrors.IsEmpty) { throw new InvalidDataException("参考牌组与当前协议不兼容：" + string.Join(", ", deckErrors)); }
                 }
                 var hashes = tokens.Select(value => Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(value))).ToLowerInvariant()).ToArray();
-                var config = new HostedRoomConfiguration(1, id, options.MatchName, options.Seed, options.Catalog.RuleHash,
+                var config = new HostedRoomConfiguration(2, id, options.MatchName, options.Seed, options.Catalog.RuleHash,
                     options.ProtocolJson ?? DesktopProtocol.Default.Json, options.Catalog.SourceCards, hashes[0], hashes[1], hashes[2],
                     options.PlayerOneDeck is null ? null : DesktopRoomClient.ToRoomDeck(options.PlayerOneDeck),
-                    options.PlayerTwoDeck is null ? null : DesktopRoomClient.ToRoomDeck(options.PlayerTwoDeck), options.Timing);
+                    options.PlayerTwoDeck is null ? null : DesktopRoomClient.ToRoomDeck(options.PlayerTwoDeck), options.Timing, [.. options.Catalog.Packages]);
                 _ = (options.Timing ?? new Eota.Transport.Contracts.RoomTiming()).ComputeHash(options.Catalog.RuleHash, DesktopProtocol.Compile(protocol.Json).Hash.ToString());
                 DesktopContentEditor.WriteAtomic(configPath, JsonSerializer.Serialize(config));
             }

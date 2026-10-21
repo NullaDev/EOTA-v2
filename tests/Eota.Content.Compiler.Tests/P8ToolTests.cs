@@ -20,7 +20,7 @@ public sealed class P8ToolTests
     public void BaselineIdsStatsLocalizationAndEveryEffectCardHaveScenarios()
     {
         var catalog = ContentCatalog.Load(Root);
-        using var baseline = JsonDocument.Parse(File.ReadAllText(Path.Combine(Root, "Content", "Design", "card-baseline.json")));
+        using var baseline = JsonDocument.Parse(File.ReadAllText(Path.Combine(Root, "Content", "Packs", "standard", "Design", "card-baseline.json")));
         using var scenarios = JsonDocument.Parse(File.ReadAllText(Path.Combine(Root, "tests", "Fixtures", "P8Content", "scenarios.json")));
         Assert.Equal(282, catalog.Bundle.Rules.Cards.Length);
         var ids = baseline.RootElement.GetProperty("cards").EnumerateArray().Select(value => value.GetProperty("id").GetString()).Order(StringComparer.Ordinal);
@@ -63,7 +63,7 @@ public sealed class P8ToolTests
         Assert.Contains("| 以太稽查员 | — | 3 | 3/3 |", catalog.RenderTable(), StringComparison.Ordinal);
         Assert.Contains("| 荒原投石兽 | 野兽 | 8 | 5/6 |", catalog.RenderTable(), StringComparison.Ordinal);
         Assert.Equal(282, catalog.RenderTable().Split('\n').Count(line => line.Contains("| `EOTA-", StringComparison.Ordinal)));
-        using var recipes = JsonDocument.Parse(File.ReadAllText(Path.Combine(Root, "Content", "Source", "Art", "emoji-recipes.json")));
+        using var recipes = JsonDocument.Parse(File.ReadAllText(Path.Combine(Root, "Content", "Packs", "standard", "Source", "Art", "emoji-recipes.json")));
         var fused = recipes.RootElement.EnumerateObject().Where(value => value.Value.TryGetProperty("fusion", out _)).ToArray();
         Assert.Equal(251, fused.Length);
         Assert.Equal(31, recipes.RootElement.EnumerateObject().Count(value => !value.Value.TryGetProperty("fusion", out _)));
@@ -73,7 +73,7 @@ public sealed class P8ToolTests
         {
             Assert.Equal($"Fusions/{value.Name}.png", value.Value.GetProperty("fusion").GetString());
             Assert.StartsWith("https://www.gstatic.com/android/keyboard/emojikitchen/", value.Value.GetProperty("fusionSource").GetString(), StringComparison.Ordinal);
-            Assert.True(File.Exists(Path.Combine(Root, "Content", "Source", "Art", "Fusions", value.Name + ".png")));
+            Assert.True(File.Exists(Path.Combine(Root, "Content", "Packs", "standard", "Source", "Art", "Fusions", value.Name + ".png")));
         });
     }
 

@@ -1,0 +1,568 @@
+{
+  "schemaVersion": "eota.content-pack/v3",
+  "id": "tutorial",
+  "version": "1.0.0",
+  "name": "\u5185\u5BB9\u5305\u5236\u4F5C\u6559\u7A0B \u00B7 \u884C\u65C5\u8005",
+  "hash": "bb98c962ba6ea184c0e98553035c61fe294c617c4784ce2381b5e642d17e5cea",
+  "dependencies": [],
+  "cards": [
+    {
+      "schemaVersion": "eota.card/v2",
+      "kind": "minion",
+      "id": "MOD-DEMO-DEPLOY",
+      "source": "core",
+      "profession": "wayfarer",
+      "cost": 5,
+      "nameLocalizationKey": "card.MOD-DEMO-DEPLOY.name",
+      "descriptionLocalizationKey": "card.MOD-DEMO-DEPLOY.description",
+      "texturePath": "pack://tutorial/Art/MOD-DEMO-DEPLOY.png",
+      "attack": 2,
+      "health": 2,
+      "tags": [
+        "mechanical"
+      ],
+      "effects": [
+        {
+          "id": "deploy-neighbors",
+          "trigger": {
+            "kind": "selfEntered"
+          },
+          "body": {
+            "kind": "summon",
+            "target": {
+              "kind": "friendlyLanes",
+              "scope": "adjacent"
+            },
+            "prototype": "MOD-DEMO-DRONE",
+            "slot": "minion"
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "eota.card/v2",
+      "kind": "minion",
+      "id": "MOD-DEMO-DRONE",
+      "source": "token",
+      "profession": "wayfarer",
+      "cost": 2,
+      "nameLocalizationKey": "card.MOD-DEMO-DRONE.name",
+      "descriptionLocalizationKey": "card.MOD-DEMO-DRONE.description",
+      "texturePath": "pack://tutorial/Art/MOD-DEMO-DRONE.png",
+      "attack": 1,
+      "health": 2,
+      "keywords": [
+        "swift"
+      ],
+      "tags": [
+        "mechanical"
+      ],
+      "effects": []
+    },
+    {
+      "schemaVersion": "eota.card/v2",
+      "kind": "spell",
+      "id": "MOD-DEMO-ECHO",
+      "source": "core",
+      "profession": "wayfarer",
+      "cost": 2,
+      "nameLocalizationKey": "card.MOD-DEMO-ECHO.name",
+      "descriptionLocalizationKey": "card.MOD-DEMO-ECHO.description",
+      "texturePath": "pack://tutorial/Art/MOD-DEMO-ECHO.png",
+      "speed": "slow",
+      "targetScope": "lane",
+      "effects": [
+        {
+          "id": "spend-ether",
+          "trigger": {
+            "kind": "selfSpellCast"
+          },
+          "body": {
+            "kind": "sequence",
+            "steps": [
+              {
+                "kind": "clearEther",
+                "target": {
+                  "kind": "friendlyLanes"
+                }
+              },
+              {
+                "kind": "loop",
+                "count": "previous.scalar",
+                "body": {
+                  "kind": "damage",
+                  "target": {
+                    "kind": "enemyMinions"
+                  },
+                  "amount": 1
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "eota.card/v2",
+      "kind": "spell",
+      "id": "MOD-DEMO-FROST",
+      "source": "core",
+      "profession": "wayfarer",
+      "cost": 2,
+      "nameLocalizationKey": "card.MOD-DEMO-FROST.name",
+      "descriptionLocalizationKey": "card.MOD-DEMO-FROST.description",
+      "texturePath": "pack://tutorial/Art/MOD-DEMO-FROST.png",
+      "speed": "fast",
+      "targetScope": "lane",
+      "effects": [
+        {
+          "id": "freeze-and-activate",
+          "trigger": {
+            "kind": "selfSpellCast"
+          },
+          "body": {
+            "kind": "parallel",
+            "children": [
+              {
+                "kind": "laneStatus",
+                "target": {
+                  "kind": "friendlyLanes"
+                },
+                "status": "frozen",
+                "duration": 1
+              },
+              {
+                "kind": "modifyNumber",
+                "target": {
+                  "kind": "friendlyLanes"
+                },
+                "attribute": "etherActivation",
+                "operation": "add",
+                "amount": 1
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "eota.card/v2",
+      "kind": "field",
+      "id": "MOD-DEMO-PERMANENT",
+      "source": "core",
+      "profession": "wayfarer",
+      "cost": 4,
+      "nameLocalizationKey": "card.MOD-DEMO-PERMANENT.name",
+      "descriptionLocalizationKey": "card.MOD-DEMO-PERMANENT.description",
+      "texturePath": "pack://tutorial/Art/MOD-DEMO-PERMANENT.png",
+      "lifetime": {
+        "kind": "permanent"
+      },
+      "preventsActiveAttacksInLane": false,
+      "effects": [
+        {
+          "id": "protect-ether",
+          "trigger": {
+            "kind": "turnEnd"
+          },
+          "body": {
+            "kind": "preventEtherDecay",
+            "target": {
+              "kind": "friendlyLanes"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "eota.card/v2",
+      "kind": "spell",
+      "id": "MOD-DEMO-REPAIR",
+      "source": "core",
+      "profession": "wayfarer",
+      "cost": 3,
+      "nameLocalizationKey": "card.MOD-DEMO-REPAIR.name",
+      "descriptionLocalizationKey": "card.MOD-DEMO-REPAIR.description",
+      "texturePath": "pack://tutorial/Art/MOD-DEMO-REPAIR.png",
+      "speed": "slow",
+      "targetScope": "global",
+      "effects": [
+        {
+          "id": "draw-and-improve",
+          "trigger": {
+            "kind": "selfSpellCast"
+          },
+          "body": {
+            "kind": "sequence",
+            "steps": [
+              {
+                "kind": "draw",
+                "target": {
+                  "kind": "friendlyHero"
+                },
+                "count": 1,
+                "filter": {
+                  "kind": "minion",
+                  "tag": "mechanical"
+                }
+              },
+              {
+                "kind": "parallel",
+                "children": [
+                  {
+                    "kind": "modifyNumber",
+                    "target": {
+                      "kind": "previousAffected",
+                      "targetType": "card"
+                    },
+                    "attribute": "attack",
+                    "operation": "add",
+                    "amount": 1
+                  },
+                  {
+                    "kind": "modifyNumber",
+                    "target": {
+                      "kind": "previousAffected",
+                      "targetType": "card"
+                    },
+                    "attribute": "maximumHealth",
+                    "operation": "add",
+                    "amount": 1
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "eota.card/v2",
+      "kind": "minion",
+      "id": "MOD-DEMO-SENTINEL",
+      "source": "core",
+      "profession": "wayfarer",
+      "cost": 3,
+      "attack": 2,
+      "health": 3,
+      "keywords": [
+        "guard"
+      ],
+      "tags": [
+        "soldier"
+      ],
+      "nameLocalizationKey": "card.MOD-DEMO-SENTINEL.name",
+      "descriptionLocalizationKey": "card.MOD-DEMO-SENTINEL.description",
+      "texturePath": "pack://tutorial/Art/MOD-DEMO-SENTINEL.png",
+      "effects": [
+        {
+          "id": "entry-hit",
+          "trigger": {
+            "kind": "selfEntered"
+          },
+          "body": {
+            "kind": "damage",
+            "target": {
+              "kind": "enemyHero"
+            },
+            "amount": 1
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "eota.card/v2",
+      "kind": "minion",
+      "id": "MOD-DEMO-WATCHER",
+      "source": "core",
+      "profession": "wayfarer",
+      "cost": 4,
+      "nameLocalizationKey": "card.MOD-DEMO-WATCHER.name",
+      "descriptionLocalizationKey": "card.MOD-DEMO-WATCHER.description",
+      "texturePath": "pack://tutorial/Art/MOD-DEMO-WATCHER.png",
+      "attack": 2,
+      "health": 4,
+      "effects": [
+        {
+          "id": "teach-recovery",
+          "trigger": {
+            "kind": "friendlyEntered",
+            "scope": "all",
+            "subjectType": "minion",
+            "otherOnly": true
+          },
+          "body": {
+            "kind": "grantEffect",
+            "target": {
+              "kind": "eventSubject"
+            },
+            "duration": 1,
+            "effect": {
+              "id": "recover",
+              "trigger": {
+                "kind": "turnEnd"
+              },
+              "body": {
+                "kind": "heal",
+                "target": {
+                  "kind": "self"
+                },
+                "amount": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "schemaVersion": "eota.card/v2",
+      "kind": "field",
+      "id": "MOD-DEMO-WORKSHOP",
+      "source": "core",
+      "profession": "wayfarer",
+      "cost": 4,
+      "nameLocalizationKey": "card.MOD-DEMO-WORKSHOP.name",
+      "descriptionLocalizationKey": "card.MOD-DEMO-WORKSHOP.description",
+      "texturePath": "pack://tutorial/Art/MOD-DEMO-WORKSHOP.png",
+      "lifetime": {
+        "kind": "finite",
+        "energy": 2
+      },
+      "storedCharge": 1,
+      "keywords": [],
+      "effects": [
+        {
+          "id": "end-charge",
+          "trigger": {
+            "kind": "endTurnCharge"
+          },
+          "body": {
+            "kind": "generate",
+            "target": {
+              "kind": "friendlyHero"
+            },
+            "count": 1,
+            "prototype": "MOD-DEMO-DRONE"
+          },
+          "charge": 1
+        }
+      ]
+    },
+    {
+      "schemaVersion": "eota.card/v2",
+      "id": "TUTORIAL-CARTOGRAPHER",
+      "source": "core",
+      "profession": "wayfarer",
+      "kind": "minion",
+      "cost": 4,
+      "attack": 4,
+      "health": 5,
+      "keywords": [],
+      "effects": [],
+      "nameLocalizationKey": "card.TUTORIAL-CARTOGRAPHER.name",
+      "descriptionLocalizationKey": "card.TUTORIAL-CARTOGRAPHER.description",
+      "texturePath": "pack://tutorial/Art/TUTORIAL-CARTOGRAPHER.png"
+    },
+    {
+      "schemaVersion": "eota.card/v2",
+      "id": "TUTORIAL-GUIDE",
+      "source": "core",
+      "profession": "wayfarer",
+      "kind": "minion",
+      "cost": 3,
+      "attack": 3,
+      "health": 4,
+      "keywords": [],
+      "effects": [],
+      "nameLocalizationKey": "card.TUTORIAL-GUIDE.name",
+      "descriptionLocalizationKey": "card.TUTORIAL-GUIDE.description",
+      "texturePath": "pack://tutorial/Art/TUTORIAL-GUIDE.png"
+    },
+    {
+      "schemaVersion": "eota.card/v2",
+      "id": "TUTORIAL-PORTER",
+      "source": "core",
+      "profession": "wayfarer",
+      "kind": "minion",
+      "cost": 2,
+      "attack": 2,
+      "health": 3,
+      "keywords": [],
+      "effects": [],
+      "nameLocalizationKey": "card.TUTORIAL-PORTER.name",
+      "descriptionLocalizationKey": "card.TUTORIAL-PORTER.description",
+      "texturePath": "pack://tutorial/Art/TUTORIAL-PORTER.png"
+    },
+    {
+      "schemaVersion": "eota.card/v2",
+      "id": "TUTORIAL-SCOUT",
+      "source": "core",
+      "profession": "wayfarer",
+      "kind": "minion",
+      "cost": 1,
+      "attack": 1,
+      "health": 2,
+      "keywords": [],
+      "effects": [],
+      "nameLocalizationKey": "card.TUTORIAL-SCOUT.name",
+      "descriptionLocalizationKey": "card.TUTORIAL-SCOUT.description",
+      "texturePath": "pack://tutorial/Art/TUTORIAL-SCOUT.png"
+    },
+    {
+      "schemaVersion": "eota.card/v2",
+      "id": "TUTORIAL-VANGUARD",
+      "source": "core",
+      "profession": "wayfarer",
+      "kind": "minion",
+      "cost": 5,
+      "attack": 5,
+      "health": 6,
+      "keywords": [],
+      "effects": [],
+      "nameLocalizationKey": "card.TUTORIAL-VANGUARD.name",
+      "descriptionLocalizationKey": "card.TUTORIAL-VANGUARD.description",
+      "texturePath": "pack://tutorial/Art/TUTORIAL-VANGUARD.png"
+    },
+    {
+      "schemaVersion": "eota.card/v2",
+      "id": "TUTORIAL-VETERAN",
+      "source": "core",
+      "profession": "wayfarer",
+      "kind": "minion",
+      "cost": 6,
+      "attack": 6,
+      "health": 7,
+      "keywords": [],
+      "effects": [],
+      "nameLocalizationKey": "card.TUTORIAL-VETERAN.name",
+      "descriptionLocalizationKey": "card.TUTORIAL-VETERAN.description",
+      "texturePath": "pack://tutorial/Art/TUTORIAL-VETERAN.png"
+    }
+  ],
+  "texts": {
+    "card.MOD-DEMO-PERMANENT.description": "\u6C38\u4E45\u573A\u5730\u3002\u56DE\u5408\u7ED3\u675F\u65F6\uFF1A\u9632\u6B62\u5DF1\u65B9\u672C\u8DEF\u4EE5\u592A\u7684\u4E0B\u4E00\u6B21\u81EA\u7136\u8870\u51CF\u3002",
+    "card.TUTORIAL-CARTOGRAPHER.description": "\u6CA1\u6709\u989D\u5916\u80FD\u529B\u3002\u7528\u4E8E\u7EC3\u4E60\u8D39\u7528\u3001\u653B\u9632\u6570\u503C\u4E0E\u8DEF\u7EBF\u90E8\u7F72\u3002",
+    "card.MOD-DEMO-WATCHER.name": "\u77ED\u671F\u6559\u5B98",
+    "card.MOD-DEMO-FROST.name": "\u5BD2\u971C\u7B26\u6587",
+    "tag.tutorial.mechanical": "??",
+    "card.MOD-DEMO-REPAIR.name": "\u673A\u68B0\u8C03\u8BD5",
+    "card.TUTORIAL-GUIDE.description": "\u6CA1\u6709\u989D\u5916\u80FD\u529B\u3002\u7528\u4E8E\u7EC3\u4E60\u8D39\u7528\u3001\u653B\u9632\u6570\u503C\u4E0E\u8DEF\u7EBF\u90E8\u7F72\u3002",
+    "card.TUTORIAL-SCOUT.description": "\u6CA1\u6709\u989D\u5916\u80FD\u529B\u3002\u7528\u4E8E\u7EC3\u4E60\u8D39\u7528\u3001\u653B\u9632\u6570\u503C\u4E0E\u8DEF\u7EBF\u90E8\u7F72\u3002",
+    "card.MOD-DEMO-DRONE.name": "\u6559\u5B66\u65E0\u4EBA\u673A",
+    "card.TUTORIAL-VETERAN.description": "\u6CA1\u6709\u989D\u5916\u80FD\u529B\u3002\u7528\u4E8E\u7EC3\u4E60\u8D39\u7528\u3001\u653B\u9632\u6570\u503C\u4E0E\u8DEF\u7EBF\u90E8\u7F72\u3002",
+    "card.MOD-DEMO-WORKSHOP.name": "\u6559\u5B66\u5DE5\u574A",
+    "card.TUTORIAL-VANGUARD.description": "\u6CA1\u6709\u989D\u5916\u80FD\u529B\u3002\u7528\u4E8E\u7EC3\u4E60\u8D39\u7528\u3001\u653B\u9632\u6570\u503C\u4E0E\u8DEF\u7EBF\u90E8\u7F72\u3002",
+    "card.MOD-DEMO-ECHO.description": "\u6162\u901F\uFF1A\u6E05\u7A7A\u5DF1\u65B9\u672C\u8DEF\u4EE5\u592A\uFF0C\u6BCF\u6E05\u96641\u7EA7\uFF0C\u5BF9\u672C\u8DEF\u654C\u65B9\u968F\u4ECE\u9020\u62101\u70B9\u4F24\u5BB3\u3002",
+    "card.MOD-DEMO-SENTINEL.description": "\u5B88\u5907\u3002\u5165\u573A\u65F6\uFF1A\u5BF9\u654C\u65B9\u82F1\u96C4\u9020\u62101\u70B9\u4F24\u5BB3\u3002",
+    "card.MOD-DEMO-WATCHER.description": "\u5176\u4ED6\u53CB\u65B9\u968F\u4ECE\u5165\u573A\u65F6\uFF1A\u4F7F\u5176\u5728\u672C\u56DE\u5408\u7ED3\u675F\u65F6\u6062\u590D1\u70B9\u751F\u547D\u3002",
+    "card.MOD-DEMO-PERMANENT.name": "\u6052\u5B9A\u56DE\u8DEF",
+    "card.TUTORIAL-GUIDE.name": "\u6797\u95F4\u5411\u5BFC",
+    "card.MOD-DEMO-FROST.description": "\u5FEB\u901F\uFF1A\u51BB\u7ED3\u672C\u8DEF\u81F3\u672C\u56DE\u5408\u6E05\u7406\uFF0C\u5DF1\u65B9\u672C\u8DEF\u4EE5\u592A\u7B49\u7EA7\u002B1\u3002",
+    "tag.tutorial.soldier": "??",
+    "card.TUTORIAL-PORTER.name": "\u968F\u884C\u642C\u8FD0\u5DE5",
+    "card.MOD-DEMO-DEPLOY.description": "\u673A\u68B0\u3002\u5165\u573A\u65F6\uFF1A\u5728\u76F8\u90BB\u8DEF\u7EBF\u7684\u5DF1\u65B9\u7A7A\u968F\u4ECE\u4F4D\u7F6E\u5404\u53EC\u5524\u4E00\u4E2A\u6559\u5B66\u65E0\u4EBA\u673A\u3002",
+    "card.MOD-DEMO-WORKSHOP.description": "\u84C4\u80FD1\u3002\u56DE\u5408\u7ED3\u675F\u5145\u80FD1\uFF1A\u5C06\u4E00\u5F20\u6559\u5B66\u65E0\u4EBA\u673A\u7F6E\u5165\u6211\u65B9\u624B\u724C\u3002",
+    "card.MOD-DEMO-REPAIR.description": "\u6162\u901F\uFF1A\u62BD\u4E00\u4E2A\u673A\u68B0\u968F\u4ECE\uFF0C\u4F7F\u5176\u83B7\u5F97\u002B1/\u002B1\u3002",
+    "card.TUTORIAL-VANGUARD.name": "\u8FDC\u5F81\u5148\u950B",
+    "card.MOD-DEMO-SENTINEL.name": "\u6559\u5B66\u54E8\u5175",
+    "card.MOD-DEMO-ECHO.name": "\u4EE5\u592A\u56DE\u54CD",
+    "card.MOD-DEMO-DEPLOY.name": "\u65E0\u4EBA\u673A\u8C03\u5EA6\u5458",
+    "card.TUTORIAL-SCOUT.name": "\u63A2\u8DEF\u5B66\u5F92",
+    "card.MOD-DEMO-DRONE.description": "\u8FC5\u6377\u3002\u673A\u68B0\u884D\u751F\u968F\u4ECE\u3002",
+    "card.TUTORIAL-VETERAN.name": "\u65C5\u56E2\u8001\u5175",
+    "card.TUTORIAL-PORTER.description": "\u6CA1\u6709\u989D\u5916\u80FD\u529B\u3002\u7528\u4E8E\u7EC3\u4E60\u8D39\u7528\u3001\u653B\u9632\u6570\u503C\u4E0E\u8DEF\u7EBF\u90E8\u7F72\u3002",
+    "card.TUTORIAL-CARTOGRAPHER.name": "\u8FDC\u884C\u7ED8\u56FE\u5E08"
+  },
+  "decks": [
+    {
+      "name": "\u884C\u65C5\u8005 \u00B7 \u6559\u5B66\u65C5\u56E2",
+      "profession": "Wayfarer",
+      "cards": [
+        {
+          "id": "MOD-DEMO-DEPLOY",
+          "copies": 3
+        },
+        {
+          "id": "MOD-DEMO-ECHO",
+          "copies": 3
+        },
+        {
+          "id": "MOD-DEMO-FROST",
+          "copies": 3
+        },
+        {
+          "id": "MOD-DEMO-PERMANENT",
+          "copies": 3
+        },
+        {
+          "id": "MOD-DEMO-REPAIR",
+          "copies": 3
+        },
+        {
+          "id": "MOD-DEMO-SENTINEL",
+          "copies": 3
+        },
+        {
+          "id": "MOD-DEMO-WATCHER",
+          "copies": 3
+        },
+        {
+          "id": "MOD-DEMO-WORKSHOP",
+          "copies": 3
+        },
+        {
+          "id": "TUTORIAL-CARTOGRAPHER",
+          "copies": 3
+        },
+        {
+          "id": "TUTORIAL-GUIDE",
+          "copies": 3
+        },
+        {
+          "id": "TUTORIAL-PORTER",
+          "copies": 3
+        },
+        {
+          "id": "TUTORIAL-SCOUT",
+          "copies": 3
+        },
+        {
+          "id": "TUTORIAL-VANGUARD",
+          "copies": 2
+        },
+        {
+          "id": "TUTORIAL-VETERAN",
+          "copies": 2
+        }
+      ]
+    }
+  ],
+  "professions": [
+    {
+      "id": "Wayfarer",
+      "name": "\u884C\u65C5\u8005",
+      "description": "\u5E26\u7740\u5730\u56FE\u4E0E\u5DE5\u5177\u51FA\u53D1\u7684\u884C\u65C5\u8005\u3002\u8FD9\u4E2A\u804C\u4E1A\u5B8C\u5168\u7531 tutorial \u5185\u5BB9\u5305\u5B9A\u4E49\uFF0C\u4EE5\u57FA\u7840\u968F\u4ECE\u7EC3\u4E60\u5E03\u9635\uFF0C\u518D\u901A\u8FC7\u54E8\u5175\u3001\u5DE5\u574A\u3001\u6CD5\u672F\u548C\u884D\u751F\u65E0\u4EBA\u673A\u5B66\u4E60\u6548\u679C\u7F16\u5199\u3002\u5B83\u4E0D\u4F9D\u8D56 standard\uFF0C\u53EF\u72EC\u7ACB\u5B8C\u6210\u4E00\u5C40\u5BF9\u6218\u3002",
+      "crest": "\u2727",
+      "color": "#579b96",
+      "playable": true,
+      "order": 10
+    }
+  ],
+  "assets": {
+    "Art/MOD-DEMO-SENTINEL.png": "d7b13af68647502eee84abcbfbba326c4fa045f39db3ce668beb0f7956d36825",
+    "Art/TUTORIAL-VANGUARD.png": "609c48a4b7f22852910fecdb05da5c3cea67deb190981e66bdb7b4b450e843ff",
+    "Art/MOD-DEMO-REPAIR.png": "aa500eb04d8c8595ca708ef64794ec59465e5ee83794e08dff45e1d807a99cab",
+    "Art/TUTORIAL-GUIDE.png": "c72fe0ba047afb1afe5d873197249930652d733369b5faea9a9cf72975e9e1b7",
+    "Art/TUTORIAL-PORTER.png": "655158a0261b61a303400bed999423b72a588f910d428618381454e365951783",
+    "Art/MOD-DEMO-ECHO.png": "40bb60ddc8e26f74146e6f0f7b130e22a6c485a93004c30c83fc34e1e1e9bfcf",
+    "Art/MOD-DEMO-DRONE.png": "c34bc3fb13346bac7b4d9c9e79e5814eb5d62e9d6fb40da586f7ec067a4a8ee1",
+    "Art/TUTORIAL-SCOUT.png": "33eeffc700cbfcc6b781d94295152c3f9e18bec15fb338b8a4e4fdcc6c4a8673",
+    "Art/MOD-DEMO-FROST.png": "ac7d92dde5145fb43322f988602b8a6e9dcb0646744d2a3beb019763862b59c1",
+    "Art/MOD-DEMO-PERMANENT.png": "f5f809d366ae811d72d564d9896ff5772d01cdae1604ee3e5a32320e1d6afbe8",
+    "Art/MOD-DEMO-WORKSHOP.png": "931040965be13ac952ecd2944e73e050f474eeb3fc2b78f158edf8d75146ac67",
+    "Art/TUTORIAL-CARTOGRAPHER.png": "edcf31748117d4b1ac12104c4f215e25e4a397baf434e03472880e3ada5e8e53",
+    "Art/MOD-DEMO-DEPLOY.png": "fa2229979dcc7d99c12d5fc9ffb222c970eb5f5bc7a811f3538a76715de2c8d0",
+    "Art/TUTORIAL-VETERAN.png": "5a6ceeceed48fe4ad7bcf24927cddecb2e6e4cc8fc014c793f87958c5da3aac9",
+    "Art/MOD-DEMO-WATCHER.png": "9e5be14b6f0dab3b9260844cf2be1f4e1bb1597b5c7454829cfde4e580fffd75"
+  }
+}

@@ -48,7 +48,8 @@ try {
   const { sessionId } = await call('Target.attachToTarget', { targetId, flatten: true });
   await call('Runtime.enable', {}, sessionId);
   const renderer = await readFile(new URL('emoji-art.js', import.meta.url), 'utf8');
-  const palettes = JSON.parse(await readFile(new URL('../../Content/Source/Art/profession-palettes.json', import.meta.url), 'utf8'));
+  const palettePath = join(dirname(resolve(recipesPath)), 'profession-palettes.json');
+  const palettes = existsSync(palettePath) ? JSON.parse(await readFile(palettePath, 'utf8')) : {};
   let result = await call('Runtime.evaluate', { expression: `globalThis.professionPalettes = ${JSON.stringify(palettes)};\n` + renderer, awaitPromise: true }, sessionId);
   if (result.exceptionDetails) throw new Error(result.exceptionDetails.text);
   for (const [id, recipe] of entries) {

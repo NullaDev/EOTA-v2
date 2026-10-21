@@ -31,7 +31,7 @@
     "deckConstructionPolicy": "developmentAnySource",
     "randomAlgorithmVersion": "splitmix64+xoshiro256ss/v1",
     "randomCallSchemaVersion": 4,
-    "canonicalStateVersion": 10,
+    "canonicalStateVersion": 11,
     "effectLanguageVersion": 5
   }
 }

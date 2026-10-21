@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3]
 
-[ext_resource type="Texture2D" path="res://Content/Generated/Icons/frozen.png" id="frozen"]
-[ext_resource type="Texture2D" path="res://Content/Generated/Icons/locked.png" id="locked"]
+[ext_resource type="Texture2D" path="res://Client/Assets/Icons/frozen.png" id="frozen"]
+[ext_resource type="Texture2D" path="res://Client/Assets/Icons/locked.png" id="locked"]
 
 [sub_resource type="AtlasTexture" id="frozen_icon"]
 atlas = ExtResource("frozen")

@@ -2,7 +2,7 @@
 
 **EOTA v2** 是一款以多路战场、双方秘密规划和自动结算为核心的双人策略卡牌游戏。你需要构筑牌组，把随从、场地和法术安排到合适的路线，在守住己方英雄的同时突破对手防线。
 
-第一次游玩，建议从 **[新手教程：从第一局到完整规则](Docs/BeginnerGuide.zh-CN.md)** 开始。
+第一次游玩，建议从 **[新手教程：从第一局到完整规则](Docs/Players/BeginnerGuide.zh-CN.md)** 开始。
 
 ## 世界观
 
@@ -19,9 +19,9 @@
 | 灵魂使 · 暗黑教团 | 在荒野提供庇护，也因操纵灵魂与生死而招致恐惧 | 吞噬灵魂、追求自身永恒的永生者 |
 | 佣兵 · 中立势力 | 接受各方雇佣，在乱世中以活着和收钱为信条 | — |
 
-在这魔法的余烬之中，谁将燃起新的火焰？完整设定见 **[核心世界观](Docs/Worldbuilding.zh-CN.md)**。
+在这魔法的余烬之中，谁将燃起新的火焰？完整设定见 **[核心世界观](Docs/Players/Worldbuilding.zh-CN.md)**。
 
-当前可玩的卡池包含奥术师、守卫、猎人、工匠、灵魂使五个职业与中立卡。灵魂使以亡灵留场、死亡契约、主动牺牲和治疗转伤害为主要玩法。当前版本为 **1.1.1-pre-release**，卡池与规则仍在迭代，平衡性仍需实战检验。
+当前可玩的卡池包含奥术师、守卫、猎人、工匠、灵魂使五个职业与中立卡。灵魂使以亡灵留场、死亡契约、主动牺牲和治疗转伤害为主要玩法。当前版本为 **1.2.0-pre-release**，卡池与规则仍在迭代，平衡性仍需实战检验。
 
 ## 怎么玩
 
@@ -29,7 +29,7 @@
 
 每回合先用有限费用规划部署与施法，提交后由游戏依次处理入场效果、快速法术、移动、充能、战斗、慢速法术和回合末效果。随从会根据所在路线自动交战；对面没有能防守的随从时，攻击会落到英雄身上。将敌方英雄击败即可获胜，同一结算帧中双方英雄都死亡则为平局。
 
-![EOTA 六路对战界面：上方为对手，下方为己方，底部为手牌](Docs/Images/battlefield.png)
+![EOTA 六路对战界面：上方为对手，下方为己方，底部为手牌](Media/Documentation/battlefield.png)
 
 | 职业 | 卡图配色 | 主要玩法 |
 | --- | --- | --- |
@@ -46,7 +46,7 @@
 1. 从 [Releases](https://github.com/NullaDev/EOTA-v2/releases) 获取 Windows x64 发布包，将 ZIP **完整解压**。
 2. 双击 `EOTA.exe`，保留同目录下的运行库、资源和服务端文件。发布包无需另外安装 Godot 编辑器或 .NET SDK。
 3. 进入“人机对战”，选择双方牌组，将 AI 难度设为“简单”，使用默认对战协议开始第一局。
-4. 遇到不熟悉的卡牌或状态时，查看卡牌详情，并对照 [新手教程](Docs/BeginnerGuide.zh-CN.md) 阅读。
+4. 遇到不熟悉的卡牌或状态时，查看卡牌详情，并对照 [新手教程](Docs/Players/BeginnerGuide.zh-CN.md) 阅读。
 
 游戏还提供本机双人、开房联机、牌组工坊、卡牌图鉴、对局回放和卡牌编辑器。两人使用同一台电脑时，通过“交给另一位玩家”的交接界面轮流操作；远程对战则由一方开房，另一方使用邀请地址加入。回放、协议与编辑器位于大厅的“更多”菜单。
 
@@ -64,11 +64,11 @@ flowchart TB
     Host <--> App
     App --> Kernel["Eota.Kernel：确定性规则结算"]
     App --> Store["Server.Infrastructure：文件日志与检查点"]
-    Source["Content/Source：卡牌 JSON、文本、美术配方"] --> Compiler["Content.Compiler / ContentCli"]
+    Source["Content/Packs/standard/Source：卡牌 JSON、文本、美术配方"] --> Compiler["Content.Compiler / ContentCli"]
     Compiler --> Rules["编译后的规则内容"]
     Rules --> Kernel
     Source --> Art["卡图生成工具"]
-    Art --> Assets["Content/Generated：图像与表现资源"]
+    Art --> Assets["Content/Packs/standard/Generated：图像与表现资源"]
     Assets --> UI
 ```
 
@@ -86,14 +86,16 @@ flowchart TB
 
 客户端收到的是自己有权看到的信息：对手手牌内容、牌库顺序等隐藏状态由服务端保管。联机断开后可重新获取可见状态并恢复表现；服务端则通过命令日志与检查点恢复权威对局。动画的暂停、倍速和跳过只改变观看方式，不改变结算结果。
 
-卡牌规则、本地化和美术配方分别维护在 [Content/Source](Content/Source)，生成文件位于 [Content/Generated](Content/Generated)。相同规则、种子与命令序列用于确定性重放；更多实现边界见 [总体架构](Docs/Architecture.zh-CN.md) 与 [规则决策记录](Docs/ADR/README.md)。
+卡牌规则、本地化和美术配方分别维护在 [Content/Packs/standard/Source](Content/Packs/standard/Source)，生成文件位于 [Content/Packs/standard/Generated](Content/Packs/standard/Generated)。相同规则、种子与命令序列用于确定性重放；更多实现边界见 [总体架构](Docs/Development/Architecture.zh-CN.md) 与 [规则决策记录](Docs/Development/ADR/README.md)。
+
+原有职业、卡牌、本地化和卡图全部属于可移除的 `standard` 包；通用界面资源由客户端提供。发行版另含默认禁用、可独立运行的 `tutorial` 教程包（行旅者职业、15 张卡和 40 张牌组）。玩家可在“更多 → 内容包”安装并启用多个包，每个包具有独立 ID、版本、hash 和依赖；冲突或依赖不完整会阻止开局，联机与观战按主机的包 ID 和 hash 核对。禁用包不会删除牌组，缺牌的牌组会保留并暂时锁定编辑和对战。包格式见 [内容包指南](Docs/Modding/ContentPackageDesignGuide.zh-CN.md#11-本地化插图与内容包)。
 
 ## 一起完善 EOTA
 
 希望每一位玩家都来贡献自己的想法：一张想玩的卡、一个有趣的职业机制、一段势力故事，或是一场让你觉得不公平的对局，都可以成为项目改进的起点。欢迎通过 [Issues](https://github.com/NullaDev/EOTA-v2/issues) 分享建议、反馈问题，也欢迎提交 [Pull Request](https://github.com/NullaDev/EOTA-v2/pulls)。
 
 - **玩法与平衡**：说明卡牌、牌组和使用场景，附上对局回放或复现步骤，方便一起讨论。
-- **世界观与卡牌设计**：提出故事、角色、卡牌效果或新体系；可以先讨论想法，再参考 [卡牌设计与 JSON 指南](Docs/CardJsonDesignGuide.zh-CN.md) 制作内容。
+- **世界观与卡牌设计**：提出故事、角色、卡牌效果或新体系；可以先讨论想法，再参考 [内容包设计指南](Docs/Modding/ContentPackageDesignGuide.zh-CN.md) 制作内容。
 - **美术、文档与代码**：改进插图、界面、教程与翻译，修复问题，完善客户端、服务端和工具。
 
 欢迎从小改动开始。提交贡献时请注明引用素材的来源与许可，项目原创贡献沿用下述 GPLv3 协议。
@@ -104,7 +106,7 @@ Copyright (C) 2026 EOTA contributors.
 
 本项目的原创代码、工具、文档与游戏内容采用 **GNU General Public License v3.0（GPL-3.0-only）**，完整条款见根目录 [LICENSE](LICENSE)。你可以依照协议使用、修改和再分发；分发本项目或其修改版本时，应保留许可声明，并按照 GPLv3 提供对应源码。项目按许可证所述不提供担保。
 
-第三方组件与素材保留各自的版权和许可，不因本项目采用 GPLv3 而改变。例如 Godot、.NET 运行组件、[emoji-mixer 兼容数据](tools/EmojiArt/vendor/README.zh-CN.md)，以及来自 Google Emoji Kitchen 的[融合图像](Content/Source/Art/Fusions/README.zh-CN.md)；其中融合图像及生成卡图中包含的第三方图像部分不在本项目原创内容的 GPLv3 授权范围内。
+第三方组件与素材保留各自的版权和许可，不因本项目采用 GPLv3 而改变。例如 Godot、.NET 运行组件、[emoji-mixer 兼容数据](tools/EmojiArt/vendor/README.zh-CN.md)，以及来自 Google Emoji Kitchen 的[融合图像](Content/Packs/standard/Source/Art/Fusions/README.zh-CN.md)；其中融合图像及生成卡图中包含的第三方图像部分不在本项目原创内容的 GPLv3 授权范围内。
 
 ## 继续了解
 
@@ -112,16 +114,15 @@ Copyright (C) 2026 EOTA contributors.
 
 | 想了解的内容 | 文档 |
 | --- | --- |
-| 末法时代、城邦与六方势力的完整设定 | [核心世界观](Docs/Worldbuilding.zh-CN.md) |
-| 第一局操作、完整回合流程、战斗与关键词 | [新手教程](Docs/BeginnerGuide.zh-CN.md) |
-| 全部卡牌的数值和效果 | [中文卡表](Docs/CardTable.zh-CN.md) |
-| 五职业的体系思路与现成牌组 | [十五套体系牌组](Docs/Content/ArchetypeDecks.zh-CN.md) |
-| 客户端各功能与界面操作、存档位置 | [客户端功能与操作](Docs/GameplayGuide.zh-CN.md) |
-| 制作自定义卡牌和内容包 | [Mod 开发者 JSON 指南](Docs/CardJsonDesignGuide.zh-CN.md) |
-| 从源码制作 Windows 发布包 | [Windows 打包说明](Docs/WindowsRelease.zh-CN.md) |
+| 末法时代、城邦与六方势力的完整设定 | [核心世界观](Docs/Players/Worldbuilding.zh-CN.md) |
+| 第一局操作、完整回合流程、战斗与关键词 | [新手教程](Docs/Players/BeginnerGuide.zh-CN.md) |
+| 全部卡牌的数值和效果 | [中文卡表](Docs/Players/CardTable.zh-CN.md) |
+| 五职业的体系思路与现成牌组 | [十五套体系牌组](Docs/Players/ArchetypeDecks.zh-CN.md) |
+| 客户端各功能与界面操作、存档位置 | [客户端功能与操作](Docs/Players/GameplayGuide.zh-CN.md) |
+| 制作自定义卡牌和内容包 | [内容包设计与制作指南](Docs/Modding/ContentPackageDesignGuide.zh-CN.md) |
+| 从源码制作 Windows 发布包 | [Windows 打包说明](Docs/Development/WindowsRelease.zh-CN.md) |
 | 各开发工具与内容制作流程 | [开发工具与内容制作](tools/README.zh-CN.md) |
-| 改界面前必须遵守的配色、字阶与分区 | [界面设计规范](Docs/UIGuideline.zh-CN.md) |
-| 规则内核、服务端与客户端如何协作 | [项目架构](Docs/Architecture.zh-CN.md) |
+| 规则内核、服务端与客户端如何协作 | [项目架构](Docs/Development/Architecture.zh-CN.md) |
 
 仅游玩时使用发布包即可；修改源码需要 Godot .NET 版与 .NET SDK。Windows 下用 Rider 打开项目后，右上角选择 **EOTA Godot 客户端**，点击运行，即可自动构建客户端并进入游戏大厅。配置调用 [启动脚本](tools/Run-GodotClient.ps1)，默认从项目的同级目录 `Godot_v4.6.2-stable_mono_win64` 查找 Godot .NET；安装在其他位置时，在运行配置中设置环境变量 `GODOT_EXE` 为 Godot .NET 可执行文件的完整路径。
 

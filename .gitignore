@@ -62,4 +62,4 @@ __pycache__/
 Thumbs.db
 Desktop.ini
 
-# Keep Content/Generated and Godot *.uid/*.import files in version control.
+# Keep Content/Packs/standard/Generated and Godot *.uid/*.import files in version control.

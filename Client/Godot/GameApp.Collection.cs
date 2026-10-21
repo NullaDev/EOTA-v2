@@ -5,8 +5,8 @@ namespace Eota.GodotClient;
 
 public partial class GameApp
 {
-    private static readonly string[] Professions = ["Guardian", "Arcanist", "Artisan", "Hunter", "Soulweaver"];
-    private string _deckProfession = "Guardian";
+    private string[] Professions => _catalog.Professions.Where(p => p.Playable).Select(p => p.Id).ToArray();
+    private string _deckProfession = "";
 
     private void BuildCollection(TabContainer tabs)
     {
@@ -78,8 +78,8 @@ public partial class GameApp
     private static bool MatchesSearch(CardPresentation card, string search) => string.IsNullOrWhiteSpace(search)
         || (card.Name + card.Description + card.Id).Contains(search, StringComparison.OrdinalIgnoreCase);
 
-    // Library browsing groups the five professions in their in-game order, with neutral at the end.
-    private static readonly string[] LibraryProfessions = [.. Professions, "Neutral"];
-    private static int LibraryProfessionOrder(string profession)
+    // Package-defined profession order, followed by shared cards.
+    private string[] LibraryProfessions => [.. Professions, "Neutral"];
+    private int LibraryProfessionOrder(string profession)
     { var index = Array.IndexOf(LibraryProfessions, profession); return index < 0 ? int.MaxValue : index; }
 }

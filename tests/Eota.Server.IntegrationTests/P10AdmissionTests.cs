@@ -35,8 +35,8 @@ public sealed class P10AdmissionTests
         var minion = first.Store.View.Private!.Hand.First(c => c.CardKind == "Minion");
         Assert.Equal(fixture.Catalog.Cards.Single(c => c.Id == minion.PrototypeId).Attack, minion.Attack);
         // Pretending to have the approved hash does not allow submitting a stat override.
-        var raw = ContractJson.Serialize(new RoomAdmission(1, fixture.Catalog.RuleHash, description.ProtocolHash,
-            DesktopRoomClient.ToRoomDeck(fixture.Catalog.DefaultDeck("Guardian")), description.RoomSettingsHash, fixture.Catalog.CardRules));
+        var raw = ContractJson.Serialize(new RoomAdmission(2, fixture.Catalog.RuleHash, description.ProtocolHash,
+            DesktopRoomClient.ToRoomDeck(fixture.Catalog.DefaultDeck("Guardian")), description.RoomSettingsHash, fixture.Catalog.CardRules, fixture.Catalog.ContentPacks));
         var forged = JsonNode.Parse(raw)!; forged["deck"]!["cards"]![0]!["attack"] = 999999;
         using var http = fixture.Http(0); using var response = await http.PostAsync(fixture.HttpAddress("ready", "playerOne"), new StringContent(forged.ToJsonString(), Encoding.UTF8, "application/json"));
         Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
@@ -64,7 +64,10 @@ public sealed class P10AdmissionTests
             case "duplicate": cards = [.. cards, cards[0]]; break;
             case "size": cards = cards[1..]; break;
         }
-        var error = await Assert.ThrowsAsync<InvalidDataException>(() => client.ReadyAsync(deck with { Cards = [.. cards] }, fixture.Catalog));
+        var description = client.Description!;
+        var admission = new RoomAdmission(2, fixture.Catalog.RuleHash, description.ProtocolHash,
+            DesktopRoomClient.ToRoomDeck(deck with { Cards = [.. cards] }), description.RoomSettingsHash, fixture.Catalog.CardRules, fixture.Catalog.ContentPacks);
+        var error = await Assert.ThrowsAsync<InvalidDataException>(() => fixture.Room.AdmitAsync(Audience.PlayerOne, admission));
         Assert.Contains("invalid-deck", error.Message, StringComparison.Ordinal);
         Assert.False((await client.InspectAsync()).PlayerOneReady);
         Assert.Null(fixture.Room.Actor);
@@ -81,8 +84,8 @@ public sealed class P10AdmissionTests
         using var http = fixture.Http(0);
         foreach (var pair in new[] { ("invalid-hash", description.ProtocolHash), (fixture.Catalog.RuleHash, new string('0', 64)) })
         {
-            var admission = new RoomAdmission(1, pair.Item1, pair.Item2, DesktopRoomClient.ToRoomDeck(fixture.Catalog.DefaultDeck("Guardian")),
-                description.RoomSettingsHash, fixture.Catalog.CardRules);
+            var admission = new RoomAdmission(2, pair.Item1, pair.Item2, DesktopRoomClient.ToRoomDeck(fixture.Catalog.DefaultDeck("Guardian")),
+                description.RoomSettingsHash, fixture.Catalog.CardRules, fixture.Catalog.ContentPacks);
             using var response = await http.PostAsync(fixture.HttpAddress("ready", "playerOne"), new StringContent(ContractJson.Serialize(admission), Encoding.UTF8, "application/json"));
             Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
         }
@@ -97,12 +100,14 @@ public sealed class P10AdmissionTests
     [InlineData("cardRules", true)]
     [InlineData("roomSettingsHash", false)]
     [InlineData("roomSettingsHash", true)]
+    [InlineData("contentPacks", false)]
+    [InlineData("contentPacks", true)]
     public async Task UnlimitedRoomsRejectMissingOrNullAdmissionFieldsEvenWithMatchingPackHash(string property, bool explicitNull)
     {
         await using var fixture = await P10Room.StartAsync();
         var description = await fixture.Room.DescribeAsync(Audience.PlayerOne);
-        var admission = new RoomAdmission(1, fixture.Catalog.RuleHash, description.ProtocolHash,
-            DesktopRoomClient.ToRoomDeck(fixture.Catalog.DefaultDeck("Guardian")), description.RoomSettingsHash, fixture.Catalog.CardRules);
+        var admission = new RoomAdmission(2, fixture.Catalog.RuleHash, description.ProtocolHash,
+            DesktopRoomClient.ToRoomDeck(fixture.Catalog.DefaultDeck("Guardian")), description.RoomSettingsHash, fixture.Catalog.CardRules, fixture.Catalog.ContentPacks);
         var document = JsonNode.Parse(ContractJson.Serialize(admission))!.AsObject();
         if (explicitNull) { document[property] = null; } else { Assert.True(document.Remove(property)); }
         using var http = fixture.Http(0);
@@ -154,14 +159,14 @@ internal sealed class P10Room : IAsyncDisposable
         System.IO.Directory.CreateDirectory(directory);
         var tokens = Enumerable.Range(0, 3).Select(_ => Convert.ToHexString(RandomNumberGenerator.GetBytes(32)).ToLowerInvariant()).ToArray();
         var hashes = tokens.Select(t => Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(t))).ToLowerInvariant()).ToArray();
-        var config = new HostedRoomConfiguration(1, "secure-test", "测试房间", 146, catalog.RuleHash, (protocol ?? DesktopProtocol.Default).Json,
-            new DesktopContentEditor(catalog).Export().Cards, hashes[0], hashes[1], hashes[2], Timing: timing);
+        var config = new HostedRoomConfiguration(2, "secure-test", "测试房间", 146, catalog.RuleHash, (protocol ?? DesktopProtocol.Default).Json,
+            new DesktopContentEditor(catalog).Export().Cards, hashes[0], hashes[1], hashes[2], Timing: timing, ContentPackages: [.. catalog.Packages]);
         var path = Path.Combine(directory, "room.json"); File.WriteAllText(path, JsonSerializer.Serialize(config));
         var host = await Host.Program.BuildAsync(["--room", path, "--urls", "http://127.0.0.1:0", "--Logging:LogLevel:Default", "Warning"]);
         await host.StartAsync(); return new(host, directory, tokens);
     }
     public Uri Invite(string role, int credential) => new UriBuilder(_host.Urls.Single()) { Scheme = "ws", Path = "/matches/secure-test/ws", Query = "audience=" + role, Fragment = "token=" + Tokens[credential] }.Uri;
-    public DesktopRoomClient Client(string role, int credential) => new(Invite(role, credential));
+    public DesktopRoomClient Client(string role, int credential) => new(Invite(role, credential), Catalog.ContentPacks);
     public Uri HttpAddress(string action, string role) => new UriBuilder(_host.Urls.Single()) { Path = "/matches/secure-test/" + action, Query = "audience=" + role }.Uri;
     public HttpClient Http(int credential) { var client = new HttpClient(); client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Tokens[credential]); return client; }
     public async ValueTask DisposeAsync() { await _host.StopAsync(); await _host.DisposeAsync(); System.IO.Directory.Delete(Directory, recursive: true); }

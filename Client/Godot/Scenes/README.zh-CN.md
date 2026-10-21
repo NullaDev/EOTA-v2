@@ -23,7 +23,7 @@
 | CardInspection / PlanChip | 通用原型详情组件、可取消的规划条目；战场悬停使用 CardDetail 大图 |
 | EtherPips | 独立玩家的以太条：零级隐藏，每级一幅波浪图标 |
 
-窗口按 1600×1000 画布保持比例缩放。卡牌尺寸、边框与文字区域由场景定义，颜色和控件状态由 `../GameTheme.tres` 统一维护；布局原则与各界面分区见 [界面设计规范](../../../Docs/UIGuideline.zh-CN.md)。路线、卡牌和参数行按数据数量重复实例化；额外路线与手牌横向滚动。小卡保留两行摘要，完整说明在详情中阅读。
+窗口按 1600×1000 画布保持比例缩放。卡牌尺寸、边框与文字区域由场景定义，颜色和控件状态由 `../GameTheme.tres` 统一维护；布局原则与各界面分区见 界面设计规范。路线、卡牌和参数行按数据数量重复实例化；额外路线与手牌横向滚动。小卡保留两行摘要，完整说明在详情中阅读。
 
 `GameApp.Interface.cs` 绑定主导航、折叠对战设置、战场工具菜单和悬停详情定位。战场的英雄位于上下中央，费用、阶段、提交及反馈聚集在右下方；详情靠近所指卡牌，移开后隐藏。`TableBackdrop.cs` 绘制低对比桌面装饰且忽略鼠标输入。主操作使用黄铜主题，辅助按钮与次级文字降低视觉权重。
 
@@ -43,11 +43,11 @@ BattleAnimations 通过表现播放器推进时间，随从攻击及打脸均固
 
 CardTile 数值颜色通过 GameTheme 的 stat_reduced／stat_increased 维护：当前生命低于当前最大生命时优先显示红字；满血且超过 CardPresentation.Health 时显示绿字。攻击与 CardPresentation.Attack 比较，低于原值红、高于原值绿。治疗恢复、强化消失或节点更新回原值时移除字体颜色覆盖；图鉴原型保持原值颜色。
 
-AiSetup 固定场景提供 AI 牌组与简单／普通／困难选择；玩家固定为玩家一，玩家二由 AI 自动换牌、规划、提交。LocalSetup 只提供两位本机玩家设置。两页的随机种子和协议入口默认折叠。BattleScreen 的 `Toolbar/AiStatus` 显示 AI 难度与状态，“重开”位于「对局菜单」；返回大厅／重开会先停止旧 AI。策略在 `Eota.Client.AI` 后台执行，场景只绑定 Desktop 配置与状态；回放不重新运行策略。战场布局与六路不滚动的约束见 [界面设计规范](../../../Docs/UIGuideline.zh-CN.md#战场)。
+AiSetup 固定场景提供 AI 牌组与简单／普通／困难选择；玩家固定为玩家一，玩家二由 AI 自动换牌、规划、提交。LocalSetup 只提供两位本机玩家设置。两页的随机种子和协议入口默认折叠。BattleScreen 的 `Toolbar/AiStatus` 显示 AI 难度与状态，“重开”位于「对局菜单」；返回大厅／重开会先停止旧 AI。策略在 `Eota.Client.AI` 后台执行，场景只绑定 Desktop 配置与状态；回放不重新运行策略。战场布局与六路不滚动的约束见 界面设计规范。
 
 固定场景为当前布局源文件，直接维护 `.tscn`、主题与绑定脚本；重复元素由运行时实例化。
 
-本机开服注入 `LocalServerLauncher`，执行随游戏分发的 `Server/win-x64/Eota.Server.Host.exe`，只管理本次持有的进程。玩家先核对规则与协议，再确认自己的牌组；双方都通过服务器校验才进入对局。协议、牌组与规则在房间中锁定。连接方式见 [传输契约](../../../Docs/Transport/README.zh-CN.md)。
+本机开服注入 `LocalServerLauncher`，执行随游戏分发的 `Server/win-x64/Eota.Server.Host.exe`，只管理本次持有的进程。玩家先核对规则与协议，再确认自己的牌组；双方都通过服务器校验才进入对局。协议、牌组与规则在房间中锁定。连接方式见 [传输契约](../../../Docs/Development/Transport/README.zh-CN.md)。
 
 CardEditor 的编辑包保存到 `user://content/draft.eotapack.json`；启用复制为独立 active 包。菜单和对战重建前保留未保存的编辑状态，显式保存才落盘。编辑器从当前 V2 定义编译预览，不实例化对战状态。
 

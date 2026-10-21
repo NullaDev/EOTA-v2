@@ -53,6 +53,8 @@ public partial class GameApp
         }
         void OpenEditor(string key, DesktopDeckDraft draft)
         {
+            try { _catalog.RequireAvailableDeck(draft.Build()); }
+            catch (InvalidDataException error) { _status.Text = error.Message; return; }
             draft.UseProtocol(_protocol);
             currentKey = key; current = draft; _deckProfession = draft.Profession;
             manager.Hide(); picker.Hide(); editor.Show();
@@ -72,6 +74,7 @@ public partial class GameApp
             var tile = Ui.Instantiate<Button>("DeckTile"); deckGrid.AddChild(tile);
             tile.GetNode<Label>("Name").Text = title; tile.GetNode<Label>("Profession").Text = Ui.Profession(profession);
             tile.GetNode<Label>("Crest").Text = ProfessionCrest(profession); tile.GetNode<Label>("Status").Text = status;
+            tile.TooltipText = status;
             tile.Pressed += open;
             var remove = tile.GetNode<Button>("Delete"); remove.Visible = delete is not null;
             remove.Pressed += () => { pendingDelete = delete; deleteDialog.DialogText = $"删除“{title}”及其未保存修改？"; deleteDialog.PopupCentered(); };
@@ -84,9 +87,13 @@ public partial class GameApp
                 var saved = _deckFiles.TryGetValue(deck, out var storedId);
                 var key = saved ? "saved:" + storedId : "default:" + deck.Profession;
                 var hasDraft = _workshopDrafts.TryGetValue(key, out var draft);
+                var missing = _catalog.MissingContent(deck).Union(hasDraft ? _catalog.MissingContent(draft!.Build()) : [], StringComparer.Ordinal).ToArray();
                 AddDeckTile(hasDraft ? draft!.Name : deck.Name == deck.Profession ? Ui.Profession(deck.Profession) + "默认牌组" : deck.Name,
-                    deck.Profession, hasDraft ? $"草稿 · {draft!.Count} / {_protocol.RequiredDeckSize}" : $"{deck.Cards.Sum(card => card.Copies)} 张 · 点击编辑", () =>
+                    deck.Profession, missing.Length > 0 ? $"缺少 {missing.Length} 项内容 · 已保留，暂不可用"
+                        : hasDraft ? $"草稿 · {draft!.Count} / {_protocol.RequiredDeckSize}" : $"{deck.Cards.Sum(card => card.Copies)} 张 · 点击编辑", () =>
                     {
+                        if (missing.Length > 0)
+                        { _status.Text = "牌组已保留；请先启用包含以下卡牌的内容包，再编辑或对战：\n" + string.Join("、", missing); return; }
                         if (!_workshopDrafts.TryGetValue(key, out var editing))
                         {
                             editing = new DesktopDeckDraft(_catalog, deck.Profession, _protocol); editing.Load(deck);
@@ -97,7 +104,11 @@ public partial class GameApp
                     }, saved ? () => { _deckStore.Delete(storedId!); _deckFiles.Remove(deck); _decks.Remove(deck); _workshopDrafts.Remove(key); } : null);
             }
             foreach (var (key, draft) in _workshopDrafts.Where(pair => pair.Key.StartsWith("new:", StringComparison.Ordinal)))
-            { AddDeckTile(draft.Name, draft.Profession, $"草稿 · {draft.Count} / {_protocol.RequiredDeckSize}", () => OpenEditor(key, draft), () => _workshopDrafts.Remove(key)); }
+            {
+                var missing = _catalog.MissingContent(draft.Build());
+                AddDeckTile(draft.Name, draft.Profession, missing.IsEmpty ? $"草稿 · {draft.Count} / {_protocol.RequiredDeckSize}"
+                    : $"缺少 {missing.Length} 项内容 · 草稿已保留", () => OpenEditor(key, draft), () => _workshopDrafts.Remove(key));
+            }
         }
 
         name.TextChanged += value => { if (current is not null) { current.Name = value; } };
@@ -133,7 +144,7 @@ public partial class GameApp
         void SelectProfession(string profession)
         {
             _deckProfession = profession;
-            foreach (var value in Professions) { picker.GetNode<Button>("Panel/Professions/" + value).SetPressedNoSignal(value == profession); }
+            foreach (var value in Professions) { picker.GetNode<Button>("Panel/ProfessionScroll/Professions/" + value).SetPressedNoSignal(value == profession); }
             picker.GetNode<Label>("Panel/Description").Text = ProfessionDescription(profession);
             templates = _catalog.ArchetypeDecks.Where(deck => deck.Profession == profession && _catalog.ValidateDeck(deck, _protocol).IsEmpty).ToArray();
             templatePicker.Clear(); templatePicker.AddItem("空白牌组");
@@ -142,8 +153,16 @@ public partial class GameApp
             picker.GetNode<Label>("Panel/TemplateHint").Text = templates.Length > 0
                 ? "选择体系作为起点，进入编辑后可自由调整。" : "当前协议或内容包下没有可用模板，可以从空白牌组开始。";
         }
+        var professionButtons = picker.GetNode<HBoxContainer>("Panel/ProfessionScroll/Professions");
+        Ui.Clear(professionButtons);
         foreach (var profession in Professions)
-        { picker.GetNode<Button>("Panel/Professions/" + profession).Pressed += () => SelectProfession(profession); }
+        {
+            var button = new Button { Name = profession, Text = ProfessionCrest(profession) + "  " + Ui.Profession(profession),
+                ToggleMode = true, CustomMinimumSize = new Vector2(174, 120), SizeFlagsHorizontal = SizeFlags.ExpandFill };
+            professionButtons.AddChild(button); button.Pressed += () => SelectProfession(profession);
+        }
+        if (!Professions.Contains(_deckProfession, StringComparer.Ordinal)) { _deckProfession = Professions.FirstOrDefault() ?? ""; }
+        manager.GetNode<Button>("New").Disabled = Professions.Length == 0;
         manager.GetNode<Button>("New").Pressed += () => { SelectProfession(_deckProfession); picker.Show(); };
         picker.GetNode<Button>("Panel/Cancel").Pressed += picker.Hide;
         picker.GetNode<Button>("Panel/Create").Pressed += () =>
@@ -156,16 +175,6 @@ public partial class GameApp
         ShowManager();
     }
 
-    private static string ProfessionCrest(string profession) => profession switch
-    { "Guardian" => "♜", "Arcanist" => "✦", "Artisan" => "⚒", "Hunter" => "➶", "Soulweaver" => "☽", _ => "◇" };
-
-    private static string ProfessionDescription(string profession) => profession switch
-    {
-        "Guardian" => "守卫并非天生的英雄，他们只是城墙下的普通人，是在兽潮、饥荒与贵族命令之间一次次活下来的士兵。魔法师的时代正在衰落，而剑盾、长矛与纪律正在重新定义城邦的未来。守卫擅长动员大量士兵，并通过号令、装备与阵线增幅将平凡之人凝聚成不可撼动的防线。选择守卫，意味着你将以稳固的布阵、持续的增援和集体强化压垮对手，让敌人明白：一个人或许微不足道，但一整座城邦不会退后半步。",
-        "Arcanist" => "曾经统御世界的魔法师协会，如今正站在权威崩塌的边缘。以太枯竭让他们失去了往日呼风唤雨的力量，却未能熄灭他们继续执掌世界的野心。奥术师钻研上古遗物、铺设复杂法阵，在短暂活化的以太中重现旧时代的辉煌。选择奥术师，意味着你将掌控绚烂而短促的爆发时机，用精密的法术与瞬间增强改写战局；但若错过最佳窗口，昔日荣光也会像残焰一样迅速熄灭。",
-        "Hunter" => "当大多数人退入城墙之后，猎人仍然行走在荒野之中。他们不相信秩序，也不迷信荣耀，只相信陷阱、毒箭、野兽伙伴和活下去的本能。猎人公会的战术极其灵活，能够利用远程打击、伏击、剧毒与野兽协同不断削弱猎物，避免无谓的正面对抗。选择猎人，意味着你将用耐心和狡黠掌控战场节奏，在敌人意识到自己已经落入圈套之前，便一点点剥夺他们所有反击的可能。",
-        "Artisan" => "工匠是被埋葬文明的继承者，也是新时代最危险的开拓者。他们从废墟中挖掘蒸汽机械的残骸，用考古的方式复兴科学，用齿轮、锅炉和钢铁巨兽挑战魔法师残存的统治。工匠能够快速积累资源，提前部署远超时代的庞大机械；这些造物笨重、迟缓，甚至需要额外代价才能完全启动，但一旦运转起来，便足以碾碎整条战线。选择工匠，意味着你愿意用前期的准备换取后期压倒性的机械力量，让沉睡的钢铁巨兽在战场上苏醒。",
-        "Soulweaver" => "灵魂使以灵魂之力疗愈伤者，也以役使亡灵和延续生命的仪式寻求永生。教团的信徒与亡灵留下不同的死亡收益：游魂短暂参战，僵尸守住路线，牺牲则让你选择兑现的时机。治疗可以维持随从、积累成长，还能通过逆祷转成伤害。选择灵魂使，意味着你要在留住阵地与主动献身之间作出取舍，让每一次生命的流转都改变战局。",
-        _ => ""
-    };
+    private static string ProfessionCrest(string profession) => Ui.ProfessionInfo(profession)?.Crest ?? "◇";
+    private static string ProfessionDescription(string profession) => Ui.ProfessionInfo(profession)?.Description ?? "";
 }

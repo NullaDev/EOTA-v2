@@ -378,8 +378,11 @@ internal sealed class EffectCompiler(CardKind cardKind, bool hasLane)
         if (tag is not null && !CardPrototypeId.TryParse(tag, out _))
         { throw new EffectCompileException("invalid-tag", path + ".tag", "Tags use stable ASCII identifiers."); }
         return new CardFilter(value.TryGetProperty("kind", out _) ? EnumValue<CardKind>(String(value, "kind", path), path + ".kind") : null,
-            value.TryGetProperty("profession", out _) ? EnumValue<Profession>(String(value, "profession", path), path + ".profession") : null, tag);
+            value.TryGetProperty("profession", out _) ? ParseProfession(String(value, "profession", path), path + ".profession") : null, tag);
     }
+
+    private static Profession ParseProfession(string value, string path) => Profession.TryParse(value, out var profession)
+        ? profession : throw new EffectCompileException("invalid-enum", path, "Use a stable profession identifier.");
 
     private IntExpression Expression(JsonElement value, string path, EffectTargetType? targetType)
     {

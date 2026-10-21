@@ -67,14 +67,6 @@ public partial class GameApp
         try
         {
             _catalog = new DesktopCatalog(_catalog.Root); CardTile.UseCatalog(_catalog); _contentEditor = new DesktopContentEditor(_catalog);
-            if (!hosting)
-            {
-                const string unused = "EOTA-CORE-HUN-MIN-001";
-                var card = _contentEditor.Read(unused); var json = JsonNode.Parse(card.Json)!; json["attack"] = 999999;
-                _contentEditor.SaveCard(card with { Json = json.ToJsonString() }, unused);
-                var path = ProjectSettings.GlobalizePath("res://artifacts/p10-join-content.eotapack.json"); _contentEditor.SavePack(path);
-                _catalog = new DesktopCatalog(_catalog.Root, path); CardTile.UseCatalog(_catalog);
-            }
             if (hosting)
             {
                 _serverLauncher = new LocalServerLauncher(_catalog.Root, Path.Combine(_catalog.Root, "artifacts", "P10ManagedRooms"));
@@ -109,7 +101,8 @@ public partial class GameApp
             remote.GetNode<Button>("Ready").EmitSignal(BaseButton.SignalName.Pressed);
             await Until(() => _session is not null && _battle && !_busy);
             Require(_session!.Client.Store.View!.Audience == (hosting ? Audience.PlayerOne : Audience.PlayerTwo), "Credential binds correct seat");
-            if (!hosting) { Require(_session.Client.Store.View.RuleContentHash != _catalog.RuleHash, "Unused local rule differences allow a real network match"); }
+            Require(_session.Client.Store.View.RuleContentHash == _catalog.RuleHash, "Matched content packages supply identical rules for the real network match");
+            Require(RoomContentPacks.Hash(_roomClient!.Description!.ContentPacks) == RoomContentPacks.Hash(_catalog.ContentPacks), "Both seats confirmed the enabled package manifest");
             await Until(() => _session.Client.Timer is not null); RefreshMatchClock();
             Require(_matchClockLabel.Visible && _matchClockLabel.Text.Contains("秒", StringComparison.Ordinal), "Server countdown is visible");
             await CaptureInteraction(hosting ? "p10-timed-battle-one" : "p10-timed-battle-two");
@@ -154,7 +147,11 @@ public partial class GameApp
             }
             var supportPath = ProjectSettings.GlobalizePath(hosting ? "res://artifacts/p10-support-one.json" : "res://artifacts/p10-support-two.json");
             await _session.SaveDiagnosticsAsync(supportPath, token);
-            Require(_battleScreen.GetNode<Button>("Toolbar/SaveDiagnostics").Visible && File.Exists(supportPath), "Support export available in battle");
+            var battleMenu = _battleScreen.GetNode<Button>("Toolbar/Options");
+            battleMenu.ButtonPressed = true;
+            var diagnosticsButton = _battleScreen.GetNode<Button>("Toolbar/SaveDiagnostics");
+            Require(diagnosticsButton.IsVisibleInTree() && !diagnosticsButton.Disabled && File.Exists(supportPath), "Support export available in battle menu");
+            battleMenu.ButtonPressed = false;
             _busy = false; _frames.Clear(); BuildBattle(); await CaptureInteraction(hosting ? "p10-host-finished" : "p10-join-finished");
             var final = _session.Client.Store.View!;
             Require(final.Status == "Finished", "Network match completes");
@@ -177,7 +174,7 @@ public partial class GameApp
                 _serverLauncher = new LocalServerLauncher(_catalog.Root, Path.Combine(_catalog.Root, "artifacts", "P10ManagedRooms"));
                 var restored = await _serverLauncher.StartAsync(new LocalServerOptions("恢复验收", 5097, false, _catalog, _decks[0], _decks[1], Resume: true), token);
                 Require(restored.Started, restored.Message);
-                using var client = new DesktopRoomClient(restored.Endpoint!); await client.InspectAsync(token);
+                using var client = new DesktopRoomClient(restored.Endpoint!, _catalog.ContentPacks); await client.InspectAsync(token);
                 await using var resumed = await DesktopSession.JoinRoomAsync(client, token);
                 Require(ObserverViewHasher.Compute(final) == resumed.Client.Store.ObserverViewHash, "Managed restart restores the exact final snapshot");
                 await _serverLauncher.StopAsync();

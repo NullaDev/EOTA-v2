@@ -8,7 +8,7 @@ namespace Eota.Kernel.Matches;
 
 public static class MatchStateHasher
 {
-    public const ushort CanonicalSchemaVersion = 10;
+    public const ushort CanonicalSchemaVersion = 11;
 
     public static Hash256 Compute(MatchState state)
     {
@@ -29,7 +29,7 @@ public static class MatchStateHasher
         foreach (var player in state.Players.OrderBy(value => value.Id))
         {
             writer.WriteByte(player.Id.Value);
-            writer.WriteInt32((int)player.Profession);
+            writer.WriteString(player.Profession.ToString());
             writer.WriteInt64(player.HeroHealth);
             writer.WriteInt64(player.HeroMaximumHealth);
             writer.WriteInt64(player.CurrentCost);
@@ -332,7 +332,7 @@ public static class MatchStateHasher
 
     private static void WriteDeck(CanonicalWriter writer, DeckDefinition deck)
     {
-        writer.WriteInt32((int)deck.Profession);
+        writer.WriteString(deck.Profession.ToString());
         writer.WriteCount(deck.Entries.Length);
         foreach (var entry in deck.Entries.OrderBy(value => value.CardId))
         {

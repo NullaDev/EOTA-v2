@@ -28,14 +28,14 @@ public sealed class ContentCatalog
     public static ContentCatalog Load(string repositoryRoot)
     {
         var root = Path.GetFullPath(repositoryRoot);
-        var sources = Directory.EnumerateFiles(Path.Combine(root, "Content", "Source", "Cards"), "*.json", SearchOption.AllDirectories)
+        var sources = Directory.EnumerateFiles(Path.Combine(root, "Content", "Packs", "standard", "Source", "Cards"), "*.json", SearchOption.AllDirectories)
             .Order(StringComparer.Ordinal).Select(path => new ContentSourceDocument(Path.GetRelativePath(root, path), File.ReadAllText(path))).ToImmutableArray();
         var compiled = CardContentCompiler.Compile(sources);
         if (!compiled.IsSuccess) { throw new InvalidDataException(string.Join("\n", compiled.Diagnostics.Select(value => $"{value.SourceName}:{value.Path} {value.Code}: {value.Message}"))); }
-        var language = new SortedDictionary<string, string>(Read<Dictionary<string, string>>(Path.Combine(root, "Content", "Source", "Localization", "zh-CN.json")), StringComparer.Ordinal);
-        var recipes = new SortedDictionary<string, ArtRecipe>(Read<Dictionary<string, ArtRecipe>>(Path.Combine(root, "Content", "Source", "Art", "emoji-recipes.json")), StringComparer.Ordinal);
-        var palettes = Read<Dictionary<string, ProfessionPalette>>(Path.Combine(root, "Content", "Source", "Art", "profession-palettes.json"));
-        var icons = new SortedDictionary<string, ArtRecipe>(Read<Dictionary<string, ArtRecipe>>(Path.Combine(root, "Content", "Source", "Art", "ui-icons.json")), StringComparer.Ordinal);
+        var language = new SortedDictionary<string, string>(Read<Dictionary<string, string>>(Path.Combine(root, "Content", "Packs", "standard", "Source", "Localization", "zh-CN.json")), StringComparer.Ordinal);
+        var recipes = new SortedDictionary<string, ArtRecipe>(Read<Dictionary<string, ArtRecipe>>(Path.Combine(root, "Content", "Packs", "standard", "Source", "Art", "emoji-recipes.json")), StringComparer.Ordinal);
+        var palettes = Read<Dictionary<string, ProfessionPalette>>(Path.Combine(root, "Content", "Packs", "standard", "Source", "Art", "profession-palettes.json"));
+        var icons = new SortedDictionary<string, ArtRecipe>(Read<Dictionary<string, ArtRecipe>>(Path.Combine(root, "Client", "Assets", "ui-icons.json")), StringComparer.Ordinal);
         foreach (var card in compiled.Content!.Presentation.Cards)
         {
             if (!language.TryGetValue(card.NameLocalizationKey, out var name) || string.IsNullOrWhiteSpace(name)
@@ -60,7 +60,7 @@ public sealed class ContentCatalog
 
     public string RenderTable()
     {
-        var lines = new List<string> { "# VNext 测试卡表", "", "> 自动生成自 Content/Source。实验设计，尚未验证平衡性；数值可在后续测试中调整。", "" };
+        var lines = new List<string> { "# VNext 测试卡表", "", "> 自动生成自 Content/Packs/standard/Source。实验设计，尚未验证平衡性；数值可在后续测试中调整。", "" };
         foreach (var group in Bundle.Rules.Cards.GroupBy(card => (card.Source, card.Profession)).OrderBy(value => value.Key.Source).ThenBy(value => value.Key.Profession))
         {
             lines.Add($"## {group.Key.Source} / {group.Key.Profession}"); lines.Add("");
@@ -89,7 +89,7 @@ public sealed class ContentCatalog
     public void Build(string outputDirectory)
     {
         var output = Path.GetFullPath(outputDirectory);
-        var sourceRoot = Path.Combine(_root, "Content", "Source") + Path.DirectorySeparatorChar;
+        var sourceRoot = Path.Combine(_root, "Content", "Packs", "standard", "Source") + Path.DirectorySeparatorChar;
         if ((output + Path.DirectorySeparatorChar).StartsWith(sourceRoot, StringComparison.OrdinalIgnoreCase)
             || (sourceRoot).StartsWith(output + Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase))
         { throw new ArgumentException("Build output must be separate from authored sources."); }
@@ -98,6 +98,21 @@ public sealed class ContentCatalog
         var sourceCards = _sources.Select(value => JsonNode.Parse(value.Json)!).OrderBy(value => value["id"]!.GetValue<string>(), StringComparer.Ordinal).ToArray();
         // Recompilable sources accompany the canonical compiled bytes; no polymorphic IR data is lost.
         WriteJson("cards.sources.json", sourceCards);
+        using var metadata = JsonDocument.Parse(File.ReadAllText(Path.Combine(_root, "Content", "Packs", "standard", "manifest.json")));
+        var info = metadata.RootElement;
+        var package = ContentPackages.Seal(new(ContentPackage.Schema, info.GetProperty("id").GetString()!,
+            info.GetProperty("version").GetString()!, info.GetProperty("name").GetString()!, "",
+            info.GetProperty("dependencies").Deserialize<ImmutableArray<ContentDependency>>(ContentPackages.JsonOptions),
+            [.. sourceCards.Select(card => JsonSerializer.SerializeToElement(card))], _localization.ToImmutableDictionary(StringComparer.Ordinal),
+            Read<ImmutableArray<ContentDeck>>(Path.Combine(_root, "Content", "Packs", "standard", "Source", "Decks", "archetypes.json")))
+        {
+            Professions = Read<ImmutableArray<ContentProfession>>(Path.Combine(_root, "Content", "Packs", "standard", "Source", "professions.json")),
+            Assets = Directory.EnumerateFiles((Directory.Exists(Path.Combine(output, "Art")) ? Path.Combine(output, "Art") : Path.Combine(_root, "Content", "Packs", "standard", "Generated", "Art")), "*.png")
+                .Where(path => Bundle.Rules.Cards.Any(c => c.Id.Value == Path.GetFileNameWithoutExtension(path)))
+                .ToImmutableDictionary(path => "Art/" + Path.GetFileName(path), path => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(path))).ToLowerInvariant(), StringComparer.Ordinal)
+        });
+        _ = ContentPackages.Load([package]);
+        Program.Write(Path.Combine(output, "standard.eotapack.json"), JsonSerializer.Serialize(package, ContentPackages.JsonOptions) + "\n");
         WriteJson("presentation.json", Bundle.Presentation.Cards.Select(value => new
         {
             id = value.Id.Value,
@@ -108,12 +123,9 @@ public sealed class ContentCatalog
         }));
         WriteJson("zh-CN.json", _localization);
         WriteJson("emoji-recipes.json", _art);
-        WriteJson("ui-icons.json", _icons);
-        Program.Write(Path.Combine(output, "archetype-decks.json"), File.ReadAllText(Path.Combine(_root, "Content", "Source", "Decks", "archetypes.json")));
+        Program.Write(Path.Combine(output, "archetype-decks.json"), File.ReadAllText(Path.Combine(_root, "Content", "Packs", "standard", "Source", "Decks", "archetypes.json")));
         foreach (var (id, recipe) in _art.Where(pair => Bundle.Rules.Cards.Any(card => card.Id.Value == pair.Key)))
         { Program.Write(Path.Combine(output, "Art", id + ".svg"), EmojiArt.Svg(recipe.Emoji, recipe.Top, recipe.Bottom, recipe.Style, ReadFusion(_root, id, recipe))); }
-        foreach (var (id, recipe) in _icons)
-        { Program.Write(Path.Combine(output, "Icons", id + ".svg"), EmojiArt.Svg(recipe.Emoji, recipe.Top, recipe.Bottom, recipe.Style)); }
         Program.Write(Path.Combine(output, "CardTable.zh-CN.md"), RenderTable());
         Program.Write(Path.Combine(output, "Coverage.zh-CN.md"), RenderCoverage());
         Program.Write(Path.Combine(output, "BaselineDiff.zh-CN.md"), RenderBaselineDiff());
@@ -133,7 +145,7 @@ public sealed class ContentCatalog
 
     public string RenderBaselineDiff()
     {
-        using var baseline = JsonDocument.Parse(File.ReadAllText(Path.Combine(_root, "Content", "Design", "card-baseline.json")));
+        using var baseline = JsonDocument.Parse(File.ReadAllText(Path.Combine(_root, "Content", "Packs", "standard", "Design", "card-baseline.json")));
         var previous = baseline.RootElement.GetProperty("cards").EnumerateArray().Select(value => value.GetProperty("id").GetString()!).ToHashSet(StringComparer.Ordinal);
         var current = Bundle.Rules.Cards.Select(value => value.Id.Value).ToHashSet(StringComparer.Ordinal);
         var lines = new List<string> { "# 测试设计基线差异", "", $"原始清单 {previous.Count} 张；当前 {current.Count} 张。基线仅保存 CardTable 文本元数据，不读取旧卡牌 JSON。", "",
@@ -207,7 +219,7 @@ public sealed class ContentCatalog
             || source.Scheme != Uri.UriSchemeHttps || source.Host != "www.gstatic.com"
             || !source.AbsolutePath.StartsWith("/android/keyboard/emojikitchen/", StringComparison.Ordinal))
         { throw new InvalidDataException($"Missing HTTPS fusion source for {id}."); }
-        var artRoot = Path.GetFullPath(Path.Combine(root, "Content", "Source", "Art")) + Path.DirectorySeparatorChar;
+        var artRoot = Path.GetFullPath(Path.Combine(root, "Content", "Packs", "standard", "Source", "Art")) + Path.DirectorySeparatorChar;
         var path = Path.GetFullPath(Path.Combine(artRoot, recipe.Fusion.Replace('/', Path.DirectorySeparatorChar)));
         if (!path.StartsWith(artRoot, StringComparison.OrdinalIgnoreCase) || !File.Exists(path))
         { throw new InvalidDataException($"Missing fusion image for {id}."); }

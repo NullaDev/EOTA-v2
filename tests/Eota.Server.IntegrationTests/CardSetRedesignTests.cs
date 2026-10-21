@@ -21,7 +21,7 @@ public sealed class CardSetRedesignTests
     private static readonly JsonSerializerOptions ReportJson = new() { WriteIndented = true };
     private static readonly Lazy<DesktopCatalog> Catalog = new(() => new DesktopCatalog(Fixture.Root));
     private static readonly Lazy<RuleContentPack> Rules = new(() => CardContentCompiler.Compile(
-        Directory.EnumerateFiles(Path.Combine(Fixture.Root, "Content", "Source", "Cards"), "*.json", SearchOption.AllDirectories)
+        Directory.EnumerateFiles(Path.Combine(Fixture.Root, "Content", "Packs", "standard", "Source", "Cards"), "*.json", SearchOption.AllDirectories)
             .Select(path => new ContentSourceDocument(path, File.ReadAllText(path)))).Content!.Rules);
 
     [Fact]
@@ -187,6 +187,6 @@ public sealed class CardSetRedesignTests
         }
     }
 
-    private static DeckDefinition Deck(DesktopDeck deck) => DeckDefinition.Create(Enum.Parse<Profession>(deck.Profession),
+    private static DeckDefinition Deck(DesktopDeck deck) => DeckDefinition.Create(Profession.Parse(deck.Profession),
         deck.Cards.Select(card => new DeckEntry(new CardPrototypeId(card.Id), card.Copies)));
 }

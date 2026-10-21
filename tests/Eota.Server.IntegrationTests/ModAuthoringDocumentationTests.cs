@@ -15,23 +15,23 @@ namespace Eota.Server.IntegrationTests;
 
 public sealed class ModAuthoringDocumentationTests
 {
-    private static string Examples => Path.Combine(Fixture.Root, "Docs", "Content", "Examples");
+    private static string Examples => Path.Combine(Fixture.Root, "Content", "Packs", "tutorial", "Source");
     private static readonly JsonSerializerOptions Pretty = new() { WriteIndented = true };
 
     [Fact]
     public void GuideJsonCompilesAndExamplePackCanBeImportedWithItsTextsAndReferences()
     {
         var sources = Sources(); var compiled = Compile(sources);
-        var texts = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText(Path.Combine(Examples, "zh-CN.json")))!;
+        var texts = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText(Path.Combine(Examples, "Localization", "zh-CN.json")))!;
         Assert.Equal(9, compiled.Rules.Cards.Length);
         foreach (var card in compiled.Presentation.Cards)
         {
             Assert.False(string.IsNullOrWhiteSpace(texts[card.NameLocalizationKey]));
             Assert.False(string.IsNullOrWhiteSpace(texts[card.DescriptionLocalizationKey]));
-            Assert.True(File.Exists(Path.Combine(Fixture.Root, card.TexturePath)), card.TexturePath);
+            Assert.True(File.Exists(new DesktopCatalog(Fixture.Root, [Tutorial()]).ResolveTexture(card.TexturePath)), card.TexturePath);
         }
 
-        var guide = File.ReadAllText(Path.Combine(Fixture.Root, "Docs", "CardJsonDesignGuide.zh-CN.md"));
+        var guide = File.ReadAllText(Path.Combine(Fixture.Root, "Docs", "Modding", "ContentPackageDesignGuide.zh-CN.md"));
         var snippets = guide.Split("<!-- mod-example: ", StringSplitOptions.None).Skip(1).ToArray();
         Assert.Equal(guide.Split("```json", StringSplitOptions.None).Length - 1, snippets.Length);
         foreach (var snippet in snippets)
@@ -40,6 +40,14 @@ public sealed class ModAuthoringDocumentationTests
             var start = snippet.IndexOf("```json", StringComparison.Ordinal) + 7;
             var end = snippet.IndexOf("```", start, StringComparison.Ordinal);
             var json = snippet[start..end];
+            if (kind == "package")
+            {
+                var example = JsonSerializer.Deserialize<ContentPackage>(json, ContentPackages.JsonOptions)!;
+                Assert.Empty(example.Hash);
+                example = ContentPackages.Seal(example);
+                Assert.Equal(282, ContentPackages.Load([ContentPackages.Read(Path.Combine(Fixture.Root, "Content", "Packs", "standard", "Generated", "standard.eotapack.json")), example]).Content.Rules.Cards.Length);
+                continue;
+            }
             if (kind == "texts")
             {
                 foreach (var pair in JsonSerializer.Deserialize<Dictionary<string, string>>(json)!) { Assert.Equal(texts[pair.Key], pair.Value); }
@@ -65,14 +73,15 @@ public sealed class ModAuthoringDocumentationTests
 
         var directory = Path.Combine(Fixture.Root, "artifacts", "ModAuthoringExamples"); Directory.CreateDirectory(directory);
         var path = Path.Combine(directory, "demo.eotapack.json");
-        var pack = new DesktopContentPack(1, compiled.Rules.Hash.ToString(), sources.Select(source => JsonSerializer.Deserialize<JsonElement>(source.Json)).ToArray(), texts);
-        File.WriteAllText(path, JsonSerializer.Serialize(pack, Pretty));
+        var pack = ContentPackages.Seal(Tutorial() with { Cards = [.. sources.Select(source => JsonSerializer.Deserialize<JsonElement>(source.Json))], Decks = [] });
+        PackageAssets.CopyFiles(pack, path);
+        File.WriteAllText(path, JsonSerializer.Serialize(pack, ContentPackages.JsonOptions));
         var catalog = new DesktopCatalog(Fixture.Root, path);
-        Assert.Equal(pack.RuleHash, catalog.RuleHash);
+        Assert.Equal(compiled.Rules.Hash.ToString(), catalog.RuleHash);
         Assert.Equal(9, catalog.Cards.Length);
         var editor = new DesktopContentEditor(new DesktopCatalog(Fixture.Root));
         editor.ImportCards(path);
-        Assert.Equal(pack.RuleHash, editor.ExportCards(sources.Select(source => source.SourceName)).RuleHash);
+        Assert.Equal(compiled.Rules.Hash.ToString(), editor.ExportCards(sources.Select(source => source.SourceName)).RuleHash);
         Assert.Contains("EOTA-CORE-GUA-MIN-001", editor.CardIds);
         var dependencyExport = editor.ExportCards(["MOD-DEMO-WORKSHOP"]);
         Assert.Contains(dependencyExport.Cards, card => card.GetProperty("id").GetString() == "MOD-DEMO-DRONE");
@@ -177,7 +186,7 @@ public sealed class ModAuthoringDocumentationTests
 
     private static JsonObject GuideAbilities(string effectId)
     {
-        var guide = File.ReadAllText(Path.Combine(Fixture.Root, "Docs", "CardJsonDesignGuide.zh-CN.md"));
+        var guide = File.ReadAllText(Path.Combine(Fixture.Root, "Docs", "Modding", "ContentPackageDesignGuide.zh-CN.md"));
         return guide.Split("<!-- mod-example: ", StringSplitOptions.None).Skip(1).Select(snippet =>
         {
             var start = snippet.IndexOf("```json", StringComparison.Ordinal) + 7;
@@ -222,13 +231,13 @@ public sealed class ModAuthoringDocumentationTests
 
     private static MatchState Create(int? opening = null, ulong seed = 146, ContentSourceDocument[]? sources = null, int? handLimit = null)
     {
-        var protocol = ProtocolCompiler.Compile("teaching-protocol", File.ReadAllText(Path.Combine(Examples, "protocol.json")));
+        var protocol = ProtocolCompiler.Compile("teaching-protocol", File.ReadAllText(Path.Combine(Examples, "Verification", "protocol.json")));
         Assert.True(protocol.IsSuccess, string.Join('\n', protocol.Diagnostics.Select(value => value.Message)));
         var compiled = protocol.Protocol!;
         if (opening is { } count) { compiled = Eota.Kernel.Protocols.CompiledGameProtocol.Compile(compiled.Definition with { OpeningHandSize = count }); }
         if (handLimit is { } limit) { compiled = Eota.Kernel.Protocols.CompiledGameProtocol.Compile(compiled.Definition with { HandLimit = limit }); }
-        using var document = JsonDocument.Parse(File.ReadAllText(Path.Combine(Examples, "deck.json")));
-        var deck = DeckDefinition.Create(Enum.Parse<Profession>(document.RootElement.GetProperty("profession").GetString()!, true),
+        using var document = JsonDocument.Parse(File.ReadAllText(Path.Combine(Examples, "Verification", "deck.json")));
+        var deck = DeckDefinition.Create(Profession.Parse(document.RootElement.GetProperty("profession").GetString()!),
             document.RootElement.GetProperty("cards").EnumerateArray().Select(card => new DeckEntry(new CardPrototypeId(card.GetProperty("id").GetString()!), card.GetProperty("copies").GetInt32())));
         var creation = MatchFactory.Create(new(compiled, Compile(sources ?? Sources()).Rules, seed, deck, deck));
         Assert.True(creation.IsSuccess, string.Join(',', creation.Errors.Select(error => error.Code))); return creation.State!;
@@ -241,7 +250,9 @@ public sealed class ModAuthoringDocumentationTests
         return TurnResolver.ResolveReadyTurn(state);
     }
 
-    private static ContentSourceDocument[] Sources() => Directory.EnumerateFiles(Path.Combine(Examples, "Cards"), "*.json")
+    private static ContentPackage Tutorial() => ContentPackages.Read(Path.Combine(Fixture.Root, "Content", "Packs", "tutorial", "Generated", "tutorial.eotapack.json"));
+
+    private static ContentSourceDocument[] Sources() => Directory.EnumerateFiles(Path.Combine(Examples, "Cards"), "MOD-DEMO-*.json")
         .Order(StringComparer.Ordinal).Select(path => new ContentSourceDocument(Path.GetFileNameWithoutExtension(path), File.ReadAllText(path))).ToArray();
 
     private static CompiledContentBundle Compile(IEnumerable<ContentSourceDocument> sources)

@@ -13,7 +13,7 @@ namespace Eota.Server.IntegrationTests;
 public sealed class CardDiversityTests
 {
     private static readonly Lazy<RuleContentPack> Rules = new(() => CardContentCompiler.Compile(
-        Directory.EnumerateFiles(Path.Combine(Fixture.Root, "Content", "Source", "Cards"), "*.json", SearchOption.AllDirectories)
+        Directory.EnumerateFiles(Path.Combine(Fixture.Root, "Content", "Packs", "standard", "Source", "Cards"), "*.json", SearchOption.AllDirectories)
             .Select(path => new ContentSourceDocument(path, File.ReadAllText(path)))).Content!.Rules);
 
     [Theory]

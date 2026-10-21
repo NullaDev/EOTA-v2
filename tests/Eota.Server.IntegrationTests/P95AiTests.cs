@@ -23,7 +23,7 @@ public sealed class P95AiTests
     private static readonly JsonSerializerOptions ReportJson = new() { WriteIndented = true };
     private static readonly Lazy<DesktopCatalog> Catalog = new(() => new DesktopCatalog(Fixture.Root));
     private static readonly Lazy<RuleContentPack> Rules = new(() => CardContentCompiler.Compile(
-        Directory.EnumerateFiles(Path.Combine(Fixture.Root, "Content", "Source", "Cards"), "*.json", SearchOption.AllDirectories)
+        Directory.EnumerateFiles(Path.Combine(Fixture.Root, "Content", "Packs", "standard", "Source", "Cards"), "*.json", SearchOption.AllDirectories)
             .Select(path => new ContentSourceDocument(Path.GetFileName(path), File.ReadAllText(path)))).Content!.Rules);
 
     [Theory]
@@ -282,7 +282,7 @@ public sealed class P95AiTests
 
     private static MatchCreationRequest Request(string one, string two, ulong seed, bool mulligan = true, int lanes = 6)
     {
-        DeckDefinition Deck(string profession) => DeckDefinition.Create(Enum.Parse<Profession>(profession),
+        DeckDefinition Deck(string profession) => DeckDefinition.Create(Profession.Parse(profession),
             Catalog.Value.DefaultDeck(profession).Cards.Select(card => new DeckEntry(CardPrototypeId.Parse(card.Id), card.Copies)));
         return new MatchCreationRequest(CompiledGameProtocol.Compile(GameProtocolDefinition.DefaultV0 with
         { MulliganEnabled = mulligan, LaneCount = lanes, MovementConflictPolicy = lanes % 2 == 0 ? MovementConflictPolicy.CenterFirst : MovementConflictPolicy.AllFail }),

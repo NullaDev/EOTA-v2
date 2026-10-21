@@ -37,48 +37,18 @@ theme_override_font_sizes/font_size = 32
 mouse_filter = 2
 theme_type_variation = &"Title"
 
-[node name="Professions" type="HBoxContainer" parent="Panel"]
+[node name="ProfessionScroll" type="ScrollContainer" parent="Panel"]
 layout_mode = 0
 offset_left = 32.0
 offset_top = 100.0
 offset_right = 968.0
-offset_bottom = 220.0
+offset_bottom = 240.0
+vertical_scroll_mode = 0
+
+[node name="Professions" type="HBoxContainer" parent="Panel/ProfessionScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 16
-
-[node name="Guardian" type="Button" parent="Panel/Professions"]
-layout_mode = 2
-custom_minimum_size = Vector2(174, 120)
-toggle_mode = true
-text = "♜  守卫"
-theme_override_font_sizes/font_size = 24
-
-[node name="Arcanist" type="Button" parent="Panel/Professions"]
-layout_mode = 2
-custom_minimum_size = Vector2(174, 120)
-toggle_mode = true
-text = "✦  奥术师"
-theme_override_font_sizes/font_size = 24
-
-[node name="Artisan" type="Button" parent="Panel/Professions"]
-layout_mode = 2
-custom_minimum_size = Vector2(174, 120)
-toggle_mode = true
-text = "⚒  工匠"
-theme_override_font_sizes/font_size = 24
-
-[node name="Hunter" type="Button" parent="Panel/Professions"]
-layout_mode = 2
-custom_minimum_size = Vector2(174, 120)
-toggle_mode = true
-text = "➶  猎人"
-theme_override_font_sizes/font_size = 24
-
-[node name="Soulweaver" type="Button" parent="Panel/Professions"]
-layout_mode = 2
-custom_minimum_size = Vector2(174, 120)
-toggle_mode = true
-text = "☽  灵魂使"
-theme_override_font_sizes/font_size = 24
 
 [node name="Description" type="Label" parent="Panel"]
 layout_mode = 0

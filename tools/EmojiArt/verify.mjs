@@ -94,7 +94,7 @@ try {
   // Real file selection: the original source recipes must still load while offline.
   const { root: documentRoot } = await call('DOM.getDocument');
   const { nodeId } = await call('DOM.querySelector', { nodeId: documentRoot.nodeId, selector: '#recipes' });
-  await call('DOM.setFileInputFiles', { nodeId, files: [resolve(root, 'Content/Source/Art/emoji-recipes.json')] });
+  await call('DOM.setFileInputFiles', { nodeId, files: [resolve(root, 'Content/Packs/standard/Source/Art/emoji-recipes.json')] });
   await waitFor(`!document.getElementById('cards').hidden`);
   await set('cards', 'EOTA-CORE-ARC-MIN-003', 'change'); await state('ready');
   assert.equal(await evaluate(`document.getElementById('profession').value`), 'arcanist');

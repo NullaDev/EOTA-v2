@@ -8,6 +8,7 @@ namespace Eota.GodotClient;
 public partial class GameApp
 {
     private DesktopContentEditor? _contentEditor;
+    private string[] EditorProfessions => _contentEditor!.AvailableProfessions.Select(p => p.Id.ToLowerInvariant()).Prepend("neutral").Distinct(StringComparer.Ordinal).ToArray();
     private Control _editorPage = null!;
     private string? _editingId;
     private JsonObject _editingCard = null!;
@@ -43,16 +44,17 @@ public partial class GameApp
         _editorPage.AddChild(_editorPreviewTimer); _editorPreviewTimer.Timeout += RefreshEditorPreview;
         if (_contentEditor is null)
         {
-            try { _contentEditor = new DesktopContentEditor(File.Exists(EditorDraftPath) ? new DesktopCatalog(_catalog.Root, EditorDraftPath) : _catalog); }
-            catch (Exception error) { _contentEditor = new DesktopContentEditor(_catalog); GD.PushWarning("编辑草稿未加载：" + error.Message); }
+            try { _contentEditor = File.Exists(EditorDraftPath) ? DesktopContentEditor.OpenPackage(_catalog, EditorDraftPath) : DesktopContentEditor.NewPackage(_catalog); }
+            catch (Exception error) { _contentEditor = DesktopContentEditor.NewPackage(_catalog); GD.PushWarning("编辑草稿未加载：" + error.Message); }
         }
+        _contentEditor.UseDependencyContext(_catalog);
         var pages = _editorPage.GetNode<TabContainer>("Pages"); pages.SetTabTitle(0, "基本属性"); pages.SetTabTitle(1, "效果 JSON"); pages.SetTabTitle(2, "完整 JSON");
         void Options(string field, string[] titles)
         { var option = EditorField<OptionButton>(field); foreach (var title in titles) { option.AddItem(title); } }
         Options("Kind", ["随从", "法术", "场地"]); Options("Source", ["基础卡", "衍生卡"]);
-        Options("Profession", ["中立", "守卫", "奥术师", "工匠", "猎人", "灵魂使"]); Options("Speed", ["快速", "慢速"]); Options("Scope", ["一路", "全局"]);
+        Options("Profession", EditorProfessions.Select(p => Ui.Profession(p)).ToArray()); Options("Speed", ["快速", "慢速"]); Options("Scope", ["一路", "全局"]);
         var profession = _editorPage.GetNode<OptionButton>("FilterProfession");
-        foreach (var value in new[] { "全部职业", "中立", "守卫", "奥术师", "工匠", "猎人", "灵魂使" }) { profession.AddItem(value); }
+        foreach (var value in EditorProfessions.Select(p => Ui.Profession(p)).Prepend("全部职业")) { profession.AddItem(value); }
         var kind = _editorPage.GetNode<OptionButton>("FilterKind");
         foreach (var value in new[] { "全部类型", "随从", "法术", "场地" }) { kind.AddItem(value); }
         var search = _editorPage.GetNode<LineEdit>("Search"); search.TextChanged += _ => RefreshEditorList();
@@ -131,9 +133,38 @@ public partial class GameApp
             _editorTab = (int)index; _editorDirty = dirty;
         });
         var packDialog = _editorPage.GetNode<Window>("PackDialog"); packDialog.CloseRequested += packDialog.Hide;
+        packDialog.Title = "编辑内容包"; packDialog.Size = new Vector2I(760, 670);
+        packDialog.GetNode<Label>("PackStatus").Size = new Vector2(710, 70);
+        foreach (var name in new[] { "Import", "Export", "Activate", "Builtin" })
+        { packDialog.GetNode<Control>(name).Position += new Vector2(0, 250); }
+        var fields = new GridContainer { Columns = 2, Position = new Vector2(24, 100), Size = new Vector2(710, 240) };
+        fields.AddThemeConstantOverride("v_separation", 10); packDialog.AddChild(fields);
+        LineEdit Metadata(string title, string value)
+        {
+            fields.AddChild(Ui.Text(title, 18)); var line = new LineEdit { Text = value, SizeFlagsHorizontal = SizeFlags.ExpandFill };
+            fields.AddChild(line); return line;
+        }
+        var packageId = Metadata("包 ID", _contentEditor.PackageId);
+        var packageName = Metadata("名称", _contentEditor.PackageName);
+        var packageVersion = Metadata("版本", _contentEditor.PackageVersion);
+        var dependencies = Metadata("依赖", string.Join(", ", _contentEditor.Dependencies.Select(d => d.Id + (d.Version is null ? "" : "@" + d.Version) + (d.Hash is null ? "" : "#" + d.Hash))));
+        dependencies.TooltipText = "例如 tutorial, expansion@1.0.0；可追加 #SHA256 限定 hash。";
+        void ApplyMetadata()
+        {
+            _contentEditor.PackageId = packageId.Text.Trim(); _contentEditor.PackageName = packageName.Text.Trim();
+            _contentEditor.PackageVersion = packageVersion.Text.Trim(); _contentEditor.SetDependencies(dependencies.Text);
+        }
+        foreach (var input in new[] { packageId, packageName, packageVersion, dependencies })
+        { input.TextChanged += _ => EditorAction(ApplyMetadata); }
+        var saveMetadata = new Button { Text = "保存包信息并计算 hash" }; fields.AddChild(saveMetadata);
+        saveMetadata.Pressed += () => EditorAction(() =>
+        {
+            ApplyMetadata(); _contentEditor.SavePack(EditorDraftPath);
+            packDialog.GetNode<Label>("PackStatus").Text = $"{_contentEditor.PackageId} {_contentEditor.PackageVersion}\n{_contentEditor.ExportPackage().Hash}";
+        });
         _editorPage.GetNode<Button>("Pack").Pressed += () =>
         {
-            packDialog.GetNode<Label>("PackStatus").Text = $"当前启用：{(_catalog.ContentPackPath is null ? "内置内容包" : "自定义内容包")}\n规则指纹：{_catalog.RuleHash[..20]}…";
+            packDialog.GetNode<Label>("PackStatus").Text = $"编辑：{_contentEditor.PackageId} {_contentEditor.PackageVersion}\n引用其他包的内容需声明依赖；相同卡牌 ID 的包不能同时启用。";
             packDialog.PopupCentered();
         };
         var picker = new FileDialog { Access = FileDialog.AccessEnum.Filesystem, Filters = ["*.json ; EOTA V2 内容包"], UseNativeDialog = true };
@@ -165,10 +196,21 @@ public partial class GameApp
         packDialog.GetNode<Button>("Activate").Pressed += () => EditorAction(() =>
         {
             if (_editorDirty) { throw new InvalidDataException("请先保存当前卡牌，再启用内容包。"); }
-            var path = ProjectSettings.GlobalizePath("user://content/active.eotapack.json"); _contentEditor.SavePack(path);
-            ActivateContentPack(path);
+            ApplyMetadata(); _contentEditor.SavePack(EditorDraftPath);
+            void Install()
+            {
+                _packageStore.Install(EditorDraftPath, replace: true); packDialog.Hide(); ShowContentPackages();
+            }
+            if (_packageStore.Scan().Any(p => p.Id == _contentEditor.PackageId))
+            {
+                var confirm = new ConfirmationDialog { Title = "替换已安装的内容包", DialogText = $"用草稿替换已安装的 {_contentEditor.PackageId}？", OkButtonText = "替换", CancelButtonText = "取消" };
+                packDialog.AddChild(confirm); confirm.Confirmed += () => EditorAction(Install); confirm.PopupCentered();
+            }
+            else { Install(); }
         });
-        packDialog.GetNode<Button>("Builtin").Pressed += () => EditorAction(() => ActivateContentPack(null));
+        packDialog.GetNode<Button>("Activate").Text = "安装草稿并选择启用的包";
+        packDialog.GetNode<Button>("Builtin").Text = "管理启用的内容包";
+        packDialog.GetNode<Button>("Builtin").Pressed += () => { packDialog.Hide(); ShowContentPackages(); };
         RefreshEditorList();
         if (_editorSnapshot is { } snapshot)
         {
@@ -188,17 +230,8 @@ public partial class GameApp
             pages.CurrentTab = snapshot.Tab; _editorTab = snapshot.Tab; _editorDirty = snapshot.Dirty; _editorLoading = false;
             RefreshEditorPreview();
         }
-        else { var first = _contentEditor.CardIds.First(); LoadEditorCard(_contentEditor.Read(first), first); }
-    }
-
-    private void ActivateContentPack(string? path)
-    {
-        _catalog = new DesktopCatalog(_catalog.Root, path);
-        CardTile.UseCatalog(_catalog);
-        for (var index = 0; index < _decks.Count; index++)
-        { if (_decks[index].Name == _decks[index].Profession) { _decks[index] = _catalog.DefaultDeck(_decks[index].Profession); } }
-        File.WriteAllText(ProjectSettings.GlobalizePath("user://content-selection.txt"), path ?? "");
-        _setupTab = 8; BuildMenu(); _status.Text = path is null ? "已启用内置内容包。" : "自定义内容包已启用；现有服务器仍使用开服时的内容。";
+        else if (_contentEditor.CardIds.FirstOrDefault() is { } first) { LoadEditorCard(_contentEditor.Read(first), first); }
+        else { LoadEditorCard(DesktopContentEditor.NewCard(), null); }
     }
 
     private void MarkEditorDirty()
@@ -220,7 +253,7 @@ public partial class GameApp
     private void RefreshEditorList()
     {
         var list = _editorPage.GetNode<ItemList>("List"); list.Clear(); var search = _editorPage.GetNode<LineEdit>("Search").Text.Trim();
-        var profession = new[] { "", "neutral", "guardian", "arcanist", "artisan", "hunter", "soulweaver" }[_editorPage.GetNode<OptionButton>("FilterProfession").Selected];
+        var profession = EditorProfessions.Prepend("").ToArray()[_editorPage.GetNode<OptionButton>("FilterProfession").Selected];
         var kind = new[] { "", "minion", "spell", "field" }[_editorPage.GetNode<OptionButton>("FilterKind").Selected];
         foreach (var id in _contentEditor!.CardIds)
         {
@@ -248,7 +281,7 @@ public partial class GameApp
             EditorField<TextEdit>("Description").Text = value.Description;
             EditorField<OptionButton>("Kind").Select(Array.IndexOf(new[] { "minion", "spell", "field" }, Text("kind")));
             EditorField<OptionButton>("Source").Select(Text("source") == "token" ? 1 : 0);
-            EditorField<OptionButton>("Profession").Select(Array.IndexOf(new[] { "neutral", "guardian", "arcanist", "artisan", "hunter", "soulweaver" }, Text("profession")));
+            EditorField<OptionButton>("Profession").Select(Array.IndexOf(EditorProfessions, Text("profession")));
             EditorField<OptionButton>("Speed").Select(Text("speed") == "slow" ? 1 : 0); EditorField<OptionButton>("Scope").Select(Text("targetScope") == "global" ? 1 : 0);
             EditorField<CheckBox>("Permanent").ButtonPressed = _editingCard["lifetime"]?["kind"]?.GetValue<string>() == "permanent";
             _editorPage.GetNode<TextEdit>("Pages/Effects").Text = DesktopContentEditor.AbilitiesJson(_editingCard);
@@ -274,7 +307,7 @@ public partial class GameApp
         long Number(string field) => long.TryParse(Line(field), out var value) ? value : throw new InvalidDataException($"{field} 必须是整数。");
         card["id"] = Line("Id"); card["cost"] = Number("Cost"); card["texturePath"] = Line("Texture");
         card["source"] = EditorField<OptionButton>("Source").Selected == 1 ? "token" : "core";
-        card["profession"] = new[] { "neutral", "guardian", "arcanist", "artisan", "hunter", "soulweaver" }[EditorField<OptionButton>("Profession").Selected];
+        card["profession"] = EditorProfessions[EditorField<OptionButton>("Profession").Selected];
         card["tags"] = new JsonArray(Line("Tags").Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Select(s => (JsonNode?)JsonValue.Create(s)).ToArray());
         DesktopContentEditor.ApplyAbilities(card, _editorPage.GetNode<TextEdit>("Pages/Effects").Text);
         var kind = card["kind"]!.GetValue<string>();
@@ -293,8 +326,6 @@ public partial class GameApp
         RefreshEditorLifetime();
         var preview = _editorPage.GetNode<VBoxContainer>("Preview"); Ui.Clear(preview);
         var presentation = _contentEditor!.Preview(ReadEditorCard(), _editingId);
-        if (!ResourceLoader.Exists("res://" + presentation.TexturePath) && !File.Exists(ProjectSettings.GlobalizePath("res://" + presentation.TexturePath)))
-        { throw new InvalidDataException("插图路径不存在；请选择现有的 Content/Generated/Art/*.png。"); }
         preview.AddChild(CardTile.CreatePrototype(presentation, detail: true));
         _editorPage.GetNode<Label>("Validation").Text = _editorDirty ? "规则校验通过\n有未保存的修改" : "规则校验通过";
         _editorPage.GetNode<Label>("ValidationScroll/Errors").Text = "";

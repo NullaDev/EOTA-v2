@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://Client/Godot/SpellPlans.cs" id="script"]
-[ext_resource type="Texture2D" path="res://Content/Generated/Icons/fast-spell.png" id="fast"]
-[ext_resource type="Texture2D" path="res://Content/Generated/Icons/slow-spell.png" id="slow"]
+[ext_resource type="Texture2D" path="res://Client/Assets/Icons/fast-spell.png" id="fast"]
+[ext_resource type="Texture2D" path="res://Client/Assets/Icons/slow-spell.png" id="slow"]
 
 [sub_resource type="AtlasTexture" id="fast_icon"]
 atlas = ExtResource("fast")

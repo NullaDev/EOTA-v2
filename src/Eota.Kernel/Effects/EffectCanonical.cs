@@ -37,7 +37,7 @@ public static class EffectCanonical
         writer.WriteBoolean(filter.Kind.HasValue);
         if (filter.Kind is { } kind) { writer.WriteInt32((int)kind); }
         writer.WriteBoolean(filter.Profession.HasValue);
-        if (filter.Profession is { } profession) { writer.WriteInt32((int)profession); }
+        if (filter.Profession is { } profession) { writer.WriteString(profession.ToString()); }
         writer.WriteBoolean(filter.Tag is not null);
         if (filter.Tag is { } tag) { writer.WriteString(tag); }
     }

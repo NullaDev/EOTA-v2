@@ -12,4 +12,4 @@ dotnet run --project tools/Eota.ReplayCli -c Release --no-build -- record-checkp
 dotnet run --project tools/Eota.ReplayCli -c Release --no-build -- verify-checkpoints tests/Fixtures/P9LaneStatuses/Cards tests/Fixtures/P9LaneStatuses/protocol-v0.json tests/Fixtures/P9LaneStatuses/match.replay.json artifacts/P9Checkpoints
 ```
 
-全部 74 个检查点已在独立进程恢复，剩余命令、逐帧状态／回执／事件／RNG 一致。语义见 [ADR-027](../../../Docs/ADR/027-lane-statuses.md)。
+全部 74 个检查点已在独立进程恢复，剩余命令、逐帧状态／回执／事件／RNG 一致。语义见 [ADR-027](../../../Docs/Development/ADR/027-lane-statuses.md)。

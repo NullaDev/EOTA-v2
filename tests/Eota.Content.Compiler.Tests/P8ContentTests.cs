@@ -20,7 +20,7 @@ public sealed class P8ContentTests
     private static readonly ContentCatalog Catalog = ContentCatalog.Load(Root);
     private static readonly CardPrototypeId Friend = new("TEST-P8-FRIEND"), Other = new("TEST-P8-OTHER"), Field = new("TEST-P8-FIELD");
     private static readonly RuleContentPack Rules = RuleContentPack.Create("eota.card/v2", Catalog.Bundle.Rules.Cards.Concat<CardDefinition>([
-        new MinionCardDefinition(Friend, CardSource.Test, Profession.Guardian, 0, 1, 20, [new(MinionKeywordKind.Guard)]) { Tags = ["beast", "mechanical", "firearm"] },
+        new MinionCardDefinition(Friend, CardSource.Test, Profession.Parse("Guardian"), 0, 1, 20, [new(MinionKeywordKind.Guard)]) { Tags = ["beast", "mechanical", "firearm"] },
         new MinionCardDefinition(Other, CardSource.Test, Profession.Neutral, 0, 2, 20, []),
         new FieldCardDefinition(Field, CardSource.Test, Profession.Neutral, 0, new FiniteFieldLifetimeDefinition(3), false)]));
 
@@ -217,7 +217,7 @@ public sealed class P8ContentTests
     {
         // Keep the original draw fixture stable and add only the card under test.
         // A content catalog can grow beyond the protocol's 256-card deck limit.
-        var cards = Rules.Cards.Where(card => card.Profession != Profession.Soulweaver || card.Id == include).ToArray();
+        var cards = Rules.Cards.Where(card => card.Profession != Profession.Parse("Soulweaver") || card.Id == include).ToArray();
         var protocol = CompiledGameProtocol.Compile(GameProtocolDefinition.DefaultV0 with
         {
             RequiredDeckSize = cards.Length,

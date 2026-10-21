@@ -1,9 +1,0 @@
-{
-  "schema": "eota.experimental-content/v1",
-  "designStatus": "experimental",
-  "balanceValidated": false,
-  "count": 282,
-  "ruleHash": "13724f9d7dde6b7d3362883b3863c3f37b86d9d1411f16defe902453d9fda5ed",
-  "canonicalVersion": 6,
-  "presentationHash": "0fc8900e9c7452c6e42ab7ff07f7eb792c50bdf1085be6dac818085c7b61322a"
-}

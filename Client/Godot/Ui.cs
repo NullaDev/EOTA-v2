@@ -20,13 +20,17 @@ internal static class Ui
     }
     public static Texture2D Texture(string path)
     {
+        if (path == Eota.Content.Compiler.PackageAssets.Placeholder) { path = "res://Client/Assets/card-placeholder.svg"; }
+        if (path.StartsWith("res://pack://", StringComparison.Ordinal)) { path = path[6..]; }
+        if (path.StartsWith("pack://", StringComparison.Ordinal)) { path = _catalog!.ResolveTexture(path); }
+        if (!Path.IsPathRooted(path) && !path.Contains("://", StringComparison.Ordinal)) { path = "res://" + path; }
         if (Textures.TryGetValue(path, out var cached)) { return cached; }
         Texture2D texture;
         var absolutePath = ProjectSettings.GlobalizePath(path);
         // Content generation rewrites these PNGs outside Godot's importer. During
         // development, prefer the current source file over a stale imported .ctex.
         // Exported builds fall back to ResourceLoader when no loose file exists.
-        if (path.StartsWith("res://Content/Generated/", StringComparison.Ordinal) && File.Exists(absolutePath))
+        if (File.Exists(absolutePath))
         {
             using var image = Image.LoadFromFile(absolutePath);
             if (image.IsEmpty()) { throw new IOException("Unable to load generated texture: " + path); }
@@ -48,7 +52,7 @@ internal static class Ui
         foreach (var texture in Textures.Values) { texture.Dispose(); }
         Textures.Clear();
     }
-    // Tokens mirror Docs/UIGuideline.zh-CN.md and Client/Godot/GameTheme.tres.
+    // Tokens mirror .local/Docs/UIGuideline.zh-CN.md and Client/Godot/GameTheme.tres.
     public static readonly Color Background = new("171d1b");
     public static readonly Color Surface = new("222625");
     public static readonly Color SurfaceRaised = new("2b302d");
@@ -92,13 +96,20 @@ internal static class Ui
     }
     public static TextureRect Icon(string id, int size = 26) => new()
     {
-        Texture = Texture($"res://Content/Generated/Icons/{id}.png"),
+        Texture = Texture($"res://Client/Assets/Icons/{id}.png"),
         ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize,
         StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered,
         CustomMinimumSize = new Vector2(size, size),
         MouseFilter = Control.MouseFilterEnum.Ignore
     };
-    public static string Profession(string value) => value switch { "Guardian" => "守卫", "Arcanist" => "奥术师", "Artisan" => "工匠", "Hunter" => "猎人", "Soulweaver" => "灵魂使", _ => "中立" };
+    private static Eota.Client.Desktop.DesktopCatalog? _catalog;
+    public static void UseCatalog(Eota.Client.Desktop.DesktopCatalog catalog)
+    {
+        foreach (var texture in Textures.Values) { texture.Dispose(); }
+        Textures.Clear(); _catalog = catalog;
+    }
+    public static Eota.Content.Compiler.ContentProfession? ProfessionInfo(string value) => _catalog?.Professions.FirstOrDefault(p => string.Equals(p.Id, value, StringComparison.OrdinalIgnoreCase));
+    public static string Profession(string value) => ProfessionInfo(value)?.Name ?? value;
     public static string Reason(string code) => code switch
     {
         "None" => "可以放置",

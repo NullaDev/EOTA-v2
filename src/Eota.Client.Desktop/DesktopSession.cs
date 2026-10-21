@@ -30,7 +30,7 @@ public sealed partial class DesktopSession : IAsyncDisposable
     {
         ArgumentNullException.ThrowIfNull(room);
         var description = room.Description ?? throw new InvalidOperationException("请先核对房间协议。");
-        var owned = new DesktopRoomClient(room.Invitation);
+        var owned = new DesktopRoomClient(room.Invitation, room.ContentPacks);
         try
         {
             var inspected = await owned.InspectAsync(token).ConfigureAwait(false);
@@ -47,6 +47,7 @@ public sealed partial class DesktopSession : IAsyncDisposable
     public static async Task<DesktopSession> LocalAsync(DesktopCatalog catalog, DesktopDeck one, DesktopDeck two, LocalMatchSettings settings)
     {
         ArgumentNullException.ThrowIfNull(catalog);
+        catalog.RequireAvailableDeck(one); catalog.RequireAvailableDeck(two);
         var request = catalog.CreateRequest(one, two, settings);
         var actor = new MatchActor("local", request);
         var clients = new List<GameClient>();

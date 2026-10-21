@@ -4,7 +4,7 @@ namespace Eota.Client.Desktop;
 
 public sealed class DesktopDeckDraft
 {
-    private readonly DesktopCatalog _catalog;
+    private DesktopCatalog _catalog;
     private readonly Dictionary<string, int> _copies = new(StringComparer.Ordinal);
     public string Profession { get; }
     public string Name { get; set; } = "我的牌组";
@@ -17,21 +17,26 @@ public sealed class DesktopDeckDraft
     }
     public void UseProtocol(DesktopProtocol protocol)
     { Protocol = protocol; Pool = _catalog.ConstructibleCards(Profession, protocol); }
+    public void UseCatalog(DesktopCatalog catalog)
+    { _catalog = catalog; Pool = catalog.ConstructibleCards(Profession, Protocol); }
     public int Count => _copies.Values.Sum();
     public int Copies(string id) => _copies.GetValueOrDefault(id);
     public bool Add(string id)
     {
+        _catalog.RequireAvailableDeck(Build());
         if (!Pool.Any(card => card.Id == id) || Count >= Protocol.RequiredDeckSize || Copies(id) >= Protocol.MaxCopies) { return false; }
         _copies[id] = Copies(id) + 1; return true;
     }
     public void Remove(string id)
     {
+        _catalog.RequireAvailableDeck(Build());
         if (Copies(id) <= 1) { _copies.Remove(id); }
         else { _copies[id]--; }
     }
-    public void Clear() => _copies.Clear();
+    public void Clear() { _catalog.RequireAvailableDeck(Build()); _copies.Clear(); }
     public void Load(DesktopDeck deck)
     {
+        _catalog.RequireAvailableDeck(deck);
         if (deck.Profession != Profession || deck.Cards.Any(entry => string.IsNullOrEmpty(entry.Id)
             || entry.Copies is < 1 or > 256) || deck.Cards.Sum(entry => entry.Copies) > 256
             || deck.Cards.Select(entry => entry.Id).Distinct(StringComparer.Ordinal).Count() != deck.Cards.Length)

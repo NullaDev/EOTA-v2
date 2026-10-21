@@ -78,39 +78,57 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Godot solution creation failed.' }
     dotnet sln (Join-Path $stagingDirectory 'Eota.Godot.sln') add (Join-Path $stagingDirectory 'Eota.Godot.csproj')
     if ($LASTEXITCODE -ne 0) { throw 'Godot project registration failed.' }
-    $generatedDirectory = Join-Path $stagingDirectory 'Content/Generated'
     $compiledDirectory = Join-Path $workDirectory 'compiled-content'
     dotnet run --project (Join-Path $PSScriptRoot 'Eota.ContentCli') -c Release -- build $repositoryRoot $compiledDirectory
     if ($LASTEXITCODE -ne 0) { throw 'Content compilation failed.' }
-    New-Item -ItemType Directory -Path $generatedDirectory -Force | Out-Null
-    Get-ChildItem -LiteralPath $compiledDirectory -File | Copy-Item -Destination $generatedDirectory
-    foreach ($folder in 'Art', 'Icons') {
-        $destination = Join-Path $generatedDirectory $folder
-        New-Item -ItemType Directory -Path $destination -Force | Out-Null
-        Get-ChildItem -LiteralPath (Join-Path $repositoryRoot "Content/Generated/$folder") -Filter '*.png' -File | Copy-Item -Destination $destination
-    }
-    $cards = Get-Content -LiteralPath (Join-Path $generatedDirectory 'cards.sources.json') -Raw -Encoding UTF8 | ConvertFrom-Json
-    foreach ($card in $cards) {
-        if (!(Test-Path -LiteralPath (Join-Path $stagingDirectory $card.texturePath))) { throw "Missing card art: $($card.id)" }
-    }
+    dotnet run --project (Join-Path $PSScriptRoot 'Eota.ContentCli') -c Release --no-build -- build-pack (Join-Path $repositoryRoot 'Content/Packs/tutorial')
+    if ($LASTEXITCODE -ne 0) { throw 'Tutorial compilation failed.' }
+    # Content remains loose and removable. No package definitions or card art enter the PCK.
 
     Invoke-Godot @('--headless', '--path', $stagingDirectory, '--editor', '--import', '--log-file', (Join-Path $workDirectory 'import.log')) 'import'
     Invoke-Godot @('--headless', '--path', $stagingDirectory, '--export-release', 'Windows Desktop', (Join-Path $packageDirectory 'EOTA.exe'), '--log-file', (Join-Path $workDirectory 'export.log')) 'export'
     dotnet publish (Join-Path $repositoryRoot 'src/Eota.Server.Host/Eota.Server.Host.csproj') -c Release -r win-x64 --self-contained true -p:DebugType=None -p:DebugSymbols=false -o (Join-Path $packageDirectory 'Server/win-x64') --verbosity minimal
     if ($LASTEXITCODE -ne 0) { throw 'Server publish failed.' }
 
-    # DesktopCatalog and the managed server use System.IO for these files.
-    $contentDirectory = Join-Path $packageDirectory 'Content/Generated'
-    New-Item -ItemType Directory -Path $contentDirectory -Force | Out-Null
-    Get-ChildItem -LiteralPath $generatedDirectory -File | Where-Object { $_.Extension -in '.json', '.bin', '.md' } | Copy-Item -Destination $contentDirectory
-    foreach ($folder in 'Art', 'Icons') {
-        $destination = Join-Path $contentDirectory $folder
-        New-Item -ItemType Directory -Path $destination -Force | Out-Null
-        Get-ChildItem -LiteralPath (Join-Path $generatedDirectory $folder) -Filter '*.png' -File | Copy-Item -Destination $destination
+    # Ship precisely the declared packages; authored sources accompany each portable package.
+    $shippedPacks = @()
+    foreach ($id in 'standard', 'tutorial') {
+        $source = Join-Path $repositoryRoot "Content/Packs/$id"
+        $destination = Join-Path $packageDirectory "Content/Packs/$id"
+        New-Item -ItemType Directory -Path (Join-Path $destination 'Generated') -Force | Out-Null
+        foreach ($file in Get-ChildItem -LiteralPath $source -Recurse -File) {
+            $relative = $file.FullName.Substring($source.Length + 1)
+            if ($relative -match '\.(import|uid)$' -or $file.Name -eq '.gdignore') { continue }
+            if ($relative.StartsWith('Generated')) { continue }
+            $target = Join-Path $destination $relative
+            New-Item -ItemType Directory -Path (Split-Path -Parent $target) -Force | Out-Null
+            Copy-Item -LiteralPath $file.FullName -Destination $target
+        }
+        $json = if ($id -eq 'standard') { Join-Path $compiledDirectory 'standard.eotapack.json' } else { Join-Path $source 'Generated/tutorial.eotapack.json' }
+        $pack = Get-Content -LiteralPath $json -Raw -Encoding UTF8 | ConvertFrom-Json
+        if ($pack.id -ne $id -or $pack.schemaVersion -ne 'eota.content-pack/v3') { throw "Invalid shipped package: $id" }
+        Copy-Item -LiteralPath $json -Destination (Join-Path $destination "Generated/$id.eotapack.json")
+        foreach ($asset in $pack.assets.PSObject.Properties) {
+            $assetSource = Join-Path $source ("Generated/" + $asset.Name)
+            if ((Get-FileHash -LiteralPath $assetSource -Algorithm SHA256).Hash.ToLowerInvariant() -ne $asset.Value) { throw "Resource hash mismatch: $id/$($asset.Name)" }
+            $target = Join-Path $destination ("Generated/" + $asset.Name)
+            New-Item -ItemType Directory -Path (Split-Path -Parent $target) -Force | Out-Null
+            Copy-Item -LiteralPath $assetSource -Destination $target
+        }
+        $shippedPacks += [ordered]@{ id = $pack.id; version = $pack.version; hash = $pack.hash; cards = $pack.cards.Count; professions = $pack.professions.Count; enabledByDefault = ($id -eq 'standard') }
     }
-    Copy-Item -LiteralPath (Join-Path $repositoryRoot 'Docs') -Destination (Join-Path $packageDirectory 'Docs') -Recurse
-    Copy-Item -LiteralPath (Join-Path $generatedDirectory 'CardTable.zh-CN.md') -Destination (Join-Path $packageDirectory 'Docs/CardTable.zh-CN.md')
-    Copy-Item -LiteralPath (Join-Path $repositoryRoot 'Docs/Release-Readme.zh-CN.md') -Destination (Join-Path $packageDirectory 'README.zh-CN.md')
+    Copy-Item -LiteralPath (Join-Path $repositoryRoot 'Content/default-selection.json') -Destination (Join-Path $packageDirectory 'Content/default-selection.json')
+    foreach ($directory in 'Docs', 'Media', 'Config') {
+        $source = Join-Path $repositoryRoot $directory
+        foreach ($file in Get-ChildItem -LiteralPath $source -Recurse -File) {
+            if ($file.Extension -in '.import', '.uid' -or $file.Name -eq '.gdignore') { continue }
+            $target = Join-Path $packageDirectory ($file.FullName.Substring($repositoryRoot.Length + 1))
+            New-Item -ItemType Directory -Path (Split-Path -Parent $target) -Force | Out-Null
+            Copy-Item -LiteralPath $file.FullName -Destination $target
+        }
+    }
+    Copy-Item -LiteralPath (Join-Path $compiledDirectory 'CardTable.zh-CN.md') -Destination (Join-Path $packageDirectory 'Docs/Players/CardTable.zh-CN.md')
+    Copy-Item -LiteralPath (Join-Path $repositoryRoot 'Docs/Players/Release-Readme.zh-CN.md') -Destination (Join-Path $packageDirectory 'README.zh-CN.md')
     Copy-Item -LiteralPath (Join-Path $repositoryRoot 'LICENSE') -Destination (Join-Path $packageDirectory 'LICENSE')
 
     # Obtain the exact engine and bundled third-party notices from this engine.
@@ -127,7 +145,7 @@ func _initialize():
 '@ | Set-Content -LiteralPath $noticeScript -Encoding UTF8
     Invoke-Godot @('--headless', '--path', $stagingDirectory, '--script', $noticeScript, '--', (Join-Path $packageDirectory 'Docs/Godot-LICENSES.txt')) 'licenses'
 
-    $contentManifest = Get-Content -LiteralPath (Join-Path $contentDirectory 'manifest.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+    $contentManifest = Get-Content -LiteralPath (Join-Path $compiledDirectory 'manifest.json') -Raw -Encoding UTF8 | ConvertFrom-Json
     [ordered]@{
         version = $Version
         platform = 'windows-x86_64'
@@ -136,9 +154,10 @@ func _initialize():
         builtAtUtc = [DateTime]::UtcNow.ToString('o')
         cards = $contentManifest.count
         ruleHash = $contentManifest.ruleHash
+        contentPacks = $shippedPacks
         selfContained = $true
-    } | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $packageDirectory 'release-manifest.json') -Encoding UTF8
-    foreach ($required in 'EOTA.exe', 'EOTA.pck', 'Server/win-x64/Eota.Server.Host.exe', 'Server/win-x64/coreclr.dll', 'Docs/Godot-LICENSES.txt', 'LICENSE') {
+    } | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath (Join-Path $packageDirectory 'release-manifest.json') -Encoding UTF8
+    foreach ($required in 'EOTA.exe', 'EOTA.pck', 'Server/win-x64/Eota.Server.Host.exe', 'Server/win-x64/coreclr.dll', 'Content/Packs/standard/Generated/standard.eotapack.json', 'Content/Packs/tutorial/Generated/tutorial.eotapack.json', 'Content/default-selection.json', 'Docs/Godot-LICENSES.txt', 'LICENSE') {
         if (!(Test-Path -LiteralPath (Join-Path $packageDirectory $required))) { throw "Missing release file: $required" }
     }
     if (!(Get-ChildItem -LiteralPath $packageDirectory -Directory -Filter 'data_*' | Where-Object { Test-Path -LiteralPath (Join-Path $_.FullName 'coreclr.dll') })) {

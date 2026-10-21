@@ -18,16 +18,6 @@ public enum CardSource
     Test = 3
 }
 
-public enum Profession
-{
-    Neutral = 0,
-    Arcanist = 1,
-    Guardian = 2,
-    Hunter = 3,
-    Artisan = 4,
-    Soulweaver = 5
-}
-
 public enum SpellSpeed
 {
     Fast = 1,

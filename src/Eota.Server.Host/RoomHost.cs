@@ -68,6 +68,8 @@ internal static class RoomHost
             var settings = context.Request.Headers[RoomTiming.SettingsHashHeader].ToString();
             if (settings != description.RoomSettingsHash)
             { context.Response.StatusCode = 412; return; }
+            if (context.Request.Headers[RoomContentPacks.HashHeader].ToString() != RoomContentPacks.Hash(description.ContentPacks))
+            { context.Response.StatusCode = 409; return; }
             if (room.Actor is not { } actor) { context.Response.StatusCode = 425; return; }
             await WebSocketMatchEndpoint.HandleAsync(context, actor, audience.Value).ConfigureAwait(false);
         }).RequireRateLimiting("room");

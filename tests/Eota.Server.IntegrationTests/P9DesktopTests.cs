@@ -46,7 +46,7 @@ public sealed class P9DesktopTests
         var directory = Path.Combine(Fixture.Root, "artifacts", "P9DesktopAcceptance");
         await local.SaveReplayAsync(directory);
         await using var host = await Host.Program.BuildAsync(["--urls", "http://127.0.0.1:0", "--fixture", directory,
-            "--cards", Path.Combine(Fixture.Root, "Content", "Source", "Cards"), "--seed", "146", "--Logging:LogLevel:Default", "Warning"]);
+            "--cards", Path.Combine(Fixture.Root, "Content", "Packs", "standard", "Source", "Cards"), "--seed", "146", "--Logging:LogLevel:Default", "Warning"]);
         await host.StartAsync();
         var address = new Uri(host.Urls.Single());
         Uri Endpoint(string seat) => new UriBuilder(address) { Scheme = "ws", Path = "/matches/p4-demo/ws", Query = "audience=" + seat }.Uri;

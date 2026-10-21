@@ -115,8 +115,8 @@ public sealed class P10TimeoutTests
         await using var fixture = await P10Room.StartAsync(new RoomTiming(30, 60));
         using var one = fixture.Client("playerOne", 0); using var two = fixture.Client("playerTwo", 1);
         var description = await one.InspectAsync(); await two.InspectAsync();
-        var admission = new RoomAdmission(1, fixture.Catalog.RuleHash, description.ProtocolHash, DesktopRoomClient.ToRoomDeck(fixture.Catalog.DefaultDeck("Guardian")),
-            null!, fixture.Catalog.CardRules);
+        var admission = new RoomAdmission(2, fixture.Catalog.RuleHash, description.ProtocolHash, DesktopRoomClient.ToRoomDeck(fixture.Catalog.DefaultDeck("Guardian")),
+            null!, fixture.Catalog.CardRules, fixture.Catalog.ContentPacks);
         await Assert.ThrowsAsync<InvalidDataException>(() => fixture.Room.AdmitAsync(Audience.PlayerOne, admission));
         await Assert.ThrowsAsync<InvalidDataException>(() => fixture.Room.AdmitAsync(Audience.PlayerOne, admission with { RoomSettingsHash = new string('0', 64) }));
         await one.ReadyAsync(fixture.Catalog.DefaultDeck("Guardian"), fixture.Catalog);
@@ -168,14 +168,14 @@ public sealed class P10TimeoutTests
         public static async Task<TimedRoom> CreateAsync()
         {
             var result = new TimedRoom(); System.IO.Directory.CreateDirectory(result.Directory);
-            var config = new HostedRoomConfiguration(1, "clock-test", "限时对局", 146, result.Catalog.RuleHash, DesktopProtocol.Default.Json,
-                new DesktopContentEditor(result.Catalog).Export().Cards, new string('1', 64), new string('2', 64), new string('3', 64), Timing: new RoomTiming(5, 5));
+            var config = new HostedRoomConfiguration(2, "clock-test", "限时对局", 146, result.Catalog.RuleHash, DesktopProtocol.Default.Json,
+                new DesktopContentEditor(result.Catalog).Export().Cards, new string('1', 64), new string('2', 64), new string('3', 64), Timing: new RoomTiming(5, 5), ContentPackages: [.. result.Catalog.Packages]);
             File.WriteAllText(result.Configuration, JsonSerializer.Serialize(config)); result.Room = new HostedRoom(result.Configuration, result.Clock);
             foreach (var (seat, profession) in new[] { (Audience.PlayerOne, "Guardian"), (Audience.PlayerTwo, "Hunter") })
             {
                 var info = await result.Room.DescribeAsync(seat);
-                await result.Room.AdmitAsync(seat, new RoomAdmission(1, info.RuleContentHash, info.ProtocolHash,
-                    DesktopRoomClient.ToRoomDeck(result.Catalog.DefaultDeck(profession)), info.RoomSettingsHash, result.Catalog.CardRules));
+                await result.Room.AdmitAsync(seat, new RoomAdmission(2, info.RuleContentHash, info.ProtocolHash,
+                    DesktopRoomClient.ToRoomDeck(result.Catalog.DefaultDeck(profession)), info.RoomSettingsHash, result.Catalog.CardRules, result.Catalog.ContentPacks));
             }
             await result.Room.TickAsync(); return result;
         }

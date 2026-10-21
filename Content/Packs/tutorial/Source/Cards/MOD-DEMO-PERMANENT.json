@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "kind": "field",
+  "id": "MOD-DEMO-PERMANENT",
+  "source": "core",
+  "profession": "wayfarer",
+  "cost": 4,
+  "nameLocalizationKey": "card.MOD-DEMO-PERMANENT.name",
+  "descriptionLocalizationKey": "card.MOD-DEMO-PERMANENT.description",
+  "texturePath": "pack://tutorial/Art/MOD-DEMO-PERMANENT.png",
+  "lifetime": {
+    "kind": "permanent"
+  },
+  "preventsActiveAttacksInLane": false,
+  "effects": [
+    {
+      "id": "protect-ether",
+      "trigger": {
+        "kind": "turnEnd"
+      },
+      "body": {
+        "kind": "preventEtherDecay",
+        "target": {
+          "kind": "friendlyLanes"
+        }
+      }
+    }
+  ]
+}

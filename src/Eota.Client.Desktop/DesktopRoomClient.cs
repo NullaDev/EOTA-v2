@@ -1,4 +1,5 @@
 using System.Net.Http.Headers;
+using System.Collections.Immutable;
 using System.Text;
 using Eota.Client.Core;
 using Eota.Client.Transport.WebSocket;
@@ -16,9 +17,11 @@ public sealed class DesktopRoomClient : IDisposable
     public string MatchId { get; }
     public bool IsSpectator => Endpoint.Query == "?audience=spectator";
     public RoomDescription? Description { get; private set; }
+    public ImmutableArray<RoomContentPack> ContentPacks { get; private set; }
 
-    public DesktopRoomClient(Uri invitation)
+    public DesktopRoomClient(Uri invitation, ImmutableArray<RoomContentPack> contentPacks = default)
     {
+        ContentPacks = contentPacks;
         ArgumentNullException.ThrowIfNull(invitation);
         Invitation = invitation;
         var parts = invitation.AbsolutePath.Split('/', StringSplitOptions.RemoveEmptyEntries);
@@ -42,13 +45,15 @@ public sealed class DesktopRoomClient : IDisposable
 
     private void ValidateDescription(RoomDescription next)
     {
-        if (next.Version != 1 || next.MatchId != MatchId) { throw new InvalidDataException("房间版本或标识不兼容。"); }
+        if (next.Version != 2 || next.MatchId != MatchId) { throw new InvalidDataException("房间版本或标识不兼容，请双方更新客户端。"); }
+        RoomContentPacks.Validate(next.ContentPacks);
+        if (!ContentPacks.IsDefault) { RoomContentPacks.RequireMatch(next.ContentPacks, ContentPacks); }
         if (!MatchHandshake.IsRuleContentHash(next.RuleContentHash)) { throw new InvalidDataException("房间规则指纹无效。"); }
         if (DesktopProtocol.Compile(next.ProtocolJson).Hash.ToString() != next.ProtocolHash) { throw new InvalidDataException("房间协议校验失败。"); }
         if (next.Timing is null || next.Timing.ComputeHash(next.RuleContentHash, next.ProtocolHash) != next.RoomSettingsHash)
         { throw new InvalidDataException("房间时限设置校验失败。"); }
         if (Description is { } previous && (previous.RuleContentHash != next.RuleContentHash || previous.ProtocolHash != next.ProtocolHash
-            || previous.RoomSettingsHash != next.RoomSettingsHash))
+            || previous.RoomSettingsHash != next.RoomSettingsHash || RoomContentPacks.Hash(previous.ContentPacks) != RoomContentPacks.Hash(next.ContentPacks)))
         { throw new InvalidDataException("房间协议或时限已改变，请重新核对房间。"); }
     }
 
@@ -56,8 +61,11 @@ public sealed class DesktopRoomClient : IDisposable
     {
         ArgumentNullException.ThrowIfNull(deck);
         ArgumentNullException.ThrowIfNull(catalog);
+        catalog.RequireAvailableDeck(deck);
         var description = Description ?? throw new InvalidOperationException("请先核对房间协议。");
-        var admission = new RoomAdmission(1, catalog.RuleHash, description.ProtocolHash, ToRoomDeck(deck), description.RoomSettingsHash, catalog.CardRules);
+        ContentPacks = catalog.ContentPacks;
+        RoomContentPacks.RequireMatch(description.ContentPacks, ContentPacks);
+        var admission = new RoomAdmission(2, catalog.RuleHash, description.ProtocolHash, ToRoomDeck(deck), description.RoomSettingsHash, catalog.CardRules, ContentPacks);
         using var content = new StringContent(ContractJson.Serialize(admission), Encoding.UTF8, "application/json");
         using var response = await _http.PostAsync(Address("ready"), content, token).ConfigureAwait(false);
         var next = await ReadAsync(response, token).ConfigureAwait(false); ValidateDescription(next);
@@ -69,8 +77,9 @@ public sealed class DesktopRoomClient : IDisposable
     public async Task<GameClient> ConnectAsync(CancellationToken token = default)
     {
         var description = Description ?? throw new InvalidOperationException("请先核对房间协议。");
-        var client = new GameClient(await WebSocketGameTransport.ConnectAuthenticatedAsync(Endpoint, MatchId, description.RuleContentHash,
-            description.ProtocolHash, _credential, description.RoomSettingsHash, token).ConfigureAwait(false));
+        RoomContentPacks.RequireMatch(description.ContentPacks, ContentPacks);
+        var client = new GameClient(await WebSocketGameTransport.ConnectWithContentAsync(Endpoint, MatchId, description.RuleContentHash,
+            description.ProtocolHash, _credential, description.RoomSettingsHash, RoomContentPacks.Hash(ContentPacks), token).ConfigureAwait(false));
         try
         {
             await client.SynchronizeAsync(token).ConfigureAwait(false);

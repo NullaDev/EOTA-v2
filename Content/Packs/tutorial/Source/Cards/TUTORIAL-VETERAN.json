@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "TUTORIAL-VETERAN",
+  "source": "core",
+  "profession": "wayfarer",
+  "kind": "minion",
+  "cost": 6,
+  "attack": 6,
+  "health": 7,
+  "keywords": [],
+  "effects": [],
+  "nameLocalizationKey": "card.TUTORIAL-VETERAN.name",
+  "descriptionLocalizationKey": "card.TUTORIAL-VETERAN.description",
+  "texturePath": "pack://tutorial/Art/TUTORIAL-VETERAN.png"
+}

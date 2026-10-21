@@ -33,7 +33,7 @@ public partial class SlowIconStrip : Control
         var scroll = GetParent<ScrollContainer>();
         var first = Math.Max(0, scroll.ScrollHorizontal / 26);
         var end = Math.Min(Count, first + (int)Math.Ceiling(scroll.Size.X / 26) + 1);
-        var texture = Ui.Texture("res://Content/Generated/Icons/slow-minion.png");
+        var texture = Ui.Texture("res://Client/Assets/Icons/slow-minion.png");
         DrawRect(new Rect2(first * 26, 0, (end - first) * 26, 26), new Color(0.05f, 0.08f, 0.06f, 0.72f));
         for (var index = first; index < end; index++)
         {

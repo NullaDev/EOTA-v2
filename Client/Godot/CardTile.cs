@@ -62,7 +62,7 @@ public partial class CardTile : Panel
         tile.Prototype = prototype;
         tile.GetNode<Label>("Name").Text = prototype.Name;
         tile.GetNode<Label>("Description").Text = prototype.Description;
-        tile.GetNode<TextureRect>("ArtFrame/Art").Texture = Ui.Texture("res://" + prototype.TexturePath);
+        tile.GetNode<TextureRect>("ArtFrame/Art").Texture = Ui.Texture(prototype.TexturePath);
         tile.GetNode<Label>("CostBox/Value").Text = prototype.Cost.ToString();
         tile.GetNode<Control>("AttackBox").Visible = prototype.Kind == "Minion";
         tile.GetNode<Control>("HealthBox").Visible = prototype.Kind == "Minion" || prototype.Durability is not null;

@@ -24,8 +24,18 @@ public partial class GameApp
         {
             var title = $"{(deck.Name == deck.Profession ? "默认牌组" : deck.Name)} · {Ui.Profession(deck.Profession)}";
             one.AddItem(title); deckChoice.AddItem(title);
+            var missing = _catalog.MissingContent(deck);
+            if (!missing.IsEmpty)
+            {
+                foreach (var choice in new[] { one, deckChoice })
+                {
+                    choice.SetItemText(choice.ItemCount - 1, title + " · 缺少内容");
+                    choice.SetItemDisabled(choice.ItemCount - 1, true);
+                    choice.SetItemTooltip(choice.ItemCount - 1, "牌组已保留。缺少：" + string.Join("、", missing));
+                }
+            }
         }
-        one.Select(0); deckChoice.Select(Math.Min(_remoteDeck, _decks.Count - 1));
+        one.Select(_decks.Count > 0 ? 0 : -1); deckChoice.Select(Math.Min(_remoteDeck, _decks.Count - 1));
         var summary = host.GetNode<Label>("ProtocolSummary"); summary.Text = _protocol.Summary; summaries.Add(summary);
         host.GetNode<Button>("Protocol").Pressed += () => { _setupTab = 2; tabs.CurrentTab = 5; };
         var address = remote.GetNode<LineEdit>("Address"); address.Text = _invitationText;
@@ -40,6 +50,12 @@ public partial class GameApp
             var rows = protocolReview.GetNode<VBoxContainer>("Scroll/Rows"); Ui.Clear(rows);
             var timingRow = Ui.Instantiate<HBoxContainer>("RoomProtocolRow"); rows.AddChild(timingRow);
             timingRow.GetNode<Label>("Label").Text = "提交时限"; timingRow.GetNode<Label>("Value").Text = TimingSummary(room.Timing);
+            foreach (var pack in room.ContentPacks)
+            {
+                var row = Ui.Instantiate<HBoxContainer>("RoomProtocolRow"); rows.AddChild(row);
+                row.GetNode<Label>("Label").Text = pack.Id;
+                row.GetNode<Label>("Value").Text = pack.Version; row.TooltipText = pack.Hash;
+            }
             foreach (var field in DesktopProtocol.Parse(room.ProtocolJson).Fields.Where(f => f.Group != "版本与结算限制"))
             {
                 var row = Ui.Instantiate<HBoxContainer>("RoomProtocolRow"); rows.AddChild(row);
@@ -55,13 +71,13 @@ public partial class GameApp
         connect.Pressed += () => Run(async () =>
         {
             ready.Disabled = true; remote.GetNode<Button>("ProtocolReview").Disabled = true;
-            _roomClient?.Dispose(); _roomClient = new DesktopRoomClient(new Uri(address.Text.Trim()));
+            _roomClient?.Dispose(); _roomClient = new DesktopRoomClient(new Uri(address.Text.Trim()), _catalog.ContentPacks);
             var room = await _roomClient.InspectAsync();
             var protocol = DesktopProtocol.Parse(room.ProtocolJson);
             remote.GetNode<Button>("ProtocolReview").Disabled = false;
             var preview = remote.GetNode<Label>("Compatibility");
-            preview.Text = $"{room.Name} · {_roomClient.Endpoint.Host}:{_roomClient.Endpoint.Port} · 准备时核对双方牌组规则\n{protocol.Summary}\n{TimingSummary(room.Timing)}\n玩家一：{(room.PlayerOneReady ? "已确认" : "待确认")}　玩家二：{(room.PlayerTwoReady ? "已确认" : "待确认")}";
-            preview.TooltipText = $"卡牌规则：{room.RuleContentHash}\n对战协议：{room.ProtocolHash}";
+            preview.Text = $"{room.Name} · {_roomClient.Endpoint.Host}:{_roomClient.Endpoint.Port} · {room.ContentPacks.Length} 个内容包一致\n{protocol.Summary}\n{TimingSummary(room.Timing)}\n玩家一：{(room.PlayerOneReady ? "已确认" : "待确认")}　玩家二：{(room.PlayerTwoReady ? "已确认" : "待确认")}";
+            preview.TooltipText = string.Join('\n', room.ContentPacks.Select(p => $"{p.Id} {p.Version} · {p.Hash}"));
             ready.Text = _roomClient.IsSpectator ? "加入观战" : "确认协议与牌组"; ready.Disabled = false;
             deckChoice.Disabled = _roomClient.IsSpectator;
             if (room.SuggestedDeck is { } suggested)
@@ -101,6 +117,7 @@ public partial class GameApp
         void Launch(bool resume) => Run(async () =>
         {
             if (!int.TryParse(host.GetNode<LineEdit>("Port").Text, out var port)) { throw new InvalidDataException("请输入有效端口。"); }
+            if (!resume) { _catalog.RequireAvailableDeck(_decks[one.Selected]); }
             _status.Text = "正在启动服务器…";
             var result = await _serverLauncher.StartAsync(new LocalServerOptions(host.GetNode<LineEdit>("MatchName").Text, port,
                 host.GetNode<CheckBox>("Lan").ButtonPressed, _catalog, _decks[one.Selected], null, _protocol.Json, Resume: resume,

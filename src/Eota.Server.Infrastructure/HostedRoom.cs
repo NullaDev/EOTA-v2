@@ -13,7 +13,7 @@ namespace Eota.Server.Infrastructure;
 
 public sealed record HostedRoomConfiguration(int Version, string MatchId, string Name, ulong Seed, string RuleContentHash,
     string ProtocolJson, JsonElement[] Cards, string PlayerOneCredentialHash, string PlayerTwoCredentialHash, string SpectatorCredentialHash,
-    RoomDeck? PlayerOneDeck = null, RoomDeck? PlayerTwoDeck = null, RoomTiming? Timing = null);
+    RoomDeck? PlayerOneDeck = null, RoomDeck? PlayerTwoDeck = null, RoomTiming? Timing = null, ContentPackage[]? ContentPackages = null);
 public sealed record LockedRoomDecks(RoomAdmission? One, RoomAdmission? Two);
 
 // Admission carries deck IDs and rule fingerprints, never executable card definitions.
@@ -38,16 +38,19 @@ public sealed partial class HostedRoom : IAsyncDisposable
     public HostedRoom(string configurationPath, TimeProvider? timeProvider = null)
     {
         _time = timeProvider ?? TimeProvider.System;
-        if (new FileInfo(configurationPath).Length > 8 * 1024 * 1024) { throw new InvalidDataException("room-config-too-large"); }
+        if (new FileInfo(configurationPath).Length > 32 * 1024 * 1024) { throw new InvalidDataException("room-config-too-large"); }
         _directory = Path.GetDirectoryName(Path.GetFullPath(configurationPath))!;
         _config = JsonSerializer.Deserialize<HostedRoomConfiguration>(File.ReadAllText(configurationPath)) ?? throw new InvalidDataException("invalid-room");
-        if (_config.Version != 1 || _config.Name is not { Length: > 0 and <= 80 } || !CardPrototypeId.TryParse(_config.MatchId, out _)
+        if (_config.Version != 2 || _config.ContentPackages is not { Length: > 0 and <= 128 }
+            || _config.Name is not { Length: > 0 and <= 80 } || !CardPrototypeId.TryParse(_config.MatchId, out _)
             || _config.Cards is not { Length: > 0 and <= 2048 }
             || !new[] { _config.PlayerOneCredentialHash, _config.PlayerTwoCredentialHash, _config.SpectatorCredentialHash }.All(MatchHandshake.IsRuleContentHash))
         { throw new InvalidDataException("invalid-room"); }
         var content = CardContentCompiler.Compile(_config.Cards.Select((card, index) => new ContentSourceDocument(index.ToString(System.Globalization.CultureInfo.InvariantCulture), card.GetRawText())));
+        var packages = Eota.Content.Compiler.ContentPackages.Load(_config.ContentPackages);
         var protocol = ProtocolCompiler.Compile("room-protocol", _config.ProtocolJson);
-        if (!content.IsSuccess || !protocol.IsSuccess || content.Content!.Rules.Hash.ToString() != _config.RuleContentHash)
+        if (!content.IsSuccess || !protocol.IsSuccess || content.Content!.Rules.Hash.ToString() != _config.RuleContentHash
+            || packages.Content.Rules.Hash.ToString() != _config.RuleContentHash)
         { throw new InvalidDataException("room-content-invalid"); }
         _content = content.Content.Rules; _protocol = protocol.Protocol!;
         _timing = _config.Timing ?? new RoomTiming();
@@ -96,16 +99,20 @@ public sealed partial class HostedRoom : IAsyncDisposable
         finally { _gate.Release(); }
     }
 
-    private RoomDescription Describe(Audience audience) => new(1, MatchId, _config.Name, _config.RuleContentHash, _protocol.Hash.ToString(),
+    private RoomDescription Describe(Audience audience) => new(2, MatchId, _config.Name, _config.RuleContentHash, _protocol.Hash.ToString(),
         _config.ProtocolJson, _one is not null, _two is not null, Actor is not null,
         (audience == Audience.PlayerOne ? _one : audience == Audience.PlayerTwo ? _two : null) is { } own ? DeckHash(own.Deck) : null,
         audience == Audience.PlayerOne ? _one?.Deck ?? _config.PlayerOneDeck : audience == Audience.PlayerTwo ? _two?.Deck ?? _config.PlayerTwoDeck : null,
-        _timing, _settingsHash);
+        _timing, _settingsHash, [.. _config.ContentPackages!.Select(p => new RoomContentPack(p.Id, p.Version, p.Hash))]);
 
     private void Validate(RoomAdmission admission)
     {
-        if (admission.Version != 1) { throw new InvalidDataException("room-version-mismatch"); }
+        if (admission.Version != 2) { throw new InvalidDataException("room-version-mismatch"); }
+        RoomContentPacks.RequireMatch([.. _config.ContentPackages!.Select(p => new RoomContentPack(p.Id, p.Version, p.Hash))], admission.ContentPacks);
         if (!MatchHandshake.IsRuleContentHash(admission.RuleContentHash)) { throw new InvalidDataException("invalid-rule-hash"); }
+        if (admission.RuleContentHash != _config.RuleContentHash) { throw new InvalidDataException("rule-content-mismatch"); }
+        if (!_config.ContentPackages!.SelectMany(p => p.Professions).Any(p => p.Playable && p.Id == admission.Deck?.Profession))
+        { throw new InvalidDataException("missing-profession"); }
         if (admission.CardRules is null)
         { throw new InvalidDataException("rule-manifest-required"); }
         if (admission.CardRules.Count is < 1 or > 2048
@@ -135,7 +142,7 @@ public sealed partial class HostedRoom : IAsyncDisposable
 
     public static DeckDefinition ToDeck(RoomDeck deck)
     {
-        if (deck is null || !Enum.TryParse<Profession>(deck.Profession, out var profession) || !Enum.IsDefined(profession)
+        if (deck is null || !Profession.TryParse(deck.Profession, out var profession)
             || profession == Profession.Neutral || deck.Cards.IsDefaultOrEmpty || deck.Cards.Length > 256
             || deck.Cards.Any(c => c is null || c.Copies is < 1 or > 256 || !CardPrototypeId.TryParse(c.Id, out _)))
         { throw new InvalidDataException("invalid-deck"); }

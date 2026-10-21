@@ -49,7 +49,7 @@ public partial class GameApp
             foreach (var index in Enumerable.Range(0, Professions.Length))
             {
                 manager.GetNode<Button>("New").EmitSignal(BaseButton.SignalName.Pressed);
-                picker.GetNode<Button>("Panel/Professions/" + Professions[index]).EmitSignal(BaseButton.SignalName.Pressed);
+                picker.GetNode<Button>("Panel/ProfessionScroll/Professions/" + Professions[index]).EmitSignal(BaseButton.SignalName.Pressed);
                 Require(picker.Visible && picker.GetNode<Label>("Panel/Description").Text == ProfessionDescription(Professions[index]), "Profession description");
                 await CaptureInteraction("profession-" + Professions[index]);
                 if (index == 0) { await CaptureInteraction("profession-picker"); }

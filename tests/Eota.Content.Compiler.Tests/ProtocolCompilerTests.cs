@@ -30,7 +30,7 @@ public sealed class ProtocolCompilerTests
     public void CompilesCheckedInDefaultProtocol()
     {
         var root = FindRepositoryRoot();
-        var path = Path.Combine(root, "Content", "Source", "Protocols", "default-v0.json");
+        var path = Path.Combine(root, "Config", "Protocols", "default-v0.json");
 
         var result = ProtocolCompiler.Compile(path, File.ReadAllText(path, Encoding.UTF8));
 
@@ -124,7 +124,7 @@ public sealed class ProtocolCompilerTests
     }
 
     private static JsonNode DefaultDocument() => JsonNode.Parse(File.ReadAllText(
-        Path.Combine(FindRepositoryRoot(), "Content", "Source", "Protocols", "default-v0.json")))!;
+        Path.Combine(FindRepositoryRoot(), "Config", "Protocols", "default-v0.json")))!;
 
     private static string FindRepositoryRoot()
     {

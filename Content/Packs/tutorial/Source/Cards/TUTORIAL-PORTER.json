@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "TUTORIAL-PORTER",
+  "source": "core",
+  "profession": "wayfarer",
+  "kind": "minion",
+  "cost": 2,
+  "attack": 2,
+  "health": 3,
+  "keywords": [],
+  "effects": [],
+  "nameLocalizationKey": "card.TUTORIAL-PORTER.name",
+  "descriptionLocalizationKey": "card.TUTORIAL-PORTER.description",
+  "texturePath": "pack://tutorial/Art/TUTORIAL-PORTER.png"
+}

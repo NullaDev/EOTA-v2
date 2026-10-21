@@ -1,0 +1,11 @@
+[
+  {
+    "id": "Wayfarer",
+    "name": "行旅者",
+    "description": "带着地图与工具出发的行旅者。这个职业完全由 tutorial 内容包定义，以基础随从练习布阵，再通过哨兵、工坊、法术和衍生无人机学习效果编写。它不依赖 standard，可独立完成一局对战。",
+    "crest": "✧",
+    "color": "#579b96",
+    "playable": true,
+    "order": 10
+  }
+]

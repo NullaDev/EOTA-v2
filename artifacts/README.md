@@ -4,8 +4,8 @@
 
 正式输入应放在以下位置：
 
-- 卡牌、协议与美术源文件：`Content/Source/`
-- 客户端实际读取的编译内容：`Content/Generated/`
+- 卡牌、协议与美术源文件：`Content/Packs/standard/Source/`
+- 客户端实际读取的编译内容：`Content/Packs/standard/Generated/`
 - 自动化测试固定输入：`tests/Fixtures/`
 - 可重复使用的开发工具：`tools/`
 

@@ -1,0 +1,92 @@
+{
+  "MOD-DEMO-DEPLOY": {
+    "emoji": "🛠️",
+    "top": "#396968",
+    "bottom": "#1c343b",
+    "style": "card"
+  },
+  "MOD-DEMO-DRONE": {
+    "emoji": "🤖",
+    "top": "#396968",
+    "bottom": "#1c343b",
+    "style": "card"
+  },
+  "MOD-DEMO-ECHO": {
+    "emoji": "🔮",
+    "top": "#396968",
+    "bottom": "#1c343b",
+    "style": "card"
+  },
+  "MOD-DEMO-FROST": {
+    "emoji": "❄️",
+    "top": "#396968",
+    "bottom": "#1c343b",
+    "style": "card"
+  },
+  "MOD-DEMO-PERMANENT": {
+    "emoji": "💎",
+    "top": "#396968",
+    "bottom": "#1c343b",
+    "style": "card"
+  },
+  "MOD-DEMO-REPAIR": {
+    "emoji": "🔧",
+    "top": "#396968",
+    "bottom": "#1c343b",
+    "style": "card"
+  },
+  "MOD-DEMO-SENTINEL": {
+    "emoji": "🛡️",
+    "top": "#396968",
+    "bottom": "#1c343b",
+    "style": "card"
+  },
+  "MOD-DEMO-WATCHER": {
+    "emoji": "📖",
+    "top": "#396968",
+    "bottom": "#1c343b",
+    "style": "card"
+  },
+  "MOD-DEMO-WORKSHOP": {
+    "emoji": "⚙️",
+    "top": "#396968",
+    "bottom": "#1c343b",
+    "style": "card"
+  },
+  "TUTORIAL-CARTOGRAPHER": {
+    "emoji": "🗺️",
+    "top": "#396968",
+    "bottom": "#1c343b",
+    "style": "card"
+  },
+  "TUTORIAL-GUIDE": {
+    "emoji": "🧭",
+    "top": "#396968",
+    "bottom": "#1c343b",
+    "style": "card"
+  },
+  "TUTORIAL-PORTER": {
+    "emoji": "🎒",
+    "top": "#396968",
+    "bottom": "#1c343b",
+    "style": "card"
+  },
+  "TUTORIAL-SCOUT": {
+    "emoji": "🔭",
+    "top": "#396968",
+    "bottom": "#1c343b",
+    "style": "card"
+  },
+  "TUTORIAL-VANGUARD": {
+    "emoji": "🏹",
+    "top": "#396968",
+    "bottom": "#1c343b",
+    "style": "card"
+  },
+  "TUTORIAL-VETERAN": {
+    "emoji": "🏕️",
+    "top": "#396968",
+    "bottom": "#1c343b",
+    "style": "card"
+  }
+}

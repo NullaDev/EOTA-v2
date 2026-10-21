@@ -1,0 +1,64 @@
+[
+  {
+    "name": "行旅者 · 教学旅团",
+    "profession": "Wayfarer",
+    "cards": [
+      {
+        "id": "MOD-DEMO-DEPLOY",
+        "copies": 3
+      },
+      {
+        "id": "MOD-DEMO-ECHO",
+        "copies": 3
+      },
+      {
+        "id": "MOD-DEMO-FROST",
+        "copies": 3
+      },
+      {
+        "id": "MOD-DEMO-PERMANENT",
+        "copies": 3
+      },
+      {
+        "id": "MOD-DEMO-REPAIR",
+        "copies": 3
+      },
+      {
+        "id": "MOD-DEMO-SENTINEL",
+        "copies": 3
+      },
+      {
+        "id": "MOD-DEMO-WATCHER",
+        "copies": 3
+      },
+      {
+        "id": "MOD-DEMO-WORKSHOP",
+        "copies": 3
+      },
+      {
+        "id": "TUTORIAL-CARTOGRAPHER",
+        "copies": 3
+      },
+      {
+        "id": "TUTORIAL-GUIDE",
+        "copies": 3
+      },
+      {
+        "id": "TUTORIAL-PORTER",
+        "copies": 3
+      },
+      {
+        "id": "TUTORIAL-SCOUT",
+        "copies": 3
+      },
+      {
+        "id": "TUTORIAL-VANGUARD",
+        "copies": 2
+      },
+      {
+        "id": "TUTORIAL-VETERAN",
+        "copies": 2
+      }
+    ]
+  }
+]

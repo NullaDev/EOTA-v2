@@ -116,7 +116,7 @@ public sealed class FatigueTests
         var content = RuleContentPack.Create("eota.card/v2", [new MinionCardDefinition(Card, CardSource.Core, Profession.Neutral, 0, 1, 1, [])]);
         var protocol = CompiledGameProtocol.Compile(GameProtocolDefinition.DefaultV0 with
         { RequiredDeckSize = 2, OpeningHandSize = opening, HandLimit = handLimit ?? opening, DeckExhaustionPolicy = policy, InitialHeroHealth = health });
-        var deck = DeckDefinition.Create(Profession.Guardian, [new DeckEntry(Card, 2)]);
+        var deck = DeckDefinition.Create(Profession.Parse("Guardian"), [new DeckEntry(Card, 2)]);
         return MatchFactory.Create(new(protocol, content, 146, deck, deck)).State!;
     }
 }

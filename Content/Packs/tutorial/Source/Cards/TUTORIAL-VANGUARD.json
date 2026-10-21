@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "eota.card/v2",
+  "id": "TUTORIAL-VANGUARD",
+  "source": "core",
+  "profession": "wayfarer",
+  "kind": "minion",
+  "cost": 5,
+  "attack": 5,
+  "health": 6,
+  "keywords": [],
+  "effects": [],
+  "nameLocalizationKey": "card.TUTORIAL-VANGUARD.name",
+  "descriptionLocalizationKey": "card.TUTORIAL-VANGUARD.description",
+  "texturePath": "pack://tutorial/Art/TUTORIAL-VANGUARD.png"
+}
